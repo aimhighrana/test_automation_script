@@ -93,6 +93,6 @@ RUN git clone https://rahul1818:ATBBeqU3sHNXysLW89zhcRRLfJka265BF59E@bitbucket.o
 WORKDIR ./hybrid_ui_docker
 
 
-#ENTRYPOINT ["mvn", "clean", "verify"]
+ENTRYPOINT ["mvn", "clean", "verify"]
 
 RUN mvn clean verify
