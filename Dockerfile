@@ -90,7 +90,7 @@ RUN apt-get install -y ssh
 #Making our working directory as /app
 
 #COPY ./hybrid_ui_docker ./hybrid_ui_docker
-WORKDIR ./hybrid_ui_docker
+#WORKDIR ./hybrid_ui_docker
 
 ENTRYPOINT ["mvn", "clean", "verify"]
 
