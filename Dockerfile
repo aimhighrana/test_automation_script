@@ -85,7 +85,7 @@ RUN apt-get install -y ssh
 #RUN ssh-keyscan bitbucket.org >> /root/.ssh/known_hosts
 
 # Clone the conf files into the docker container
-RUN git clone https://rahul1818:ATBBeqU3sHNXysLW89zhcRRLfJka265BF59E@bitbucket.org/prospectasoftware/hybrid_ui_docker.git
+#RUN git clone https://rahul1818:ATBBeqU3sHNXysLW89zhcRRLfJka265BF59E@bitbucket.org/#prospectasoftware/hybrid_ui_docker.git
 
 #Making our working directory as /app
 
