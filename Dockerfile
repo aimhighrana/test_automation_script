@@ -92,6 +92,6 @@ RUN apt-get install -y ssh
 #COPY ./hybrid_ui_docker ./hybrid_ui_docker
 #WORKDIR ./hybrid_ui_docker
 
-ENTRYPOINT ["mvn", "clean", "verify"]
+#ENTRYPOINT ["mvn", "clean", "verify"]
 
-#RUN mvn clean verify
+RUN mvn clean verify
