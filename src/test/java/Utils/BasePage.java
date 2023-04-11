@@ -19,7 +19,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.slf4j.ILoggerFactory;
 import org.testng.ITestContext;
@@ -55,7 +54,7 @@ public class BasePage implements ITestListener {
 	static Properties configProperties = null;
 	static Properties xpathProperties = null;
 
-	protected RemoteWebDriver driver;
+	protected WebDriver driver;
 	private Common common;
 	public static String currentTest; // current running test
 	protected String seleniumHub; // Selenium hub IP
@@ -73,7 +72,6 @@ public class BasePage implements ITestListener {
 	public Locators locators;
 	public static ExtentTest test;
 	public static ExtentReports report;
-	protected static ThreadLocal<RemoteWebDriver> driver1 = new ThreadLocal<>();
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp(Method method) throws MalformedURLException, FileNotFoundException {
@@ -96,13 +94,6 @@ public class BasePage implements ITestListener {
 		String browser = getPropertyValue("browser");
 		String headless = getPropertyValue("headless");
 
-		//String url = getPropertyValue("url");
-	    URL url = new URL("http://172.17.0.2:4444/wd/hub");
-
-	            ChromeOptions options = new ChromeOptions();
-	            driver = new RemoteWebDriver(url, options);
-	            driver.manage().window().maximize();
-
 // 			Mac Path
 //        System.setProperty("webdriver.chrome.driver",driverPath);
 
@@ -119,50 +110,40 @@ public class BasePage implements ITestListener {
 //			driver = new ChromeDriver(chromeOptions);
 
 //			this for mac to open chrome
-//		if (browser.equals("chrome")) {
-//			System.setProperty("webdriver.chrome.driver", driverPath);
-//			// WebDriverManager.chromedriver().setup();
-//			ChromeOptions options = new ChromeOptions();
-////			options.setExperimentalOption("debuggerAddress", "127.0.0.1:9222");
-//		//	options.addArguments("-lang= sl");
-//			if (headless.equals("true")) {
-//				options.addArguments("--headless");
-//
-//				// options.addArguments("--headless");
-//				options.addArguments("window-size=1536x768");
-//				// options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
-//			}
-//		//	options.addArguments("--no-sandbox");
-//		//	options.addArguments("--disable-dev-shm-usage");
-//			//options.addArguments("--remote-allow-origins=*");
-////			DesiredCapabilities cap = new DesiredCapabilities();
-////			cap.setBrowserName("chrome");
-//			 String remote_url_chrome = "http://localhost:4444/wd/hub";
-//
-//			options.addArguments("--headless");
-//			
-//			driver = new RemoteWebDriver(new URL(remote_url_chrome),options);
-//		//	driver1.set(new RemoteWebDriver(new URL(remote_url_chrome), options));
-//			
-//		//	driver = new ChromeDriver(options);
-//			//driver1.set("https://fuse-int.masterdataonline.com/ngx-auth/en/index.html#/auth/Marcusone/enter-username");
-//			driver.get("https://fuse-int.masterdataonline.com/ngx-auth/en/index.html#/auth/Marcusone/enter-username");
-//		} else if (browser.equals("firefox")) {
-//			System.setProperty("webdriver.gecko.driver", driverFirefoxPath);
-//			// WebDriverManager.firefoxdriver().setup();
-//			driver = new FirefoxDriver();
-//		}
-//
-//		else if (browser.equals("safari")) {
-//
-//			driver = new SafariDriver();
-//
-//		}
-//
-//		if (!headless.equals("true")) {
-//			driver.manage().window().maximize();
-//			// driver.manage().window().fullscreen();
-//		}
+		if (browser.equals("chrome")) {
+			System.setProperty("webdriver.chrome.driver", driverPath);
+			// WebDriverManager.chromedriver().setup();
+			ChromeOptions options = new ChromeOptions();
+//			options.setExperimentalOption("debuggerAddress", "127.0.0.1:9222");
+			options.addArguments("-lang= sl");
+			if (headless.equals("true")) {
+				options.addArguments("headless");
+
+				// options.addArguments("--headless");
+				options.addArguments("window-size=1536x768");
+				// options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
+			}
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--remote-allow-origins=*");
+
+			driver = new ChromeDriver(options);
+		} else if (browser.equals("firefox")) {
+			System.setProperty("webdriver.gecko.driver", driverFirefoxPath);
+			// WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		}
+
+		else if (browser.equals("safari")) {
+
+			driver = new SafariDriver();
+
+		}
+
+		if (!headless.equals("true")) {
+			driver.manage().window().maximize();
+			// driver.manage().window().fullscreen();
+		}
 
 //			driver.manage().window().maximize();
 
@@ -217,52 +198,34 @@ public class BasePage implements ITestListener {
 	 * @throws MessagingException
 	 */
 	@AfterMethod(alwaysRun = true)
-	public void tearDown(ITestResult testResult) throws FileNotFoundException, IOException {
-
+	public void tearDown(ITestResult testResult) throws IOException {
 		String testName = testResult.getName();
 		Reporter.setCurrentTestResult(testResult);
 		File img = new File("target" + File.separator + "surefire-reports" + File.separator + testName + ".png");
 		if (testResult.getStatus() == 1) {
-			System.out.println("PASS:: " + testName);
-			Reporter.log("PASS:: " + testName);
+			log("PASS : " + testResult.getName() + "\n");
 			testResult.getThrowable();
 		}
 		if (testResult.getStatus() == 2) {
-
-			System.out.println("FAIL:: " + testName);
-			Reporter.log("FAIL:: " + testName);
+			log("FAIL : " + testResult.getName() + "\n");
 			makeScreenshot(driver, testName);
 			Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
 			FileOutputStream screenshotStream = new FileOutputStream(img);
 			screenshotStream.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
-			Reporter.log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
+			log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
 					+ ".png' height='250' width='500'></img> </a>" + "<br>");
 		}
-
-		//HtmlConverter.convertToPdf(
-		//		new FileInputStream("/Users/adroid/Downloads/Prospecta/target/surefire-reports/emailable-report.html"),
-		//		new FileOutputStream("Prospecta TestResult.pdf"));
-
-		report.endTest(test);
-		report.flush();
-		//SendFileEmail.mail();
-
-		driver.manage().deleteAllCookies();
 		driver.quit();
-
 	}
 
 	public void makeScreenshot(WebDriver driver, String screenshotName) {
 		WebDriver augmentedDriver = new Augmenter().augment(driver);
-		/*
-		 * Take a screenshot /
-		 * 
-		 * / Copy screenshot to specific folder
-		 */
+		// Take a screenshot
 		File screenshot = ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);
 		String nameWithExtention = screenshotName + ".png";
+		// Copy screenshot to specific folder
 		try {
-			String reportFolder = "test-output" + File.separator;
+			String reportFolder = "target" + File.separator + "surefire-reports" + File.separator;
 			File screenshotFolder = new File(reportFolder);
 			if (!screenshotFolder.getAbsoluteFile().exists()) {
 				screenshotFolder.mkdir();
@@ -270,8 +233,12 @@ public class BasePage implements ITestListener {
 			FileUtils.copyFile(screenshot,
 					new File(screenshotFolder + File.separator + nameWithExtention).getAbsoluteFile());
 		} catch (IOException e) {
-			Reporter.log("Failed to capture screenshot: " + e.getMessage());
+			this.log("Failed to capture screenshot: " + e.getMessage());
 		}
 	}
 
+	public void log(String log) {
+		System.out.println(log);
+		Reporter.log(log + "<br>");
+	}
 }
