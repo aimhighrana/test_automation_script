@@ -19,6 +19,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.slf4j.ILoggerFactory;
 import org.testng.ITestContext;
@@ -54,7 +55,7 @@ public class BasePage implements ITestListener {
 	static Properties configProperties = null;
 	static Properties xpathProperties = null;
 
-	protected WebDriver driver;
+	protected RemoteWebDriver driver;
 	private Common common;
 	public static String currentTest; // current running test
 	protected String seleniumHub; // Selenium hub IP
@@ -72,6 +73,7 @@ public class BasePage implements ITestListener {
 	public Locators locators;
 	public static ExtentTest test;
 	public static ExtentReports report;
+	protected static ThreadLocal<RemoteWebDriver> driver1 = new ThreadLocal<>();
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp(Method method) throws MalformedURLException, FileNotFoundException {
@@ -94,6 +96,13 @@ public class BasePage implements ITestListener {
 		String browser = getPropertyValue("browser");
 		String headless = getPropertyValue("headless");
 
+		//String url = getPropertyValue("url");
+	    URL url = new URL("http://172.17.0.2:4444/wd/hub");
+
+	            ChromeOptions options = new ChromeOptions();
+	            driver = new RemoteWebDriver(url, options);
+	            driver.manage().window().maximize();
+
 // 			Mac Path
 //        System.setProperty("webdriver.chrome.driver",driverPath);
 
@@ -110,40 +119,50 @@ public class BasePage implements ITestListener {
 //			driver = new ChromeDriver(chromeOptions);
 
 //			this for mac to open chrome
-		if (browser.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", driverPath);
-			// WebDriverManager.chromedriver().setup();
-			ChromeOptions options = new ChromeOptions();
-//			options.setExperimentalOption("debuggerAddress", "127.0.0.1:9222");
-			options.addArguments("-lang= sl");
-			if (headless.equals("true")) {
-				options.addArguments("headless");
-
-				// options.addArguments("--headless");
-				options.addArguments("window-size=1536x768");
-				// options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
-			}
-			options.addArguments("--no-sandbox");
-			options.addArguments("--disable-dev-shm-usage");
-			options.addArguments("--remote-allow-origins=*");
-
-			driver = new ChromeDriver(options);
-		} else if (browser.equals("firefox")) {
-			System.setProperty("webdriver.gecko.driver", driverFirefoxPath);
-			// WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-		}
-
-		else if (browser.equals("safari")) {
-
-			driver = new SafariDriver();
-
-		}
-
-		if (!headless.equals("true")) {
-			driver.manage().window().maximize();
-			// driver.manage().window().fullscreen();
-		}
+//		if (browser.equals("chrome")) {
+//			System.setProperty("webdriver.chrome.driver", driverPath);
+//			// WebDriverManager.chromedriver().setup();
+//			ChromeOptions options = new ChromeOptions();
+////			options.setExperimentalOption("debuggerAddress", "127.0.0.1:9222");
+//		//	options.addArguments("-lang= sl");
+//			if (headless.equals("true")) {
+//				options.addArguments("--headless");
+//
+//				// options.addArguments("--headless");
+//				options.addArguments("window-size=1536x768");
+//				// options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
+//			}
+//		//	options.addArguments("--no-sandbox");
+//		//	options.addArguments("--disable-dev-shm-usage");
+//			//options.addArguments("--remote-allow-origins=*");
+////			DesiredCapabilities cap = new DesiredCapabilities();
+////			cap.setBrowserName("chrome");
+//			 String remote_url_chrome = "http://localhost:4444/wd/hub";
+//
+//			options.addArguments("--headless");
+//			
+//			driver = new RemoteWebDriver(new URL(remote_url_chrome),options);
+//		//	driver1.set(new RemoteWebDriver(new URL(remote_url_chrome), options));
+//			
+//		//	driver = new ChromeDriver(options);
+//			//driver1.set("https://fuse-int.masterdataonline.com/ngx-auth/en/index.html#/auth/Marcusone/enter-username");
+//			driver.get("https://fuse-int.masterdataonline.com/ngx-auth/en/index.html#/auth/Marcusone/enter-username");
+//		} else if (browser.equals("firefox")) {
+//			System.setProperty("webdriver.gecko.driver", driverFirefoxPath);
+//			// WebDriverManager.firefoxdriver().setup();
+//			driver = new FirefoxDriver();
+//		}
+//
+//		else if (browser.equals("safari")) {
+//
+//			driver = new SafariDriver();
+//
+//		}
+//
+//		if (!headless.equals("true")) {
+//			driver.manage().window().maximize();
+//			// driver.manage().window().fullscreen();
+//		}
 
 //			driver.manage().window().maximize();
 
