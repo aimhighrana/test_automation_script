@@ -208,7 +208,6 @@ public class BasePage implements ITestListener {
 
 	/**
 	 * After Method {TearDown}
-	 *
 	 * @param testResult
 	 * @throws IOException
 	 * @throws FileNotFoundException
