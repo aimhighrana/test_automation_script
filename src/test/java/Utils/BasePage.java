@@ -227,12 +227,12 @@ public class BasePage implements ITestListener {
 		}
 		if (testResult.getStatus() == 2) {
 			log("FAIL : " + testResult.getName() + "\n");
-			makeScreenshot(driver, testName);
-			Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
-			FileOutputStream screenshotStream = new FileOutputStream(img);
-			screenshotStream.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
-			log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
-					+ ".png' height='250' width='500'></img> </a>" + "<br>");
+		//	makeScreenshot(driver, testName);
+		//	Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
+		//	FileOutputStream screenshotStream = new FileOutputStream(img);
+		//	screenshotStream.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
+		//	log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
+		//			+ ".png' height='250' width='500'></img> </a>" + "<br>");
 		}
 		driver.quit();
 	}
