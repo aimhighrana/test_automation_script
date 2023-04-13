@@ -52,8 +52,10 @@ import javax.swing.text.AbstractDocument;
 
 public class BasePage implements ITestListener {
 
+
 	static Properties configProperties = null;
 	static Properties xpathProperties = null;
+
 
 	protected RemoteWebDriver driver;
 	private Common common;
