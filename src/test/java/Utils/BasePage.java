@@ -214,8 +214,6 @@ public class BasePage implements ITestListener {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 * @throws JiraException
-	 * @throws EmailException
-	 * @throws MessagingException
 	 */
 	@AfterMethod(alwaysRun = true)
 	public void tearDown(ITestResult testResult) throws IOException {

@@ -28,8 +28,8 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void addNewMaterialMaster() throws InterruptedException, IOException {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
 
 	}
@@ -42,8 +42,8 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void viewProcessLog() throws InterruptedException, IOException {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
 
@@ -57,11 +57,11 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyApproveStatus() throws InterruptedException, IOException {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
-		loginPage.RevSignIn();
+		loginPage.revSignIn();
 		materialmaster.approveStatus();
 
 	}
@@ -74,11 +74,11 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyClaimStatus() throws InterruptedException, IOException {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
-		loginPage.RevSignIn();
+		loginPage.revSignIn();
 		materialmaster.claimStatus();
 
 	}
@@ -91,11 +91,11 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifySaveAsDraft() {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
-		loginPage.RevSignIn();
+		loginPage.revSignIn();
 		materialmaster.saveDraft();
 		
 
@@ -109,8 +109,8 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyChange() {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.doUpdate();
 
 	}
@@ -123,8 +123,8 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyCopyRecord() {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.copyrecord();
 		
 
@@ -138,8 +138,8 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void addNewMaterialMasterWithGenerateDescription() throws InterruptedException, IOException {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.createMaterialMasterWithGenerateDesc();
 		
 
@@ -153,11 +153,11 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyClaimUnClaimStatus() throws InterruptedException, IOException {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterCompletedProcessLog();
-		loginPage.RevSignIn();
+		loginPage.revSignIn();
 		materialmaster.claimUnclaimStatus();
 		
 
@@ -170,12 +170,12 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyRejectionFlowForNewRrecord() {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
 		materialmaster.rejectionFlowFromApprover();
-		loginPage.RevSignIn();
+		loginPage.revSignIn();
 		materialmaster.rejectionFlowFromReviewer();
 	}
 

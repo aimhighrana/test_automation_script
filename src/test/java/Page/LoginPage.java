@@ -45,7 +45,7 @@ public class LoginPage extends Locators {
 	 * Open URL
 	 * 
 	 */
-	public void GotoURL() {
+	public void goToURL() {
 		System.out.println("Step :: Open Url");
 		String URL = getPropertyValue("url");
 
@@ -60,7 +60,7 @@ public class LoginPage extends Locators {
 	 * Verify Check Sign In Scenario
 	 * 
 	 */
-	public void Check_SignIn() {
+	public void check_SignIn() {
 		test.log(LogStatus.INFO, "Enter value in email field:: "+getPropertyValue("reqUserName"));
 		System.out.println("Step :: Enter value in email field:: "+getPropertyValue("reqUserName"));
 		common.log("Enter the value in email field");
@@ -97,7 +97,7 @@ public class LoginPage extends Locators {
 	 * As a reviewer sign-in scenario
 	 * 
 	 */
-	public void RevSignIn() {
+	public void revSignIn() {
 		WebElement Profile = driver.findElement(By.xpath(profileIcon));
 		if (Profile.isDisplayed()) {
 			common.pause(10);
