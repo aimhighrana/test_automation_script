@@ -30,9 +30,9 @@ public class LoginPageTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void Loginpage() throws InterruptedException, IOException {
-		loginPage.GotoURL();
-		loginPage.Check_SignIn();
+	public void loginPage() throws InterruptedException, IOException {
+		loginPage.goToURL();
+		loginPage.check_SignIn();
 
 	}
 

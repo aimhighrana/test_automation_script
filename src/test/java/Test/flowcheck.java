@@ -39,7 +39,7 @@ public class flowcheck extends BasePage {
 
 	@Test
 	public void verifyFlow() throws InterruptedException, IOException {
-		loginPage.GotoURL();
+		loginPage.goToURL();
 		test.log(LogStatus.INFO, "Navigated to URL");
 		Flow.checkdesignTBLData();
 
