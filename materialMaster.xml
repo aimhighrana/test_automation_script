@@ -15,10 +15,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	 <!-- Test -->
-
-	<!--  <test name="Test 2">
+	</test>
+	 <test name="Test 2">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
@@ -27,8 +25,6 @@
 			</class>
 		</classes>
 	</test>
-
-
 	<test name="Test 3">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
@@ -38,8 +34,6 @@
 			</class>
 		</classes>
 	</test>
-
-
 	<test name="Test 4">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
@@ -50,8 +44,7 @@
 		</classes>
 	</test>
 
-
-	<test name="Test 5">
+	<!-- <test name="Test 5">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>

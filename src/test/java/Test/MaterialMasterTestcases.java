@@ -177,10 +177,7 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.rejectionFlowFromApprover();
 		loginPage.RevSignIn();
 		materialmaster.rejectionFlowFromReviewer();
-		
-
 	}
-
 
 	/**
 	 * Verify Draft Approval Record Process Scenario
