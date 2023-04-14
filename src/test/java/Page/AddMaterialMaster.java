@@ -42,7 +42,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Add New Material Master
-	 * 
+	 *
 	 */
 	public void addNewMaterialMaster() {
 
@@ -70,7 +70,7 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on material master workflow roles");
 		common.waitForElement(materialMasterroleValue);
 
-		common.findElement(materialMasterroleValue).click();
+		driver.findElement(By.xpath(materialMasterroleValue)).click();
 		common.waitForElement(industrySec);
 
 		common.findElement(industrySec).click();
@@ -82,7 +82,7 @@ public class AddMaterialMaster extends Locators {
 
 			System.out.println("Step :: Select Material Type");
 			driver.findElement(By.xpath(
-					"//p[@class='small strong no-wrap ng-star-inserted'][normalize-space()='Material Type']//..//..//div//input"))
+							"//p[@class='small strong no-wrap ng-star-inserted'][normalize-space()='Material Type']//..//..//div//input"))
 					.click();
 			driver.findElement(By.xpath("//span[normalize-space()='ERSA -- Spare Part']")).click();
 
@@ -101,9 +101,9 @@ public class AddMaterialMaster extends Locators {
 //
 //		common.findElement(materialGroupValue).click();
 //		common.pause(20);
-//		
+//
 //		common.pause(5);
-//		
+//
 //		test.log(LogStatus.INFO, "Step :: Enter old material number");
 //		System.out.println("Step :: Enter old material number");
 //		common.log("Enter old material number");
@@ -152,6 +152,7 @@ public class AddMaterialMaster extends Locators {
 //		common.pause(10);
 //
 //		common.findElement(dropValue).click();
+
 
 		// Filling plant records
 		System.out.println("Step :: -- Filling plant data --");
@@ -218,7 +219,7 @@ public class AddMaterialMaster extends Locators {
 
 			System.out.println("Step :: Enter Manufacturer Part Number");
 			driver.findElement(By.xpath(
-					"//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer Part Number']//..//..//..//div//input"))
+							"//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer Part Number']//..//..//..//div//input"))
 					.sendKeys("12345");
 			common.pause(10);
 		} else {
@@ -226,13 +227,7 @@ public class AddMaterialMaster extends Locators {
 			System.out.println("No need to enter Manufacturer Part Number");
 		}
 
-//		test.log(LogStatus.INFO, "Step :: Fill the value for Price Unit and Moving Price");
-//		System.out.println("Step :: Fill the value for Price Unit and Moving Price");
-//		common.findElement("//p[normalize-space()='Price Unit']//..//..//..//div//input").clear();
-//		common.findElement("//p[normalize-space()='Price Unit']//..//..//..//div//input").sendKeys("10");
-//
-//		common.findElement("//p[normalize-space()='Moving Price']//..//..//..//div//input").clear();
-//		common.findElement("//p[normalize-space()='Moving Price']//..//..//..//div//input").sendKeys("10");
+
 		common.pause(5);
 		// p[normalize-space()='Moving Price']//..//..//..//div//input
 		// p[normalize-space()='Price Unit']//..//..//..//div//input
@@ -250,8 +245,30 @@ public class AddMaterialMaster extends Locators {
 
 			System.out.println("Step :: No duplicate records");
 		}
+		if(common.isDisplayed("//div[@class='mdo-notice f-row mdo-notice-error']")==true)
+		{
 
-		common.waitForElement(dataTab);
+			System.out.println("Step :: Something went error appear");
+			common.refreshPage();
+			common.pause(20);
+			common.findElement(industrySec).click();
+			common.pause(5);
+
+			common.findElement(dropValue).click();
+			common.pause(5);
+			test.log(LogStatus.INFO, "Step :: -- click on sumbit button");
+			System.out.println("Step :: click on submit button");
+			common.log("click on submit button");
+			common.findElement(submitBtn).click();
+			common.pause(40);
+		}
+		else {
+
+			System.out.println("Step :: No Something went error");
+		}
+
+
+		common.assertElementNotPresent(industrySec);
 		test.log(LogStatus.INFO, "Step :: Verifying Data tab available");
 		System.out.println("Step :: Verifying Data tab available");
 
@@ -259,7 +276,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Add material master role with generate description
-	 * 
+	 *
 	 */
 	public void createMaterialMasterWithGenerateDesc() {
 		common.waitForElement(dataTab);
@@ -269,6 +286,7 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on Material master from leftnav");
 		common.log("Click on Material master from leftnav");
 
+		common.pause(20);
 		common.findElement(materialMaster).click();
 		common.waitForElement(newRecordBtn);
 		test.log(LogStatus.INFO, "Step :: click on add  new record button");
@@ -392,8 +410,8 @@ public class AddMaterialMaster extends Locators {
 //		// Javascript executor
 //		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", l1);
 //
-//		
-//		
+//
+//
 //		test.log(LogStatus.INFO, "Step :: Entetr old material number");
 //		System.out.println("Step :: Enter old material number");
 //		common.log("Enter old material number");
@@ -546,17 +564,40 @@ public class AddMaterialMaster extends Locators {
 
 			System.out.println("Step :: No duplicate records");
 		}
-		common.pause(10);
+
+		if(common.isDisplayed("//div[@class='mdo-notice f-row mdo-notice-error']")==true)
+		{
+
+			System.out.println("Step :: Something went error appear");
+			common.refreshPage();
+			common.pause(20);
+			common.findElement(industrySec).click();
+			common.pause(5);
+
+			common.findElement(dropValue).click();
+			common.pause(5);
+			test.log(LogStatus.INFO, "Step :: -- click on sumbit button");
+			System.out.println("Step :: click on submit button");
+			common.log("click on submit button");
+			common.findElement(submitBtn).click();
+
+			common.pause(40);
+		}
+		else {
+
+			System.out.println("Step :: No Something went error");
+		}
+		common.pause(40);
 
 		for (int j = 0; j < 2; j++) {
 			common.refreshPage();
 		}
-		common.pause(15);
+		common.pause(20);
 		String materialMasterNum = common.findElement(materialNumFromTbl).getText();
 		test.log(LogStatus.INFO, "Step :: -- Material maste number is ");
 		System.out.println("Step :: Material master number is ::" + materialMasterNum);
 		common.log("Material master nubmer is :: " + materialMasterNum);
-		common.pause(20);
+		common.pause(30);
 		common.waitForConditionIsElementPresent(searchB);
 		common.findElement(searchB).click();
 		driver.findElement(By.xpath(searchB)).sendKeys(materialMasterNum);
@@ -566,7 +607,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Material Master Process Log
-	 * 
+	 *
 	 */
 	public void viewMaterialMasterProcessLog() {
 
@@ -587,7 +628,7 @@ public class AddMaterialMaster extends Locators {
 		String materialMasterNumber = common.findElement(materialNumFromTbl).getText();
 		/**
 		 * search box functionality not working hence, placing the code as commented
-		 * 
+		 *
 		 */
 		System.out.println("Step :: Enter value in search box ==>" + materialMasterNumber);
 		common.log("Enter the value in search box ==>" + materialMasterNumber);
@@ -639,7 +680,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Material Master Process Log
-	 * 
+	 *
 	 */
 	public void viewMaterialMasterCompletedProcessLog() {
 
@@ -660,7 +701,7 @@ public class AddMaterialMaster extends Locators {
 		String materialMasterNumber = common.findElement(materialNumFromTbl).getText();
 		/**
 		 * search box functionality not working hence, placing the code as commented
-		 * 
+		 *
 		 */
 		common.waitForElement(actionIconForFirstValue);
 		common.findElement(actionIconForFirstValue).click();
@@ -703,7 +744,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Approve Status
-	 * 
+	 *
 	 */
 	public void approveStatus() {
 
@@ -739,7 +780,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Claim Status
-	 * 
+	 *
 	 */
 	public void claimStatus() {
 
@@ -796,7 +837,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Claim Status
-	 * 
+	 *
 	 */
 	public void claimUnclaimStatus() {
 		common.pause(15);
@@ -882,7 +923,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Save as a Draft
-	 * 
+	 *
 	 */
 	public void saveDraft() {
 		common.pause(50);
@@ -945,7 +986,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Update Scenario
-	 * 
+	 *
 	 */
 	public void doUpdate() {
 		common.waitForElement(dataTab);
@@ -963,7 +1004,7 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on Material master from leftnav");
 
 		driver.findElement(By.xpath(materialMaster)).click();
-		common.pause(10);
+		common.pause(20);
 
 		String materialmasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
 		System.out.println("Step :: Material master number is ::" + materialmasterNumber);
@@ -1041,6 +1082,27 @@ public class AddMaterialMaster extends Locators {
 		} else {
 
 			System.out.println("Step :: No duplicate records");
+		}
+		if(common.isDisplayed("//div[@class='mdo-notice f-row mdo-notice-error']")==true)
+		{
+
+			System.out.println("Step :: Something went error appear");
+			common.refreshPage();
+			common.pause(20);
+			common.findElement(industrySec).click();
+			common.pause(5);
+
+			common.findElement(dropValue).click();
+			common.pause(5);
+			test.log(LogStatus.INFO, "Step :: Click on save button");
+			System.out.println("Step :: Click on save button");
+			common.log("Click on save button");
+			driver.findElement(By.xpath(uSaveBtn)).click();
+			common.pause(40);
+		}
+		else {
+
+			System.out.println("Step :: No Something went error");
 		}
 		common.pause(20);
 		driver.findElement(By.xpath(actionIconForFirstValue)).click();
@@ -1238,7 +1300,7 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Rejection flow from Approver
-	 * 
+	 *
 	 */
 	public void rejectionFlowFromApprover() {
 		common.pause(20);
@@ -1247,10 +1309,10 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: Go to the Home menu");
 		common.log("Go to the Home menu");
 
-		 driver.findElement(By.xpath(homeTab)).click();
+		driver.findElement(By.xpath(homeTab)).click();
 		common.refreshPage();
 		common.pause(25);
-		
+
 		test.log(LogStatus.INFO, "Step :: click on inbox Menu ");
 		System.out.println("Step :: click on inbox Menu");
 		common.log("Click on inbox Menu");
@@ -1305,12 +1367,12 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Rejection flow from Reviewer
-	 * 
+	 *
 	 */
 	public void rejectionFlowFromReviewer() {
 		common.pause(20);
 		common.refreshPage();
-		
+
 		test.log(LogStatus.INFO, "Step :: Home tab opened");
 		System.out.println("Step :: Home tab opened");
 		common.log("Home tab opened");
