@@ -78,7 +78,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verifycopyRecord"></include>
+					<include name="verifyCopyRecord"></include>
 				</methods>
 			</class>
 		</classes>
@@ -105,4 +105,4 @@
 		</classes>
 	</test>
   -->
-</suite> <!-- Suite -->
+</suite>

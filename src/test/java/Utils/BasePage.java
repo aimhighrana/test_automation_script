@@ -1,6 +1,7 @@
 package Utils;
 
 import Page.AddMaterialMaster;
+import Page.ListPageSearch;
 import Page.LoginPage;
 import Page.flow;
 import Test.MaterialMasterTestcases;
@@ -70,6 +71,8 @@ public class BasePage implements ITestListener {
 	protected static Logger logger = Logger.getLogger("testing");
 	public LoginPage loginPage;
 	public AddMaterialMaster materialmaster;
+
+	public ListPageSearch listPageSearch;
 	public flow Flow;
 	public MaterialMasterTestcases materialMasterTestcases;
 	public Locators locators;
@@ -105,72 +108,12 @@ public class BasePage implements ITestListener {
 	            driver = new RemoteWebDriver(url, options);
 	            driver.manage().window().maximize();
 
-// 			Mac Path
-//        System.setProperty("webdriver.chrome.driver",driverPath);
-
-//			Windowd Path
-//			System.setProperty("webdriver.chrome.driver",
-//					"C://Users//baps//Documents//chromedriver.exe");
-
-// 			THis for windows
-//			ChromeOptions chromeOptions = new ChromeOptions();
-
-		// this is for headless browser code
-//			chromeOptions.addArguments("headless");
-
-//			driver = new ChromeDriver(chromeOptions);
-
-//			this for mac to open chrome
-//		if (browser.equals("chrome")) {
-//			System.setProperty("webdriver.chrome.driver", driverPath);
-//			// WebDriverManager.chromedriver().setup();
-//			ChromeOptions options = new ChromeOptions();
-////			options.setExperimentalOption("debuggerAddress", "127.0.0.1:9222");
-//		//	options.addArguments("-lang= sl");
-//			if (headless.equals("true")) {
-//				options.addArguments("--headless");
-//
-//				// options.addArguments("--headless");
-//				options.addArguments("window-size=1536x768");
-//				// options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
-//			}
-//		//	options.addArguments("--no-sandbox");
-//		//	options.addArguments("--disable-dev-shm-usage");
-//			//options.addArguments("--remote-allow-origins=*");
-////			DesiredCapabilities cap = new DesiredCapabilities();
-////			cap.setBrowserName("chrome");
-//			 String remote_url_chrome = "http://localhost:4444/wd/hub";
-//
-//			options.addArguments("--headless");
-//			
-//			driver = new RemoteWebDriver(new URL(remote_url_chrome),options);
-//		//	driver1.set(new RemoteWebDriver(new URL(remote_url_chrome), options));
-//			
-//		//	driver = new ChromeDriver(options);
-//			//driver1.set("https://fuse-int.masterdataonline.com/ngx-auth/en/index.html#/auth/Marcusone/enter-username");
-//			driver.get("https://fuse-int.masterdataonline.com/ngx-auth/en/index.html#/auth/Marcusone/enter-username");
-//		} else if (browser.equals("firefox")) {
-//			System.setProperty("webdriver.gecko.driver", driverFirefoxPath);
-//			// WebDriverManager.firefoxdriver().setup();
-//			driver = new FirefoxDriver();
-//		}
-//
-//		else if (browser.equals("safari")) {
-//
-//			driver = new SafariDriver();
-//
-//		}
-//
-//		if (!headless.equals("true")) {
-//			driver.manage().window().maximize();
-//			// driver.manage().window().fullscreen();
-//		}
-
-//			driver.manage().window().maximize();
 
 		loginPage = new LoginPage(driver);
 		materialmaster = new AddMaterialMaster(driver);
 		Flow = new flow(driver);
+
+		listPageSearch = new ListPageSearch(driver);
 	}
 
 	protected Properties getConfigProperties() {

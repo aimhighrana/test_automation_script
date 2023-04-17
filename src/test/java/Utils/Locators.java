@@ -209,4 +209,74 @@ public abstract class Locators extends BasePage {
 	public static String c = "//body[1]/pros-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/ng-component[1]/pros-transaction-builder[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/lib-button[1]/button[1]";
 	 public static String usenameProd = "//mat-sidenav-container[1]/mat-sidenav-content[1]/pros-login[1]/div[1]/div[1]/form[1]/div[1]/lib-input[1]/div[1]/div[1]/input[1]";
 	 public static String prodEnv = "//p[contains(text(),'Production')]";
+
+	// List Page Search
+
+	public static String createdOnFilter = "//th[@id='DATECREATED']//pros-inline-table-column-filter";
+	public static String date3 = "//div[normalize-space()='3']";
+	public static String endDateTab = "//div[contains(text(),'End')]";
+	public static String date10 = "//div[normalize-space()='10']";
+	public static String modifiedOnLabel = "//p[normalize-space()='Modified on']";
+	public static String modifiedOnFilter = "//th[@id='DATEMODIFIED']//pros-inline-table-column-filter";
+	public static String firstValuematerialMaster = "//tbody/tr[1]/td[1]//..//p";
+
+	public static String filterIcon = "//mat-icon[normalize-space()='filter']";
+
+	public static String isNotFilter = "//span[normalize-space()='Is not']";
+
+	public static String filterIndustrySector = "//p[normalize-space()='Industry Sector']";
+
+	public static String valueFMCG_IndustrySectorFilter = "//mat-list-item[3]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]";
+
+	public static String applyFilterButton = "//span[normalize-space()='Apply']";
+
+	public static String filterMaterialType = "//p[normalize-space()='Material Type']";
+
+	public static String valueSparePart_MaterialTypeFilter = "//mat-list-item[2]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]";
+
+	public static String filterMaterialDesc = "//p[normalize-space()='Material Description']";
+
+	public static String input_MaterialDescFilter = "//h4[normalize-space()='Material Description']//..//..//..//input";
+
+	public static String filterBaseUnitOfMeasure = "//p[normalize-space()='Base Unit of Measure']";
+
+	public static String valuePercentage_BaseUnitFilter = "//mat-list-item[2]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]";
+
+	public static String clearAppliedFiler = "//span[@class='filter-text ng-star-inserted']//..//mat-icon[normalize-space()='times']";
+
+
+	public static String filterStatusDropdown =  "//th[@id='STATUS']//input[@placeholder='Filter']";
+
+	public static String firstValueOfStatus =  "//tbody/tr[1]/td[8]";
+
+	public static String clearIconForStatusFilter = "//th[@id='STATUS']//mat-icon[@role='img'][normalize-space()='times']";
+
+	public static String filterModifiedByDropdown =  "//th[@id='USERMODIFIED']//input[@placeholder='Filter']";
+
+	public static String firstValueOfModifiedBy =  "//tbody/tr[1]/td[7]";
+
+	public static String clearIconForModifiedByFilter = "//mat-icon[@class='mat-icon notranslate mdo-icons-light mat-icon-no-color'][normalize-space()='times']";
+
+	public static String threeDotsAdvanceFilter = "//lib-button[@type='plain']//mat-icon[@role='img'][normalize-space()='ellipsis-h']";
+
+	public static String resetButton = "//button[normalize-space()='Reset']";
+
+	public static String confirmButton = "//span[normalize-space()='Confirm']";
+
+	public static String appliedIndusScetoryFilter = "//p[@class='base no-wrap ng-star-inserted'][normalize-space()='Industry Sector']";
+
+
+	public static String threeDotsIconAppliedFilter = "//mat-icon[@class='mat-icon notranslate mdo-icons mat-icon-no-color'][normalize-space()='ellipsis-h']";
+
+	public static String saveAsOption = "//button[normalize-space()='Save as...']";
+
+	public static String filterNameInput = "//p[contains (text(), 'Filter name')]//..//..//..//input";
+
+	public static String saveButtonFilterPopup = "//span[normalize-space()='Save']";
+
+	public static String storedFiltersIcon = "//mat-icon[normalize-space()='layer-group']";
+
+	public static String cancelButtonFilterPopup = "//span[normalize-space()='Cancel']";
+
+
 }

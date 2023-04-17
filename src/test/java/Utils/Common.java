@@ -13,6 +13,7 @@ import java.util.SimpleTimeZone;
 import java.util.TimeZone;
 
 //import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -134,7 +135,86 @@ public class Common extends Locators {
 		return null;
 
 	}
-	
+	public WebElement findElementBy(String elementName, String msg) {
+
+		String locator;
+
+		System.out.println("Step:: " +msg);
+		log(msg);
+
+		locator = elementName;
+
+		int count = 0;
+		while (count < 4) {
+			try {
+				if (locator.startsWith("link=") || locator.startsWith("LINK=")) {
+					locator = locator.substring(5); // remove "link=" from
+					// locator
+					try {
+						if (locator.contains(" "))
+							return driver.findElement(By.partialLinkText(locator));
+
+						return driver.findElement(By.linkText(locator));
+					} catch (Exception e) {
+						return null;
+					}
+				}
+				if (locator.startsWith("id=")) {
+					locator = locator.substring(3); // remove "id=" from locator
+					try {
+						return driver.findElement(By.id(locator));
+					} catch (Exception e) {
+						return null;
+					}
+				} else if (locator.startsWith("//")) {
+					try {
+						return driver.findElement(By.xpath(locator));
+					} catch (Exception e) {
+						return null;
+					}
+				} else if (locator.startsWith("css=")) {
+
+					locator = locator.substring(4); // remove "css=" from
+					// locator
+					try {
+						return driver.findElement(By.cssSelector(locator));
+					} catch (Exception e) {
+						return null;
+					}
+				} else if (locator.startsWith("name=")) {
+
+					locator = locator.substring(5); // remove "name=" from
+					// locator
+					try {
+						return driver.findElement(By.name(locator));
+					} catch (Exception e) {
+						return null;
+					}
+				} else {
+					try {
+						return driver.findElement(By.id(locator));
+					} catch (Exception e) {
+						return null;
+					}
+
+				}
+			} catch (StaleElementReferenceException e) {
+				e.toString();
+
+				count = count + 1;
+				// System.out.println("Trying["+
+				// count+"] to recover from a stale element :" +
+				// e.getMessage());
+
+			}
+			count = count + 4;
+		}
+
+		return null;
+
+	}
+
+
 	public void exandingHeadData() {
 		
 		driver.findElement(By.xpath(expandHeaderData)).click();
@@ -393,6 +473,9 @@ public class Common extends Locators {
 		this.findElement(locator).clear();
 		this.findElement(locator).sendKeys(string);
 
+	}
+	public String generateRandomChars(int length) {
+		return RandomStringUtils.randomAlphabetic(length).toLowerCase();
 	}
 
 }

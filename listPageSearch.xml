@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ListPageSearchTestcases_Automation_Testcases" verbose="10" parallel="tests"
+	thread-count="1">
+	<listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+	
+	 <test name="Test 1">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_Search_CreatedModified_On_Date_In_The_Column_Filter"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	 <!-- Test -->
+
+	 <test name="Test 2">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_Search_Based_On_MatrialDesc_Group_Type_Industry_Sector_BaseUnitOfMeasure_In_The_Column_Filter"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<test name="Test 3">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<test name="Test 4">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_User_Should_Be_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<test name="Test 5">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_User_Should_Be_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test 6">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_User_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> 
+
+	<test name="Test 7">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_User_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test 8">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_User_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	
+	<test name="Test 9">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_User_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+</suite>
