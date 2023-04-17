@@ -146,6 +146,7 @@
                     </properties>
 					<suiteXmlFiles>
 						<suiteXmlFile>materialMaster.xml</suiteXmlFile>
+						<suiteXmlFile>listPageSearch.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
