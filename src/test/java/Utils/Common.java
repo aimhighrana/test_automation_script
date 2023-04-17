@@ -477,5 +477,12 @@ public class Common extends Locators {
 	public String generateRandomChars(int length) {
 		return RandomStringUtils.randomAlphabetic(length).toLowerCase();
 	}
+	public void assertTwoValuesAreEqual(Object value1, Object value2) {
+		Assert.assertEquals(value1, value2);
+	}
+	public void assertTwoValuesAreNotEqual(Object value1, Object value2) {
+
+		Assert.assertNotEquals(value1, value2);
+	}
 
 }

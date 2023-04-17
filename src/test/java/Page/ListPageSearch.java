@@ -565,4 +565,135 @@ public class ListPageSearch extends Locators {
 		common.log("First value of Material master table:: " + strFirstValue);
 		user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
 	}
+
+	/**
+	 * column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields
+	 *
+	 */
+	public void column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields() {
+
+		common.waitForElement(dataTab);
+
+		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.waitForElement(search);
+		common.type(search, "Material Master");
+
+		common.waitForElement(materialMaster);
+		common.findElementBy(materialMaster, "Click on Material master").click();
+		common.pause(10);
+
+		common.waitForElement(firstvalueCreatedOnDateInTable);
+		String strFirstValue = driver.findElement(By.xpath(firstvalueCreatedOnDateInTable)).getText();
+
+		System.out.println("Created On date of Material master before sorting:: " + strFirstValue);
+		common.log("Created On date of Material master before sorting:: " + strFirstValue);
+
+		common.findElementBy(createdOnSortFilter, "Click on Created On sort filter").click();
+		common.pause(10);
+
+		String strFirstValue1 = driver.findElement(By.xpath(firstvalueCreatedOnDateInTable)).getText();
+
+		System.out.println("Created On date of Material master after sorting:: " + strFirstValue1);
+		common.log("Created On date of Material master after sorting:: " + strFirstValue1);
+
+	}
+
+	/**
+	 * verify_The_User_Is_Able_To_Delete_The_Saved_Filter
+	 *
+	 */
+	public void verify_The_User_Is_Able_To_Delete_The_Saved_Filter() {
+
+		common.findElementBy(threeDotsIconAppliedFilter, "Click on three dots button beside Advance filter icon")
+				.click();
+
+		common.findElementBy(deleteSavedFilters, "Click on Delete option").click();
+		common.pause(5);
+
+	}
+	/**
+	 * verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters
+	 *
+	 */
+	public void verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters() {
+
+
+		common.waitForElement(dataTab);
+
+		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.waitForElement(search);
+		common.type(search, "Material Master");
+
+		common.waitForElement(materialMaster);
+		common.findElementBy(materialMaster, "Click on Material master").click();
+		common.pause(10);
+
+		String paginationStr = driver.findElement(By.xpath(paginationValue)).getText();
+
+		System.out.println("Paginaton value before applying filter:: " + paginationStr);
+		common.log("Pagination value before applying filter:: " + paginationStr);
+
+		common.pause(5);
+
+		common.waitForElement(filterIcon);
+
+		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.waitForElement(filterIndustrySector);
+
+		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
+
+		common.pause(10);
+		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
+
+		common.findElementBy(applyFilterButton, "Click on apply button").click();
+		common.pause(10);
+
+
+		String paginationStr1 = driver.findElement(By.xpath(paginationValue)).getText();
+
+		System.out.println("Paginaton value after applying filter:: " + paginationStr1);
+		common.log("Pagination value after applying filter:: " + paginationStr1);
+
+		common.assertTwoValuesAreNotEqual(paginationStr, paginationStr1);
+	}
+	/**
+	 * user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field
+	 *
+	 */
+	public void user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field() {
+		common.waitForElement(dataTab);
+
+		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.waitForElement(search);
+		common.type(search, "Material Master");
+
+		common.waitForElement(materialMaster);
+		common.findElementBy(materialMaster, "Click on Material master").click();
+		common.pause(10);
+
+		common.waitForElement(filterIcon);
+
+		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.pause(5);
+		common.waitForElement(filterIndustrySector);
+
+		common.findElementBy(manufacturerPartNumFilterTab, "Click on Manufacturer Part Number filter tab").click();
+
+		common.waitForElement(inputManufacturerPartNumFilter);
+
+		System.out.println("Enter special characters");
+		common.log("Enter special characters");
+		common.type(inputManufacturerPartNumFilter, "#$%");
+
+		common.findElementBy(inputManufacturerPartNumFilter, "").sendKeys(Keys.ENTER);
+
+		common.findElementBy(applyFilterButton, "Click on apply button").click();
+		common.pause(15);
+
+		String strFirstValue2 = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+
+		System.out.println("First value of Material master table:: " + strFirstValue2);
+		common.log("First value of Material master table:: " + strFirstValue2);
+	}
+
 }

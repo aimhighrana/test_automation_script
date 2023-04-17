@@ -278,5 +278,12 @@ public abstract class Locators extends BasePage {
 
 	public static String cancelButtonFilterPopup = "//span[normalize-space()='Cancel']";
 
+	public static String firstvalueCreatedOnDateInTable = "//tbody/tr[1]/td[4]";
+	public static String createdOnSortFilter = "//p[normalize-space()='Created on']";
+	public static String deleteSavedFilters = "//button[normalize-space()='Delete']";
+	public static String paginationValue = "//div[@class='f-row list-pagination ng-star-inserted']//p";
+	public static String manufacturerPartNumFilterTab = "//p[normalize-space()='Manufacturer Part Number']";
+	public static String inputManufacturerPartNumFilter = "//h4[normalize-space()='Manufacturer Part Number']//..//..//..//input";
+
 
 }
