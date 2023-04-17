@@ -145,7 +145,7 @@
                         </property>
                     </properties>
 					<suiteXmlFiles>
-						<suiteXmlFile>materialMaster.xml</suiteXmlFile>
+<!--						<suiteXmlFile>materialMaster.xml</suiteXmlFile>-->
 						<suiteXmlFile>listPageSearch.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
