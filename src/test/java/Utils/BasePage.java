@@ -1,9 +1,6 @@
 package Utils;
 
-import Page.AddMaterialMaster;
-import Page.ListPageSearch;
-import Page.LoginPage;
-import Page.flow;
+import Page.*;
 import Test.MaterialMasterTestcases;
 import Test.flowcheck;
 import net.rcarz.jiraclient.BasicCredentials;
@@ -73,6 +70,7 @@ public class BasePage implements ITestListener {
 	public AddMaterialMaster materialmaster;
 
 	public ListPageSearch listPageSearch;
+	public ListView listView;
 	public flow Flow;
 	public MaterialMasterTestcases materialMasterTestcases;
 	public Locators locators;
@@ -112,8 +110,8 @@ public class BasePage implements ITestListener {
 		loginPage = new LoginPage(driver);
 		materialmaster = new AddMaterialMaster(driver);
 		Flow = new flow(driver);
-
 		listPageSearch = new ListPageSearch(driver);
+		listView = new ListView(driver);
 	}
 
 	protected Properties getConfigProperties() {
