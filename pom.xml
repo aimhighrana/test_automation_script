@@ -147,6 +147,7 @@
 					<suiteXmlFiles>
 <!--						<suiteXmlFile>materialMaster.xml</suiteXmlFile>-->
 						<suiteXmlFile>listPageSearch.xml</suiteXmlFile>
+						<suiteXmlFile>listView.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

@@ -91,68 +91,6 @@ public class AddMaterialMaster extends Locators {
 
 			System.out.println("No need to select Material Type");
 		}
-//		common.waitForElement(materialGroup);
-//		driver.findElement(By.xpath(materialGroup)).click();
-//
-//		common.pause(20);
-//		test.log(LogStatus.INFO, "Step :: Select material group value");
-//		System.out.println("Step :: Select material group value");
-//		common.log("Select material group value");
-//
-//		common.findElement(materialGroupValue).click();
-//		common.pause(20);
-//
-//		common.pause(5);
-//
-//		test.log(LogStatus.INFO, "Step :: Enter old material number");
-//		System.out.println("Step :: Enter old material number");
-//		common.log("Enter old material number");
-//		WebElement oldMaterialNo = common.findElement(oldMaterialNumber);
-//		oldMaterialNo.sendKeys("345543");
-//		common.pause(20);
-//		test.log(LogStatus.INFO, "Step :: Select division");
-//		System.out.println("Step :: Select  division");
-//		common.log("Select on division");
-//		WebElement divisionSec = common.findElement(division);
-//		divisionSec.click();
-//		common.pause(5);
-//		common.findElement(divisionValue).click();
-//		test.log(LogStatus.INFO, "Step :: Select Product allocation");
-//		System.out.println("Step :: Select  Product allocation");
-//		common.log("Select Product allocation");
-//		common.findElement(productAllocation).click();
-//		common.pause(5);
-//		common.findElement(productallocationValue).click();
-//		test.log(LogStatus.INFO, "Step :: Select xplant material status");
-//		System.out.println("Step :: Select xplant material status");
-//		common.log("Select xplant material status");
-//		WebElement mStatus = common.findElement(xplantMaterialStatus);
-//		mStatus.click();
-//		common.pause(5);
-//		common.findElement(dropValue).click();
-//		common.scrollPage();
-//		common.pause(10);
-//		test.log(LogStatus.INFO, "Step :: Select  unit");
-//		System.out.println("Step :: Select  unit");
-//		common.log("Select  unit");
-//
-//		common.findElement(unitofWeight).click();
-//
-//		common.pause(10);
-//
-//		common.findElement(dropValue).click();
-//
-//		common.pause(10);
-//		test.log(LogStatus.INFO, "Step :: Select volume unit");
-//		System.out.println("Step :: Select volume unit");
-//		common.log("Select volume unit");
-//
-//		WebElement vUnit = common.findElement(volumeUnit);
-//		vUnit.click();
-//		common.pause(10);
-//
-//		common.findElement(dropValue).click();
-
 
 		// Filling plant records
 		System.out.println("Step :: -- Filling plant data --");
@@ -329,127 +267,6 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(claS).click();
 		common.findElement(classval).click();
 		common.pause(3);
-//		test.log(LogStatus.INFO, "Step :: enter type");
-//		System.out.println("Step :: enter type");
-//		common.log("enter type");
-//		common.type(type, "testtype");
-//		test.log(LogStatus.INFO, "Step :: entter container");
-//		System.out.println("Step :: enter container");
-//		common.log("enter container");
-//		common.type(container, "testContainer");
-//
-//		common.scrollPage();
-//		common.pause(5);
-//		test.log(LogStatus.INFO, "Step :: enter from");
-//		System.out.println("Step :: enter from");
-//		common.log("enter from");
-//		common.type(from, "abc");
-//
-//		test.log(LogStatus.INFO, "Step :: enter color");
-//		System.out.println("Step :: enter color");
-//		common.log("enter color");
-//		common.type(color, "blue");
-//
-//		test.log(LogStatus.INFO, "Step :: enter composition");
-//		System.out.println("Step :: enter composition");
-//		common.log("enter composition");
-//		common.type(com, "testcomposition");
-//
-//		test.log(LogStatus.INFO, "Step :: enter cas number");
-//		System.out.println("Step :: enter cas number");
-//		common.log("enter cas number");
-//		common.type(cas, "1234");
-//
-//		test.log(LogStatus.INFO, "Step :: Select MRP controller");
-//		System.out.println("Step :: enter flash point");
-//		common.log("enter flash point");
-//		common.type(fp, "111");
-//
-//		common.type(pp, "123");
-//
-//		test.log(LogStatus.INFO, "Step :: enter grade");
-//		System.out.println("Step :: enter grade");
-//		common.log("enter grade");
-//		common.type(grade, "A");
-//
-//		test.log(LogStatus.INFO, "Step :: Select MRP controller");
-//		System.out.println("Step :: enter specific gravity");
-//		common.log("enter specific gravity");
-//		common.type(sg, "test");
-//
-//		test.log(LogStatus.INFO, "Step :: enter temprature rating");
-//		System.out.println("Step :: enter temprature rating");
-//		common.log("enter temprature rating");
-//		common.type(tR, "5");
-//
-//		test.log(LogStatus.INFO, "Step :: enter hizard class");
-//		System.out.println("Step :: enter hizard class");
-//		common.log("enter hizard class");
-//		common.type(hizardClass, "testclas");
-//
-//		test.log(LogStatus.INFO, "Step :: enter cetification standard");
-//		System.out.println("Step :: enter certification standard");
-//		common.log("enter certification standard");
-//		common.type(cert, "certification standard");
-//
-//		test.log(LogStatus.INFO, "Step :: enter additional features");
-//		System.out.println("Step :: enter additioinal features ES");
-//		common.log("enter additional features ES");
-//		common.type(features, "testFeatures");
-//
-//		test.log(LogStatus.INFO, "Step :: enter additional features");
-//		System.out.println("Step :: enter additioinal features EN");
-//		common.log("enter additional features EN");
-//		common.type(featuresEN, "testFeatureEN");
-//
-//		System.out.println("Step :: enter additioinal features EN");
-//		common.log("enter additional features EN");
-//		common.type(featureER, "tesfeatureFR");
-//
-//		WebElement l1 = driver.findElement(By.xpath("//p[contains(text(),'Old Material Number')]"));
-//		// Javascript executor
-//		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", l1);
-//
-//
-//
-//		test.log(LogStatus.INFO, "Step :: Entetr old material number");
-//		System.out.println("Step :: Enter old material number");
-//		common.log("Enter old material number");
-//		WebElement oldMaterialNo = common.findElement(oldMaterialNumber);
-//		oldMaterialNo.sendKeys("345543");
-//		common.pause(20);
-//
-//		test.log(LogStatus.INFO, "Step :: Select division");
-//		System.out.println("Step :: Select  division");
-//		common.log("Select on division");
-//		WebElement divisionSec = common.findElement(division);
-//		divisionSec.click();
-//		common.findElement(divisionValue).click();
-//
-//		test.log(LogStatus.INFO, "Step :: Select Product allocation");
-//		System.out.println("Step :: Select  Product allocation");
-//		common.log("Select Product allocation");
-//		common.findElement(productAllocation).click();
-//		common.findElement(productallocationValue).click();
-//
-//		test.log(LogStatus.INFO, "Step :: Select xplant material status");
-//		System.out.println("Step :: Select xplant material status");
-//		common.log("Select xplant material status");
-//		WebElement mStatus = common.findElement(xplantMaterialStatus);
-//		mStatus.click();
-//
-//		common.findElement(dropValue).click();
-//		common.scrollPage();
-//		common.pause(10);
-//		test.log(LogStatus.INFO, "Step :: Select volume unit");
-//		System.out.println("Step :: Select volume unit");
-//		common.log("Select volume unit");
-//
-//		WebElement vUnit = common.findElement(volumeUnit);
-//		vUnit.click();
-//		common.pause(10);
-//
-//		common.findElement(dropValue).click();
 
 		// Filling plant records
 		test.log(LogStatus.INFO, "Step :: -- Filling plant data -- ");
@@ -466,30 +283,6 @@ public class AddMaterialMaster extends Locators {
 		common.scrollPage();
 
 		common.waitForElement(mrpType);
-//		System.out.println("Step :: Select MRP type");
-//		common.log("Select MRP type");
-//		WebElement mtype = driver.findElement(By.xpath(mrpType));
-//		common.pause(12);
-//		mtype.click();
-//		common.waitForElement(dropValue);
-//		common.findElement(dropValue).click();
-//
-//		common.pause(10);
-//		test.log(LogStatus.INFO, "Step :: Select MRP controller ");
-//		System.out.println("Step :: Select MRP controller");
-//		common.log("Select MRP controller");
-//		WebElement mc = driver.findElement(By.xpath(mrpController));
-//		mc.click();
-//
-//		common.findElement(dropValue).click();
-//		test.log(LogStatus.INFO, "Step :: -- Filling valuation data --");
-//		System.out.println("Step :: -- Filling valuation data --");
-//		common.findElement(valuationPlusIcon).click();
-//
-//		common.pause(5);
-//		common.findElement(newCheckbox).click();
-//
-//		common.findElement(applyBtn).click();
 
 		common.pause(25);
 		WebElement l = driver.findElement(By.xpath("//p[contains(text(),'MRP Type')]"));
@@ -1026,38 +819,6 @@ public class AddMaterialMaster extends Locators {
 		driver.findElement(By.xpath(materrialMasterRecordOption)).click();
 		common.pause(10);
 		common.waitForElement(headerData);
-//
-//		test.log(LogStatus.INFO, "Step :: select division");
-//		System.out.println("Step :: Select  division");
-//		common.log("Select on division");
-//		WebElement divisionSec = driver.findElement(By.xpath(division));
-//		divisionSec.click();
-//		common.pause(20);
-//		driver.findElement(By.xpath(divisionValue)).click();
-//		common.pause(10);
-//		test.log(LogStatus.INFO, "Step :: select xplant material master status");
-//		System.out.println("Step :: Select xplant material status");
-//		common.log("Select xplant material status");
-//		WebElement mStatus = driver.findElement(By.xpath(xplantMaterialStatus));
-//		mStatus.click();
-//		common.findElement(dropValue).click();
-//
-//		test.log(LogStatus.INFO, "Step :: Enter old mateial number");
-//		System.out.println("Step :: Enter old material number");
-//		common.log("Enter old material number");
-//		WebElement oldMaterialNo = driver.findElement(By.xpath(oldMaterialNumber));
-//		oldMaterialNo.sendKeys("345543");
-//		common.pause(20);
-//
-//		test.log(LogStatus.INFO, "Step :: click on unit of weight");
-//		System.out.println("Step :: click on unit of weight");
-//		common.log("click on unit of weight");
-//		driver.findElement(By.xpath(unitofWeight)).click();
-//
-//		test.log(LogStatus.INFO, "Step :: select unit of weight");
-//		System.out.println("Step :: select unit of weight");
-//		common.log(" select unit of weight");
-//		driver.findElement(By.xpath(uG)).click();
 		common.pause(20);
 
 		test.log(LogStatus.INFO, "Step :: Select Industry Sector ");

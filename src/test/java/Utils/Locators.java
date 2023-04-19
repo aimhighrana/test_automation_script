@@ -285,5 +285,40 @@ public abstract class Locators extends BasePage {
 	public static String manufacturerPartNumFilterTab = "//p[normalize-space()='Manufacturer Part Number']";
 	public static String inputManufacturerPartNumFilter = "//h4[normalize-space()='Manufacturer Part Number']//..//..//..//input";
 
+	// List View
+
+
+	public static String dropDownViewICon = "//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']//mat-icon[@role='img'][normalize-space()='caret-down']";
+
+	public static String newViewOption = "//button[normalize-space()='New view']";
+
+	public static String inputViewName = "//p[@class='xsmall strong ng-star-inserted']//..//..//..//input";
+
+	public static String saveButtonView = "//span[normalize-space()='Save']";
+
+	public static String defaultViewOption = "//button[normalize-space()='Default view']";
+
+	public static String settingIcon = "//mat-icon[normalize-space()='cog']";
+
+	public static String threeDotsIconForView = "//div[@class='f-row breadcrum-toolbar']//mat-icon[normalize-space()='ellipsis-h']";
+
+	public static String deleteViewOption = "//button[normalize-space()='Delete view']";
+
+	public static String confirmDeleteView = "//span[normalize-space()='Confirm']";
+
+	public static String nextPage = "//div[@class='f-row mdo-pagination']//lib-button[@icon='chevron-right']";
+
+	public static String summaryOption = "//button[normalize-space()='Summary']";
+
+	public static String flowMaterialMasterRecordoption = "//button[normalize-space()='Material Master Record']";
+
+	public static String closeIcon = "//div[@class='root']//div[@class='f-row breadcrum-toolbar']//mat-icon[normalize-space()='times']";
+
+	public static String formClassnClassTypeOption = "//button[normalize-space()='Class and Class Type']";
+	public static String classType1 = "//p[normalize-space()='Class Type1']";
+
+	public static String downloadTemplatesOption = "//button[normalize-space()='Download templates']";
+	public static String descriptionOption = "//button[normalize-space()='Description']";
+
 
 }
