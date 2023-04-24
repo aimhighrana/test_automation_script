@@ -85,12 +85,12 @@ RUN apt-get install -y ssh
 #RUN ssh-keyscan bitbucket.org >> /root/.ssh/known_hosts
 
 # Clone the conf files into the docker container
-RUN git clone https://rahul1818:ATBBeqU3sHNXysLW89zhcRRLfJka265BF59E@bitbucket.org/prospectasoftware/hybrid_ui_docker.git
+RUN git clone https://rahul1818:ATBBgEu2YmQUudt8FFRetBXnVXnSE151C42E@bitbucket.org/prospectasoftware/test-automation-script.git
 
 #Making our working directory as /app
 
-#COPY ./hybrid_ui_docker ./hybrid_ui_docker
-WORKDIR ./hybrid_ui_docker
+#COPY ./test-automation-script ./test-automation-script
+WORKDIR ./test-automation-script
 
 
 ENTRYPOINT ["mvn", "clean", "verify"]

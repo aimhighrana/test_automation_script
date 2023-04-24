@@ -100,7 +100,13 @@ public class BasePage implements ITestListener {
 		String headless = getPropertyValue("headless");
 
 		//String url = getPropertyValue("url");
-	    URL url = new URL("http://192.168.10.35:31449/wd/hub");
+
+		/***For production***/
+	  //  URL url = new URL("http://192.168.10.35:31449/wd/hub");
+
+		/***For local***/
+		URL url = new URL("http://172.30.88.217:4444/wd/hub");
+
 
 	            ChromeOptions options = new ChromeOptions();
 	            driver = new RemoteWebDriver(url, options);
