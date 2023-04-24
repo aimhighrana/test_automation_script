@@ -46,7 +46,7 @@ public abstract class Locators extends BasePage {
 	public static String myRrequestHeader ="//h4[normalize-space()='My requests']";
 	//public static String actionIconForFirstValue = "//tbody/tr[1]/td[2]/lib-button[1]/button[1]";
 	public static String edit = "//button[contains(text(),'Edit')]";
-	public static String materrialMasterRecordOption = "//button[normalize-space()='Material Master Record']";
+	public static String materrialMasterRecordOption = "//button[normalize-space()='Copy Of Material Master - QA']";
 	public static String statusFilter = "//th[@id='STATUS']//input[@placeholder='Filter']";
 	public static String uSaveBtn = "//span[contains(text(),'Save')]";
 	public static String allerros = "//h4[contains(text(),'All errors')]";
@@ -58,7 +58,7 @@ public abstract class Locators extends BasePage {
 	
 	// <! New record Page Locators !>
 	public static String dMaterialMaster = "//p[contains(text(),'Material Master')]";
-	public static String materialMasterroleValue = "//button[contains(text(),' Material Master Record  ')] | //button[normalize-space()='MaterialCreationFlow']";
+	public static String materialMasterroleValue = "//button[normalize-space()='Copy Of Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']";
 	
 	public static String industrySec = "//p[normalize-space()='Industry Sector']//..//..//div//input";
 	public static String materialGroup = "//p[normalize-space()='Material Group']//..//..//div//input";
@@ -310,7 +310,7 @@ public abstract class Locators extends BasePage {
 
 	public static String summaryOption = "//button[normalize-space()='Summary']";
 
-	public static String flowMaterialMasterRecordoption = "//button[normalize-space()='Material Master Record']";
+	public static String flowMaterialMasterRecordoption = "//button[normalize-space()='Copy Of Material Master - QA']";
 
 	public static String closeIcon = "//div[@class='root']//div[@class='f-row breadcrum-toolbar']//mat-icon[normalize-space()='times']";
 
