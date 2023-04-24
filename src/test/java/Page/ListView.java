@@ -188,7 +188,11 @@ public class ListView extends Locators {
 
 		common.findElement(dataTab).click();
 		common.pause(15);
-
+		common.waitForElement(search);
+		common.type(search, "Material Master");
+		common.waitForElement(materialMaster);
+		common.findElementBy(materialMaster, "Click on Material master").click();
+		common.pause(15);
 		for (int i = 0; i <= 3; i++) {
 			String paginationStr = driver.findElement(By.xpath(paginationValue)).getText();
 
