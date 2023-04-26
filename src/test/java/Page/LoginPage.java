@@ -71,7 +71,11 @@ public class LoginPage extends Locators {
 		System.out.println("Step :: Click on continue button.");
 		common.log("Click on continue button.");
 		common.findElement(continueButton).click();
+		common.pause(5);
+		if (common.isElementPresent(usePasswordButton)) {
 
+			common.findElementBy(usePasswordButton, "Click on Use password button").click();
+		}
 		common.pause(5);
 		System.out.println("Step :: Entering password:: "+getPropertyValue("password"));
 		test.log(LogStatus.INFO, "Entering password:: "+getPropertyValue("password"));

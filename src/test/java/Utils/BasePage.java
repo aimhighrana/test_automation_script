@@ -105,12 +105,10 @@ public class BasePage implements ITestListener {
 	  //  URL url = new URL("http://192.168.10.35:31449/wd/hub");
 
 		/***For local***/
-		URL url = new URL("http://172.30.88.217:4444/wd/hub");
-
-
-	            ChromeOptions options = new ChromeOptions();
-	            driver = new RemoteWebDriver(url, options);
-	            driver.manage().window().maximize();
+		URL url = new URL("http://172.17.0.2:4444/wd/hub");
+		ChromeOptions options = new ChromeOptions();
+		driver = new RemoteWebDriver(url, options);
+		driver.manage().window().maximize();
 
 
 		loginPage = new LoginPage(driver);

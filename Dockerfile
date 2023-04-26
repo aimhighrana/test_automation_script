@@ -87,12 +87,9 @@ RUN apt-get install -y ssh
 # Clone the conf files into the docker container
 RUN git clone https://rahul1818:ATBBgEu2YmQUudt8FFRetBXnVXnSE151C42E@bitbucket.org/prospectasoftware/test-automation-script.git
 
-#Making our working directory as /app
-
 #COPY ./test-automation-script ./test-automation-script
 WORKDIR ./test-automation-script
 
-
 ENTRYPOINT ["mvn", "clean", "verify"]
 
-RUN mvn clean verify
+#RUN mvn clean verify
