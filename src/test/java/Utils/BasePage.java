@@ -107,6 +107,8 @@ public class BasePage implements ITestListener {
 		/***For local***/
 		URL url = new URL("http://172.17.0.2:4444/wd/hub");
 		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		options.addArguments("--disable-gpu");
 		driver = new RemoteWebDriver(url, options);
 		driver.manage().window().maximize();
 
