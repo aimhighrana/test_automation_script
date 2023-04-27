@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MaterialMaster_Automation_Testcases" verbose="10" parallel="tests"
+	thread-count="1">
+	<listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+	
+	 <test name="Test 1">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="addNewMaterialMaster"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	 <test name="Test 2">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="addNewMaterialMasterWithGenerateDescription"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Test 3">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="viewProcessLog"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Test 4">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verifyApproveStatus"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<!-- <test name="Test 5">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verifyClaimStatus"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test 6">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verifySaveAsDraft"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> 
+
+	<test name="Test 7">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verifyChange"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test 8">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verifyCopyRecord"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	
+	<test name="Test 9">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verifyClaimUnClaimStatus"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Test 10">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verifyRejectionFlowForNewRrecord"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+  -->
+</suite>

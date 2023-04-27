@@ -49,7 +49,7 @@ public class Common extends Locators {
 	protected Wait<WebDriver> wait;
 	// protected WebDriver driver;
 
-	public Common(RemoteWebDriver driver) {
+	public Common(WebDriver driver) {
 
 		super(driver);
 	}

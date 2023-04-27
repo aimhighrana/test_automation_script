@@ -163,7 +163,7 @@ public class MaterialMasterTestcases extends BasePage {
 
 	}
 	/**
-	 * Verification of rejection flow feature
+	 * Verification of rejection Flow feature
 	 * 
 	 * @throws InterruptedException
 	 * @throws IOException

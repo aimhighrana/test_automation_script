@@ -2,51 +2,36 @@ package Utils;
 
 import Page.*;
 import Test.MaterialMasterTestcases;
-import Test.flowcheck;
-import net.rcarz.jiraclient.BasicCredentials;
-import net.rcarz.jiraclient.Issue;
-import net.rcarz.jiraclient.JiraClient;
 import net.rcarz.jiraclient.JiraException;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.exception.ExceptionUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
-import org.slf4j.ILoggerFactory;
-import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.w3c.dom.Document;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.logging.Logger;
-import com.itextpdf.html2pdf.HtmlConverter;
+
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
 //import javax.mail.MessagingException;
-import javax.swing.text.AbstractDocument;
+
 
 public class BasePage implements ITestListener {
 
@@ -55,7 +40,7 @@ public class BasePage implements ITestListener {
 	static Properties xpathProperties = null;
 
 
-	protected RemoteWebDriver driver;
+	protected WebDriver driver;
 	private Common common;
 	public static String currentTest; // current running test
 	protected String seleniumHub; // Selenium hub IP
@@ -71,7 +56,7 @@ public class BasePage implements ITestListener {
 
 	public ListPageSearch listPageSearch;
 	public ListView listView;
-	public flow Flow;
+	public Flow flow;
 	public MaterialMasterTestcases materialMasterTestcases;
 	public Locators locators;
 	public static ExtentTest test;
@@ -103,19 +88,26 @@ public class BasePage implements ITestListener {
 
 		/***For production***/
 	  //  URL url = new URL("http://192.168.10.35:31449/wd/hub");
-
 		/***For local***/
-		URL url = new URL("http://172.17.0.2:4444/wd/hub");
+	 //	URL url = new URL("http://172.17.0.2:4444/wd/hub");
+
+
+		System.setProperty("webdriver.chrome.driver",driverPath);
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-		options.addArguments("--disable-gpu");
-		driver = new RemoteWebDriver(url, options);
+	//	options.addArguments("--headless");
+	//	options.addArguments("start-maximized"); // open Browser in maximized mode
+		options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+		options.addArguments("--no-sandbox"); // Bypass OS security model
+		options.addArguments("--remote-allow-origins=*");
+
+		driver = new ChromeDriver(options);
+		driver.get(getPropertyValue("url"));
 		driver.manage().window().maximize();
 
 
 		loginPage = new LoginPage(driver);
 		materialmaster = new AddMaterialMaster(driver);
-		Flow = new flow(driver);
+		flow = new Flow(driver);
 		listPageSearch = new ListPageSearch(driver);
 		listView = new ListView(driver);
 	}

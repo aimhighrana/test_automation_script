@@ -34,9 +34,9 @@ public class AddMaterialMaster extends Locators {
 	Common common = new Common(driver);
 	Properties obj = new Properties();
 
-	public AddMaterialMaster(RemoteWebDriver d) throws FileNotFoundException {
+	public AddMaterialMaster(WebDriver driver) throws FileNotFoundException {
 
-		super(d);
+		super(driver);
 
 	}
 
@@ -56,7 +56,15 @@ public class AddMaterialMaster extends Locators {
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
+		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(newRecordBtn);
 		test.log(LogStatus.INFO, "click on new record button");
 		System.out.println("Step :: click on add new record button");
@@ -224,8 +232,17 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on Material master from leftnav");
 		common.log("Click on Material master from leftnav");
 
-		common.pause(20);
+		common.pause(10);
 		common.findElement(materialMaster).click();
+		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(newRecordBtn);
 		test.log(LogStatus.INFO, "Step :: click on add  new record button");
 		System.out.println("Step :: click on add new record button");
@@ -416,7 +433,15 @@ public class AddMaterialMaster extends Locators {
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
-		common.pause(25);
+		common.pause(15);
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 
 		String materialMasterNumber = common.findElement(materialNumFromTbl).getText();
 		/**
@@ -489,7 +514,16 @@ public class AddMaterialMaster extends Locators {
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
+		common.pause(10);
+		
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(materialNumFromTbl);
 		String materialMasterNumber = common.findElement(materialNumFromTbl).getText();
 		/**
@@ -797,7 +831,16 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on Material master from leftnav");
 
 		driver.findElement(By.xpath(materialMaster)).click();
-		common.pause(20);
+		common.pause(10);
+		
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 
 		String materialmasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
 		System.out.println("Step :: Material master number is ::" + materialmasterNumber);
@@ -899,11 +942,17 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on Material master from leftnav");
 		common.log("Click on Material master from leftnav");
 
-		common.pause(10);
 		driver.findElement(By.xpath(materialMaster)).click();
-
-		common.findElement(materialMaster).click();
 		common.pause(10);
+		
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		String mmN = driver.findElement(By.xpath(materialMasterNum)).getText();
 
 		System.out.println("Step:: Material master number is ::" + mmN);
@@ -1060,7 +1109,7 @@ public class AddMaterialMaster extends Locators {
 	}
 
 	/**
-	 * Verify Rejection flow from Approver
+	 * Verify Rejection Flow from Approver
 	 *
 	 */
 	public void rejectionFlowFromApprover() {
@@ -1110,9 +1159,9 @@ public class AddMaterialMaster extends Locators {
 			common.log("Enter rejection comment");
 			driver.findElement(By.xpath(rejectionCommentBox)).sendKeys("Rejected new record");
 
-			test.log(LogStatus.INFO, "Step :: click on Submit button for rejection flow ");
-			System.out.println("Step :: click on Submit for rejectoin flow");
-			common.log("Click on Submit for rejection flow");
+			test.log(LogStatus.INFO, "Step :: click on Submit button for rejection Flow ");
+			System.out.println("Step :: click on Submit for rejectoin Flow");
+			common.log("Click on Submit for rejection Flow");
 			driver.findElement(By.xpath(submitButtonRejectionFlow)).click();
 			common.pause(15);
 
@@ -1127,7 +1176,7 @@ public class AddMaterialMaster extends Locators {
 	}
 
 	/**
-	 * Verify Rejection flow from Reviewer
+	 * Verify Rejection Flow from Reviewer
 	 *
 	 */
 	public void rejectionFlowFromReviewer() {
@@ -1174,9 +1223,9 @@ public class AddMaterialMaster extends Locators {
 			common.log("Enter rejection comment");
 			driver.findElement(By.xpath(rejectionCommentBox)).sendKeys("Rejected new record");
 
-			test.log(LogStatus.INFO, "Step :: click on Submit button for rejection flow ");
-			System.out.println("Step :: click on Submit for rejectoin flow");
-			common.log("Click on Submit for rejection flow");
+			test.log(LogStatus.INFO, "Step :: click on Submit button for rejection Flow ");
+			System.out.println("Step :: click on Submit for rejectoin Flow");
+			common.log("Click on Submit for rejection Flow");
 			driver.findElement(By.xpath(submitButtonRejectionFlow)).click();
 			common.pause(15);
 

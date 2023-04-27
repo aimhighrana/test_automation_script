@@ -145,9 +145,9 @@
                         </property>
                     </properties>
 					<suiteXmlFiles>
-<!--						<suiteXmlFile>materialMaster.xml</suiteXmlFile>-->
-						<suiteXmlFile>listPageSearch.xml</suiteXmlFile>
-<!--						<suiteXmlFile>listView.xml</suiteXmlFile>-->
+<!--						<suiteXmlFile>build_xmls/materialMaster.xml</suiteXmlFile>-->
+						<suiteXmlFile>build_xmls/listPageSearch.xml</suiteXmlFile>
+						<suiteXmlFile>build_xmls/listView.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

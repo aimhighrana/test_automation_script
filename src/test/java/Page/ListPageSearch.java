@@ -1,4 +1,4 @@
-	package Page;
+package Page;
 
 import Utils.BasePage;
 import Utils.Common;
@@ -35,9 +35,9 @@ public class ListPageSearch extends Locators {
 	Common common = new Common(driver);
 	Properties obj = new Properties();
 
-	public ListPageSearch(RemoteWebDriver d) throws FileNotFoundException {
+	public ListPageSearch(WebDriver driver) throws FileNotFoundException {
 
-		super(d);
+		super(driver);
 
 	}
 
@@ -55,6 +55,16 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
 		common.waitForElement(dataTab);
+		common.pause(10);
+
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 
 		common.findElementBy(createdOnFilter, "Click on Created on Filter").click();
 
@@ -114,7 +124,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
@@ -207,10 +224,18 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.findElementBy(filterStatusDropdown, "Click on Status filter dropdown and Enter System").click();
 		common.type(filterStatusDropdown, "System");
 		common.pause(10);
-		
+
 		String strFirstValue = driver.findElement(By.xpath(firstValueOfStatus)).getText();
 
 		System.out.println("Status Of First value of Material master table:: " + strFirstValue);
@@ -218,11 +243,12 @@ public class ListPageSearch extends Locators {
 
 		common.findElementBy(clearIconForStatusFilter, "Clear applied filter").click();
 		common.pause(10);
-		
-		common.findElementBy(filterModifiedByDropdown, "Click on Modified By filter dropdown and Enter Reviewer").click();
+
+		common.findElementBy(filterModifiedByDropdown, "Click on Modified By filter dropdown and Enter Reviewer")
+				.click();
 		common.type(filterModifiedByDropdown, "Reviewer");
 		common.pause(10);
-		
+
 		String strFirstValue1 = driver.findElement(By.xpath(firstValueOfModifiedBy)).getText();
 
 		System.out.println("Modified By Of First value of Material master table:: " + strFirstValue1);
@@ -230,7 +256,7 @@ public class ListPageSearch extends Locators {
 
 		common.findElementBy(clearIconForModifiedByFilter, "Clear applied filter").click();
 	}
-	
+
 	/**
 	 * user_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions
 	 * 
@@ -245,7 +271,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
@@ -286,7 +319,7 @@ public class ListPageSearch extends Locators {
 		common.log("First value of Material master table:: " + strFirstValue1);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
-		
+
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 
@@ -309,6 +342,7 @@ public class ListPageSearch extends Locators {
 		}
 
 	}
+
 	/**
 	 * user_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button
 	 * 
@@ -323,7 +357,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
@@ -336,18 +377,18 @@ public class ListPageSearch extends Locators {
 
 		common.pause(10);
 		common.assertElementPresent(appliedIndusScetoryFilter);
-		
+
 		common.findElementBy(threeDotsAdvanceFilter, "Click on Three dots").click();
 
 		common.findElementBy(resetButton, "Click on Reset button").click();
-		
+
 		common.findElementBy(confirmButton, "Click on Confirm button in popup").click();
 
 		common.pause(10);
 		common.assertElementNotPresent(appliedIndusScetoryFilter);
-		
+
 	}
-	
+
 	/**
 	 * user_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search
 	 * 
@@ -362,7 +403,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
@@ -394,6 +442,7 @@ public class ListPageSearch extends Locators {
 		}
 
 	}
+
 	/**
 	 * user_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button
 	 * 
@@ -408,7 +457,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
@@ -431,32 +487,33 @@ public class ListPageSearch extends Locators {
 			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 		}
-		
-		common.findElementBy(threeDotsIconAppliedFilter, "Click on three dots button beside Advance filter icon").click();
-		
+
+		common.findElementBy(threeDotsIconAppliedFilter, "Click on three dots button beside Advance filter icon")
+				.click();
+
 		common.findElementBy(saveAsOption, "Select Save as option").click();
 		common.pause(5);
-		
+
 		String strFilter = common.generateRandomChars(5);
 
-		System.out.println("Step:: Enter filter name in input field: "+strFilter);
-		common.log("Step:: Enter filter name in input field: "+strFilter);
+		System.out.println("Step:: Enter filter name in input field: " + strFilter);
+		common.log("Step:: Enter filter name in input field: " + strFilter);
 		common.type(filterNameInput, strFilter);
-		
+
 		common.findElementBy(saveButtonFilterPopup, "Click on Save button in popup").click();
-		
+
 		common.pause(10);
 		common.refreshPage();
 		common.pause(15);
-		
+
 		common.assertElementPresent(firstValuematerialMaster);
 
 		common.findElementBy(storedFiltersIcon, "Click on stored filters layer icon").click();
 		common.pause(10);
 
-		common.findElementBy("//button[normalize-space()='"+strFilter+"']", "Select last created filter").click();
+		common.findElementBy("//button[normalize-space()='" + strFilter + "']", "Select last created filter").click();
 		common.pause(10);
-		
+
 		if (common.isElementPresent(firstValuematerialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
@@ -464,14 +521,15 @@ public class ListPageSearch extends Locators {
 			System.out.println("First value of Material master table after select filter:: " + strFirstValue);
 			common.log("First value of Material master table after select filter:: " + strFirstValue);
 		}
-		
+
 	}
+
 	/**
 	 * user_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button
 	 * 
 	 */
 	public void user_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button() {
-		
+
 		common.waitForElement(dataTab);
 
 		common.findElementBy(dataTab, "Click on Data tab").click();
@@ -481,7 +539,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
@@ -504,22 +569,23 @@ public class ListPageSearch extends Locators {
 			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 		}
-		
-		common.findElementBy(threeDotsIconAppliedFilter, "Click on three dots button beside Advance filter icon").click();
-		
+
+		common.findElementBy(threeDotsIconAppliedFilter, "Click on three dots button beside Advance filter icon")
+				.click();
+
 		common.findElementBy(saveAsOption, "Select Save as option").click();
 		common.pause(5);
-		
+
 		String strFilter = common.generateRandomChars(5);
 
-		System.out.println("Step:: Enter filter name in input field: "+strFilter);
-		common.log("Step:: Enter filter name in input field: "+strFilter);
+		System.out.println("Step:: Enter filter name in input field: " + strFilter);
+		common.log("Step:: Enter filter name in input field: " + strFilter);
 		common.type(filterNameInput, strFilter);
-		
+
 		common.findElementBy(cancelButtonFilterPopup, "Click on Cancel button in popup").click();
-		
+
 		common.pause(10);
-		
+
 		if (common.isElementPresent(firstValuematerialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
@@ -527,7 +593,7 @@ public class ListPageSearch extends Locators {
 			System.out.println("First value of Material master table after select filter:: " + strFirstValue);
 			common.log("First value of Material master table after select filter:: " + strFirstValue);
 		}
-		
+
 	}
 
 	/**
@@ -535,7 +601,7 @@ public class ListPageSearch extends Locators {
 	 * 
 	 */
 	public void user_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches() {
-	
+
 		common.waitForElement(dataTab);
 
 		common.findElementBy(dataTab, "Click on Data tab").click();
@@ -545,7 +611,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
@@ -581,7 +654,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(firstvalueCreatedOnDateInTable);
 		String strFirstValue = driver.findElement(By.xpath(firstvalueCreatedOnDateInTable)).getText();
 
@@ -611,12 +691,12 @@ public class ListPageSearch extends Locators {
 		common.pause(5);
 
 	}
+
 	/**
 	 * verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters
 	 *
 	 */
 	public void verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters() {
-
 
 		common.waitForElement(dataTab);
 
@@ -627,7 +707,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		String paginationStr = driver.findElement(By.xpath(paginationValue)).getText();
 
 		System.out.println("Paginaton value before applying filter:: " + paginationStr);
@@ -648,7 +735,6 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-
 		String paginationStr1 = driver.findElement(By.xpath(paginationValue)).getText();
 
 		System.out.println("Paginaton value after applying filter:: " + paginationStr1);
@@ -656,6 +742,7 @@ public class ListPageSearch extends Locators {
 
 		common.assertTwoValuesAreNotEqual(paginationStr, paginationStr1);
 	}
+
 	/**
 	 * user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field
 	 *
@@ -670,7 +757,14 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();

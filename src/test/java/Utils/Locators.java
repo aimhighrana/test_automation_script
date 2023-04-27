@@ -7,7 +7,7 @@ import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 
 public abstract class Locators extends BasePage {
 
-	public Locators(RemoteWebDriver driver) {
+	public Locators(WebDriver driver) {
 //		ElementLocatorFactory finder = new AjaxElementLocatorFactory(driver, DRIVER_WAIT);
 //        PageFactory.initElements(finder, this);
 		this.driver = driver;
@@ -37,6 +37,9 @@ public abstract class Locators extends BasePage {
 	public static String continueDuplicateRecord="//span[normalize-space()='Continue']";
 	public static String profileIcon="//div[@class='mat-card-avatar ng-star-inserted mdo-small']";
 	public static String signOut="//span[contains(text(),'Sign out')]";
+	
+	public static String defaultView=	"//h4[contains (text(), 'Default view')]";
+	public static String viewDropDownIcon = "//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']//mat-icon[@role='img'][normalize-space()='caret-down']";
 
 	public static String approveVal = "//button[contains(text(),'Approve')]";
 	public static String approveDropDownIcon = "//span[normalize-space()='Approve']//..//..//..//..//mat-icon";
@@ -121,7 +124,7 @@ public abstract class Locators extends BasePage {
 	public static String currentDate = "//p[contains(text(),'%s')]";
 	public static String statusSuccessTxt = "//span[contains(text(),'SUCCESS')]";
 	public static String crossP = "//lib-button[@icon='times']//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']";
-	// flow tab locators
+	// Flow tab locators
 	public static String flowtab = "//div[contains(text(),' Flows ')]";
 	public static String manageFlowBtn = "//span[contains(text(),'Manage flows')]";
 	public static String spac = "//div[@class='container-fluid container-cards-pf']";

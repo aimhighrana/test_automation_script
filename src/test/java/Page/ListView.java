@@ -35,9 +35,9 @@ public class ListView extends Locators {
 	Common common = new Common(driver);
 	Properties obj = new Properties();
 
-	public ListView(RemoteWebDriver d) throws FileNotFoundException {
+	public ListView(WebDriver driver) throws FileNotFoundException {
 
-		super(d);
+		super(driver);
 
 	}
 
@@ -53,7 +53,14 @@ public class ListView extends Locators {
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(dropDownViewICon);
 
 		common.findElementBy(dropDownViewICon, "Click on View drop-down icon").click();
@@ -108,6 +115,14 @@ public class ListView extends Locators {
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		for (int i = 1; i <= 6; i++) {
 			System.out.println("select " + i + " checkbox of record");
 			common.log("select " + i + " checkbox of record");
@@ -129,6 +144,14 @@ public class ListView extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.waitForElement(dropDownViewICon);
 
 		common.findElementBy(settingIcon, "Click on Setting icon").click();
@@ -193,6 +216,14 @@ public class ListView extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(15);
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		for (int i = 0; i <= 3; i++) {
 			String paginationStr = driver.findElement(By.xpath(paginationValue)).getText();
 
@@ -221,7 +252,14 @@ public class ListView extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
-		
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(summaryOption, "Click on Summary option").click();
@@ -257,7 +295,14 @@ public class ListView extends Locators {
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 		
+		if (!common.isElementPresent(defaultView)) {
 
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(downloadTemplatesOption, "Click on Download templates option").click();
 		common.pause(5);

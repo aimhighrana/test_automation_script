@@ -33,10 +33,10 @@ public class LoginPage extends Locators {
 	public String password = "Welcome@123";
 	public String revUsername = "auto_reviewer@yopmail.com";
 
-	public LoginPage(RemoteWebDriver d) throws FileNotFoundException {
+	public LoginPage(WebDriver driver) throws FileNotFoundException {
 		// driver = d;
-		super(d);
-		common = new Common(d);
+		super(driver);
+		common = new Common(driver);
 		PageFactory.initElements(this.driver, this);
 
 	}
