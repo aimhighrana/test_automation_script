@@ -51,8 +51,10 @@ public class ListView extends Locators {
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
+		common.pause(5);
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
+		common.pause(10);
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -142,8 +144,11 @@ public class ListView extends Locators {
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
+
+		common.pause(5);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
+		common.pause(10);
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
