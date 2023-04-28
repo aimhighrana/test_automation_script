@@ -8,8 +8,6 @@ import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 public abstract class Locators extends BasePage {
 
 	public Locators(WebDriver driver) {
-//		ElementLocatorFactory finder = new AjaxElementLocatorFactory(driver, DRIVER_WAIT);
-//        PageFactory.initElements(finder, this);
 		this.driver = driver;
 		// TODO Auto-generated constructor stub
 	}
@@ -48,7 +46,6 @@ public abstract class Locators extends BasePage {
 	public static String submitButtonRejectionFlow  = "//span[normalize-space()='Submit']";
 	public static String draft = " //button[contains(text(),'Save as draft')]";
 	public static String myRrequestHeader ="//h4[normalize-space()='My requests']";
-	//public static String actionIconForFirstValue = "//tbody/tr[1]/td[2]/lib-button[1]/button[1]";
 	public static String edit = "//button[contains(text(),'Edit')]";
 	public static String materrialMasterRecordOption = "//button[normalize-space()='Copy Of Material Master - QA']";
 	public static String statusFilter = "//th[@id='STATUS']//input[@placeholder='Filter']";
@@ -69,11 +66,10 @@ public abstract class Locators extends BasePage {
 	public static String generateDesc = "//span[contains(text(),'Generate description')]";
 	public static String claS = "//pros-transaction-generate-description[1]/div[2]/div[1]/form[1]/div[2]/div[1]/div[1]/input[1]";
 	public static String classval = "//span[contains(text(),' PIPE ')]| //span[contains(text(),' ADDITIVE ')]";
-	public static String summaryval = "//button[contains(text(),' Summary ')]";
+	public static String summaryVal = "//button[contains(text(),' Summary ')]";
 	public static String loading = "//p[normalize-space()='Loading Group']//..//..//mat-icon";
 	
 	public static String inboxMenu = "//lib-text-line[contains(text(),'Inbox')]";
-	public static String com = "//div[2]/div[6]/div[1]/div[1]/pros-transaction-input[1]/div[1]/lib-input[1]/div[1]/div[1]/input[1]";
 	public static String copy = "//button[contains(text(),'Copy')]";
 	public static String recordno = "//mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/div[1]/div[1]/input[1]";
 	public static String plantD = "//div[1]/div[1]/pros-transaction-hierarchy-list[1]/div[1]/mat-tree[1]/mat-tree-node[2]/div[1]/div[1]";
@@ -83,11 +79,13 @@ public abstract class Locators extends BasePage {
 	public static String newRecordTitle = "//div[1]/div[1]/div[2]/div[1]/lib-text-line[1]/h4[1]";
 	public static String newPlantD = "//div[1]/mat-tree[1]/mat-tree-node[3]/div[1]/div[1]/lib-text-line[1]/p[1]";
 	public static String dropValue = "//div[@role='listbox']//mat-option[2]";
+	public static String manufacturerPartNum ="//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer Part Number']//..//..//..//div//input";
 	public static String dropValueLoading = "//div[@role='listbox']//mat-option[1]";
 	public static String plantdataPlusIcon = "//p[normalize-space()='Plant Data']//..//..//lib-button[1]//button[1]";
 	public static String plantvalue = "//span[contains(text(),' 0004 -- PLANT 0004')]";
 	public static String applyBtn = "//span[contains(text(),' Apply ')]";
 	public static String mrpType = "//p[normalize-space()='MRP Type']//..//..//mat-icon";
+	public static String mrpTypeField = "//p[contains(text(),'MRP Type')]";
 	public static String valuationPlusIcon = "//p[normalize-space()='Valuation Data']//..//..//mat-icon";
 	public static String valCat = "//p[normalize-space()='Valuation Cat.']//..//..//div//input";
 	public static String newCheckbox = "//span[contains(text(),'NEW -- NEW')]";
@@ -131,7 +129,6 @@ public abstract class Locators extends BasePage {
 	public static String spacRecord = "//div[@class='container-fluid container-cards-pf']";
 	public static String searchB = "//pros-list-datatable[1]/div[1]/div[2]/div[1]/div[1]/lib-search[1]/div[1]//input";
 	public static String log = "//input[@id='user_submit']";
-	public static String c = "//body[1]/pros-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/ng-component[1]/pros-transaction-builder[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/lib-button[1]/button[1]";
 	 public static String usenameProd = "//mat-sidenav-container[1]/mat-sidenav-content[1]/pros-login[1]/div[1]/div[1]/form[1]/div[1]/lib-input[1]/div[1]/div[1]/input[1]";
 	 public static String prodEnv = "//p[contains(text(),'Production')]";
 

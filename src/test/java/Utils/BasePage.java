@@ -37,15 +37,10 @@ public class BasePage implements ITestListener {
 
 
 	static Properties configProperties = null;
-	static Properties xpathProperties = null;
 
 
 	protected WebDriver driver;
-	private Common common;
 	public static String currentTest; // current running test
-	protected String seleniumHub; // Selenium hub IP
-	protected String seleniumHubPort; // Selenium hub port
-	protected String targetBrowser; // Target browser
 	protected static String test_data_folder_path = null;
 
 	// screen-shot folder
@@ -57,16 +52,14 @@ public class BasePage implements ITestListener {
 	public ListPageSearch listPageSearch;
 	public ListView listView;
 	public Flow flow;
-	public MaterialMasterTestcases materialMasterTestcases;
-	public Locators locators;
 	public static ExtentTest test;
 	public static ExtentReports report;
-	protected static ThreadLocal<RemoteWebDriver> driver1 = new ThreadLocal<>();
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp(Method method) throws MalformedURLException, FileNotFoundException {
 
-		report = new ExtentReports(("user.dir") + "ExtentReportResults.html", true);
+		//create extent report in project dir
+		report = new ExtentReports("ExtentReportResults.html", true);
 
 		currentTest = method.getName(); // get Name of current test.
 
@@ -74,36 +67,33 @@ public class BasePage implements ITestListener {
 		String SCREENSHOT_FOLDER_NAME = "screenshots";
 		String TESTDATA_FOLDER_NAME = "test_data";
 
+		//create folder for storing screenshot
 		test_data_folder_path = new File(TESTDATA_FOLDER_NAME).getAbsolutePath();
 		screenshot_folder_path = new File(SCREENSHOT_FOLDER_NAME).getAbsolutePath();
 
-		DesiredCapabilities capability = null;
-
+		//fetch data from config.properties
 		String driverPath = getPropertyValue("driverPath");
-		String driverFirefoxPath = getPropertyValue("driverFirefoxPath");
 		String browser = getPropertyValue("browser");
 		String headless = getPropertyValue("headless");
 
-		//String url = getPropertyValue("url");
-
-		/***For production***/
-	  //  URL url = new URL("http://192.168.10.35:31449/wd/hub");
-		/***For local***/
-	 //	URL url = new URL("http://172.17.0.2:4444/wd/hub");
-
-
+		//Set property for chromedriver to run on chrome browser
 		System.setProperty("webdriver.chrome.driver",driverPath);
-		ChromeOptions options = new ChromeOptions();
-	//	options.addArguments("--headless");
-	//	options.addArguments("start-maximized"); // open Browser in maximized mode
-		options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-		options.addArguments("--no-sandbox"); // Bypass OS security model
-		options.addArguments("--remote-allow-origins=*");
 
-		driver = new ChromeDriver(options);
-		driver.get(getPropertyValue("url"));
-		driver.manage().window().maximize();
+		//Run test against chrome browser
+		if (browser.equals("chrome")) {
+			ChromeOptions options = new ChromeOptions();
 
+			if (headless.equals("true")) {
+				//Run browser in headless mode
+				options.addArguments("--headless");
+			}
+			options.addArguments("start-maximized"); // open Browser in maximized mode
+			options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+			options.addArguments("--no-sandbox"); // Bypass OS security model
+			options.addArguments("--remote-allow-origins=*");
+
+			driver = new ChromeDriver(options);
+		}
 
 		loginPage = new LoginPage(driver);
 		materialmaster = new AddMaterialMaster(driver);
@@ -115,7 +105,7 @@ public class BasePage implements ITestListener {
 	protected Properties getConfigProperties() {
 		if (configProperties == null) {
 			configProperties = this.loadProperties(
-					Paths.get("src/test/java/Config").toAbsolutePath().normalize().toString() + "//config.properties");
+					Paths.get("").toAbsolutePath().normalize().toString() + "//config.properties");
 
 		}
 		return configProperties;
@@ -160,11 +150,11 @@ public class BasePage implements ITestListener {
 		Reporter.setCurrentTestResult(testResult);
 		File img = new File("target" + File.separator + "surefire-reports" + File.separator + testName + ".png");
 		if (testResult.getStatus() == 1) {
-			log("PASS : " + testResult.getName() + "\n");
+			log("PASS : " + testResult.getName());
 			testResult.getThrowable();
 		}
 		if (testResult.getStatus() == 2) {
-			log("FAIL : " + testResult.getName() + "\n");
+			log("FAIL : " + testResult.getName());
 		//	makeScreenshot(driver, testName);
 		//	Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
 		//	FileOutputStream screenshotStream = new FileOutputStream(img);

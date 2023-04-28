@@ -55,6 +55,8 @@ public class ListView extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -117,6 +119,7 @@ public class ListView extends Locators {
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -149,6 +152,7 @@ public class ListView extends Locators {
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
 		common.pause(10);
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -221,6 +225,8 @@ public class ListView extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(15);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -257,6 +263,8 @@ public class ListView extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -299,7 +307,8 @@ public class ListView extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
-		
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();

@@ -28,6 +28,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void addNewMaterialMaster() throws InterruptedException, IOException {
+		common.log("TC:Add new material master record");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
@@ -42,6 +43,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void viewProcessLog() throws InterruptedException, IOException {
+		common.log("TC:Add new material master record and check process log");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
@@ -57,6 +59,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyApproveStatus() throws InterruptedException, IOException {
+		common.log("TC:Add new material master record and approve from Reviewer side");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
@@ -74,6 +77,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyClaimStatus() throws InterruptedException, IOException {
+		common.log("TC:Add new material master record and Claim status from reviewer");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
@@ -91,6 +95,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifySaveAsDraft() {
+		common.log("TC:Add new material master record and Verify save as draft from reviewer");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
@@ -109,6 +114,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyChange() {
+		common.log("TC:Verify edit and update existing record");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		materialmaster.doUpdate();
@@ -123,9 +129,10 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyCopyRecord() {
+		common.log("TC:Verify copy existing record");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
-		materialmaster.copyrecord();
+		materialmaster.copyRecord();
 		
 
 	}
@@ -138,6 +145,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void addNewMaterialMasterWithGenerateDescription() throws InterruptedException, IOException {
+		common.log("TC:Add new material master record with description");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		materialmaster.createMaterialMasterWithGenerateDesc();
@@ -153,6 +161,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyClaimUnClaimStatus() throws InterruptedException, IOException {
+		common.log("TC:Add new material master record and Verify un-claim status from reviewer");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();
@@ -170,6 +179,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	public void verifyRejectionFlowForNewRrecord() {
+		common.log("TC:Add new material master record and Reject the flow from Approver and Reviewer side");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		materialmaster.addNewMaterialMaster();

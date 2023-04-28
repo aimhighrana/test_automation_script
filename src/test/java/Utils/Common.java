@@ -215,7 +215,7 @@ public class Common extends Locators {
 	}
 
 
-	public void exandingHeadData() {
+	public void expandingHeadData() {
 		
 		driver.findElement(By.xpath(expandHeaderData)).click();
 		driver.findElement(By.xpath(expandPlantData)).click();

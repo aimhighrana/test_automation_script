@@ -30,7 +30,7 @@ public class ListViewTestcases extends BasePage {
 	/**--1--**/
 	@Test
 	public void verify_The_User_Should_Be_Able_To_Add_A_New_View_For_The_List_Page() throws InterruptedException, IOException {
-		common.log("--MDMF-TC-1671/MDMF-TC-1672--/MDMF-TC-1673--");
+		common.log("TC --MDMF-TC-1671/MDMF-TC-1672--/MDMF-TC-1673--");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		listView.user_Should_Be_Able_To_Add_A_New_View_For_The_List_Page();
@@ -41,7 +41,7 @@ public class ListViewTestcases extends BasePage {
 	/**--2--**/
 	@Test
 	public void verify_User_Should_Be_Able_To_Select_Multiple_Records_At_A_Time() throws InterruptedException, IOException {
-		common.log("--MDMF-TC-1687--");
+		common.log("TC --MDMF-TC-1687--");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		listView.user_Should_Be_Able_To_Select_Multiple_Records_At_A_Time();
@@ -51,7 +51,7 @@ public class ListViewTestcases extends BasePage {
 	/**--3--**/
 	@Test
 	public void verify_User_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page() throws InterruptedException, IOException {
-		common.log("--MDMF-TC-1696--");
+		common.log("TC --MDMF-TC-1696--");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		listView.user_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page();
@@ -62,7 +62,7 @@ public class ListViewTestcases extends BasePage {
 	/**--4--**/
 	@Test
 	public void verify_The_User_Should_Be_Able_To_Delete_The_Added_View() throws InterruptedException, IOException {
-		common.log("--MDMF-TC-1697--");
+		common.log("TC --MDMF-TC-1697--");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		listView.user_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page();
@@ -73,7 +73,7 @@ public class ListViewTestcases extends BasePage {
 	/**--5--**/
 	@Test
 	public void verify_The_Pagination_On_List_Page_Should_Work_As_Expected() throws InterruptedException, IOException {
-		common.log("--MDMF-TC-1707--");
+		common.log("TC --MDMF-TC-1707--");
 		loginPage.goToURL();
 		loginPage.check_SignIn();
 		listView.verify_The_Pagination_On_List_Page_Should_Work_As_Expected();

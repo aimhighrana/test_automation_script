@@ -28,7 +28,7 @@ public class Flowcheck extends BasePage {
 	public void verifyFlow() throws InterruptedException, IOException {
 		loginPage.goToURL();
 		test.log(LogStatus.INFO, "Navigated to URL");
-		flow.checkdesignTBLData();
+		flow.check_Design_Table_Data();
 
 	}
 

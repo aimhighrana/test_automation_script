@@ -48,10 +48,10 @@ public class Flow extends Locators {
 	String code = "";
 
 	/**
-	 * check url design table datta
+	 * check url design table data
 	 * 
 	 */
-	public void checkdesignTBLData() {
+	public void check_Design_Table_Data() {
 
 		test.log(LogStatus.INFO, "Step :: Enter value in email field");
 		System.out.println("Step :: Enter value in email field");
@@ -91,7 +91,7 @@ public class Flow extends Locators {
 		driver.switchTo().window(newTb.get(1));
 
 		common.waitForElement(design);
-		common.findElement(design).click();
+		common.findElementBy(design,"Click on design").click();
 		common.waitForElement(spac);
 		if (driver.findElement(By.xpath(spac)).isDisplayed()) {
 			common.pause(25);
@@ -107,8 +107,8 @@ public class Flow extends Locators {
 
 			}
 		} else {
-			test.log(LogStatus.INFO, "Step :: An error occured");
-			System.out.println("An error occured!!");
+			test.log(LogStatus.INFO, "Step :: An error occurred");
+			System.out.println("An error occurred!!");
 		}
 
 	}
@@ -116,18 +116,16 @@ public class Flow extends Locators {
 	public void checkDescriptionChange() throws IOException, ParseException {
 
 		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 
-		common.findElement(dataTab).click();
-
-		System.out.println("Step :: click on Material master from leftnav");
-
-		common.log("Click on Material master from leftnav");
+		System.out.println("Step :: click on Material master from left nav");
+		common.log("Click on Material master from left nav");
 		common.waitForElement(dMaterialMaster);
 		common.findElement(dMaterialMaster).click();
 		common.pause(40);
 
 		// Path of the excel file
-		FileInputStream fs = new FileInputStream("/Users/adroid/Downloads/Prospecta/Record Numbers for Sandbox.xlsx");
+		FileInputStream fs = new FileInputStream("Record Numbers for Sandbox.xlsx");
 		// Creating a workbook
 		XSSFWorkbook workbook = new XSSFWorkbook(fs);
 		XSSFSheet sheet = workbook.getSheetAt(0);
@@ -175,23 +173,16 @@ public class Flow extends Locators {
 
 			CSVWriter writer = new CSVWriter(new FileWriter(csv, true));
 
+			//if error occurred the close popup and check again view process log
 			if (common.isDisplayed(allerros) == true) {
 				common.findElement(ccrsicon).click();
 
 				common.pause(10);
+				System.out.println("Step :: Click on three dot icon");
+				common.findElementBy(thDot,"Click on three dot icon").click();
 
-				// writer.writeNext("FAIL\t");
-
-				// System.out.println("FAIL\t");
-
-				/**
-				 * code block to verify the view process log
-				 */
-				System.out.println("Step :: click on three dot icon");
-				common.findElement(thDot).click();
 				common.waitForElement(viewPLog);
-
-				common.findElement(viewPLog).click();
+				common.findElementBy(viewPLog,"Click on View process log").click();
 				common.waitForElement(pTitle);
 
 				String fullXpath = String.format(currentDate, common.currentDate());
@@ -207,7 +198,7 @@ public class Flow extends Locators {
 
 				} else {
 					writer.writeNext("FAIL", "Error");
-					System.out.println("Stauts is :: Error");
+					System.out.println("Status is :: Error");
 					common.findElement(crossP).click();
 				}
 
@@ -215,10 +206,6 @@ public class Flow extends Locators {
 
 				common.pause(30);
 
-				// writer.writeNext("PASS\t");
-				/**
-				 * code block to verify the view process log
-				 */
 				System.out.println("Step :: click on three dot icon");
 				common.findElement(thDot).click();
 				common.waitForElement(viewPLog);
@@ -238,7 +225,7 @@ public class Flow extends Locators {
 
 				} else {
 					writer.writeNext("PASS", "Error");
-					System.out.println("Stauts is :: Error");
+					System.out.println("Status is :: Error");
 					common.findElement(crossP).click();
 				}
 
@@ -256,11 +243,10 @@ public class Flow extends Locators {
 
 		common.waitForElement(dataTab);
 
-		common.findElement(dataTab).click();
+		common.findElementBy(dataTab,"Click on Data tab").click();
 
-		System.out.println("Step :: click on Material master from leftnav");
-
-		common.log("Click on Material master from leftnav");
+		System.out.println("Step :: click on Material master from left nav");
+		common.log("Click on Material master from left nav");
 		common.waitForElement(dMaterialMaster);
 		common.findElement(dMaterialMaster).click();
 		common.pause(40);
@@ -327,38 +313,6 @@ public class Flow extends Locators {
 
 				System.out.println("FAIL\t  "+sheet.getRow(j).getCell(0));
 
-				/**
-				 * code block to verify the view process log
-				 */
-//				System.out.println("Step :: click on three dot icon");
-//				common.findElement(thDot).click();
-//				common.waitForElement(viewPLog);
-//
-//				common.findElement(viewPLog).click();
-//				common.waitForElement(pTitle);
-//
-//				String fullXpath = String.format(currentDate, common.currentDate());
-//				System.out.println("Current date is ==>" + common.currentDate());
-//				common.waitForElement(fullXpath);
-//				
-//				if (common.isDisplayed(fullXpath)) {
-//					common.findElement(fullXpath).click();
-//					System.out.println("Status is ==>" + common.findElement(statusSuccessTxt).getText());
-//
-//
-//					XSSFCell str = sheet.getRow(j).getCell(0);
-//					String strVal = str.toString();
-//					writer.writeNext("FAIL, Success",strVal);
-//					common.findElement(crossP).click();
-//
-//				} else {
-//
-//					XSSFCell str = sheet.getRow(j).getCell(0);
-//					String strVal = str.toString();
-//					writer.writeNext("FAIL, Error", strVal);
-//					System.out.println("Stauts is :: Error");
-//					common.findElement(crossP).click();
-//				}
 
 			} else {
 
@@ -366,36 +320,6 @@ public class Flow extends Locators {
 
 				 writer.writeNext("PASS\t  "+sheet.getRow(j).getCell(0));
 				 System.out.println("PASS\t  "+sheet.getRow(j).getCell(0));
-				/**
-				 * code block to verify the view process log
-				 */
-//				System.out.println("Step :: click on three dot icon");
-//				common.findElement(thDot).click();
-//				common.waitForElement(viewPLog);
-//
-//				common.findElement(viewPLog).click();
-//				common.waitForElement(pTitle);
-//
-//				String fullXpath = String.format(currentDate, common.currentDate());
-//				System.out.println("Current date is ==>" + common.currentDate());
-//				common.waitForElement(fullXpath);
-//				common.findElement(fullXpath).click();
-//				if (common.isDisplayed(statusSuccessTxt)) {
-//					System.out.println("Status is ==>" + common.findElement(statusSuccessTxt).getText());
-//
-//					XSSFCell str = sheet.getRow(j).getCell(0);
-//					String strVal = str.toString();
-//					writer.writeNext("PASS, Success",strVal);
-//					common.findElement(crossP).click();
-//
-//				} else {
-//
-//					XSSFCell str = sheet.getRow(j).getCell(0);
-//					String strVal = str.toString();
-//					writer.writeNext("PASS, Error", strVal);
-//					System.out.println("Stauts is :: Error");
-//					common.findElement(crossP).click();
-//				}
 
 			}
 

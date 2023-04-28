@@ -33,7 +33,6 @@ import java.util.Properties;
 public class ListPageSearch extends Locators {
 
 	Common common = new Common(driver);
-	Properties obj = new Properties();
 
 	public ListPageSearch(WebDriver driver) throws FileNotFoundException {
 
@@ -42,11 +41,11 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter
+	 * Verify User Able To Search Created Modified On Date In Column Filter
 	 * 
 	 */
 	public void user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter() {
-		common.waitForElement(dataTab);
+		common.waitForElement(dataTab); // Wait element for
 
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
@@ -57,6 +56,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(dataTab);
 		common.pause(10);
 
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -102,7 +102,6 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(firstValuematerialMaster);
 
 		String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
-
 		System.out.println("First value of Material master table:: " + strFirstValue);
 		common.log("First value of Material master table:: " + strFirstValue);
 
@@ -111,7 +110,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * user_AbleToSearch_BasedOn_MaterialDesc_Group_Type_Indus_BaseUnitOfMeasure_In_Column_Filter
+	 * Verify User Able To Search Based On Material Description Group Type, Industry, Base Unit Of Measure In Column Filter
 	 * 
 	 */
 	public void user_AbleToSearch_BasedOn_MaterialDesc_Group_Type_Indus_BaseUnitOfMeasure_In_Column_Filter() {
@@ -124,6 +123,8 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -135,6 +136,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
 		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
@@ -210,13 +212,14 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * User_AbleTo_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value
+	 * verify User Able To Search Work For Dropdown Type Field While Selecting a Value
 	 * 
 	 */
 	public void user_AbleTo_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value() {
 		common.waitForElement(dataTab);
 
 		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.pause(10);
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -224,6 +227,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -242,7 +246,7 @@ public class ListPageSearch extends Locators {
 		common.log("Status Of First value of Material master table:: " + strFirstValue);
 
 		common.findElementBy(clearIconForStatusFilter, "Clear applied filter").click();
-		common.pause(10);
+		common.pause(15);
 
 		common.findElementBy(filterModifiedByDropdown, "Click on Modified By filter dropdown and Enter Reviewer")
 				.click();
@@ -258,7 +262,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * user_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions
+	 * Verify User Able To Apply The Filters Using IsNot Conditions
 	 * 
 	 */
 	public void user_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions() {
@@ -271,6 +275,8 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -282,6 +288,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
 		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
@@ -344,7 +351,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * user_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button
+	 * Verify User Able To Reset Filters In Advance Filter Using The Reset Button
 	 * 
 	 */
 	public void user_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button() {
@@ -357,6 +364,8 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -368,6 +377,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
 		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
@@ -390,7 +400,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * user_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search
+	 * Verify user Can Apply Multiple Filters For Multiple Fields In Advance Filter Search
 	 * 
 	 */
 	public void user_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search() {
@@ -403,6 +413,8 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -414,6 +426,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
 		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
@@ -444,7 +457,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * user_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button
+	 * Verify User Can Save The Filter Applied On Different Fields Using The Save As Button
 	 * 
 	 */
 	public void user_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button() {
@@ -457,6 +470,8 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -468,6 +483,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
 		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
@@ -525,7 +541,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * user_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button
+	 * Verify User Can Cancel The Filter Applied On Different Fields Using The Save As Button
 	 * 
 	 */
 	public void user_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button() {
@@ -539,6 +555,8 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -550,6 +568,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
 		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
@@ -597,7 +616,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * user_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches
+	 * Verify User Can Apply The Column Filter And Advanced Filter At A Time And Club The Searches
 	 * 
 	 */
 	public void user_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches() {
@@ -605,12 +624,15 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(dataTab);
 
 		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.pause(10);
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -622,6 +644,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
 		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
@@ -640,7 +663,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields
+	 * Verify Column Sort Functionality Should Work As Expected On The List Page For Fields
 	 *
 	 */
 	public void column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields() {
@@ -654,6 +677,8 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -679,7 +704,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * verify_The_User_Is_Able_To_Delete_The_Saved_Filter
+	 * Verify The User Is Able To Delete The Saved Filter
 	 *
 	 */
 	public void verify_The_User_Is_Able_To_Delete_The_Saved_Filter() {
@@ -693,7 +718,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters
+	 * Verify The Pagination Show Count Should Be Working Fine After Applying Filters
 	 *
 	 */
 	public void verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters() {
@@ -707,6 +732,8 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -744,7 +771,7 @@ public class ListPageSearch extends Locators {
 	}
 
 	/**
-	 * user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field
+	 * Verify User Can Search Using Special Characters In Manufacturer Part Number Filter Field
 	 *
 	 */
 	public void user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field() {
@@ -757,6 +784,8 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
@@ -768,7 +797,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
-		common.pause(5);
+		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
 		common.findElementBy(manufacturerPartNumFilterTab, "Click on Manufacturer Part Number filter tab").click();
