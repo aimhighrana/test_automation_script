@@ -6,7 +6,7 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
-	
+	<parameter name="env" value="QAH" />
 	 <test name="Test 1">
 		<classes>
 			<class name="Test.ListViewTestcases">

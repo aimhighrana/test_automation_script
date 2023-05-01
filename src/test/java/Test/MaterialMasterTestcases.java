@@ -1,6 +1,6 @@
 package Test;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.annotations.Test;
 import Page.LoginPage;
 import Utils.BasePage;
@@ -8,8 +8,6 @@ import Utils.Common;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -27,10 +25,11 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void addNewMaterialMaster() throws InterruptedException, IOException {
+	@Parameters("env")
+	public void addNewMaterialMaster(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
 
 	}
@@ -42,10 +41,11 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void viewProcessLog() throws InterruptedException, IOException {
+	@Parameters("env")
+	public void viewProcessLog(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record and check process log");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
 
@@ -58,13 +58,14 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void verifyApproveStatus() throws InterruptedException, IOException {
+	@Parameters("env")
+	public void verifyApproveStatus(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record and approve from Reviewer side");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
-		loginPage.revSignIn();
+		loginPage.revSignIn(env);
 		materialmaster.approveStatus();
 
 	}
@@ -76,13 +77,14 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void verifyClaimStatus() throws InterruptedException, IOException {
+	@Parameters("env")
+	public void verifyClaimStatus(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record and Claim status from reviewer");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
-		loginPage.revSignIn();
+		loginPage.revSignIn(env);
 		materialmaster.claimStatus();
 
 	}
@@ -94,13 +96,14 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void verifySaveAsDraft() {
+	@Parameters("env")
+	public void verifySaveAsDraft(String env) {
 		common.log("TC:Add new material master record and Verify save as draft from reviewer");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
-		loginPage.revSignIn();
+		loginPage.revSignIn(env);
 		materialmaster.saveDraft();
 		
 
@@ -113,10 +116,11 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void verifyChange() {
+	@Parameters("env")
+	public void verifyChange(String env) {
 		common.log("TC:Verify edit and update existing record");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.doUpdate();
 
 	}
@@ -128,10 +132,11 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void verifyCopyRecord() {
+	@Parameters("env")
+	public void verifyCopyRecord(String env) {
 		common.log("TC:Verify copy existing record");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.copyRecord();
 		
 
@@ -144,10 +149,11 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void addNewMaterialMasterWithGenerateDescription() throws InterruptedException, IOException {
+	@Parameters("env")
+	public void addNewMaterialMasterWithGenerateDescription(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record with description");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.createMaterialMasterWithGenerateDesc();
 		
 
@@ -160,13 +166,14 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void verifyClaimUnClaimStatus() throws InterruptedException, IOException {
+	@Parameters("env")
+	public void verifyClaimUnClaimStatus(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record and Verify un-claim status from reviewer");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterCompletedProcessLog();
-		loginPage.revSignIn();
+		loginPage.revSignIn(env);
 		materialmaster.claimUnclaimStatus();
 		
 
@@ -178,14 +185,15 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void verifyRejectionFlowForNewRrecord() {
+	@Parameters("env")
+	public void verifyRejectionFlowForNewRrecord(String env) {
 		common.log("TC:Add new material master record and Reject the flow from Approver and Reviewer side");
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
 		materialmaster.viewMaterialMasterProcessLog();
 		materialmaster.rejectionFlowFromApprover();
-		loginPage.revSignIn();
+		loginPage.revSignIn(env);
 		materialmaster.rejectionFlowFromReviewer();
 	}
 
@@ -196,9 +204,10 @@ public class MaterialMasterTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void verifyDraftApprovalRecord() throws InterruptedException, IOException {
+	@Parameters("env")
+	public void verifyDraftApprovalRecord(String env) throws InterruptedException, IOException {
 
-		verifyClaimUnClaimStatus();
+		verifyClaimUnClaimStatus(env);
 		driver.quit();
 
 	}

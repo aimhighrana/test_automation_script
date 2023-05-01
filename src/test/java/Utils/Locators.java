@@ -21,7 +21,7 @@ public abstract class Locators extends BasePage {
 	public static String nPasswordField = "//input[@type='password']";
 	public static String loginBtn = "//span[contains(text(),'Login')]";
 	public static String qaEnv = "//p[contains(text(),'QA')]";
-	public static String dataTab = "//div//div[contains(text(),' Data ')]";
+	public static String dataTab = "//div[contains(text(),' Data ')]";
 	public static String homeTab = "//div[@class='mat-list-item-content']//..//div[contains(text(),'Home')]";
 	public static String search = "//input[@placeholder='Search Data'] | //input[@placeholder='Search data']";
 	public static String materialMaster = "//p[contains(text(),'Material Master')]";

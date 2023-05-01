@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -30,9 +31,10 @@ public class LoginPageTestcases extends BasePage {
 	 * @throws IOException
 	 */
 	@Test
-	public void loginPage() throws InterruptedException, IOException {
+	@Parameters("env")
+	public void loginPage(String env) throws InterruptedException, IOException {
 		loginPage.goToURL();
-		loginPage.check_SignIn();
+		loginPage.check_SignIn(env);
 
 	}
 

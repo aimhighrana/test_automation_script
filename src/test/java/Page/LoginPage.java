@@ -57,49 +57,77 @@ public class LoginPage extends Locators {
 	 * Verify Sign In Scenario
 	 * 
 	 */
-	public void check_SignIn() {
+	public void check_SignIn(String env) {
 
-		System.out.println("Step :: Entering username: "+getPropertyValue("reqUserName"));
-		common.log("Entering username: "+getPropertyValue("reqUserName"));
-		common.findElement(userNameField).sendKeys(getPropertyValue("reqUserName"));
+		if(env.equals("QAH")) {
 
-		common.pause(10);
-		System.out.println("Step :: Click on continue button.");
-		common.log("Click on continue button.");
-		common.findElement(continueButton).click();
-		common.pause(5);
+			System.out.println("Step :: Entering username: " + getPropertyValue("qahReqUserName"));
+			common.log("Entering username: " + getPropertyValue("qahReqUserName"));
+			common.findElement(userNameField).sendKeys(getPropertyValue("qahReqUserName"));
 
-		//If Use Password button display then click on that and then entering password
-		if (common.isElementPresent(usePasswordButton)) {
+			common.pause(10);
+			System.out.println("Step :: Click on continue button.");
+			common.log("Click on continue button.");
+			common.findElement(continueButton).click();
+			common.pause(5);
 
-			common.findElementBy(usePasswordButton, "Click on Use password button").click();
+			//If Use Password button display then click on that and then entering password
+			if (common.isElementPresent(usePasswordButton)) {
+
+				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+			}
+			common.pause(5);
+			System.out.println("Step :: Entering password:: " + getPropertyValue("qahReqPassword"));
+			test.log(LogStatus.INFO, "Entering password:: " + getPropertyValue("qahReqPassword"));
+			common.log("Entering password: " + getPropertyValue("qahReqPassword"));
+			common.findElement(PasswordField).sendKeys(getPropertyValue("qahReqPassword"));
+
+			//wait for Data Tab appear
+
+		}
+		else {
+			System.out.println("Step :: Entering username: " + getPropertyValue("qarReqUserName"));
+			common.log("Entering username: " + getPropertyValue("qarReqUserName"));
+			common.findElement(userNameField).sendKeys(getPropertyValue("qarReqUserName"));
+
+			common.pause(10);
+			System.out.println("Step :: Click on continue button.");
+			common.log("Click on continue button.");
+			common.findElement(continueButton).click();
+			common.pause(5);
+
+			//If Use Password button display then click on that and then entering password
+			if (common.isElementPresent(usePasswordButton)) {
+
+				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+			}
+			common.pause(5);
+			System.out.println("Step :: Entering password:: " + getPropertyValue("qarReqPassword"));
+			test.log(LogStatus.INFO, "Entering password:: " + getPropertyValue("qarReqPassword"));
+			common.log("Entering password: " + getPropertyValue("qarReqPassword"));
+			common.findElement(PasswordField).sendKeys(getPropertyValue("qarReqPassword"));
+
+			//wait for Data Tab appear
+
 		}
 		common.pause(5);
-		System.out.println("Step :: Entering password:: "+getPropertyValue("password"));
-		test.log(LogStatus.INFO, "Entering password:: "+getPropertyValue("password"));
-		common.log("Entering password: "+getPropertyValue("password"));
-		common.findElement(PasswordField).sendKeys(getPropertyValue("password"));
-		common.pause(5);
-
 		test.log(LogStatus.INFO, "Click on Login button");
 		System.out.println("Step :: Click on login button");
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
-
-		//wait for Data Tab appear
+		common.pause(20);
 		common.waitForElement(dataTab);
-		
-		test.log(LogStatus.INFO, "Env URL:: "+driver.getCurrentUrl());
-		System.out.println("Step:: Env URL: "+driver.getCurrentUrl());
-		common.log("Env URL: "+driver.getCurrentUrl());
-		
+		test.log(LogStatus.INFO, "Env URL:: " + driver.getCurrentUrl());
+		System.out.println("Step:: Env URL: " + driver.getCurrentUrl());
+		common.log("Env URL: " + driver.getCurrentUrl());
+
 	}
 
 	/**
 	 * As a reviewer sign-in scenario
 	 * 
 	 */
-	public void revSignIn() {
+	public void revSignIn(String env) {
 
 		//Sign out the approver
 		WebElement Profile = driver.findElement(By.xpath(profileIcon));
@@ -115,25 +143,54 @@ public class LoginPage extends Locators {
 		System.out.println("Step :: --- User login as reviewer credentials");
 		common.log("--- User login as reviewer credentials");
 
-		System.out.println("Step :: Enter value in email field: "+getPropertyValue("revUserNameStage"));
-		common.log("Enter the value in email field: "+getPropertyValue("revUserNameStage"));
-		WebElement emailField = driver.findElement(By.xpath(revUsernameField));
-		emailField.sendKeys(getPropertyValue("revUserNameStage"));
+		if (env.equals("QAH")) {
+			System.out.println("Step :: Enter value in email field: " + getPropertyValue("qahRevUserName"));
+			common.log("Enter the value in email field: " + getPropertyValue("qahRevUserName"));
+			WebElement emailField = driver.findElement(By.xpath(revUsernameField));
+			emailField.sendKeys(getPropertyValue("qahRevUserName"));
 
-		WebElement continueBtn = driver.findElement(By.xpath(continueButton));
-		continueBtn.click();
-		common.pause(10);
+			WebElement continueBtn = driver.findElement(By.xpath(continueButton));
+			continueBtn.click();
+			common.pause(10);
+			//If Use Password button display then click on that and then entering password
+			if (common.isElementPresent(usePasswordButton)) {
 
-		System.out.println("Step :: Entering password: "+getPropertyValue("revPasswordStage"));
-		common.log("Entering password: "+getPropertyValue("revPasswordStage"));
-		WebElement passwordField = driver.findElement(By.xpath(RevPwdField));
-		passwordField.sendKeys(getPropertyValue("revPasswordStage"));
+				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+				common.pause(5);
+			}
+			System.out.println("Step :: Entering password: " + getPropertyValue("qahRevPassword"));
+			common.log("Entering password: " + getPropertyValue("qahRevPassword"));
+			WebElement passwordField = driver.findElement(By.xpath(RevPwdField));
+			passwordField.sendKeys(getPropertyValue("qahRevPassword"));
+		}
+		else
+		{
+			System.out.println("Step :: Enter value in email field: " + getPropertyValue("qarRevUserName"));
+			common.log("Enter the value in email field: " + getPropertyValue("qarRevUserName"));
+			WebElement emailField = driver.findElement(By.xpath(revUsernameField));
+			emailField.sendKeys(getPropertyValue("qarRevUserName"));
 
+			WebElement continueBtn = driver.findElement(By.xpath(continueButton));
+			continueBtn.click();
+			common.pause(10);
+			//If Use Password button display then click on that and then entering password
+			if (common.isElementPresent(usePasswordButton)) {
+
+				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+				common.pause(5);
+			}
+
+			System.out.println("Step :: Entering password: " + getPropertyValue("qarRevPassword"));
+			common.log("Entering password: " + getPropertyValue("qarRevPassword"));
+			WebElement passwordField = driver.findElement(By.xpath(RevPwdField));
+			passwordField.sendKeys(getPropertyValue("qarRevPassword"));
+		}
 		common.pause(5);
 		test.log(LogStatus.INFO, "click on login button");
 		System.out.println("Step :: click on login button");
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
+		common.pause(20);
 
 	}
 

@@ -171,6 +171,7 @@ public class ListView extends Locators {
 		common.findElementBy(inputViewName, "Enter new view name:: " + viewStr).clear();
 		common.type(inputViewName, viewStr);
 
+		common.pause(10);
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
 

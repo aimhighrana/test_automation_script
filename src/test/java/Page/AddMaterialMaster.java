@@ -45,7 +45,6 @@ public class AddMaterialMaster extends Locators {
 	 */
 	public void addNewMaterialMaster() {
 
-		common.waitForElement(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 
 		test.log(LogStatus.INFO, "click on Material master from left nav");
