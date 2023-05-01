@@ -1,19 +1,20 @@
 Prerequisite
 ============
-There are several prerequisite dependencies you should install on your machine prior to starting to work with this project:
-1. Need to install Java - Java 11
-2. An IDE to write your tests on -Eclipse or IntelliJ
-3. Need to Install Maven - Apache Maven
+    There are several prerequisite dependencies you should install on your machine prior to starting to work with this project:
+    • Need to install Java - Java 11
+    • An IDE to write your tests on -Eclipse or IntelliJ
+    • Need to Install Maven - Apache Maven
 
 Eclipse users should also install:
-1	Maven Plugin
-2	TestNG Plugin - For reporting
+============
+    • Maven Plugin
+    • TestNG Plugin - For reporting
 
 Project components
 ==================
 	•	Page objects are in the directory src/main/java/Page
 	•	Test classes are in the directory src/test/java/Test
-	.   Configuration class in the diirectory src/test/java/Utils
+	•   Configuration class in the diirectory src/test/java/Utils
 
 Implemented Browsers
 ====================
