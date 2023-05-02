@@ -2,6 +2,7 @@ package Utils;
 
 import Page.*;
 import Test.MaterialMasterTestcases;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import net.rcarz.jiraclient.JiraException;
 
 import org.apache.commons.io.FileUtils;
@@ -77,10 +78,12 @@ public class BasePage implements ITestListener {
 		String headless = getPropertyValue("headless");
 
 		//Set property for chromedriver to run on chrome browser
-		System.setProperty("webdriver.chrome.driver",driverPath);
+	//	System.setProperty("webdriver.chrome.driver",driverPath);
+		WebDriverManager.chromedriver().setup();
 
 		//Run test against chrome browser
 		if (browser.equals("chrome")) {
+
 			ChromeOptions options = new ChromeOptions();
 
 			if (headless.equals("true")) {

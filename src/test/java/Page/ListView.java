@@ -110,6 +110,7 @@ public class ListView extends Locators {
 	 * 
 	 */
 	public void user_Should_Be_Able_To_Select_Multiple_Records_At_A_Time() {
+		common.pause(10);
 		common.waitForElement(dataTab);
 
 		common.findElementBy(dataTab, "Click on Data tab").click();
