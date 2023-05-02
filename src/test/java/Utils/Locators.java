@@ -172,7 +172,7 @@ public abstract class Locators extends BasePage {
 
 	public static String clearIconForStatusFilter = "//th[@id='STATUS']//mat-icon[@role='img'][normalize-space()='times']";
 
-	public static String filterModifiedByDropdown =  "//th[@id='USERMODIFIED']//input[@placeholder='Filter']";
+	public static String filterModifiedByDropdown =  "//tr[2]//th[7][@id='USERMODIFIED']";
 
 	public static String firstValueOfModifiedBy =  "//tbody/tr[1]/td[7]";
 

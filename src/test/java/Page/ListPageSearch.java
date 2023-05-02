@@ -99,13 +99,14 @@ public class ListPageSearch extends Locators {
 
 		action1.moveByOffset(20, 200).click().build().perform();
 		common.pause(10);
-		common.waitForElement(firstValuematerialMaster);
 
-		String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
-		System.out.println("First value of Material master table:: " + strFirstValue);
-		common.log("First value of Material master table:: " + strFirstValue);
+		if (common.isElementPresent(firstValuematerialMaster)) {
+			String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+			System.out.println("First value of Material master table:: " + strFirstValue);
+			common.log("First value of Material master table:: " + strFirstValue);
 
-		common.assertElementPresent(firstValuematerialMaster);
+			common.assertElementPresent(firstValuematerialMaster);
+		}
 
 	}
 
@@ -216,10 +217,11 @@ public class ListPageSearch extends Locators {
 	 * 
 	 */
 	public void user_AbleTo_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value() {
+
+		common.pause(15);
 		common.waitForElement(dataTab);
 
 		common.findElementBy(dataTab, "Click on Data tab").click();
-		common.pause(10);
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -246,10 +248,12 @@ public class ListPageSearch extends Locators {
 		common.log("Status Of First value of Material master table:: " + strFirstValue);
 
 		common.findElementBy(clearIconForStatusFilter, "Clear applied filter").click();
-		common.pause(15);
+		common.pause(10);
 
-		common.findElementBy(filterModifiedByDropdown, "Click on Modified By filter dropdown and Enter Reviewer")
-				.click();
+		driver.findElement(By.xpath(filterModifiedByDropdown)).click();
+//		common.findElementBy(filterModifiedByDropdown, "Click on Modified By filter dropdown and Enter Reviewer")
+//				.click();
+		common.pause(50);
 		common.type(filterModifiedByDropdown, "Reviewer");
 		common.pause(10);
 

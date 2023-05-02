@@ -162,6 +162,7 @@ public class BasePage implements ITestListener {
 		//	log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
 		//			+ ".png' height='250' width='500'></img> </a>" + "<br>");
 		}
+		driver.manage().deleteAllCookies();
 		driver.quit();
 	}
 

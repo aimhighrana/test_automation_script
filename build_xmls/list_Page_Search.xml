@@ -7,6 +7,7 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
 	<parameter name="env" value="QAH" />
+
 	 <test name="Test 1">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
@@ -15,8 +16,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	 <!-- Test -->
+	</test>
 
 	 <test name="Test 2">
 		<classes>
@@ -28,16 +28,17 @@
 		</classes>
 	</test>
 
+<!--test commented because this functionality was removed for now-->
 
-	<test name="Test 3">
-		<classes>
-			<class name="Test.ListPageSearchTestcases">
-				<methods>
-					<include name="verify_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
+	<!--	<test name="Test 3">-->
+<!--		<classes>-->
+<!--			<class name="Test.ListPageSearchTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
 
 
 	<test name="Test 4">
@@ -89,7 +90,7 @@
 		</classes>
 	</test>
 
-	
+
 	<test name="Test 9">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">

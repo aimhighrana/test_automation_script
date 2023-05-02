@@ -388,7 +388,7 @@ public class Common extends Locators {
 			} catch (Throwable failure) {
 			}
 
-			pause(1000);
+			pause(30);
 		}
 
 	}
@@ -470,8 +470,8 @@ public class Common extends Locators {
 	 */
 	public void type(String locator, String string) {
 
-		this.findElement(locator).clear();
-		this.findElement(locator).sendKeys(string);
+	//	this.findElement(locator).clear();
+		driver.findElement(By.xpath(locator)).sendKeys(string);
 
 	}
 	public String generateRandomChars(int length) {
