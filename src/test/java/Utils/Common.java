@@ -282,9 +282,12 @@ public class Common extends Locators {
 	 * 
 	 * @param element Web element.
 	 */
-	public void jsClick(WebElement element) {
-		((JavascriptExecutor) driver).executeScript("return arguments[0].click();", element);
-		// this.waitForAjax("0");
+	public void jsClick(String locator) {
+		WebElement element = this.findElement(locator);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].style.border='4px solid yellow'", element);
+		js.executeScript("return arguments[0].click();", element);
+		pause(10);
 	}
 
 	public void scrollPage() {

@@ -1,7 +1,10 @@
 package Utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 
@@ -241,5 +244,8 @@ public abstract class Locators extends BasePage {
 	public static String downloadTemplatesOption = "//button[normalize-space()='Download templates']";
 	public static String descriptionOption = "//button[normalize-space()='Description']";
 
+	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
+	protected WebElement filterIndustrySector1;
 
-}
+
+	}

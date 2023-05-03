@@ -141,8 +141,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
 		common.waitForElement(filterIndustrySector);
-
-		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
+		common.log("Click on Industry sector tab");
+		common.jsClick(filterIndustrySector);
 
 		common.pause(10);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
@@ -177,8 +177,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterMaterialDesc, "Click on Material Description tab").click();
-
+		common.log("Click on Material Description tab");
+		common.jsClick(filterMaterialDesc);
 		common.waitForElement(input_MaterialDescFilter);
 		common.type(input_MaterialDescFilter, "BALL");
 
@@ -195,9 +195,10 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
-
-		common.findElementBy(filterBaseUnitOfMeasure, "Click on Base Unit Of Measure tab").click();
-
+		
+		common.log("Click on Base Unit Of Measure tab");
+		common.jsClick(filterBaseUnitOfMeasure);
+		
 		common.waitForElement(valuePercentage_BaseUnitFilter);
 		common.findElementBy(valuePercentage_BaseUnitFilter, "Select Percentage value").click();
 
@@ -294,7 +295,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
+		common.log("Click on Industry sector tab");
+		common.jsClick(filterIndustrySector);
 
 		common.pause(10);
 		common.findElementBy(isNotFilter, "Select Is not filter").click();
@@ -333,7 +335,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterBaseUnitOfMeasure, "Click on Base Unit Of Measure tab").click();
+		common.log("Click on Base Unit Of Measure tab");
+		common.jsClick(filterBaseUnitOfMeasure);
 
 		common.waitForElement(valuePercentage_BaseUnitFilter);
 
@@ -383,7 +386,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
+		common.log("Click on Industry sector tab");
+		common.jsClick(filterIndustrySector);
 
 		common.pause(10);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
@@ -432,14 +436,16 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
+		common.log("Click on Industry sector tab");
+		common.jsClick(filterIndustrySector);
 
 		common.pause(10);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
 
 		common.pause(10);
 
-		common.findElementBy(filterBaseUnitOfMeasure, "Click on Base Unit Of Measure tab").click();
+		common.log("Click on Base Unit Of Measure tab");
+	 	common.jsClick(filterBaseUnitOfMeasure);
 
 		common.waitForElement(valuePercentage_BaseUnitFilter);
 
@@ -489,7 +495,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
+		common.log("Click on Industry sector tab");
+		common.jsClick(filterIndustrySector);
 
 		common.pause(10);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
@@ -573,7 +580,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
+		common.log("Click on Industry sector tab");
+		common.jsClick(filterIndustrySector);
 
 		common.pause(10);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
@@ -648,7 +656,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
+		common.log("Click on Industry sector tab");
+		common.jsClick(filterIndustrySector);
 
 		common.pause(10);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
@@ -753,7 +762,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterIndustrySector, "Click on Industry sector tab").click();
+		common.log("Click on Industry sector tab");
+		common.jsClick(filterIndustrySector);
 
 		common.pause(10);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();

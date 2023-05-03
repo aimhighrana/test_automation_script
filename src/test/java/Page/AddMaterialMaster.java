@@ -648,8 +648,7 @@ public class AddMaterialMaster extends Locators {
 
 		//wait and click on Inbox menu
 		common.waitForElement(inboxMenu);
-		WebElement inboxClick = driver.findElement(By.xpath(inboxMenu));
-		common.jsClick(inboxClick);
+		common.jsClick(inboxMenu);
 		common.click(inboxMenu);
 
 		common.waitForElement(firstActionIconForInbox);
