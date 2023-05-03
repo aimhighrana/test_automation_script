@@ -45,6 +45,7 @@ public class AddMaterialMaster extends Locators {
 	 */
 	public void addNewMaterialMaster() {
 
+		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 
 		test.log(LogStatus.INFO, "click on Material master from left nav");
@@ -226,7 +227,7 @@ public class AddMaterialMaster extends Locators {
 	 */
 	public void createMaterialMasterWithGenerateDesc() {
 
-		common.waitForElement(dataTab);
+		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 
 		common.waitForElement(materialMaster);
@@ -402,8 +403,7 @@ public class AddMaterialMaster extends Locators {
 	 *
 	 */
 	public void viewMaterialMasterProcessLog() {
-
-		common.waitForElement(dataTab);
+		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.refreshPage();
 
@@ -474,6 +474,7 @@ public class AddMaterialMaster extends Locators {
 	public void viewMaterialMasterCompletedProcessLog() {
 
 		//wait for search filed
+		common.pause(5);
 		common.waitForElement(search);
 		common.pause(5);
 		common.refreshPage();

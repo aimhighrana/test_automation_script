@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -25,6 +26,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +35,7 @@ import java.util.Properties;
 public class ListPageSearch extends Locators {
 
 	Common common = new Common(driver);
-
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(15));
 	public ListPageSearch(WebDriver driver) throws FileNotFoundException {
 
 		super(driver);
@@ -45,8 +47,8 @@ public class ListPageSearch extends Locators {
 	 * 
 	 */
 	public void user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter() {
-		common.waitForElement(dataTab); // Wait element for
 
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -82,7 +84,7 @@ public class ListPageSearch extends Locators {
 		action.moveToElement(driver.findElement(By.tagName("body")), 0, 0);
 
 		action.moveByOffset(10, 20).click().build().perform();
-
+	common.pause(5);
 		common.waitForElement(modifiedOnFilter);
 
 		common.findElementBy(modifiedOnFilter, "Click on Modified on Filter").click();
@@ -115,8 +117,8 @@ public class ListPageSearch extends Locators {
 	 * 
 	 */
 	public void user_AbleToSearch_BasedOn_MaterialDesc_Group_Type_Indus_BaseUnitOfMeasure_In_Column_Filter() {
-		common.waitForElement(dataTab);
 
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -218,9 +220,7 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_AbleTo_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value() {
 
-		common.pause(15);
-		common.waitForElement(dataTab);
-
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -270,8 +270,7 @@ public class ListPageSearch extends Locators {
 	 * 
 	 */
 	public void user_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions() {
-		common.waitForElement(dataTab);
-
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -359,8 +358,8 @@ public class ListPageSearch extends Locators {
 	 * 
 	 */
 	public void user_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button() {
-		common.waitForElement(dataTab);
 
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -408,8 +407,8 @@ public class ListPageSearch extends Locators {
 	 * 
 	 */
 	public void user_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search() {
-		common.waitForElement(dataTab);
 
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -465,8 +464,8 @@ public class ListPageSearch extends Locators {
 	 * 
 	 */
 	public void user_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button() {
-		common.waitForElement(dataTab);
 
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -550,8 +549,7 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button() {
 
-		common.waitForElement(dataTab);
-
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -625,8 +623,7 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches() {
 
-		common.waitForElement(dataTab);
-
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(10);
 		common.waitForElement(search);
@@ -672,8 +669,7 @@ public class ListPageSearch extends Locators {
 	 */
 	public void column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields() {
 
-		common.waitForElement(dataTab);
-
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -727,8 +723,7 @@ public class ListPageSearch extends Locators {
 	 */
 	public void verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters() {
 
-		common.waitForElement(dataTab);
-
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
@@ -779,8 +774,8 @@ public class ListPageSearch extends Locators {
 	 *
 	 */
 	public void user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field() {
-		common.waitForElement(dataTab);
 
+		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");

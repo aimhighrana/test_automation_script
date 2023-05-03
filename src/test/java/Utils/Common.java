@@ -394,12 +394,8 @@ public class Common extends Locators {
 	}
 
 	public void waitForElement(String selector) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));
-		try {
-//            wait.until(visibilityOfElementLocated(By.xpath(selector)));
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(selector)));
-		} catch (TimeoutException e) {
-		}
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(selector)));
 	}
 
 	/**

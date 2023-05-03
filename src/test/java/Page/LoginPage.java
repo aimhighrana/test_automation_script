@@ -115,7 +115,7 @@ public class LoginPage extends Locators {
 		System.out.println("Step :: Click on login button");
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
-		common.pause(20);
+
 		common.waitForElement(dataTab);
 		test.log(LogStatus.INFO, "Env URL:: " + driver.getCurrentUrl());
 		System.out.println("Step:: Env URL: " + driver.getCurrentUrl());
