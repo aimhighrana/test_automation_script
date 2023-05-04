@@ -152,7 +152,7 @@
                         </property>
                     </properties>
 					<suiteXmlFiles>
-						<!--this list_Page_Search xml include all the test regarding global and advance search-->
+						<!--this list_Page_Search xml include all the test regarding advance search-->
 						<suiteXmlFile>build_xmls/list_Page_Search.xml</suiteXmlFile>
 						<!--this list_View xml include all the test regarding list view option like add, edit, delete view-->
 						<suiteXmlFile>build_xmls/list_View.xml</suiteXmlFile>

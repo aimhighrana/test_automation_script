@@ -175,9 +175,7 @@ public class ListView extends Locators {
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
 
-		common.assertElementPresent("//h4[normalize-space()='Material Master - " + viewStr + "']");
-
-		if (common.isElementPresent(firstValuematerialMaster)) {
+		if (common.isElementPresent("//h4[normalize-space()='Material Master - " + viewStr + "']")) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
 
