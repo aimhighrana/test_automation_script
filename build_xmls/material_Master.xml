@@ -11,7 +11,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="addNewMaterialMaster"></include>
+					<include name="add_New_Material_Master"></include>
 				</methods>
 			</class>
 		</classes>
@@ -20,7 +20,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="addNewMaterialMasterWithGenerateDescription"></include>
+					<include name="add_New_Material_Master_With_Generate_Description"></include>
 				</methods>
 			</class>
 		</classes>
@@ -29,7 +29,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="viewProcessLog"></include>
+					<include name="view_Process_Log"></include>
 				</methods>
 			</class>
 		</classes>
@@ -38,7 +38,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verifyApproveStatus"></include>
+					<include name="verify_Approve_Status"></include>
 				</methods>
 			</class>
 		</classes>
@@ -48,7 +48,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verifyClaimStatus"></include>
+					<include name="verify_Claim_Status"></include>
 				</methods>
 			</class>
 		</classes>
@@ -58,7 +58,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verifySaveAsDraft"></include>
+					<include name="verify_Save_As_Draft"></include>
 				</methods>
 			</class>
 		</classes>
@@ -68,7 +68,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verifyChange"></include>
+					<include name="verify_Change"></include>
 				</methods>
 			</class>
 		</classes>
@@ -78,7 +78,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verifyCopyRecord"></include>
+					<include name="verify_Copy_Record"></include>
 				</methods>
 			</class>
 		</classes>
@@ -89,7 +89,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verifyClaimUnClaimStatus"></include>
+					<include name="verify_Claim_UnClaim_Status"></include>
 				</methods>
 			</class>
 		</classes>
@@ -99,7 +99,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verifyRejectionFlowForNewRrecord"></include>
+					<include name="verify_Rejection_Flow_For_New_Record"></include>
 				</methods>
 			</class>
 		</classes>

@@ -104,7 +104,7 @@ public class AddMaterialMaster extends Locators {
 			common.pause(10);
 		} else {
 
-			System.out.println("No need to select Material Type");
+			common.log("No need to select Material Type");
 		}
 
 		// Filling plant records

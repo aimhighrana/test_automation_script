@@ -26,7 +26,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void addNewMaterialMaster(String env) throws InterruptedException, IOException {
+	public void add_New_Material_Master(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -42,7 +42,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void viewProcessLog(String env) throws InterruptedException, IOException {
+	public void view_Process_Log(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record and check process log");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -59,7 +59,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verifyApproveStatus(String env) throws InterruptedException, IOException {
+	public void verify_Approve_Status(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record and approve from Reviewer side");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -78,7 +78,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verifyClaimStatus(String env) throws InterruptedException, IOException {
+	public void verify_Claim_Status(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record and Claim status from reviewer");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -97,7 +97,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verifySaveAsDraft(String env) {
+	public void verify_Save_As_Draft(String env) {
 		common.log("TC:Add new material master record and Verify save as draft from reviewer");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -117,7 +117,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verifyChange(String env) {
+	public void verify_Change(String env) {
 		common.log("TC:Verify edit and update existing record");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -133,7 +133,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verifyCopyRecord(String env) {
+	public void verify_Copy_Record(String env) {
 		common.log("TC:Verify copy existing record");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -150,7 +150,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void addNewMaterialMasterWithGenerateDescription(String env) throws InterruptedException, IOException {
+	public void add_New_Material_Master_With_Generate_Description(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record with description");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -167,7 +167,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verifyClaimUnClaimStatus(String env) throws InterruptedException, IOException {
+	public void verify_Claim_UnClaim_Status(String env) throws InterruptedException, IOException {
 		common.log("TC:Add new material master record and Verify un-claim status from reviewer");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -186,7 +186,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verifyRejectionFlowForNewRrecord(String env) {
+	public void verify_Rejection_Flow_For_New_Record(String env) {
 		common.log("TC:Add new material master record and Reject the flow from Approver and Reviewer side");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -205,9 +205,9 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verifyDraftApprovalRecord(String env) throws InterruptedException, IOException {
+	public void verify_Draft_Approval_Record(String env) throws InterruptedException, IOException {
 
-		verifyClaimUnClaimStatus(env);
+		verify_Claim_UnClaim_Status(env);
 		driver.quit();
 
 	}
