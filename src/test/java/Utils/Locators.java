@@ -155,7 +155,7 @@ public abstract class Locators extends BasePage {
 
 	public static String isNotFilter = "//span[normalize-space()='Is not']";
 
-	public static String filterIndustrySector = "//p[normalize-space()='Industry Sector']";
+	public static String filterIndustrySector = "//p[normalize-space()='Industry sector']";
 
 	public static String valueFMCG_IndustrySectorFilter = "//mat-list-item[3]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]";
 
@@ -194,7 +194,7 @@ public abstract class Locators extends BasePage {
 
 	public static String confirmButton = "//span[normalize-space()='Confirm']";
 
-	public static String appliedIndusScetoryFilter = "//p[@class='base no-wrap ng-star-inserted'][normalize-space()='Industry Sector']";
+	public static String appliedIndusScetoryFilter = "//p[@class='base no-wrap ng-star-inserted'][normalize-space()='Industry sector']";
 
 
 	public static String threeDotsIconAppliedFilter = "//mat-icon[@class='mat-icon notranslate mdo-icons mat-icon-no-color'][normalize-space()='ellipsis-h']";
