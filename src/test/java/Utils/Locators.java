@@ -64,7 +64,7 @@ public abstract class Locators extends BasePage {
 	public static String dMaterialMaster = "//p[contains(text(),'Material Master')]";
 	public static String materialMasterroleValue = "//button[normalize-space()='Copy Of Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']";
 	
-	public static String industrySec = "//p[normalize-space()='Industry Sector']//..//..//div//input";
+	public static String industrySec = "//p[normalize-space()='Industry sector']//..//..//div//input";
 	public static String materialGroup = "//p[normalize-space()='Material Group']//..//..//div//input";
 	public static String generateDesc = "//span[contains(text(),'Generate description')]";
 	public static String claS = "//pros-transaction-generate-description[1]/div[2]/div[1]/form[1]/div[2]/div[1]/div[1]/input[1]";
@@ -131,6 +131,13 @@ public abstract class Locators extends BasePage {
 	public static String spac = "//div[@class='container-fluid container-cards-pf']";
 	public static String spacRecord = "//div[@class='container-fluid container-cards-pf']";
 	public static String searchB = "//pros-list-datatable[1]/div[1]/div[2]/div[1]/div[1]/lib-search[1]/div[1]//input";
+
+	public static String applySearch = "//p[normalize-space()='Apply']";
+
+	public static String clearSearch = "//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']";
+
+	public static String searchPlaceHolder ="//input[@data-placeholder='Search']";
+
 	public static String log = "//input[@id='user_submit']";
 	 public static String usenameProd = "//mat-sidenav-container[1]/mat-sidenav-content[1]/pros-login[1]/div[1]/div[1]/form[1]/div[1]/lib-input[1]/div[1]/div[1]/input[1]";
 	 public static String prodEnv = "//p[contains(text(),'Production')]";

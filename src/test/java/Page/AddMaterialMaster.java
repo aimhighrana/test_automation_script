@@ -156,8 +156,9 @@ public class AddMaterialMaster extends Locators {
 
 		test.log(LogStatus.INFO, "Step :: Select Valuation Cat. option");
 		System.out.println("Step :: Select Valuation Cat. option");
+		common.waitForElement(valCat);
 		common.findElement(valCat).click();
-		common.pause(5);
+		common.waitForElement(dropValue);
 		common.findElement(dropValue).click();
 		common.pause(10);
 
@@ -204,7 +205,7 @@ public class AddMaterialMaster extends Locators {
 
 			common.findElement(dropValue).click();
 			common.pause(5);
-			test.log(LogStatus.INFO, "Step :: -- click on sumbit button");
+			test.log(LogStatus.INFO, "Step :: -- click on submit button");
 			System.out.println("Step :: click on submit button");
 			common.log("click on submit button");
 			common.findElement(submitBtn).click();
@@ -215,7 +216,7 @@ public class AddMaterialMaster extends Locators {
 			System.out.println("Step :: No Something went error");
 		}
 
-		common.assertElementNotPresent(industrySec);
+		common.waitForElement(dataTab);
 		test.log(LogStatus.INFO, "Step :: Verifying Data tab available");
 		System.out.println("Step :: Verifying Data tab available");
 
@@ -339,7 +340,7 @@ public class AddMaterialMaster extends Locators {
 			common.scrollPage();
 		}
 
-		test.log(LogStatus.INFO, "Step :: -- click on sumbit button");
+		test.log(LogStatus.INFO, "Step :: -- click on submit button");
 		System.out.println("Step :: click on submit button");
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
@@ -846,6 +847,7 @@ public class AddMaterialMaster extends Locators {
 		test.log(LogStatus.INFO, "Step :: Select Industry Sector ");
 		System.out.println("Step :: Select Industry Sector");
 		common.log("Select Industry Sector");
+		common.waitForElement(industrySec);
 		common.findElement(industrySec).click();
 		common.pause(5);
 		common.findElement(dropValue).click();
@@ -887,7 +889,7 @@ public class AddMaterialMaster extends Locators {
 
 			System.out.println("Step :: No Something went error");
 		}
-		common.pause(20);
+		common.waitForElement(actionIconForFirstValue);
 		driver.findElement(By.xpath(actionIconForFirstValue)).click();
 
 		test.log(LogStatus.INFO, "Step :: Click on view process log");

@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -29,7 +30,7 @@ public class ListPageSearchTestcases extends BasePage {
 	/**--1--**/
 	@Test
 	@Parameters("env")
-	public void verify_Search_CreatedModified_On_Date_In_The_Column_Filter(String env) throws InterruptedException, IOException {
+	public void verify_Search_CreatedModified_On_Date_In_The_Column_Filter(String env) throws InterruptedException, IOException, AWTException {
 		common.log("TC --MDMF-TC-6196--");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
@@ -124,7 +125,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_User_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches(String env)
-			throws InterruptedException, IOException {
+			throws InterruptedException, IOException, AWTException {
 		common.log("TC --MDMF-TC-6215--");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);

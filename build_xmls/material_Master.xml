@@ -7,6 +7,7 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
 	<parameter name="env" value="QAH" />
+
 	 <test name="Test 1">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
@@ -62,7 +63,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
+	</test>
 
 	<test name="Test 7">
 		<classes>
@@ -84,7 +85,7 @@
 		</classes>
 	</test>
 
-	
+
 	<test name="Test 9">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
@@ -94,7 +95,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test name="Test 10">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">

@@ -80,11 +80,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		Actions action = new Actions(driver);
+		action.sendKeys(Keys.ESCAPE).perform();
 
-		action.moveToElement(driver.findElement(By.tagName("body")), 0, 0);
-
-		action.moveByOffset(10, 20).click().build().perform();
-	common.pause(5);
 		common.waitForElement(modifiedOnFilter);
 
 		common.findElementBy(modifiedOnFilter, "Click on Modified on Filter").click();
@@ -96,10 +93,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(date10, "Click on 10th date").click();
 		common.pause(20);
 
-		Actions action1 = new Actions(driver);
-		action1.moveToElement(driver.findElement(By.tagName("body")), 0, 0);
-
-		action1.moveByOffset(20, 200).click().build().perform();
+		action.sendKeys(Keys.ESCAPE).perform();
 		common.pause(10);
 
 		if (common.isElementPresent(firstValuematerialMaster)) {
@@ -828,4 +822,156 @@ public class ListPageSearch extends Locators {
 		common.log("First value of Material master table:: " + strFirstValue2);
 	}
 
+
+	/**
+	 * Verify User Able To Search Follow Fuzzy Logic,Verify Results And Clear Search
+	 *
+	 */
+	public void user_Able_To_Search_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search() {
+
+		common.pause(5);
+		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.waitForElement(search);
+		common.type(search, "Material Master");
+		common.waitForElement(materialMaster);
+		common.findElementBy(materialMaster, "Click on Material master").click();
+
+		common.waitForElement(dataTab);
+		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		common.waitForElement(searchB);
+		common.findElementBy(searchB,"Click on Search field and search '123' ").click();
+		driver.findElement(By.xpath(searchB)).sendKeys("123");
+		common.pause(10);
+
+		//verify searched material master record present
+		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
+		String strSearchedValue = driver.findElement(By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
+		System.out.println("Searched value:: " + strSearchedValue);
+		common.log("Searched value:: " + strSearchedValue);
+
+		common.findElementBy(applySearch,"Click on Apply button").click();
+		common.pause(10);
+
+		if (common.isElementPresent(firstValuematerialMaster)) {
+			String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+			System.out.println("First value of Material master table:: " + strFirstValue);
+			common.log("First value of Material master table:: " + strFirstValue);
+
+			common.assertElementPresent(firstValuematerialMaster);
+		}
+
+		common.findElementBy(clearSearch,"Clear the searched value from search field").click();
+
+		common.waitForElement(searchPlaceHolder);
+		common.assertElementPresent(searchPlaceHolder);
+
+	}
+
+	/**
+	 * Verify While Clearing The Text Search It Should Not Impact Any Applied Filters
+	 *
+	 */
+	public void verify_While_Clearing_The_Text_Search_It_Should_Not_Impact_Any_Applied_Filters() {
+
+		common.pause(5);
+		common.findElementBy(filterStatusDropdown, "Click on Status filter dropdown and Enter System").click();
+		common.type(filterStatusDropdown, "System");
+		common.pause(10);
+
+		common.findElementBy(searchB,"Click on Search field and search '123' ").click();
+		driver.findElement(By.xpath(searchB)).sendKeys("123");
+		common.pause(10);
+
+		//verify searched material master record present
+		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
+		String strSearchedValue = driver.findElement(By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
+		System.out.println("Searched value:: " + strSearchedValue);
+		common.log("Searched value:: " + strSearchedValue);
+
+		common.findElementBy(applySearch,"Click on Apply button").click();
+		common.pause(10);
+
+		if (common.isElementPresent(firstValuematerialMaster)) {
+			String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+			System.out.println("First value of Material master table:: " + strFirstValue);
+			common.log("First value of Material master table:: " + strFirstValue);
+
+			common.assertElementPresent(firstValuematerialMaster);
+		}
+		common.pause(10);
+		common.findElementBy(clearSearch,"Clear the searched value from search field").click();
+		common.jsClick(clearSearch);
+
+		common.waitForElement(searchPlaceHolder);
+		common.assertElementPresent(searchPlaceHolder);
+
+		common.log("Verify filtered status available");
+		common.assertElementPresent("//span[normalize-space()='Status']//..//span[normalize-space()='System']");
+
+	}
+
+	/**
+	 * User Should Be Able To Club The Text Search With Other List Page Filter
+	 *
+	 */
+	public void user_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter() {
+		common.pause(5);
+		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.waitForElement(search);
+		common.type(search, "Material Master");
+		common.waitForElement(materialMaster);
+		common.findElementBy(materialMaster, "Click on Material master").click();
+
+		common.waitForElement(dataTab);
+		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		common.findElementBy(searchB,"Click on Search field and search '123' ").click();
+		driver.findElement(By.xpath(searchB)).sendKeys("123");
+		common.pause(10);
+
+		//verify searched material master record present
+		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
+		String strSearchedValue = driver.findElement(By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
+		System.out.println("Searched value:: " + strSearchedValue);
+		common.log("Searched value:: " + strSearchedValue);
+
+		common.pause(5);
+		common.findElementBy(filterStatusDropdown, "Click on Status filter dropdown and Enter System").click();
+		common.type(filterStatusDropdown, "System");
+		common.pause(20);
+
+		common.findElementBy(applySearch,"Click on Apply button").click();
+		common.pause(10);
+
+		if (common.isElementPresent(firstValuematerialMaster)) {
+			String strFirstValue = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
+			System.out.println("First value of Material master table:: " + strFirstValue);
+			common.log("First value of Material master table:: " + strFirstValue);
+
+			common.assertElementPresent(firstValuematerialMaster);
+		}
+		common.pause(10);
+
+	}
 }

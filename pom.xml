@@ -154,6 +154,8 @@
 					<suiteXmlFiles>
 						<!--this list_Page_Search xml include all the test regarding advance search-->
 						<suiteXmlFile>build_xmls/list_Page_Search.xml</suiteXmlFile>
+						<!--this list_Page_Wild_Search xml include all the test regarding Global search-->
+						<suiteXmlFile>build_xmls/list_Page_Wild_Search.xml</suiteXmlFile>
 						<!--this list_View xml include all the test regarding list view option like add, edit, delete view-->
 						<suiteXmlFile>build_xmls/list_View.xml</suiteXmlFile>
 						<!--this material_Master xml include all the test regarding material master record functionality-->
