@@ -49,10 +49,10 @@ public class BasePage implements ITestListener {
 	protected static Logger logger = Logger.getLogger("testing");
 	public LoginPage loginPage;
 	public AddMaterialMaster materialmaster;
-
 	public ListPageSearch listPageSearch;
 	public ListView listView;
 	public Flow flow;
+	public HomePage homePage;
 	public static ExtentTest test;
 	public static ExtentReports report;
 
@@ -103,6 +103,7 @@ public class BasePage implements ITestListener {
 		flow = new Flow(driver);
 		listPageSearch = new ListPageSearch(driver);
 		listView = new ListView(driver);
+		homePage = new HomePage(driver);
 	}
 
 	protected Properties getConfigProperties() {
@@ -153,11 +154,11 @@ public class BasePage implements ITestListener {
 		Reporter.setCurrentTestResult(testResult);
 		File img = new File("target" + File.separator + "surefire-reports" + File.separator + testName + ".png");
 		if (testResult.getStatus() == 1) {
-			log("PASS : " + testResult.getName());
+			log("PASS :: " + testResult.getName());
 			testResult.getThrowable();
 		}
 		if (testResult.getStatus() == 2) {
-			log("FAIL : " + testResult.getName());
+			log("FAIL :: " + testResult.getName());
 		//	makeScreenshot(driver, testName);
 		//	Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
 		//	FileOutputStream screenshotStream = new FileOutputStream(img);
@@ -190,6 +191,6 @@ public class BasePage implements ITestListener {
 
 	public void log(String log) {
 		System.out.println(log);
-		Reporter.log(log + "<br>");
+		Reporter.log(log );
 	}
 }

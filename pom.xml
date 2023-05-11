@@ -152,6 +152,8 @@
                         </property>
                     </properties>
 					<suiteXmlFiles>
+						<!--this home_Page xml include all the test regarding Home menu-->
+						<suiteXmlFile>build_xmls/home_Page.xml</suiteXmlFile>
 						<!--this list_Page_Search xml include all the test regarding advance search-->
 						<suiteXmlFile>build_xmls/list_Page_Search.xml</suiteXmlFile>
 						<!--this list_Page_Wild_Search xml include all the test regarding Global search-->

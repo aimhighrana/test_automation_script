@@ -266,8 +266,9 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(materialGroup);
 		common.pause(10);
 
+		common.waitForElement(industrySec);
 		common.findElementBy(industrySec,"Click on Industry sector dropdown and select value from it").click();
-		common.pause(5);
+		common.waitForElement(dropValue);
 		common.findElement(dropValue).click();
 
 		common.pause(20);
@@ -278,9 +279,9 @@ public class AddMaterialMaster extends Locators {
 		test.log(LogStatus.INFO, "Step :: Select class value");
 		System.out.println("Step :: Select class value");
 		common.log("Select class");
-		common.pause(20);
+		common.waitForElement(claS);
 		common.findElement(claS).click();
-		common.pause(3);
+		common.waitForElement(classval);
 		common.findElement(classval).click();
 		common.pause(3);
 
@@ -293,7 +294,7 @@ public class AddMaterialMaster extends Locators {
 		common.log("Select plant value");
 
 		common.findElement(plantdataPlusIcon).click();
-		common.pause(10);
+		common.waitForElement(plantvalue);
 		common.findElement(plantvalue).click();
 
 		common.findElementBy(applyBtn,"Click on apply button").click();
@@ -330,9 +331,9 @@ public class AddMaterialMaster extends Locators {
 
 		common.findElementBy(applyBtn,"Click on apply button").click();
 
-		common.pause(5);
+		common.waitForElement(valCat);
 		common.findElement(valCat).click();
-		common.pause(5);
+		common.waitForElement(dropValue);
 		common.findElement(dropValue).click();
 
 		common.pause(20);
@@ -379,12 +380,12 @@ public class AddMaterialMaster extends Locators {
 
 			System.out.println("Step :: No Something went error");
 		}
-		common.pause(40);
 
-		for (int j = 0; j < 2; j++) {
-			common.refreshPage();
-		}
-		common.pause(20);
+//		for (int j = 0; j < 2; j++) {
+//			common.refreshPage();
+//		}
+
+		common.waitForElement(searchB);
 		String materialMasterNum = common.findElement(materialNumFromTbl).getText();
 		test.log(LogStatus.INFO, "Step :: -- Material master number is ");
 		System.out.println("Step :: Material master number is ::" + materialMasterNum);
@@ -449,7 +450,7 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on view change ");
 		common.log("Click on view change");
 		driver.findElement(By.xpath(completedViewProcessLog)).click();
-		common.pause(15);
+		common.waitForElement(headerData);
 		Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
 		test.log(LogStatus.INFO, "Step :: -- Header title is displaying ");
 		System.out.println("Step :: Header Title is displaying:: >>" + header);

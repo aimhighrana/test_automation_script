@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Home_Page_Automation_Testcases" verbose="10" parallel="tests"
+	thread-count="1">
+	<listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+	<parameter name="env" value="QAH" />
+
+<!--	 <test name="Test 1">-->
+<!--		<classes>-->
+<!--			<class name="Test.HomePageTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_That_In_INBOX_Folder_RecordId_Other_Data_And_Functionality_Should_Be_Working_Fine"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
+
+<!--	<test name="Test 2">-->
+<!--		<classes>-->
+<!--			<class name="Test.HomePageTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_That_Different_Options_Will_Be_Present_Under_Action_Button"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
+
+<!--	<test name="Test 3">-->
+<!--		<classes>-->
+<!--			<class name="Test.HomePageTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_Column_Details_Displayed_In_Task_Folders"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
+
+	<test name="Test 4">
+		<classes>
+			<class name="Test.HomePageTestcases">
+				<methods>
+					<include name="verify_Failed_Records_Column_For_Cross_Dataset_Integration_Daxe_Process_Log_Tasks"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

@@ -25,7 +25,6 @@ public abstract class Locators extends BasePage {
 	public static String loginBtn = "//span[contains(text(),'Login')]";
 	public static String qaEnv = "//p[contains(text(),'QA')]";
 	public static String dataTab = "//div[contains(text(),' Data ')]";
-	public static String homeTab = "//div[@class='mat-list-item-content']//..//div[contains(text(),'Home')]";
 	public static String search = "//input[@placeholder='Search Data'] | //input[@placeholder='Search data']";
 	public static String materialMaster = "//p[contains(text(),'Material Master')]";
 	public static String newRecordBtn = "//span[contains(text(),'New record')] | //div[@class='f-col state-container']//div[@class='f-row']";
@@ -71,8 +70,7 @@ public abstract class Locators extends BasePage {
 	public static String classval = "//span[contains(text(),' PIPE ')]| //span[contains(text(),' ADDITIVE ')]";
 	public static String summaryVal = "//button[contains(text(),' Summary ')]";
 	public static String loading = "//p[normalize-space()='Loading Group']//..//..//mat-icon";
-	
-	public static String inboxMenu = "//lib-text-line[contains(text(),'Inbox')]";
+
 	public static String copy = "//button[contains(text(),'Copy')]";
 	public static String recordno = "//mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/div[1]/div[1]/input[1]";
 	public static String plantD = "//div[1]/div[1]/pros-transaction-hierarchy-list[1]/div[1]/mat-tree[1]/mat-tree-node[2]/div[1]/div[1]";
@@ -104,7 +102,6 @@ public abstract class Locators extends BasePage {
 	public static String approveButton = "//span[contains(text(),' Approve ')]";
 	public static String claim = "//button[contains(text(),'Claim')]";
 	public static String unclaim = "//button[normalize-space()='Unclaim']";
-	public static String myReqTab = "//lib-text-line[contains(text(),'My requests')]";
 	public static String processLogOption = "//button[normalize-space()='Process log']";
 	public static String lblText = "//div[@class='display-heading ng-star-inserted']";
 	public static String dChange = "//button[contains(text(),' Description Change ')]";
@@ -216,9 +213,8 @@ public abstract class Locators extends BasePage {
 	public static String manufacturerPartNumFilterTab = "//p[normalize-space()='Manufacturer Part Number']";
 	public static String inputManufacturerPartNumFilter = "//h4[normalize-space()='Manufacturer Part Number']//..//..//..//input";
 
+
 	// List View
-
-
 	public static String dropDownViewICon = "//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']//mat-icon[@role='img'][normalize-space()='caret-down']";
 
 	public static String newViewOption = "//button[normalize-space()='New view']";
@@ -251,6 +247,17 @@ public abstract class Locators extends BasePage {
 	public static String downloadTemplatesOption = "//button[normalize-space()='Download templates']";
 	public static String descriptionOption = "//button[normalize-space()='Description']";
 
+
+	// Home page
+
+	public static String homeTab = "//div[@class='mat-list-item-content']//..//div[contains(text(),'Home')]";
+	public static String inboxMenu = "//lib-text-line[contains(text(),'Inbox')]";
+	public static String inProgressMenu = "//lib-text-line[normalize-space()='In progress']";
+	public static String completedMenu = "//lib-text-line[normalize-space()='Completed']";
+	public static String myReqTab = "//lib-text-line[contains(text(),'My requests')]";
+	public static String systemErrorsTab = "//lib-text-line[normalize-space()='System Errors']";
+	public static String searchSystemErrorsTab = "//lib-search[@placeholder='Search']//div[@class='mdo-search-pill f-row']//input";
+	public static String clearSearchSystemErrorsTab = "//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']";
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
 	protected WebElement filterIndustrySector1;
 
