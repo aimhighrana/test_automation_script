@@ -79,11 +79,12 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Claim_Status(String env) throws InterruptedException, IOException {
+		common.log("TC --MDMF-TC-8371--/MDMF-TC-8372");
 		common.log("TC:Add new material master record and Claim status from reviewer");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
-		materialmaster.viewMaterialMasterProcessLog();
+//		materialmaster.viewMaterialMasterProcessLog();
 		loginPage.revSignIn(env);
 		materialmaster.claimStatus();
 

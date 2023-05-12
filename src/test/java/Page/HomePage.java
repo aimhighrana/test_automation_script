@@ -138,5 +138,149 @@ public class HomePage extends Locators {
 
 	}
 
+	/**
+	 * Verify that once the record is successful re-trigger for integration record should not reflecting in In-error folder
+	 *
+	 */
+	public void verify_That_Once_The_Record_Is_Successful_ReTrigger_For_Integration_Record_Should_Not_Reflecting_In_Error_Folder() {
+
+		common.pause(5);
+		common.findElementBy(homeTab, "Click on Home tab").click();
+		common.waitForElement(systemErrorsTab);
+
+		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
+		common.waitForElement(searchSystemErrorsTab);
+
+		common.findElementBy(retriggerIcon, "Click on re-Trigger icon for integration record").click();
+		common.pause(10);
+
+		if (common.isElementPresent(successRetrigger)) {
+			String successMessage = driver.findElement(By.xpath(successRetrigger)).getText();
+			System.out.println("Success message:: " + successMessage);
+			common.log("Success message:: " + successMessage);
+		}
+		else {
+			common.log("Unable to re-trigger process");
+		}
+	}
+
+	/**
+	 * Verify that all the filters type are working in In-error folder
+	 *
+	 */
+	public void verify_That_All_The_Filters_Type_Are_Working_In_Error_Folder() {
+
+		common.pause(5);
+		common.findElementBy(homeTab, "Click on Home tab").click();
+		common.waitForElement(systemErrorsTab);
+
+		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
+		common.waitForElement(searchSystemErrorsTab);
+
+		common.findElementBy(flowFilter, "Click on Flow filter").click();
+
+		String firstOption = driver.findElement(By.xpath(firstOptionFilter)).getText();
+		System.out.println("First option in flow filter:: " + firstOption);
+		common.log("First option in flow filter:: " + firstOption);
+
+		common.findElementBy(firstOptionFilter,"Select first option").click();
+
+		common.pause(5);
+
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.ESCAPE).perform();
+
+		if (common.isElementPresent("//tbody/tr[1]")) {
+			String firstRecord = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
+			System.out.println("First record after apply flow filter:: " + firstRecord);
+			common.log("First record after apply flow filter:: " + firstRecord);
+		}
+
+		common.findElementBy(taskFilter, "Click on Task type filter").click();
+		String firstOption1 = driver.findElement(By.xpath(firstOptionFilter)).getText();
+		System.out.println("First option in Task type filter:: " + firstOption1);
+		common.log("First option in task type filter:: " + firstOption1);
+
+		common.findElementBy(firstOptionFilter,"Select first option").click();
+		common.pause(5);
+
+		action.sendKeys(Keys.ESCAPE).perform();
+
+		if (common.isElementPresent("//tbody/tr[1]")) {
+			String firstRecord = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
+			System.out.println("First record after apply task type filter:: " + firstRecord);
+			common.log("First record after apply task type filter:: " + firstRecord);
+		}
+		else {
+			common.log("Nothing to see here!");
+		}
+
+	}
+	/**
+	 * To verify that in In progress folder, record Id, other data & functionality should be working fine
+	 *
+	 */
+	public void verify_That_In_In_progress_Folder_Record_Id_Other_Data_And_Functionality_Should_Be_Working_Fine() {
+
+		common.pause(5);
+		common.findElementBy(homeTab, "Click on Home tab").click();
+		common.waitForElement(inProgressMenu);
+
+		common.findElementBy(inProgressMenu, "Click on In Progress menu").click();
+		common.waitForElement(searchSystemErrorsTab);
+
+		for (int i = 1; i <= 2; i++) {
+			if (common.isElementPresent("//tbody/tr[" + i + "]")) {
+				String firstRecord = driver.findElement(By.xpath("//tbody/tr[" + i + "]")).getText();
+				System.out.println(i + " record of In progress table:: " + firstRecord);
+				common.log(i + " record of In progress table:: " + firstRecord);
+			} else {
+				common.log("Nothing to see here!");
+			}
+		}
+			common.findElementBy(firstActionIconForInbox, "Click on action menu for first record").click();
+
+			common.findElementBy(viewProcessLogOption, "View process log option is available");
+
+	}
+	/**
+	 * To verify that in Completed folder, record Id, other data & functionality should be working fine.
+	 *
+	 */
+	public void verify_That_In_Completed_Folder_Record_Id_Other_Data_Functionality_Should_Be_Working_Fine() {
+
+		common.pause(5);
+		common.findElementBy(homeTab, "Click on Home tab").click();
+		common.waitForElement(inProgressMenu);
+
+		common.findElementBy(completedMenu, "Click on Completed menu").click();
+		common.pause(20);
+
+			if (common.isElementPresent("//tbody/tr[1]")) {
+				String firstRecord = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
+				System.out.println(" record of Completed table:: " + firstRecord);
+				common.log(" record of Completed table:: " + firstRecord);
+			}
+			else {
+				common.log("Nothing to see here!");
+			}
+
+		for (int i = 1; i <= 2; i++) {
+			if (common.isElementPresent("//tbody/tr[" + i + "]")) {
+				String firstRecord = driver.findElement(By.xpath("//tbody/tr[" + i + "]")).getText();
+				System.out.println(i + " record of Completed table:: " + firstRecord);
+				common.log(i + " record of Completed table:: " + firstRecord);
+
+				common.findElementBy(firstActionIconForInbox, "Click on action menu for first record").click();
+
+				common.findElementBy(viewProcessLogOption, "View process log option is available");
+			} else {
+				common.log("Nothing to see here!");
+			}
+		}
+
+
+	}
+
 
 }

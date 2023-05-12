@@ -609,8 +609,7 @@ public class AddMaterialMaster extends Locators {
 			System.out.println("Step :: click on claim");
 			common.log("Click on claim");
 			common.findElement(claim).click();
-
-			common.waitForElement("//div[@id='cdk-overlay-13']");
+			common.pause(15);
 
 			test.log(LogStatus.INFO, "Step :: click on my request ");
 			System.out.println("Step :: click on my request");

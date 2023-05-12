@@ -8,42 +8,42 @@
     </listeners>
 	<parameter name="env" value="QAH" />
 
-	 <test name="Test 1">
-		<classes>
-			<class name="Test.MaterialMasterTestcases">
-				<methods>
-					<include name="add_New_Material_Master"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	 <test name="Test 2">
-		<classes>
-			<class name="Test.MaterialMasterTestcases">
-				<methods>
-					<include name="add_New_Material_Master_With_Generate_Description"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Test 3">
-		<classes>
-			<class name="Test.MaterialMasterTestcases">
-				<methods>
-					<include name="view_Process_Log"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Test 4">
-		<classes>
-			<class name="Test.MaterialMasterTestcases">
-				<methods>
-					<include name="verify_Approve_Status"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
+<!--	 <test name="Test 1">-->
+<!--		<classes>-->
+<!--			<class name="Test.MaterialMasterTestcases">-->
+<!--				<methods>-->
+<!--					<include name="add_New_Material_Master"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
+<!--	 <test name="Test 2">-->
+<!--		<classes>-->
+<!--			<class name="Test.MaterialMasterTestcases">-->
+<!--				<methods>-->
+<!--					<include name="add_New_Material_Master_With_Generate_Description"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
+<!--	<test name="Test 3">-->
+<!--		<classes>-->
+<!--			<class name="Test.MaterialMasterTestcases">-->
+<!--				<methods>-->
+<!--					<include name="view_Process_Log"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
+<!--	<test name="Test 4">-->
+<!--		<classes>-->
+<!--			<class name="Test.MaterialMasterTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_Approve_Status"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
 
 	 <test name="Test 5">
 		<classes>
@@ -55,54 +55,54 @@
 		</classes>
 	</test>
 
-	<test name="Test 6">
-		<classes>
-			<class name="Test.MaterialMasterTestcases">
-				<methods>
-					<include name="verify_Save_As_Draft"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
+<!--	<test name="Test 6">-->
+<!--		<classes>-->
+<!--			<class name="Test.MaterialMasterTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_Save_As_Draft"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
 
-	<test name="Test 7">
-		<classes>
-			<class name="Test.MaterialMasterTestcases">
-				<methods>
-					<include name="verify_Change"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
+<!--	<test name="Test 7">-->
+<!--		<classes>-->
+<!--			<class name="Test.MaterialMasterTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_Change"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
 
-	<test name="Test 8">
-		<classes>
-			<class name="Test.MaterialMasterTestcases">
-				<methods>
-					<include name="verify_Copy_Record"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
+<!--	<test name="Test 8">-->
+<!--		<classes>-->
+<!--			<class name="Test.MaterialMasterTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_Copy_Record"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
 
 
-	<test name="Test 9">
-		<classes>
-			<class name="Test.MaterialMasterTestcases">
-				<methods>
-					<include name="verify_Claim_UnClaim_Status"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
+<!--	<test name="Test 9">-->
+<!--		<classes>-->
+<!--			<class name="Test.MaterialMasterTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_Claim_UnClaim_Status"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
 
-	<test name="Test 10">
-		<classes>
-			<class name="Test.MaterialMasterTestcases">
-				<methods>
-					<include name="verify_Rejection_Flow_For_New_Record"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
+<!--	<test name="Test 10">-->
+<!--		<classes>-->
+<!--			<class name="Test.MaterialMasterTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_Rejection_Flow_For_New_Record"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
 </suite>

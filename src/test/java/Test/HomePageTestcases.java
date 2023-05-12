@@ -61,4 +61,43 @@ public class HomePageTestcases extends BasePage {
 		loginPage.check_SignIn(env);
 		homePage.verify_Failed_Records_Column_For_Cross_Dataset_Integration_Daxe_Process_Log_Tasks();
 	}
+
+	/**--5--**/
+	@Test
+	@Parameters("env")
+	public void verify_That_Once_The_Record_Is_Successful_ReTrigger_For_Integration_Record_Should_Not_Reflecting_In_Error_Folder(String env) throws InterruptedException, IOException, AWTException {
+		common.log("TC --MDMF-TC-6798--");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		homePage.verify_That_Once_The_Record_Is_Successful_ReTrigger_For_Integration_Record_Should_Not_Reflecting_In_Error_Folder();
+	}
+
+	/**--6--**/
+	@Test
+	@Parameters("env")
+	public void verify_That_All_The_Filters_Type_Are_Working_In_Error_Folder(String env) throws InterruptedException, IOException, AWTException {
+		common.log("TC --MDMF-TC-6804--");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		homePage.verify_That_All_The_Filters_Type_Are_Working_In_Error_Folder();
+	}
+
+	/**--7--**/
+	@Test
+	@Parameters("env")
+	public void verify_That_In_In_progress_Folder_Record_Id_Other_Data_And_Functionality_Should_Be_Working_Fine(String env) throws InterruptedException, IOException, AWTException {
+		common.log("TC --MDMF-TC-8366--/MDMF-TC-8367");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		homePage.verify_That_In_In_progress_Folder_Record_Id_Other_Data_And_Functionality_Should_Be_Working_Fine();
+	}
+	/**--8--**/
+	@Test
+	@Parameters("env")
+	public void verify_That_In_Completed_Folder_Record_Id_Other_Data_Functionality_Should_Be_Working_Fine(String env) throws InterruptedException, IOException, AWTException {
+		common.log("TC --MDMF-TC-8368--/MDMF-TC-8370");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		homePage.verify_That_In_Completed_Folder_Record_Id_Other_Data_Functionality_Should_Be_Working_Fine();
+	}
 }

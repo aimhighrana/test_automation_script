@@ -160,7 +160,7 @@ public class LoginPage extends Locators {
 			}
 			System.out.println("Step :: Entering password: " + getPropertyValue("qahRevPassword"));
 			common.log("Entering password: " + getPropertyValue("qahRevPassword"));
-			WebElement passwordField = driver.findElement(By.xpath(RevPwdField));
+			WebElement passwordField = driver.findElement(By.xpath(PasswordField));
 			passwordField.sendKeys(getPropertyValue("qahRevPassword"));
 		}
 		else

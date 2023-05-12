@@ -258,6 +258,12 @@ public abstract class Locators extends BasePage {
 	public static String systemErrorsTab = "//lib-text-line[normalize-space()='System Errors']";
 	public static String searchSystemErrorsTab = "//lib-search[@placeholder='Search']//div[@class='mdo-search-pill f-row']//input";
 	public static String clearSearchSystemErrorsTab = "//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']";
+	public static String retriggerIcon = "//tbody/tr[1]/td[2]//mat-icon[text()='arrow-rotate-right']";
+	public static String successRetrigger = "//div[@class='mdo-notice f-row mdo-notice-success']";
+
+	public static String flowFilter ="//span[normalize-space()='Flow']";
+	public static String taskFilter = "//span[normalize-space()='Task type']";
+	public static String firstOptionFilter ="//div[@class='options']//lib-filter-option[1]//div[1]//label";
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
 	protected WebElement filterIndustrySector1;
 
