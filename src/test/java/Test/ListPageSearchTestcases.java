@@ -31,7 +31,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Search_CreatedModified_On_Date_In_The_Column_Filter(String env) throws InterruptedException, IOException, AWTException {
-		common.log("TC --MDMF-TC-6196--");
+		common.log("TC --MDMF-TC-6196--/MDMF-TC-1279");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		listPageSearch.user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
@@ -43,7 +43,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Search_Based_On_MatrialDesc_Group_Type_Industry_Sector_BaseUnitOfMeasure_In_The_Column_Filter(String env)
 			throws InterruptedException, IOException {
-		common.log("TC --MDMF-TC-6197--");
+		common.log("TC --MDMF-TC-6197--/MDMF-TC-6205");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		listPageSearch.user_AbleToSearch_BasedOn_MaterialDesc_Group_Type_Indus_BaseUnitOfMeasure_In_Column_Filter();

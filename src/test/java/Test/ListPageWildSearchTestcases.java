@@ -24,7 +24,7 @@ public class ListPageWildSearchTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_The_Search_Should_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search(String env) throws InterruptedException, IOException {
-		common.log("TC --MDMF-TC-5501--/--MDMF-TC-5503--/--MDMF-TC-5504--");
+		common.log("TC --MDMF-TC-5501--/--MDMF-TC-5503--/--MDMF-TC-5504--/MDMF-TC-5497");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		listPageSearch.user_Able_To_Search_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search();

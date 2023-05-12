@@ -281,8 +281,8 @@ public class AddMaterialMaster extends Locators {
 		common.log("Select class");
 		common.waitForElement(claS);
 		common.findElement(claS).click();
-		common.waitForElement(classval);
-		common.findElement(classval).click();
+//		common.waitForElement(classval);
+//		common.findElement(classval).click();
 		common.pause(3);
 
 		// Filling plant records
@@ -397,6 +397,7 @@ public class AddMaterialMaster extends Locators {
 		driver.findElement(By.xpath(searchB)).sendKeys(materialMasterNum);
 		common.pause(25);
 		//verify searched material master record present
+		common.log("Material master number is available on table:: " + materialMasterNum);
 		common.assertElementPresent("//mark[normalize-space()='" + materialMasterNum + "']");
 	}
 

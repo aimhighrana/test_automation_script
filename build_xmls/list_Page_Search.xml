@@ -50,7 +50,8 @@
 			</class>
 		</classes>
 	</test>
-<test name="Test 5">
+
+	<test name="Test 5">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -101,4 +102,40 @@
 		</classes>
 	</test>
 
+	<test name="Test 10">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_Column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Test 11">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_The_User_Is_Able_To_Delete_The_Saved_Filter"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Test 12">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Test 13">
+		<classes>
+			<class name="Test.ListPageSearchTestcases">
+				<methods>
+					<include name="verify_User_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>

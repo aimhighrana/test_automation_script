@@ -174,8 +174,10 @@ public class ListPageSearch extends Locators {
 		common.log("Click on Material Description tab");
 		common.jsClick(filterMaterialDesc);
 		common.waitForElement(input_MaterialDescFilter);
+		common.log("Enter 'BALL' in  Material Description textarea");
 		common.type(input_MaterialDescFilter, "BALL");
 
+		common.log("Click on Enter for save details");
 		common.findElementBy(input_MaterialDescFilter, "").sendKeys(Keys.ENTER);
 
 		common.findElementBy(applyFilterButton, "Click on apply button").click();

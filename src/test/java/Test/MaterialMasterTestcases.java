@@ -152,7 +152,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void add_New_Material_Master_With_Generate_Description(String env) throws InterruptedException, IOException {
-		common.log("TC:Add new material master record with description");
+		common.log("TC:Add new material master record with description/MDMF-TC-6195");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialmaster.createMaterialMasterWithGenerateDesc();
