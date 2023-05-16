@@ -43,7 +43,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void view_Process_Log(String env) throws InterruptedException, IOException {
-		common.log("TC:Add new material master record and check process log");
+		common.log("TC:Add new material master record and check process log: MDMF-TC-8405");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
@@ -52,24 +52,39 @@ public class MaterialMasterTestcases extends BasePage {
 	}
 
 	/**
-	 * Approve request module
+	 * Approve request from reviewer
 	 * 
 	 * @throws InterruptedException
 	 * @throws IOException
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_Approve_Status(String env) throws InterruptedException, IOException {
-		common.log("TC:Add new material master record and approve from Reviewer side");
+	public void verify_Approve_Status_From_Reviewer(String env) throws InterruptedException, IOException {
+		common.log("TC:Add new material master record and approve from Reviewer side: MDMF-TC-8401/MDMF-TC-8402");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialmaster.addNewMaterialMaster();
-		materialmaster.viewMaterialMasterProcessLog();
+//		materialmaster.viewMaterialMasterProcessLog();
 		loginPage.revSignIn(env);
 		materialmaster.approveStatus();
 
 	}
+	/**
+	 * Approve request module
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Approve_Status_From_Approver(String env) throws InterruptedException, IOException {
+		common.log("TC:Add new material master record and approve from Approver side: MDMF-TC-8404");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		materialmaster.addNewMaterialMaster();
+		materialmaster.approveStatus();
 
+	}
 	/**
 	 * claim status
 	 * 
@@ -119,7 +134,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Change(String env) {
-		common.log("TC:Verify edit and update existing record");
+		common.log("TC:Verify edit and update existing record: MDMF-TC-8399/MDMF-TC-8400/MDMF-TC-8403");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialmaster.doUpdate();
@@ -134,11 +149,14 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_Copy_Record(String env) {
-		common.log("TC:Verify copy existing record");
+	public void verify_Copy_Record_And_Approve_From_Reviewer(String env) {
+		common.log("TC:Verify copy existing record: MDMF-TC-8418/MDMF-TC-8419/MDMF-TC-8422/MDMF-TC-8423");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
+		materialmaster.createMaterialMasterWithGenerateDesc();
 		materialmaster.copyRecord();
+		loginPage.revSignIn(env);
+		materialmaster.approveStatus();
 		
 
 	}
@@ -196,6 +214,22 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.rejectionFlowFromApprover();
 		loginPage.revSignIn(env);
 		materialmaster.rejectionFlowFromReviewer();
+	}
+	/**
+	 * Verification of rejection Flow feature for copied record
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Copy_Record_And_Rejection_Flow_For_New_Record(String env) {
+		common.log("TC:Verify Copy record and Reject the flow from Approver: MDMF-TC-8424");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		materialmaster.addNewMaterialMaster();
+		materialmaster.copyRecord();
+		materialmaster.rejectionFlowFromApprover();
 	}
 
 	/**

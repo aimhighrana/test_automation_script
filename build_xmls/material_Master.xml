@@ -39,13 +39,23 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Approve_Status"></include>
+					<include name="verify_Approve_Status_From_Reviewer"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
 
-	 <test name="Test 5">
+	<test name="Test 5">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verify_Approve_Status_From_Approver"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	 <test name="Test 6">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
@@ -55,7 +65,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 6">
+	<test name="Test 7">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
@@ -65,7 +75,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 7">
+	<test name="Test 8">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
@@ -75,18 +85,18 @@
 		</classes>
 	</test>
 
-	<test name="Test 8">
+	<test name="Test 9">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Copy_Record"></include>
+					<include name="verify_Copy_Record_And_Approve_From_Reviewer"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
 
 
-	<test name="Test 9">
+	<test name="Test 10">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
@@ -96,11 +106,21 @@
 		</classes>
 	</test>
 
-	<test name="Test 10">
+	<test name="Test 11">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
 					<include name="verify_Rejection_Flow_For_New_Record"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test 12">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verify_Copy_Record_And_Rejection_Flow_For_New_Record"></include>
 				</methods>
 			</class>
 		</classes>

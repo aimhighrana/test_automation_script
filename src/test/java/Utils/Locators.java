@@ -80,6 +80,8 @@ public abstract class Locators extends BasePage {
 	public static String newRecordTitle = "//div[1]/div[1]/div[2]/div[1]/lib-text-line[1]/h4[1]";
 	public static String newPlantD = "//div[1]/mat-tree[1]/mat-tree-node[3]/div[1]/div[1]/lib-text-line[1]/p[1]";
 	public static String dropValue = "//div[@role='listbox']//mat-option[2]";
+	public static String plusStorageData ="//p[text()='Storage Data ']//..//..//mat-icon[text()='plus']";
+	public static String firstOptionStorageData ="//label[@for='mat-checkbox-275-input']//span[@class='mat-checkbox-inner-container']";
 	public static String manufacturerPartNum ="//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer Part Number']//..//..//..//div//input";
 	public static String dropValueLoading = "//div[@role='listbox']//mat-option[1]";
 	public static String plantdataPlusIcon = "//p[normalize-space()='Plant Data']//..//..//lib-button[1]//button[1]";

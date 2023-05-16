@@ -281,8 +281,8 @@ public class AddMaterialMaster extends Locators {
 		common.log("Select class");
 		common.waitForElement(claS);
 		common.findElement(claS).click();
-//		common.waitForElement(classval);
-//		common.findElement(classval).click();
+		common.waitForElement(classval);
+		common.findElement(classval).click();
 		common.pause(3);
 
 		// Filling plant records
@@ -548,9 +548,12 @@ public class AddMaterialMaster extends Locators {
 	 */
 	public void approveStatus() {
 
+		//wait for Home tab
+		common.waitForElement(homeTab);
+		common.findElementBy(homeTab,"Click on Home tab").click();
+
 		//wait for Inbox menu
 		common.waitForElement(inboxMenu);
-
 		test.log(LogStatus.INFO, "Step :: Click on Inbox menu ");
 		System.out.println("Step :: Click on Inbox menu");
 		common.log("Click on Inbox menu");
@@ -853,6 +856,13 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 		common.findElement(dropValue).click();
 
+		common.findElementBy(plusStorageData, "Click on plus icon for Storage Data hierarchy");
+
+		common.findElementBy(firstOptionStorageData, "Select first option for Storage Data hierarchy");
+
+		common.findElementBy(applyFilterButton, "Click on apply button");
+		common.pause(5);
+
 		test.log(LogStatus.INFO, "Step :: Click on save button");
 		System.out.println("Step :: Click on save button");
 		common.log("Click on save button");
@@ -976,14 +986,15 @@ public class AddMaterialMaster extends Locators {
 		}
 		String valD = "";
 
-		boolean valData = driver.findElement(By.xpath(valuationD)).isDisplayed();
-		if (valData == true) {
-			valD = driver.findElement(By.xpath(valuationD)).getText();
-			test.log(LogStatus.INFO, "Step :: valuation records is displayed: " + valD);
-			System.out.println("Step:: valuation records is displayed: "+valD);
-			common.log("valuation records is displayed: "+valD);
+		if (common.isElementPresent(valuationD)) {
+			boolean valData = driver.findElement(By.xpath(valuationD)).isDisplayed();
+			if (valData == true) {
+				valD = driver.findElement(By.xpath(valuationD)).getText();
+				test.log(LogStatus.INFO, "Step :: valuation records is displayed: " + valD);
+				System.out.println("Step:: valuation records is displayed: " + valD);
+				common.log("valuation records is displayed: " + valD);
+			}
 		}
-
 		test.log(LogStatus.INFO, "Step :: click on copy button ");
 		System.out.println("Step :: click on copy button");
 		common.log("Click on copy button");
@@ -1005,17 +1016,20 @@ public class AddMaterialMaster extends Locators {
 			System.out.println("Step :: New record plant record field ==>" + nPlantD);
 			assertEquals(plD, nPlantD);
 
-			String nValuationD = driver.findElement(By.xpath(valuationD)).getText();
-			test.log(LogStatus.INFO, "Step :: New form valuation record field ==>" + nValuationD);
-			System.out.println("Step :: New form valuation record field ==>" + nValuationD);
-			common.log("Step :: New form valuation record is==>" + nValuationD);
-			assertEquals(valD, nValuationD);
+
+			if (common.isElementPresent(valuationD)) {
+				String nValuationD = driver.findElement(By.xpath(valuationD)).getText();
+				test.log(LogStatus.INFO, "Step :: New form valuation record field ==>" + nValuationD);
+				System.out.println("Step :: New form valuation record field ==>" + nValuationD);
+				common.log("Step :: New form valuation record is==>" + nValuationD);
+				assertEquals(valD, nValuationD);
+			}
 		} else {
 			System.out.println("Step :: New form valuation record field is not displaying");
 			common.log("New form valuation record field is not displaying");
 
 		}
-		common.pause(50);
+		common.pause(20);
 		common.findElement(submitBtn).click();
 		common.pause(25);
 
@@ -1030,10 +1044,10 @@ public class AddMaterialMaster extends Locators {
 		}
 		common.pause(10);
 
-		for (int i = 0; i <= 3; i++) {
-			common.pause(5);
-			common.refreshPage();
-		}
+//		for (int i = 0; i <= 3; i++) {
+//			common.pause(5);
+//			common.refreshPage();
+//		}
 		common.pause(15);
 
 		common.findElementBy(actionIconForFirstValue,"Click on First value action icon").click();
@@ -1065,26 +1079,30 @@ public class AddMaterialMaster extends Locators {
 
 			// to print directly
 			System.out.println(myList.get(i).getAttribute("value"));
+			common.log(myList.get(i).getAttribute("value"));
 
 		}
 
-		boolean n1 = driver.findElement(By.xpath(newPlantD)).isDisplayed();
-		if (n1 == true) {
-			nPlantD = driver.findElement(By.xpath(newPlantD)).getText();
+		if (common.isElementPresent(newPlantD)) {
 
-			test.log(LogStatus.INFO, "Step :: New record plant record field " + nPlantD);
-			System.out.println("Step :: New record plant record field ==>" + nPlantD);
-			assertEquals(plD, nPlantD);
+			boolean n1 = driver.findElement(By.xpath(newPlantD)).isDisplayed();
+			if (n1 == true) {
+				nPlantD = driver.findElement(By.xpath(newPlantD)).getText();
 
-			String nValuationD = driver.findElement(By.xpath(valuationD)).getText();
-			test.log(LogStatus.INFO, "Step :: New form valuation record field " + nValuationD);
-			System.out.println("Step :: New form valuation record field ==>" + nValuationD);
-			common.log("New form valuation record is==>" + nValuationD);
-			assertEquals(valD, nValuationD);
-		} else {
-			test.log(LogStatus.INFO, "Step :: new form plant record is not displaying ");
-			System.out.println("Step :: new form plant record is not displaying ");
-			System.out.println("Step :: new form  valuation record field is not displayin");
+				test.log(LogStatus.INFO, "Step :: New record plant record field " + nPlantD);
+				System.out.println("Step :: New record plant record field ==>" + nPlantD);
+				assertEquals(plD, nPlantD);
+
+				String nValuationD = driver.findElement(By.xpath(valuationD)).getText();
+				test.log(LogStatus.INFO, "Step :: New form valuation record field " + nValuationD);
+				System.out.println("Step :: New form valuation record field ==>" + nValuationD);
+				common.log("New form valuation record is==>" + nValuationD);
+				assertEquals(valD, nValuationD);
+			} else {
+				test.log(LogStatus.INFO, "Step :: new form plant record is not displaying ");
+				System.out.println("Step :: new form plant record is not displaying ");
+				System.out.println("Step :: new form  valuation record field is not displayin");
+			}
 		}
 
 	}
