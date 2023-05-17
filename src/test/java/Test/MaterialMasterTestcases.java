@@ -142,7 +142,7 @@ public class MaterialMasterTestcases extends BasePage {
 	}
 
 	/**
-	 * copy record
+	 * Verify copy record and approve from reviewer
 	 * 
 	 * @throws InterruptedException
 	 * @throws IOException
@@ -150,14 +150,30 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Copy_Record_And_Approve_From_Reviewer(String env) {
-		common.log("TC:Verify copy existing record: MDMF-TC-8418/MDMF-TC-8419/MDMF-TC-8422/MDMF-TC-8423");
+		common.log("TC:Verify copy record and approve from reviewer: MDMF-TC-8418/MDMF-TC-8419/MDMF-TC-8422/MDMF-TC-8423");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialmaster.createMaterialMasterWithGenerateDesc();
 		materialmaster.copyRecord();
 		loginPage.revSignIn(env);
 		materialmaster.approveStatus();
-		
+
+	}
+	/**
+	 * Verify copy record and remove one hierarchy, Other should not remove
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Copy_Record_If_User_Remove_One_Child_Hierarchy_Other_Child_Hierarchies_Should_Not_Get_Removed(String env) {
+		common.log("TC:MDMF-TC-8427/MDMF-TC-8428/MDMF-TC-8582/MDMF-TC-8699");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		materialmaster.createMaterialMasterWithGenerateDesc();
+		materialmaster.verify_Copy_Record_And_Remove_One_Hierarchy_Other_Should_Not_Remove();
+
 
 	}
 

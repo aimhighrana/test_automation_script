@@ -95,12 +95,11 @@
 		</classes>
 	</test>
 
-
 	<test name="Test 10">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Claim_UnClaim_Status"></include>
+					<include name="verify_Copy_Record_If_User_Remove_One_Child_Hierarchy_Other_Child_Hierarchies_Should_Not_Get_Removed"></include>
 				</methods>
 			</class>
 		</classes>
@@ -110,13 +109,23 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Rejection_Flow_For_New_Record"></include>
+					<include name="verify_Claim_UnClaim_Status"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
 
 	<test name="Test 12">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verify_Rejection_Flow_For_New_Record"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test 13">
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>

@@ -179,7 +179,7 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on submit button");
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(20);
+		common.pause(40);
 
 		//If duplicate record popup appear then click on continue
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
@@ -219,6 +219,10 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(dataTab);
 		test.log(LogStatus.INFO, "Step :: Verifying Data tab available");
 		System.out.println("Step :: Verifying Data tab available");
+
+		common.log("Refreshing page for visible latest created record");
+		common.refreshPage();
+		common.pause(10);
 
 	}
 
@@ -281,9 +285,13 @@ public class AddMaterialMaster extends Locators {
 		common.log("Select class");
 		common.waitForElement(claS);
 		common.findElement(claS).click();
-		common.waitForElement(classval);
-		common.findElement(classval).click();
+	//common.waitForElement(classval);
+//		common.findElement(classval).click();
 		common.pause(3);
+
+		common.findElementBy(sourceListDescription,"Select value from Source - List dropdown").click();
+		common.waitForElement(dropValue);
+		common.findElement(dropValue).click();
 
 		// Filling plant records
 		test.log(LogStatus.INFO, "Step :: -- Filling plant data -- ");
@@ -345,7 +353,7 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on submit button");
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(20);
+		common.pause(40);
 
 		//If duplicate record popup appear then click on submit
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
@@ -381,9 +389,9 @@ public class AddMaterialMaster extends Locators {
 			System.out.println("Step :: No Something went error");
 		}
 
-//		for (int j = 0; j < 2; j++) {
-//			common.refreshPage();
-//		}
+		common.log("Refreshing the page for visible latest created record");
+		common.refreshPage();
+		common.pause(15);
 
 		common.waitForElement(searchB);
 		String materialMasterNum = common.findElement(materialNumFromTbl).getText();
@@ -465,8 +473,8 @@ public class AddMaterialMaster extends Locators {
 
 		System.out.println("Step :: Close process log page ");
 		common.log("Close View process log page ");
-		common.waitForConditionIsElementPresent(closeIconForrPrrocessLog);
-		common.findElement(closeIconForrPrrocessLog).click();
+		common.waitForConditionIsElementPresent(closeIconForProcessLog);
+		common.findElement(closeIconForProcessLog).click();
 
 	}
 
@@ -537,8 +545,8 @@ public class AddMaterialMaster extends Locators {
 		common.expandingHeadData();
 
 		common.findElementBy(closeIcoForViewChange,"Click on close icon for view change").click();
-		common.waitForConditionIsElementPresent(closeIconForrPrrocessLog);
-		common.findElementBy(closeIconForrPrrocessLog,"Click on close icon for Process log popup").click();
+		common.waitForConditionIsElementPresent(closeIconForProcessLog);
+		common.findElementBy(closeIconForProcessLog,"Click on close icon for Process log popup").click();
 
 	}
 
@@ -557,6 +565,7 @@ public class AddMaterialMaster extends Locators {
 		test.log(LogStatus.INFO, "Step :: Click on Inbox menu ");
 		System.out.println("Step :: Click on Inbox menu");
 		common.log("Click on Inbox menu");
+		common.findElement(inboxMenu).click();
 		common.findElement(inboxMenu).click();
 
 		//wait for first value
@@ -1044,11 +1053,9 @@ public class AddMaterialMaster extends Locators {
 		}
 		common.pause(10);
 
-//		for (int i = 0; i <= 3; i++) {
-//			common.pause(5);
-//			common.refreshPage();
-//		}
-		common.pause(15);
+		common.refreshPage();
+
+		common.pause(10);
 
 		common.findElementBy(actionIconForFirstValue,"Click on First value action icon").click();
 		common.pause(3);
@@ -1101,9 +1108,179 @@ public class AddMaterialMaster extends Locators {
 			} else {
 				test.log(LogStatus.INFO, "Step :: new form plant record is not displaying ");
 				System.out.println("Step :: new form plant record is not displaying ");
-				System.out.println("Step :: new form  valuation record field is not displayin");
+				System.out.println("Step :: new form  valuation record field is not displaying");
 			}
 		}
+		common.findElementBy(closeIconForSummary,"Click on close icon for popup").click();
+
+
+	}
+	/**
+	 * verify Copy Record And Remove One Hierarchy Other Should NotRemove
+	 *
+	 */
+
+	public void verify_Copy_Record_And_Remove_One_Hierarchy_Other_Should_Not_Remove() {
+		System.out.println("Step :: Click on Data tab");
+		common.log("Click on Data tab");
+		common.waitForElement(dataTab);
+		driver.findElement(By.xpath(dataTab)).click();
+		common.refreshPage();
+
+		System.out.println("Step :: click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+		common.waitForElement(materialMaster);
+		driver.findElement(By.xpath(materialMaster)).click();
+		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+		String mmN = driver.findElement(By.xpath(materialMasterNum)).getText();
+		System.out.println("Step :: Material master number is ::" + mmN);
+
+		common.pause(10);
+		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+
+		System.out.println("Step :: Click on copy");
+		common.log("Click on copy");
+		common.pause(5);
+		common.findElement(copy).click();
+		common.pause(5);
+
+		System.out.println("Step :: Click on material workflow");
+		common.log("Click on material workflow");
+		common.findElement(materrialMasterRecordOption).click();
+		common.pause(40);
+
+		String rN = driver.findElement(By.xpath(recordno)).getAttribute("value");
+		System.out.println("Step:: Record number is == > " + rN);
+		common.log("Record number is == > " + rN);
+		assertEquals(rN, mmN);
+
+		String plantData = driver.findElement(By.xpath(plantD)).getText();
+		test.log(LogStatus.INFO, "Step :: Field records" + plantData);
+		System.out.println("Step:: Field records :" + plantData);
+
+		// verifying records fields
+		String plD = "";
+		boolean t = driver.findElement(By.xpath(plantDatatwo)).isDisplayed();
+		if (t == true) {
+
+			plD = driver.findElement(By.xpath(plantDatatwo)).getText();
+			test.log(LogStatus.INFO, "Step :: Plant record is displaying" + plD);
+			System.out.println("Plant records is displayed ==>" + plD);
+			common.log("Plant records is displayed ==>" + plD);
+
+		} else {
+			test.log(LogStatus.INFO, "Step :: Plant record does not displayed");
+			System.out.println("Plant records is not displayed");
+			common.log("Plant records is not displayed");
+		}
+		String valD = "";
+
+		if (common.isElementPresent(valuationD)) {
+			boolean valData = driver.findElement(By.xpath(valuationD)).isDisplayed();
+			if (valData == true) {
+				valD = driver.findElement(By.xpath(valuationD)).getText();
+				test.log(LogStatus.INFO, "Step :: valuation records is displayed: " + valD);
+				System.out.println("Step:: valuation records is displayed: " + valD);
+				common.log("valuation records is displayed: " + valD);
+			}
+		}
+
+		common.findElementBy(valuationDataHierarchy, "Click and remove valuation data hierarchy").click();
+
+		common.log("Verify Plant data hierarchy not removed");
+		common.assertElementPresent(plantDataSelected);
+		common.pause(5);
+
+		System.out.println("Step :: Click on copy button");
+		common.log("Click on copy button");
+		common.findElement(copyBtn).click();
+
+		common.pause(10);
+
+		common.findElementBy(valuationPlusIcon,"Click on + icon for Valuation hierarchy").click();
+		common.pause(5);
+
+		common.findElementBy(valuationFirstOption,"Select first option from Valuation hierarchy").click();
+		common.pause(5);
+
+		common.findElementBy(applyBtn,"Click on Apply button").click();
+		common.pause(10);
+
+		common.findElementBy(industrySec, "Select other value from Industry sector dropdown").click();
+
+		common.findElementBy(industrySec, "Clear the value").clear();
+		common.waitForElement(dropValue);
+
+		String newIndustrySectorValue = driver.findElement(By.xpath(dropValue3)).getText();
+		System.out.println("Step :: New selected value for Industry sector ==>" + newIndustrySectorValue);
+		common.log("New selected value for Industry sector==>" + newIndustrySectorValue);
+
+		common.findElementBy(dropValue3, "Select 3rd value").click();
+		common.pause(5);
+
+
+		// verifying records in new record form
+		String nTitle = driver.findElement(By.xpath(newRecordTitle)).getText();
+		test.log(LogStatus.INFO, "Step :: New form title is ::" + nTitle);
+		System.out.println("Step :: New form title is ==>" + nTitle);
+		common.log("New form title is==>" + nTitle);
+
+		//Verify New plant record
+		String nPlantD = "";
+		boolean newPlanData = driver.findElement(By.xpath(newPlantD)).isDisplayed();
+		if (newPlanData == true) {
+			nPlantD = driver.findElement(By.xpath(newPlantD)).getText();
+			test.log(LogStatus.INFO, "Step :: New plant record field ==> " + nPlantD);
+			System.out.println("Step :: New record plant record field ==>" + nPlantD);
+			assertEquals(plD, nPlantD);
+
+
+			if (common.isElementPresent(valuationD)) {
+				String nValuationD = driver.findElement(By.xpath(valuationD)).getText();
+				test.log(LogStatus.INFO, "Step :: New form valuation record field ==>" + nValuationD);
+				System.out.println("Step :: New form valuation record field ==>" + nValuationD);
+				common.log("Step :: New form valuation record is==>" + nValuationD);
+//				assertEquals(valD, nValuationD);
+			}
+		} else {
+			System.out.println("Step :: New form valuation record field is not displaying");
+			common.log("New form valuation record field is not displaying");
+
+		}
+		common.pause(20);
+		common.log("Click on Submit button");
+		common.findElement(submitBtn).click();
+		common.pause(25);
+
+		//If duplicate record popup appear then click on continue button
+		if (common.isDisplayed(duplicateRecordHeader) == true) {
+
+			System.out.println("Step :: Duplicate records");
+			driver.findElement(By.xpath(continueDuplicateRecord)).click();
+		} else {
+
+			System.out.println("Step :: No duplicate records");
+		}
+		common.pause(10);
+
+		common.refreshPage();
+
+		common.pause(10);
+
+		System.out.println("Step :: Verify Data tab available");
+		common.log("Verify Data tab available");
+		common.assertElementPresent(dataTab);
+
 
 	}
 

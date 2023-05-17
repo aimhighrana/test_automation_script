@@ -79,7 +79,9 @@ public abstract class Locators extends BasePage {
 	public static String copyBtn = "//span[contains(text(),'Copy')]";
 	public static String newRecordTitle = "//div[1]/div[1]/div[2]/div[1]/lib-text-line[1]/h4[1]";
 	public static String newPlantD = "//div[1]/mat-tree[1]/mat-tree-node[3]/div[1]/div[1]/lib-text-line[1]/p[1]";
+	public static String sourceListDescription = "//p[normalize-space()='Source - List']//..//..//input[@placeholder='Select a value...']";
 	public static String dropValue = "//div[@role='listbox']//mat-option[2]";
+	public static String dropValue3 = "//div[@role='listbox']//mat-option[3]//span";
 	public static String plusStorageData ="//p[text()='Storage Data ']//..//..//mat-icon[text()='plus']";
 	public static String firstOptionStorageData ="//label[@for='mat-checkbox-275-input']//span[@class='mat-checkbox-inner-container']";
 	public static String manufacturerPartNum ="//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer Part Number']//..//..//..//div//input";
@@ -90,13 +92,15 @@ public abstract class Locators extends BasePage {
 	public static String mrpType = "//p[normalize-space()='MRP Type']//..//..//mat-icon";
 	public static String mrpTypeField = "//p[contains(text(),'MRP Type')]";
 	public static String valuationPlusIcon = "//p[normalize-space()='Valuation Data']//..//..//mat-icon";
+	public static String valuationFirstOption = "//lib-filter-option[1]//label[@class='mat-checkbox-layout'][1]";
 	public static String valCat = "//p[normalize-space()='Valuation Cat.']//..//..//div//input";
 	public static String newCheckbox = "//span[contains(text(),'NEW -- NEW')]";
 	public static String submitBtn = "//span[contains(text(),'Submit')]";
 	
 	public static String viewPLog = "//button[normalize-space()='View process log']";
 	public static String completedViewProcessLog = "//span[normalize-space()='Completed']//..//..//..//..//p[contains(text(),'View changes')] | //span[normalize-space()='Completed']//..//..//..//..//..//p[contains(text(),'View changes')]";
-	public static String closeIconForrPrrocessLog = "//lib-button[@icon='times']//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']";
+	public static String closeIconForProcessLog = "//lib-button[@icon='times']//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']";
+	public static String closeIconForSummary ="//mat-icon[@class='mat-icon notranslate mdo-icons-light mat-icon-no-color ng-star-inserted'][normalize-space()='times']";
 	public static String crossIconS = "//lib-button[@icon='times']";
 	public static String closeIcoForViewChange = "//pros-view-changes[@class='ng-star-inserted']//mat-icon[@role='img'][normalize-space()='times']";
 	public static String firstActionIconForInbox = "//tbody/tr[1]/td[2]/lib-button-group[1]/ul[1]/li[1]/lib-button[1]/button[1]/span[1]/mat-icon[1]";
@@ -158,6 +162,8 @@ public abstract class Locators extends BasePage {
 
 	public static String valueFMCG_IndustrySectorFilter = "//mat-list-item[3]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]";
 
+	public static String valuationDataHierarchy = "//mat-tree-node[4]//div[1]//div[1]//lib-text-line[1]//p[1]//label";
+	public static String plantDataSelected = "//mat-tree-node[3]//div[1]//div[1]//lib-text-line[1]//p[1]//label//span//input[@aria-checked='true']";
 	public static String applyFilterButton = "//span[normalize-space()='Apply']";
 
 	public static String filterMaterialType = "//p[normalize-space()='Material Type']";
