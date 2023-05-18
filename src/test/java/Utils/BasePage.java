@@ -51,6 +51,7 @@ public class BasePage implements ITestListener {
 	public AddMaterialMaster materialmaster;
 	public ListPageSearch listPageSearch;
 	public ListView listView;
+	public MaterialCreation materialCreation;
 	public Flow flow;
 	public HomePage homePage;
 	public static ExtentTest test;
@@ -104,6 +105,7 @@ public class BasePage implements ITestListener {
 		listPageSearch = new ListPageSearch(driver);
 		listView = new ListView(driver);
 		homePage = new HomePage(driver);
+		materialCreation = new MaterialCreation(driver);
 	}
 
 	protected Properties getConfigProperties() {

@@ -61,8 +61,8 @@ public abstract class Locators extends BasePage {
 	
 	// <! New record Page Locators !>
 	public static String dMaterialMaster = "//p[contains(text(),'Material Master')]";
-	public static String materialMasterroleValue = "//button[normalize-space()='Copy Of Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']";
-	
+	public static String materialMasterRoleValue = "//button[normalize-space()='Copy Of Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']";
+
 	public static String industrySec = "//p[normalize-space()='Industry sector']//..//..//div//input";
 	public static String materialGroup = "//p[normalize-space()='Material Group']//..//..//div//input";
 	public static String generateDesc = "//span[contains(text(),'Generate description')]";
@@ -272,6 +272,25 @@ public abstract class Locators extends BasePage {
 	public static String flowFilter ="//span[normalize-space()='Flow']";
 	public static String taskFilter = "//span[normalize-space()='Task type']";
 	public static String firstOptionFilter ="//div[@class='options']//lib-filter-option[1]//div[1]//label";
+
+	// Material creation
+
+	public static String materialCreationRecord = "//button[normalize-space()='Material Creation Process']";
+
+	public static String materialTypeField = "//p[normalize-space()='Material Type']//..//..//div//input";
+
+	public static String materialGroupField ="//p[normalize-space()='Material Group']//..//..//div//input";
+
+	public static String industrySectorField = "//p[normalize-space()='Industry sector']//..//..//div//input";
+
+	public static String plantDataAddHierarchy = "//p[normalize-space()='Plant Data']//..//..//..//p[normalize-space()='Add...']";
+
+	public static String searchBoxHierarchy = "//div[@class='dropdown-search-wrapper']//mat-icon[@role='img'][normalize-space()='search']//..//input";
+
+	public static String selectSearchedOption = "//span[@class='mat-checkbox-inner-container']";
+
+	public static String valuationDataAddHierarchy = "//p[normalize-space()='Valuation Data']//..//..//..//p[normalize-space()='Add...']";
+
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
 	protected WebElement filterIndustrySector1;
 

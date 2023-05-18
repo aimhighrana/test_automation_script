@@ -78,9 +78,9 @@ public class AddMaterialMaster extends Locators {
 		test.log(LogStatus.INFO, "Click on material master workflow roles");
 		System.out.println("Step :: Click on material master workflow roles");
 		common.log("Click on material master workflow roles");
-		common.waitForElement(materialMasterroleValue);
+		common.waitForElement(materialMasterRoleValue);
 
-		driver.findElement(By.xpath(materialMasterroleValue)).click();
+		driver.findElement(By.xpath(materialMasterRoleValue)).click();
 
 		System.out.println("Step :: Click on Industry sector dropdown and select value");
 		common.log("Click on Industry section dropdown and select value");
@@ -264,9 +264,9 @@ public class AddMaterialMaster extends Locators {
 		test.log(LogStatus.INFO, "Step :: click on material master workflow roles");
 		System.out.println("Step :: click on material master workflow roles");
 		common.log("Click on material master workflow roles");
-		common.waitForElement(materialMasterroleValue);
+		common.waitForElement(materialMasterRoleValue);
 
-		common.findElement(materialMasterroleValue).click();
+		common.findElement(materialMasterRoleValue).click();
 		common.waitForElement(materialGroup);
 		common.pause(10);
 
