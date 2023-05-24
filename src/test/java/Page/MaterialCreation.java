@@ -3,10 +3,7 @@ package Page;
 import Utils.Common;
 import Utils.Locators;
 import com.relevantcodes.extentreports.LogStatus;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -89,6 +86,33 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(selectSearchedOption);
 		common.findElementBy(selectSearchedOption,"Select searched option").click();
 		common.findElementBy(applyBtn,"Click on Apply button").click();
+		common.pause(5);
+
+		String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
+		System.out.println("Step :: Verified Valuation Type field: "+strValuationType);
+		common.log("Verified Valuation Type field: "+strValuationType);
+
+		common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
+
+		common.findElementBy(searchClassDropdown,"Click on Search class dropdown").click();
+		common.waitForElement(searchBoxClassDropdown);
+		common.pause(10);
+		common.findElementBy(searchBoxClassDropdown,"Click on Search box").click();
+		common.pause(10);
+//		common.findElementBy(searchBoxClassDropdown,"Search the value: Hood").sendKeys("Hood");
+
+		common.waitForElement(selectFirstValueClassDropdown);
+		common.findElementBy(selectFirstValueClassDropdown,"Select first value").click();
+		common.waitForElement(firstOptionSearchClass);
+		String strValueClassDropdown = driver.findElement(By.xpath(firstOptionSearchClass)).getText();
+		common.log("Selected value: "+strValueClassDropdown);
+
+		//verifying attributes after select class
+		common.log("Verified generated attributes: "+typeAttributes+" & "+gritAttributes);
+		common.assertElementPresent(typeAttributes);
+		common.assertElementPresent(gritAttributes);
+
+
 	}
 
 }

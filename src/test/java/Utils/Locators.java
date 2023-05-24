@@ -291,6 +291,20 @@ public abstract class Locators extends BasePage {
 
 	public static String valuationDataAddHierarchy = "//p[normalize-space()='Valuation Data']//..//..//..//p[normalize-space()='Add...']";
 
+	public static String valuationTypeField = "//p[normalize-space()='Valuation Type']//..//..//div//input";
+
+	public static String scenarioIdDisabled = "//div[@class='f-col mdo-field mdo-disabled']//input";
+
+	public static String searchClassDropdown = "//div[@class='mat-chip-list-wrapper']//input";
+
+	public static String searchBoxClassDropdown = "//div[@class='dropdown-search-wrapper ng-star-inserted']//div[@class='mdo-search-pill f-row']//input[@placeholder='Search']";
+
+	public static String selectFirstValueClassDropdown = "//lib-filter-option[1]//div[1]";
+
+	public static String firstOptionSearchClass = "//lib-chip[@class='lib-chip ng-star-inserted']//span";
+
+	public static String typeAttributes ="//td[normalize-space()='Type']";
+	public static String gritAttributes ="//td[normalize-space()='Grit']";
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
 	protected WebElement filterIndustrySector1;
 

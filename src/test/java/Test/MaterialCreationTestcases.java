@@ -21,7 +21,7 @@ public class MaterialCreationTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void  verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured(String env) throws InterruptedException, IOException {
-		common.log("TC:MDMF-TC-8375/MDMF-TC-8376");
+		common.log("TC:MDMF-TC-8375/MDMF-TC-8376/MDMF-TC-8377/MDMF-TC-8379/MDMF-TC-8384/MDMF-TC-8385");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
