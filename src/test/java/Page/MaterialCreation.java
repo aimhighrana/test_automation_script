@@ -111,7 +111,8 @@ public class MaterialCreation extends Locators {
 		common.log("Verified generated attributes: "+typeAttributes+" & "+gritAttributes);
 		common.assertElementPresent(typeAttributes);
 		common.assertElementPresent(gritAttributes);
-
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.waitForElement(dataTab);
 
 	}
 

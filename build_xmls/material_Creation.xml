@@ -18,4 +18,13 @@
 		</classes>
 	</test>
 
+	<test name="Test 2">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_That_Created_Record_Is_Visible_At_Reviewer_Task_List"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>
