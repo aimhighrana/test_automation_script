@@ -27,4 +27,24 @@
 			</class>
 		</classes>
 	</test>
+
+	<test name="Test 3">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_Data_Verification_For_Reviewer_At_Transaction_Screen"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Test 4">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_Rejecting_The_Request_From_Approver"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
 </suite>

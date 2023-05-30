@@ -582,7 +582,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(20);
 		common.findElement(approveBtn).click();
 		common.waitForElement(approveButton);
-		test.log(LogStatus.INFO, "Step :: click on Apprrove button ");
+		test.log(LogStatus.INFO, "Step :: click on Approve button ");
 		System.out.println("Step :: click on Approve button");
 		common.log("Click on submit button");
 
@@ -597,6 +597,9 @@ public class AddMaterialMaster extends Locators {
 	 *
 	 */
 	public void claimStatus() {
+
+		common.waitForElement(homeTab);
+		common.findElementBy(homeTab,"Click on Home tab").click();
 
 		//wait for Inbox menu
 		common.waitForElement(inboxMenu);

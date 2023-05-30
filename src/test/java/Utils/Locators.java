@@ -305,6 +305,8 @@ public abstract class Locators extends BasePage {
 
 	public static String typeAttributes ="//td[normalize-space()='Type']";
 	public static String gritAttributes ="//td[normalize-space()='Grit']";
+	public static String plantData0001 ="//p[normalize-space()='Plant:0001 -- PLANT 0001']";
+	public static String valuationDataNA ="//p[normalize-space()='Valuation Type:N.A -- Not Applicable']";
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
 	protected WebElement filterIndustrySector1;
 

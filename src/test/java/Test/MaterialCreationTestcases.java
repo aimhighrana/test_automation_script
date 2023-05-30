@@ -40,9 +40,36 @@ public class MaterialCreationTestcases extends BasePage {
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
-		materialmaster.approveStatus();
 		materialmaster.claimStatus();
-
-
+	}
+	/**
+	 *  Creation: Data verification for reviewer at transaction screen
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Data_Verification_For_Reviewer_At_Transaction_Screen(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-8393/MDMF-TC-8394");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
+		materialCreation.verifying_Data_On_Approve_Transaction_Screen();
+	}
+	/**
+	 *  Creation: Rejecting the request from Approver
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Rejecting_The_Request_From_Approver(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-8395");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
+		materialmaster.rejectionFlowFromApprover();
 	}
 }

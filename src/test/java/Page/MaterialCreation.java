@@ -112,7 +112,54 @@ public class MaterialCreation extends Locators {
 		common.assertElementPresent(typeAttributes);
 		common.assertElementPresent(gritAttributes);
 		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(10);
 		common.waitForElement(dataTab);
+
+	}
+
+	/**
+	 * verifying Data On Approve Transaction Screen
+	 *
+	 */
+	public void verifying_Data_On_Approve_Transaction_Screen() {
+
+		//wait for Home tab
+		common.waitForElement(homeTab);
+		common.findElementBy(homeTab,"Click on Home tab").click();
+
+		//wait for Inbox menu
+		common.waitForElement(inboxMenu);
+		test.log(LogStatus.INFO, "Step :: Click on Inbox menu ");
+		System.out.println("Step :: Click on Inbox menu");
+		common.log("Click on Inbox menu");
+		common.findElement(inboxMenu).click();
+		common.findElement(inboxMenu).click();
+
+		//wait for first value
+		common.waitForElement(firstActionIconForInbox);
+
+		test.log(LogStatus.INFO, "Step :: Click on action menu for first row ");
+		System.out.println("Step :: Click on action menu for first row");
+		common.log("Click on action menu for first row");
+		driver.findElement(By.xpath(firstActionIconForInbox)).click();
+
+		test.log(LogStatus.INFO, "Step :: click on approve ");
+		System.out.println("Step :: click on approve");
+		common.log("Click on approve");
+		common.pause(20);
+		common.findElement(approveBtn).click();
+
+		common.waitForElement(plantData0001);
+		common.findElementBy(plantData0001,"Verify Selected Plant data 'PLANT 0001'");
+		common.findElementBy(valuationDataNA,"Verify Selected valuation data 'N.A -- Not Applicable'");
+
+		test.log(LogStatus.INFO, "Step :: click on Approve button ");
+		System.out.println("Step :: click on Approve button");
+		common.log("Click on submit button");
+
+		common.findElement(approveButton).click();
+		common.pause(10);
+		common.waitForElement(inboxMenu);
 
 	}
 
