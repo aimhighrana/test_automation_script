@@ -46,5 +46,33 @@
 			</class>
 		</classes>
 	</test>
+	<test name="Test 5">
+	<classes>
+		<class name="Test.MaterialCreationTestcases">
+			<methods>
+				<include name="verify_Approving_The_Request_From_Approver"></include>
+			</methods>
+		</class>
+	</classes>
+</test>
 
+	<test name="Test 6">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_Extend_Plant_Hierarchy_From_The_Created_Record_Which_Is_In_System_Status"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test 7">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_Checking_Mandatory_Fields_Error_On_The_Execution_Page"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>

@@ -21,7 +21,7 @@ public class MaterialCreationTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void  verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured(String env) throws InterruptedException, IOException {
-		common.log("TC:MDMF-TC-8375/MDMF-TC-8376/MDMF-TC-8377/MDMF-TC-8379/MDMF-TC-8384/MDMF-TC-8385");
+		common.log("TC:MDMF-TC-8375/MDMF-TC-8376/MDMF-TC-8377/MDMF-TC-8379/MDMF-TC-8384/MDMF-TC-8385/MDMF-TC-8391");
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
@@ -55,7 +55,8 @@ public class MaterialCreationTestcases extends BasePage {
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
-		materialCreation.verifying_Data_On_Approve_Transaction_Screen();
+		loginPage.revSignIn(env);
+		materialmaster.approveStatus();
 	}
 	/**
 	 *  Creation: Rejecting the request from Approver
@@ -71,5 +72,53 @@ public class MaterialCreationTestcases extends BasePage {
 		loginPage.check_SignIn(env);
 		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
 		materialmaster.rejectionFlowFromApprover();
+	}
+
+	/**
+	 *  Creation: Approving the request from approver
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Approving_The_Request_From_Approver(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-8397");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
+		materialCreation.verifying_Data_On_Approve_Transaction_Screen();
+	}
+
+	/**
+	 *  Extend : Extend Plant hierarchy from the created record which is in system status
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Extend_Plant_Hierarchy_From_The_Created_Record_Which_Is_In_System_Status(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-8429");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
+		materialCreation.verify_Created_Record_Which_Is_In_System_Status();
+	}
+
+	/**
+	 *  Extend:Checking mandatory fields error on the execution page
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Checking_Mandatory_Fields_Error_On_The_Execution_Page(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-8431");
+		loginPage.goToURL();
+		loginPage.check_SignIn(env);
+		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
+		materialCreation.verify_Mandatory_Field_On_Execution_Page_At_Edit_Time();
 	}
 }

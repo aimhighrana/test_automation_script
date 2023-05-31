@@ -128,49 +128,88 @@
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M7</version>
+				<configuration>
+					<properties>
+						<property>
+							<name>usedefaultlisteners</name>
+							<value>false</value>
+						</property>
+						<property>
+							<name>listener</name>
+							<value>org.uncommons.reportng.HTMLReporter,
+								org.uncommons.reportng.JUnitXMLReporter</value>
+						</property>
+					</properties>
+					<workingDirectory>target/</workingDirectory>
+					<forkMode>never</forkMode>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M7</version>
-				<configuration>
-				<properties>
-                        <property>
-                            <name>usedefaultlisteners</name>
-                            <value>false</value>
-                        </property>
-                        <property>
-                            <name>listener</name>
-                            <value>org.uncommons.reportng.HTMLReporter,
-                                org.uncommons.reportng.JUnitXMLReporter</value>
-                        </property>
-                    </properties>
-					<suiteXmlFiles>
-						<!--this home_Page xml include all the test regarding Home menu(Inbox,Completed,My request)-->
-						<suiteXmlFile>build_xmls/home_Page.xml</suiteXmlFile>
-						<!--this list_Page_Search xml include all the test regarding advance search-->
-						<suiteXmlFile>build_xmls/list_Page_Search.xml</suiteXmlFile>
-						<!--this list_Page_Wild_Search xml include all the test regarding Global search-->
-						<suiteXmlFile>build_xmls/list_Page_Wild_Search.xml</suiteXmlFile>
-						<!--this list_View xml include all the test regarding list view option like add, edit, delete view-->
-						<suiteXmlFile>build_xmls/list_View.xml</suiteXmlFile>
-						<!--this material_Master xml include all the test regarding material master record functionality-->
-						<suiteXmlFile>build_xmls/material_Master.xml</suiteXmlFile>
-						<!--this material_Creation xml include all the test regarding material creation record functionality-->
-						<suiteXmlFile>build_xmls/material_Creation.xml</suiteXmlFile>
-					</suiteXmlFiles>
-				</configuration>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.19.1</version>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+						<configuration>
+							<skip>false</skip>
+							<suiteXmlFiles>
+								<suiteXmlFile>build_xmls/home_Page.xml</suiteXmlFile>
+								<!--this list_Page_Search xml include all the test regarding advance search-->
+								<suiteXmlFile>build_xmls/list_Page_Search.xml</suiteXmlFile>
+								<!--this list_Page_Wild_Search xml include all the test regarding Global search-->
+								<suiteXmlFile>build_xmls/list_Page_Wild_Search.xml</suiteXmlFile>
+								<!--this list_View xml include all the test regarding list view option like add, edit, delete view-->
+								<suiteXmlFile>build_xmls/list_View.xml</suiteXmlFile>
+								<!--this material_Master xml include all the test regarding material master record functionality-->
+								<suiteXmlFile>build_xmls/material_Master.xml</suiteXmlFile>
+								<!--this material_Creation xml include all the test regarding material creation record functionality-->
+								<suiteXmlFile>build_xmls/material_Creation.xml</suiteXmlFile>
+
+							</suiteXmlFiles>
+							<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>verify</id>
+						<goals>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
+			<plugin>
+				<groupId>com.decipherzone</groupId>
+				<artifactId>qa-parse-maven-plugin</artifactId>
+				<version>1.5.2</version>
+				<executions>
 
+					<execution>
+						<phase>integration-test</phase>
+						<configuration>
+							<projectBaseUrl>https://jdev.decipherzone.com/qa-java-api</projectBaseUrl>
+							<sourceFilePath>${project.build.directory}/test-output/testng-results.xml</sourceFilePath>
+							<projectAccessKey>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb21wYW55SWRcIjpcIjY0NjQ2YmUxOWYxMTU0NjE4Mzc3ZTg4OFwiLFwiand0VG9rZW5cIjpcImV5SmhiR2NpT2lKSVV6VXhNaUo5LmV5SnpkV0lpT2lKeVlXaDFiRUJ3WlhKbVpXTjBjV0Z6WlhKMmFXTmxjeTVqYjIwaUxDSnBZWFFpT2pFMk9EVTFNVEV6TWpJc0ltVjRjQ0k2TVRZNE5qRXhOakV5TW4wLl94YXJSYkZ5bjlPUGd2V2k2VkpKeTZQaDN1Ri1xMW9iRXNQZC1IRmw1SzBUQm1pMjlOYk5STElxVVgyTWpUeWJXbWpsUEVjOFhOOXFKY3lpbFZsMm93XCIsXCJwcm9qZWN0SWRcIjpcIjY0NzZkZDViYzY1ODczMjRhODUxNDcxY1wifSIsImlhdCI6MTY4NTUxMTU0NSwiZXhwIjoxNjg2MTE2MzQ1fQ.qapTAuHx1sYrTu4QyYGSrkNZFPNEDYaTpdMnHFLkar00iygEe06aGR7PobLO91dSkERybmMJ0SCtW4qL3RRdHg</projectAccessKey>
+						</configuration>
+						<goals>
+							<goal>xmltojson</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
-
-
 	</build>
-
 </project>

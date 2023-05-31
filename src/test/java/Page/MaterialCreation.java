@@ -27,8 +27,9 @@ public class MaterialCreation extends Locators {
 	 */
 	public void verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured() {
 
-		common.pause(5);
+		common.waitForElement(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.findElement(dataTab).click();
 
 		test.log(LogStatus.INFO, "click on Material master from left nav");
 		System.out.println("Step :: click on Material master from left nav");
@@ -77,6 +78,7 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(searchBoxHierarchy,"Search value: PLANT 0001").sendKeys("PLANT 0001");
 		common.waitForElement(selectSearchedOption);
 		common.findElementBy(selectSearchedOption,"Select searched option").click();
+		common.waitForElement(applyBtn);
 		common.findElementBy(applyBtn,"Click on Apply button").click();
 		common.pause(5);
 
@@ -86,7 +88,7 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(selectSearchedOption);
 		common.findElementBy(selectSearchedOption,"Select searched option").click();
 		common.findElementBy(applyBtn,"Click on Apply button").click();
-		common.pause(5);
+		common.pause(10);
 
 		String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
 		System.out.println("Step :: Verified Valuation Type field: "+strValuationType);
@@ -162,5 +164,193 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(inboxMenu);
 
 	}
+	public void verify_Created_Record_Which_Is_In_System_Status() {
 
+		test.log(LogStatus.INFO, "Step :: Click on Data tab");
+		System.out.println("Step :: Click on Data tab");
+		common.log("Click on Data tab");
+		common.waitForElement(dataTab);
+		driver.findElement(By.xpath(dataTab)).click();
+		common.refreshPage();
+
+		common.waitForElement(materialMaster);
+		test.log(LogStatus.INFO, "Step :: Click on material master from left nav");
+		System.out.println("Step :: Click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+
+		driver.findElement(By.xpath(materialMaster)).click();
+		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
+		System.out.println("Step :: Material master number is ::" + materialMasterNumber);
+		System.out.println("Step :: Set filter status as a System");
+		common.log("Set filter status as a system");
+		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.pause(10);
+		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+
+		test.log(LogStatus.INFO, "Step :: Click on edit");
+		System.out.println("Step :: Click on edit");
+		common.log("Click on edit");
+
+		driver.findElement(By.xpath(edit)).click();
+		common.pause(10);
+		System.out.println("Step :: Click on material creation process");
+		common.log("Click on material master creation process");
+		driver.findElement(By.xpath(materialCreationRecord)).click();
+		common.pause(10);
+		common.waitForElement(headerData);
+		common.pause(20);
+
+		test.log(LogStatus.INFO, "Step :: Select Industry Sector ");
+		System.out.println("Step :: Select Industry Sector");
+		common.log("Select Industry Sector");
+		common.waitForElement(industrySec);
+		common.findElement(industrySec).click();
+		common.pause(5);
+		common.findElement(dropValue).click();
+
+		common.findElementBy(plusStorageData, "Click on plus icon for Storage Data hierarchy");
+
+		common.findElementBy(firstOptionStorageData, "Select first option for Storage Data hierarchy");
+
+		common.findElementBy(applyFilterButton, "Click on apply button");
+		common.pause(5);
+
+		test.log(LogStatus.INFO, "Step :: Click on save button");
+		System.out.println("Step :: Click on save button");
+		common.log("Click on save button");
+		common.waitForElement(uSaveBtn);
+		driver.findElement(By.xpath(uSaveBtn)).click();
+		common.pause(80);
+
+		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
+		if (common.isDisplayed(duplicateRecordHeader) == true) {
+
+			System.out.println("Step :: Duplicate records");
+			driver.findElement(By.xpath(continueDuplicateRecord)).click();
+		} else {
+
+			System.out.println("Step :: No duplicate records");
+		}
+		if(common.isDisplayed("//div[@class='mdo-notice f-row mdo-notice-error']")==true)
+		{
+
+			System.out.println("Step :: Something went error appear");
+			common.refreshPage();
+			common.pause(20);
+			common.findElement(industrySec).click();
+			common.pause(5);
+
+			common.findElement(dropValue).click();
+			common.pause(5);
+			test.log(LogStatus.INFO, "Step :: Click on save button");
+			System.out.println("Step :: Click on save button");
+			common.log("Click on save button");
+			driver.findElement(By.xpath(uSaveBtn)).click();
+			common.pause(40);
+		}
+		else {
+
+			System.out.println("Step :: No Something went error");
+		}
+		common.waitForElement(actionIconForFirstValue);
+		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+
+		test.log(LogStatus.INFO, "Step :: Click on view process log");
+		System.out.println("Step :: Click on viewProcess log");
+		common.log("Click on view Process log");
+		common.waitForElement(viewProcessLogOption);
+		driver.findElement(By.xpath(viewProcessLogOption)).click();
+
+		common.waitForElement(processLogStatus);
+		String viewProcessLog = driver.findElement(By.xpath(processLogStatus)).getText();
+
+		System.out.println("Step :: View Process log =>>" + viewProcessLog);
+		common.log("View Process log =>>" + viewProcessLog);
+
+	}
+
+	/**
+	 * Creation - verify Mandatory Field On Execution Page At Edit Time
+	 */
+	public void verify_Mandatory_Field_On_Execution_Page_At_Edit_Time() {
+
+		test.log(LogStatus.INFO, "Step :: Click on Data tab");
+		System.out.println("Step :: Click on Data tab");
+		common.log("Click on Data tab");
+		common.waitForElement(dataTab);
+		driver.findElement(By.xpath(dataTab)).click();
+		common.refreshPage();
+
+		common.waitForElement(materialMaster);
+		test.log(LogStatus.INFO, "Step :: Click on material master from left nav");
+		System.out.println("Step :: Click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+
+		driver.findElement(By.xpath(materialMaster)).click();
+		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
+		System.out.println("Step :: Material master number is ::" + materialMasterNumber);
+		System.out.println("Step :: Set filter status as a System");
+		common.log("Set filter status as a system");
+		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.pause(10);
+		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+
+		test.log(LogStatus.INFO, "Step :: Click on edit");
+		System.out.println("Step :: Click on edit");
+		common.log("Click on edit");
+
+		driver.findElement(By.xpath(edit)).click();
+		common.pause(10);
+		System.out.println("Step :: Click on material creation process");
+		common.log("Click on material master creation process");
+		driver.findElement(By.xpath(materialCreationRecord)).click();
+		common.pause(10);
+		common.waitForElement(headerData);
+		common.pause(20);
+
+		test.log(LogStatus.INFO, "Step :: Click on save button");
+		System.out.println("Step :: Click on save button");
+		common.log("Click on save button");
+		common.waitForElement(uSaveBtn);
+		driver.findElement(By.xpath(uSaveBtn)).click();
+		common.pause(30);
+
+		//Verifying Error for mandatory fields
+		common.assertElementPresent("//p[normalize-space()='Fix the following errors to proceed']");
+
+		for (int i = 1; i < 4; i++) {
+			if (driver.findElement(By.xpath("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div["+i+"]//p")).isDisplayed()) {
+				String strError = common.findElement("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div[" + i + "]//p").getText();
+				common.log(strError);
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
 }
