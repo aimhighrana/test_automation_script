@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="List_Page_Search_Automation_Testcases" verbose="10" parallel="tests"
+<suite name="List Page Search Automation Testcases" verbose="10" parallel="tests"
 	thread-count="1">
 	<listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -8,7 +8,7 @@
     </listeners>
 	<parameter name="env" value="QAH" />
 
-	 <test name="Test 1">
+	 <test name="verify Search Created Modified On Date In The Column Filter">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -18,7 +18,7 @@
 		</classes>
 	</test>
 
-	 <test name="Test 2">
+	 <test name="verify Search Based On MatrialDesc Group Type Industry Sector Base Unit Of Measure In The Column Filter">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -30,7 +30,7 @@
 
 <!--test commented because this functionality was removed for now-->
 
-	<!--	<test name="Test 3">-->
+<!--		<test name="Test 3">-->
 <!--		<classes>-->
 <!--			<class name="Test.ListPageSearchTestcases">-->
 <!--				<methods>-->
@@ -41,7 +41,7 @@
 <!--	</test>-->
 
 
-	<test name="Test 4">
+	<test name="verify User Should Be Able To Apply The Filters Using And IsNot Conditions">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -51,7 +51,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 5">
+	<test name="verify User Should Be Able To Reset Filters In Advance Filter Using The Reset Button">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -61,7 +61,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 6">
+	<test name="verify User Can Apply Multiple Filters For Multiple Fields In Advance Filter Search">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -71,7 +71,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 7">
+	<test name="verify User Can Save The Filter Applied On Different Fields Using The Save As Button">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -81,7 +81,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 8">
+	<test name="verify User Can Cancel The Filter Applied On Different Fields Using The Save As Button">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -92,7 +92,7 @@
 	</test>
 
 
-	<test name="Test 9">
+	<test name="verify User Can Apply The Column Filter And Advanced Filter At A Time And Club The Searches">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -102,7 +102,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 10">
+	<test name="verify Column Sort Functionality Should Work As Expected On The List Page For Fields">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -111,7 +111,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Test 11">
+	<test name="verify The User Is Able To Delete The Saved Filter">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -120,7 +120,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Test 12">
+	<test name="verify The Pagination Show Count Should Be Working Fine After Applying Filters">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
@@ -129,7 +129,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Test 13">
+	<test name="verify User Can Search Using Special Characters In Manufacturer Part Number Filter Field">
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>

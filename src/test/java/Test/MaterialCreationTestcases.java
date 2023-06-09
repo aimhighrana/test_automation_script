@@ -13,6 +13,7 @@ public class MaterialCreationTestcases extends BasePage {
 	Common common = new Common(driver);
 
 	/**
+	 * 1
 	 *  To verify that defaults are working in the transaction screen(header, grids)according to the user configured
 	 * 
 	 * @throws InterruptedException
@@ -28,6 +29,7 @@ public class MaterialCreationTestcases extends BasePage {
 
 	}
 	/**
+	 * 2
 	 *  Creation: To verify that created record is visible at reviewer's task list
 	 *
 	 * @throws InterruptedException
@@ -43,6 +45,7 @@ public class MaterialCreationTestcases extends BasePage {
 		materialmaster.claimStatus();
 	}
 	/**
+	 * 3
 	 *  Creation: Data verification for reviewer at transaction screen
 	 *
 	 * @throws InterruptedException
@@ -59,6 +62,7 @@ public class MaterialCreationTestcases extends BasePage {
 		materialmaster.approveStatus();
 	}
 	/**
+	 * 4
 	 *  Creation: Rejecting the request from Approver
 	 *
 	 * @throws InterruptedException
@@ -75,6 +79,7 @@ public class MaterialCreationTestcases extends BasePage {
 	}
 
 	/**
+	 * 5
 	 *  Creation: Approving the request from approver
 	 *
 	 * @throws InterruptedException
@@ -91,6 +96,7 @@ public class MaterialCreationTestcases extends BasePage {
 	}
 
 	/**
+	 * 6
 	 *  Extend : Extend Plant hierarchy from the created record which is in system status
 	 *
 	 * @throws InterruptedException
@@ -107,6 +113,7 @@ public class MaterialCreationTestcases extends BasePage {
 	}
 
 	/**
+	 * 7
 	 *  Extend:Checking mandatory fields error on the execution page
 	 *
 	 * @throws InterruptedException
@@ -120,5 +127,34 @@ public class MaterialCreationTestcases extends BasePage {
 		loginPage.check_SignIn(env);
 		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
 		materialCreation.verify_Mandatory_Field_On_Execution_Page_At_Edit_Time();
+	}
+	/**
+	 * 8
+	 *  Extend : To verify that user is able to save the record with the extension process
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_That_User_Is_Able_To_Save_The_Record_With_The_Extension_Process(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-8432");
+		verify_Checking_Mandatory_Fields_Error_On_The_Execution_Page(env);
+		materialCreation.verify_User_Is_Able_To_Save_The_Record_With_The_Extension_Process();
+	}
+	/**
+	 * 9
+	 *  Extend:Reviewer task list checks
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Reviewer_Task_List_Checks(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-8433/MDMF-TC-8434/MDMF-TC-8435");
+		verify_That_User_Is_Able_To_Save_The_Record_With_The_Extension_Process(env);
+		loginPage.revSignIn(env);
+		materialmaster.approveStatus();
 	}
 }

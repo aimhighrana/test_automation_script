@@ -58,7 +58,7 @@ public class BasePage implements ITestListener {
 	public static ExtentReports report;
 
 	@BeforeMethod(alwaysRun = true)
-	public void setUp(Method method) throws MalformedURLException, FileNotFoundException {
+	public void setUp(Method method) throws Exception {
 
 		//create extent report in project dir
 		report = new ExtentReports("ExtentReportResults.html", true);
@@ -106,6 +106,7 @@ public class BasePage implements ITestListener {
 		listView = new ListView(driver);
 		homePage = new HomePage(driver);
 		materialCreation = new MaterialCreation(driver);
+	//	MyScreenRecorder.startRecording(currentTest);
 	}
 
 	protected Properties getConfigProperties() {
@@ -151,16 +152,21 @@ public class BasePage implements ITestListener {
 	 * @throws JiraException
 	 */
 	@AfterMethod(alwaysRun = true)
-	public void tearDown(ITestResult testResult) throws IOException {
+	public void tearDown(ITestResult testResult) throws Exception {
 		String testName = testResult.getName();
 		Reporter.setCurrentTestResult(testResult);
 		File img = new File("target" + File.separator + "surefire-reports" + File.separator + testName + ".png");
 		if (testResult.getStatus() == 1) {
 			log("PASS :: " + testResult.getName());
 			testResult.getThrowable();
+		//	MyScreenRecorder.stopRecording();
+		//	MyScreenRecorder.deleteFile(testName+".avi");
 		}
 		if (testResult.getStatus() == 2) {
 			log("FAIL :: " + testResult.getName());
+
+//			MyScreenRecorder.stopRecording();
+
 		//	makeScreenshot(driver, testName);
 		//	Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
 		//	FileOutputStream screenshotStream = new FileOutputStream(img);
@@ -170,6 +176,7 @@ public class BasePage implements ITestListener {
 		}
 		driver.manage().deleteAllCookies();
 		driver.quit();
+		//MyScreenRecorder.stopRecording();
 	}
 
 	public void makeScreenshot(WebDriver driver, String screenshotName) {

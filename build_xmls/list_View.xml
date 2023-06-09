@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="List_View_Automation_Testcases" verbose="10" parallel="tests"
+<suite name="List View Automation Testcases" verbose="10" parallel="tests"
 	thread-count="1">
 	<listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
 	<parameter name="env" value="QAH" />
-	 <test name="Test 1">
+	 <test name="verify The User Should Be Able To Add A New View For The List Page">
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
@@ -17,7 +17,7 @@
 		</classes>
 	</test>
 
-	 <test name="Test 2">
+	 <test name="verify User Should Be Able To Select Multiple Records At A Time">
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
@@ -28,7 +28,7 @@
 	</test>
 
 
-	<test name="Test 3">
+	<test name="verify User Should Be Able To Create View Using Setting Icon In The List Page">
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
@@ -38,7 +38,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 4">
+	<test name="verify The User Should Be Able To Delete The Added View">
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
@@ -48,7 +48,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 5">
+	<test name="verify The Pagination On List Page Should Work As Expected">
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
@@ -58,7 +58,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 6">
+	<test name="verify The User Should Be Able To View The Summary Of The Record Using Action Button On The Records">
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
@@ -68,7 +68,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 7">
+	<test name="verify The User Should Be Able To Download Template Of The Record Using Action Button On The Records">
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>

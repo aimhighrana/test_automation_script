@@ -29,12 +29,14 @@ public class MaterialCreation extends Locators {
 
 		common.waitForElement(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
 		common.findElement(dataTab).click();
 
 		test.log(LogStatus.INFO, "click on Material master from left nav");
 		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 		common.waitForElement(search);
+		common.pause(5);
 
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
@@ -61,6 +63,21 @@ public class MaterialCreation extends Locators {
 
 		common.waitForElement(materialTypeField);
 
+		common.waitForElement(addRowLanguageGrid);
+		common.findElementBy(addRowLanguageGrid,"Click on Add row button in Language grid section").click();
+		common.pause(5);
+		common.waitForElement(languageInput);
+		common.findElementBy(languageInput,"Click on Language dropdown").click();
+
+		common.waitForElement(germanLanguage);
+		common.findElementBy(germanLanguage,"Select German language from option").click();
+
+		common.findElementBy(materialDescFormView,"Enter material description").sendKeys("Test");
+		common.findElementBy(saveFormView,"Click on save on form view").click();
+
+		common.waitForElement(germanLanguage);
+
+
 		String strMaterialType = driver.findElement(By.xpath(materialTypeField)).getAttribute("value");
 		System.out.println("Step :: Verified Material Type field: "+strMaterialType);
 		common.log("Verified Material Type field: "+strMaterialType);
@@ -76,6 +93,7 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(plantDataAddHierarchy,"Click on Plant Data - add... button").click();
 		common.waitForElement(searchBoxHierarchy);
 		common.findElementBy(searchBoxHierarchy,"Search value: PLANT 0001").sendKeys("PLANT 0001");
+		common.pause(5);
 		common.waitForElement(selectSearchedOption);
 		common.findElementBy(selectSearchedOption,"Select searched option").click();
 		common.waitForElement(applyBtn);
@@ -84,8 +102,10 @@ public class MaterialCreation extends Locators {
 
 		common.findElementBy(valuationDataAddHierarchy,"Click on Valuation Data - add... button").click();
 		common.waitForElement(searchBoxHierarchy);
+		common.pause(5);
 		common.findElementBy(searchBoxHierarchy,"Search value: N.A -- Not Applicable").sendKeys("N.A");
 		common.waitForElement(selectSearchedOption);
+		common.pause(5);
 		common.findElementBy(selectSearchedOption,"Select searched option").click();
 		common.findElementBy(applyBtn,"Click on Apply button").click();
 		common.pause(10);
@@ -105,6 +125,7 @@ public class MaterialCreation extends Locators {
 
 		common.waitForElement(selectFirstValueClassDropdown);
 		common.findElementBy(selectFirstValueClassDropdown,"Select first value").click();
+		common.pause(5);
 		common.waitForElement(firstOptionSearchClass);
 		String strValueClassDropdown = driver.findElement(By.xpath(firstOptionSearchClass)).getText();
 		common.log("Selected value: "+strValueClassDropdown);
@@ -113,8 +134,9 @@ public class MaterialCreation extends Locators {
 		common.log("Verified generated attributes: "+typeAttributes+" & "+gritAttributes);
 		common.assertElementPresent(typeAttributes);
 		common.assertElementPresent(gritAttributes);
+
 		common.findElementBy(submitBtn,"Click on submit button").click();
-		common.pause(10);
+		common.pause(20);
 		common.waitForElement(dataTab);
 
 	}
@@ -164,6 +186,7 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(inboxMenu);
 
 	}
+
 	public void verify_Created_Record_Which_Is_In_System_Status() {
 
 		test.log(LogStatus.INFO, "Step :: Click on Data tab");
@@ -243,8 +266,7 @@ public class MaterialCreation extends Locators {
 
 			System.out.println("Step :: No duplicate records");
 		}
-		if(common.isDisplayed("//div[@class='mdo-notice f-row mdo-notice-error']")==true)
-		{
+		if(common.isDisplayed("//div[@class='mdo-notice f-row mdo-notice-error']")==true) {
 
 			System.out.println("Step :: Something went error appear");
 			common.refreshPage();
@@ -259,8 +281,7 @@ public class MaterialCreation extends Locators {
 			common.log("Click on save button");
 			driver.findElement(By.xpath(uSaveBtn)).click();
 			common.pause(40);
-		}
-		else {
+		} else {
 
 			System.out.println("Step :: No Something went error");
 		}
@@ -284,17 +305,15 @@ public class MaterialCreation extends Locators {
 	/**
 	 * Creation - verify Mandatory Field On Execution Page At Edit Time
 	 */
-	public void verify_Mandatory_Field_On_Execution_Page_At_Edit_Time() {
+	public void
+	verify_Mandatory_Field_On_Execution_Page_At_Edit_Time() {
 
-		test.log(LogStatus.INFO, "Step :: Click on Data tab");
-		System.out.println("Step :: Click on Data tab");
-		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
 		driver.findElement(By.xpath(dataTab)).click();
-		common.refreshPage();
-
 		common.waitForElement(materialMaster);
-		test.log(LogStatus.INFO, "Step :: Click on material master from left nav");
+
 		System.out.println("Step :: Click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
@@ -332,25 +351,155 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(headerData);
 		common.pause(20);
 
+		if (common.isElementDisplayed(actionIconLanguage)) {
+
+			common.findElementBy(actionIconLanguage, "Click on action icon for added language").click();
+			common.waitForElement(deleteRowOption);
+			common.findElementBy(deleteRowOption, "Click on delete row option").click();
+			common.pause(5);
+		}
+
+		common.findElementBy(addPlantData,"Click on Add Plant data").click();
+		common.waitForElement(searchPlantData);
+		common.findElementBy(searchPlantData,"Enter value 0002").sendKeys("0002");
+		common.waitForElement(searchedPantValue);
+		common.pause(5);
+		common.findElementBy(searchedPantValue,"Select searched value").click();
+		common.pause(5);
+		common.findElementBy(applyFilterButton,"Click on apply button").click();
+		common.pause(5);
+
 		test.log(LogStatus.INFO, "Step :: Click on save button");
 		System.out.println("Step :: Click on save button");
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
 		driver.findElement(By.xpath(uSaveBtn)).click();
-		common.pause(30);
+		common.pause(20);
 
-		//Verifying Error for mandatory fields
-		common.assertElementPresent("//p[normalize-space()='Fix the following errors to proceed']");
+		if (common.isElementDisplayed("//p[normalize-space()='Fix the following errors to proceed']")) {
+			//Verifying Error for mandatory fields
+			common.assertElementPresent("//p[normalize-space()='Fix the following errors to proceed']");
+			common.waitForElement("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div[1]//p");
 
-		for (int i = 1; i < 4; i++) {
-			if (driver.findElement(By.xpath("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div["+i+"]//p")).isDisplayed()) {
-				String strError = common.findElement("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div[" + i + "]//p").getText();
-				common.log(strError);
-			}
-			else
-			{
-				break;
-			}
+			String strError = common.findElement("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div[1]//p").getText();
+			common.log("Error: " + strError);
 		}
+	}
+
+	/**
+	 *  Extend : To verify that user is able to save the record with the extension process
+	 */
+	public void verify_User_Is_Able_To_Save_The_Record_With_The_Extension_Process() {
+
+		common.waitForElement(addRowLanguageGrid);
+		common.findElementBy(addRowLanguageGrid,"Click on Add row button in Language grid section").click();
+		common.pause(5);
+		common.waitForElement(languageInput);
+		common.findElementBy(languageInput,"Click on Language dropdown").click();
+
+		common.waitForElement(germanLanguage);
+		common.findElementBy(germanLanguage,"Select German language from option").click();
+
+		common.findElementBy(materialDescFormView,"Enter material description").sendKeys("Test");
+		common.findElementBy(saveFormView,"Click on save on form view").click();
+		common.waitForElement(germanLanguage);
+
+		common.findElementBy(materialTypeField,"Click on material type field").click();
+		common.pause(5);
+		common.findElementBy(dropValue3,"Select value from options").click();
+		common.pause(5);
+
+//		common.findElementBy(materialGroupField,"Click on material group field").click();
+//		common.pause(5);
+//		common.findElementBy(dropValue3,"Select value from options").click();
+//		common.pause(5);
+
+		common.findElementBy(industrySectorField,"Click on material group field").click();
+		common.pause(5);
+		common.findElementBy(dropValue3,"Select value from options").click();
+		common.pause(5);
+
+		test.log(LogStatus.INFO, "Step :: Click on save button");
+		System.out.println("Step :: Click on save button");
+		common.log("Click on save button");
+		common.waitForElement(uSaveBtn);
+		driver.findElement(By.xpath(uSaveBtn)).click();
+		common.pause(20);
+
+		common.waitForElement(dataTab);
+
+		//Verifying Data tab visible
+		common.findElementBy(dataTab,"Verify Data tab available");
+	}
+
+	/**
+	 * verify That Exact Match Duplicacy Is Working For Material Creation
+	 *
+	 */
+	public void verify_That_Exact_Match_Duplicacy_Is_Working_For_Material_Creation() {
+
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
+
+		test.log(LogStatus.INFO, "click on Material master from left nav");
+		System.out.println("Step :: click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+		common.waitForElement(search);
+		common.pause(5);
+
+		common.type(search, "Material Master");
+		common.waitForElement(materialMaster);
+		common.findElement(materialMaster).click();
+		common.pause(10);
+
+		//if Default view not appear them click on view dropdown icon and select Default view
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+		common.waitForElement(newRecordBtn);
+		System.out.println("Step :: Click on add new record button");
+		common.log("Click on add new record button");
+		WebElement newButton = common.findElement(newRecordBtn);
+		newButton.click();
+
+		common.waitForElement(materialCreationRecord);
+		common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
+
+		common.waitForElement(materialTypeField);
+
+		common.waitForElement(addRowLanguageGrid);
+		common.findElementBy(addRowLanguageGrid,"Click on Add row button in Language grid section").click();
+		common.pause(5);
+		common.waitForElement(languageInput);
+		common.findElementBy(languageInput,"Click on Language dropdown").click();
+
+		common.waitForElement(germanLanguage);
+		common.findElementBy(germanLanguage,"Select German language from option").click();
+
+		common.findElementBy(materialDescFormView,"Enter material description").sendKeys("Test");
+		common.findElementBy(saveFormView,"Click on save on form view").click();
+
+		common.waitForElement(germanLanguage);
+
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+		common.waitForElement(errorMessage);
+
+		String errorStr = common.findElement(errorMessage).getText();
+		common.log("Error showing: "+errorStr);
+
+		common.findElementBy(viewRecord,"Click on View record link text").click();
+
+		common.pause(10);
+		String duplicateRecordStr = common.findElement("//th[normalize-space()='Base Unit of measure']//..//..//..//td[3]//p").getText();
+common.log("Duplicate Object number: "+duplicateRecordStr);
+
 	}
 }

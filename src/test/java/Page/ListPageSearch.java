@@ -50,8 +50,14 @@ public class ListPageSearch extends Locators {
 
 		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.pause(5);
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
-		common.type(search, "Material Master");
+		if (common.isElementDisplayed(clearSearchField))
+		{
+			common.findElementBy(clearSearchField, "Clear the search field").click();
+		}
+			common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
@@ -189,6 +195,7 @@ public class ListPageSearch extends Locators {
 		common.log("First value of Material master table:: " + strFirstValue2);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
+		common.pause(10);
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 		
@@ -269,6 +276,8 @@ public class ListPageSearch extends Locators {
 	public void user_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions() {
 		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.pause(5);
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -307,6 +316,7 @@ public class ListPageSearch extends Locators {
 		common.log("First value of Material master table:: " + strFirstValue);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
+		common.pause(10);
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 
@@ -469,6 +479,9 @@ public class ListPageSearch extends Locators {
 
 		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
+
+		common.pause(5);
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -494,7 +507,7 @@ public class ListPageSearch extends Locators {
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
 
-		common.pause(10);
+		common.pause(20);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
 
 		common.pause(10);
@@ -552,8 +565,10 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button() {
 
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
-		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -627,9 +642,10 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches() {
 
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
-		common.findElementBy(dataTab, "Click on Data tab").click();
-		common.pause(10);
+		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -675,7 +691,10 @@ public class ListPageSearch extends Locators {
 	public void column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields() {
 
 		common.pause(5);
-		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -729,7 +748,11 @@ public class ListPageSearch extends Locators {
 	public void verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters() {
 
 		common.pause(5);
-		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
+
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -782,7 +805,10 @@ public class ListPageSearch extends Locators {
 	public void user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field() {
 
 		common.pause(5);
+		common.waitForElement(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -809,6 +835,7 @@ public class ListPageSearch extends Locators {
 
 		common.waitForElement(inputManufacturerPartNumFilter);
 
+		common.pause(5);
 		System.out.println("Enter special characters");
 		common.log("Enter special characters");
 		common.type(inputManufacturerPartNumFilter, "#$%");
@@ -818,10 +845,13 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(15);
 
-		String strFirstValue2 = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+		if (common.isElementPresent(firstValuematerialMaster)) {
+			String strFirstValue2 = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
 
-		System.out.println("First value of Material master table:: " + strFirstValue2);
-		common.log("First value of Material master table:: " + strFirstValue2);
+			System.out.println("First value of Material master table:: " + strFirstValue2);
+			common.log("First value of Material master table:: " + strFirstValue2);
+		}
+
 	}
 
 
@@ -832,7 +862,10 @@ public class ListPageSearch extends Locators {
 	public void user_Able_To_Search_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search() {
 
 		common.pause(5);
-		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
@@ -929,7 +962,10 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter() {
 		common.pause(5);
-		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);

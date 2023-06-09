@@ -139,7 +139,7 @@ public class Common extends Locators {
 
 		String locator;
 
-		System.out.println("Step:: " +msg);
+		System.out.println("Step:: " +msg+"\n");
 		log(msg);
 
 		locator = elementName;
@@ -279,8 +279,7 @@ public class Common extends Locators {
 
 	/**
 	 * Clicks on visible or not visible element.
-	 * 
-	 * @param element Web element.
+	 *
 	 */
 	public void jsClick(String locator) {
 		WebElement element = this.findElement(locator);
@@ -302,7 +301,7 @@ public class Common extends Locators {
 	 * @param msg Message/Log to be reported.
 	 */
 	public void log(String msg) {
-		Reporter.log("Step :: " + msg);
+		Reporter.log("<br>Step :: "+msg+"</br>");
 
 	}
 

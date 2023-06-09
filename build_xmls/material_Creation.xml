@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Material_Creation_Automation_Testcases" verbose="10" parallel="tests"
+<suite name="Material Creation Automation Testcases" verbose="10" parallel="tests"
 	thread-count="1">
 	<listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -8,7 +8,7 @@
     </listeners>
 	<parameter name="env" value="QAH" />
 
-	 <test name="Test 1">
+	 <test name="verify That Defaults Are Working In The Transaction Screen According To The User Configured">
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
@@ -18,7 +18,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 2">
+	<test name="verify That Created Record Is Visible At Reviewer Task List">
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
@@ -28,7 +28,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 3">
+	<test name="verify Data Verification For Reviewer At Transaction Screen">
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
@@ -37,7 +37,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Test 4">
+	<test name="verify Rejecting The Request From Approver">
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
@@ -46,7 +46,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Test 5">
+	<test name="verify Approving The Request From Approver">
 	<classes>
 		<class name="Test.MaterialCreationTestcases">
 			<methods>
@@ -56,7 +56,7 @@
 	</classes>
 </test>
 
-	<test name="Test 6">
+	<test name="verify Extend Plant Hierarchy From The Created Record Which Is In System Status">
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
@@ -66,7 +66,7 @@
 		</classes>
 	</test>
 
-	<test name="Test 7">
+	<test name="verify Checking Mandatory Fields Error On The Execution Page">
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
@@ -75,4 +75,25 @@
 			</class>
 		</classes>
 	</test>
+
+	<test name="verify That User Is Able To Save The Record With The Extension Process">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_That_User_Is_Able_To_Save_The_Record_With_The_Extension_Process"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="verify Reviewer Task List Checks">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_Reviewer_Task_List_Checks"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>
+

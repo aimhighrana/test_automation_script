@@ -19,6 +19,7 @@ public class MaterialMasterTestcases extends BasePage {
 	Common common = new Common(driver);
 
 	/**
+	 * 1
 	 * Material Master Module
 	 * 
 	 * @throws InterruptedException
@@ -35,6 +36,7 @@ public class MaterialMasterTestcases extends BasePage {
 	}
 
 	/**
+	 * 2
 	 * View Process-log Master Module
 	 * 
 	 * @throws InterruptedException
@@ -52,6 +54,7 @@ public class MaterialMasterTestcases extends BasePage {
 	}
 
 	/**
+	 * 3
 	 * Approve request from reviewer
 	 * 
 	 * @throws InterruptedException
@@ -70,6 +73,7 @@ public class MaterialMasterTestcases extends BasePage {
 
 	}
 	/**
+	 * 4
 	 * Approve request module
 	 *
 	 * @throws InterruptedException
@@ -86,6 +90,7 @@ public class MaterialMasterTestcases extends BasePage {
 
 	}
 	/**
+	 * 5
 	 * claim status
 	 * 
 	 * @throws InterruptedException
@@ -102,10 +107,10 @@ public class MaterialMasterTestcases extends BasePage {
 //		materialmaster.viewMaterialMasterProcessLog();
 		loginPage.revSignIn(env);
 		materialmaster.claimStatus();
-
 	}
 
 	/**
+	 * 6
 	 * Verification of save as draft feature
 	 * 
 	 * @throws InterruptedException
@@ -121,11 +126,10 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.viewMaterialMasterProcessLog();
 		loginPage.revSignIn(env);
 		materialmaster.saveDraft();
-		
-
 	}
 
 	/**
+	 * 7
 	 * Change record
 	 * 
 	 * @throws InterruptedException
@@ -142,6 +146,7 @@ public class MaterialMasterTestcases extends BasePage {
 	}
 
 	/**
+	 * 8
 	 * Verify copy record and approve from reviewer
 	 * 
 	 * @throws InterruptedException
@@ -160,6 +165,7 @@ public class MaterialMasterTestcases extends BasePage {
 
 	}
 	/**
+	 * 9
 	 * Verify copy record and remove one hierarchy, Other should not remove
 	 *
 	 * @throws InterruptedException
@@ -178,6 +184,7 @@ public class MaterialMasterTestcases extends BasePage {
 	}
 
 	/**
+	 * 10
 	 * Material Master Module
 	 * 
 	 * @throws InterruptedException
@@ -190,11 +197,10 @@ public class MaterialMasterTestcases extends BasePage {
 		loginPage.goToURL();
 		loginPage.check_SignIn(env);
 		materialmaster.createMaterialMasterWithGenerateDesc();
-		
-
 	}
 
 	/**
+	 * 11
 	 * claim & unclaim status
 	 * 
 	 * @throws InterruptedException
@@ -210,10 +216,9 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.viewMaterialMasterCompletedProcessLog();
 		loginPage.revSignIn(env);
 		materialmaster.claimUnclaimStatus();
-		
-
 	}
 	/**
+	 * 12
 	 * Verification of rejection Flow feature
 	 * 
 	 * @throws InterruptedException
@@ -232,6 +237,7 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.rejectionFlowFromReviewer();
 	}
 	/**
+	 * 13
 	 * Verification of rejection Flow feature for copied record
 	 *
 	 * @throws InterruptedException
@@ -249,6 +255,7 @@ public class MaterialMasterTestcases extends BasePage {
 	}
 
 	/**
+	 * 14
 	 * Verify Draft Approval Record Process Scenario
 	 * 
 	 * @throws InterruptedException

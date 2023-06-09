@@ -273,7 +273,7 @@ public class ListView extends Locators {
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(summaryOption, "Click on Summary option").click();
 		common.pause(5);
-		common.findElementBy(flowMaterialMasterRecordoption, "Click on Material master record option").click();
+		common.findElementBy(flowMaterialMasterRecordoption, "Click on second option").click();
 		common.pause(10);
 		common.assertElementPresent(headerData);
 		common.findElementBy(closeIcon, "Click on close icon").click();
@@ -281,7 +281,7 @@ public class ListView extends Locators {
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(summaryOption, "Click on Summary option").click();
 		common.pause(5);
-		common.findElementBy(formClassnClassTypeOption, "Click on Class and Class Type option").click();
+		common.findElementBy(formClassnClassTypeOption, "Click on third option").click();
 		common.pause(10);
 		common.assertElementPresent(classType1);
 		common.findElementBy(closeIcon, "Click on close icon").click();

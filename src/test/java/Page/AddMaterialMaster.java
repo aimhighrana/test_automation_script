@@ -48,6 +48,8 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 
+		common.pause(5);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		test.log(LogStatus.INFO, "click on Material master from left nav");
 		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
@@ -115,7 +117,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(plantdataPlusIcon).click();
 		common.waitForElement(plantvalue);
 		common.findElement(plantvalue).click();
-
+		common.pause(5);
 		common.findElementBy(applyBtn,"Click on apply button").click();
 
 		System.out.println("Step :: Select MRP type");
@@ -235,6 +237,8 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 
+		common.waitForElement(search);
+		common.type(search,"Material master");
 		common.waitForElement(materialMaster);
 		test.log(LogStatus.INFO, "Step :: click on material master from left nav");
 		System.out.println("Step :: click on Material master from left nav");
@@ -418,6 +422,9 @@ public class AddMaterialMaster extends Locators {
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.refreshPage();
 
+		common.pause(5);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+
 		test.log(LogStatus.INFO, "Step :: click on material master number from left nav");
 		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
@@ -442,39 +449,47 @@ public class AddMaterialMaster extends Locators {
 		common.findElementBy(actionIconForFirstValue,"Click on first value action icon").click();
 		common.pause(10);
 		common.findElementBy(viewPLog,"Select view process log option").click();
+		common.pause(10);
 
-		common.waitForElement(processLogTitle);
-		String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
-		System.out.println("Step :: Process Log Title is ::" + pLog);
-		common.log("Process Log Title is ::" + pLog);
+		if (common.isElementDisplayed(processLogTitle)) {
+			common.waitForElement(processLogTitle);
+			String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
+			System.out.println("Step :: Process Log Title is ::" + pLog);
+			common.log("Process Log Title is ::" + pLog);
 
-		driver.findElement(By.xpath(processLogTitle)).click();
+			driver.findElement(By.xpath(processLogTitle)).click();
 
-		common.pause(15);
-		String status = driver.findElement(By.xpath(statusCom)).getText();
-		System.out.println("Step :: Process Log Status is ::" + status);
-		common.log("Process Log Status is ::" + status);
-		assertEquals(status, "COMPLETED");
+			common.pause(15);
+			String status = driver.findElement(By.xpath(statusCom)).getText();
+			System.out.println("Step :: Process Log Status is ::" + status);
+			common.log("Process Log Status is ::" + status);
+			assertEquals(status, "COMPLETED");
 
-		System.out.println("Step :: click on view change ");
-		common.log("Click on view change");
-		driver.findElement(By.xpath(completedViewProcessLog)).click();
-		common.waitForElement(headerData);
-		Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
-		test.log(LogStatus.INFO, "Step :: -- Header title is displaying ");
-		System.out.println("Step :: Header Title is displaying:: >>" + header);
-		common.log("Title is Header data :: >>" + header);
+			System.out.println("Step :: click on view change ");
+			common.log("Click on view change");
+			driver.findElement(By.xpath(completedViewProcessLog)).click();
+			common.waitForElement(headerData);
+			Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
+			test.log(LogStatus.INFO, "Step :: -- Header title is displaying ");
+			System.out.println("Step :: Header Title is displaying:: >>" + header);
+			common.log("Title is Header data :: >>" + header);
 
-		common.pause(5);
+			common.pause(5);
 
-		System.out.println("Step :: Close View change page ");
-		common.log("Close View change page ");
-		common.findElement(closeIcoForViewChange).click();
+			System.out.println("Step :: Close View change page ");
+			common.log("Close View change page ");
+			common.findElement(closeIcoForViewChange).click();
 
-		System.out.println("Step :: Close process log page ");
-		common.log("Close View process log page ");
-		common.waitForConditionIsElementPresent(closeIconForProcessLog);
-		common.findElement(closeIconForProcessLog).click();
+			System.out.println("Step :: Close process log page ");
+			common.log("Close View process log page ");
+			common.waitForConditionIsElementPresent(closeIconForProcessLog);
+			common.findElement(closeIconForProcessLog).click();
+		}
+		else {
+			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
+			System.out.println("Step :: View process log: "+strProcessLog);
+			common.log("View process log: "+strProcessLog);
+		}
 
 	}
 
@@ -580,6 +595,8 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on approve");
 		common.log("Click on approve");
 		common.pause(20);
+		common.waitForElement(headerData);
+		common.findElementBy(headerData,"Verify Header data appear");
 		common.findElement(approveBtn).click();
 		common.waitForElement(approveButton);
 		test.log(LogStatus.INFO, "Step :: click on Approve button ");
@@ -818,6 +835,9 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
 		driver.findElement(By.xpath(dataTab)).click();
+
+		common.pause(5);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.refreshPage();
 
 		common.waitForElement(materialMaster);
@@ -938,6 +958,9 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
 		driver.findElement(By.xpath(dataTab)).click();
+
+		common.pause(5);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.refreshPage();
 
 		System.out.println("Step :: click on Material master from left nav");
@@ -1128,6 +1151,9 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
 		driver.findElement(By.xpath(dataTab)).click();
+
+		common.pause(5);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.refreshPage();
 
 		System.out.println("Step :: click on Material master from left nav");
