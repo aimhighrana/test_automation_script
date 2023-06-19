@@ -76,13 +76,19 @@ public class AddMaterialMaster extends Locators {
 
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
+		common.pause(5);
 
-		test.log(LogStatus.INFO, "Click on material master workflow roles");
-		System.out.println("Step :: Click on material master workflow roles");
-		common.log("Click on material master workflow roles");
-		common.waitForElement(materialMasterRoleValue);
+		if (common.isElementPresent(sequentialMaterialOption))
+		{
+			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
+		}else {
 
-		driver.findElement(By.xpath(materialMasterRoleValue)).click();
+			test.log(LogStatus.INFO, "Click on material master workflow roles");
+			System.out.println("Step :: Click on material master workflow roles");
+			common.log("Click on material master workflow roles");
+			common.waitForElement(materialMasterRoleValue);
+			driver.findElement(By.xpath(materialMasterRoleValue)).click();
+		}
 
 		System.out.println("Step :: Click on Industry sector dropdown and select value");
 		common.log("Click on Industry section dropdown and select value");
@@ -103,10 +109,15 @@ public class AddMaterialMaster extends Locators {
 					.click();
 			driver.findElement(By.xpath("//span[normalize-space()='ERSA -- Spare Part']")).click();
 
-			common.pause(10);
+			common.pause(5);
 		} else {
 
 			common.log("No need to select Material Type");
+		}
+
+		if (common.isElementPresent(xPlantMaterialStatusField))
+		{
+			common.findElementBy(xPlantMaterialStatusField,"Select value from X-Plant Material Status field").click();
 		}
 
 		// Filling plant records
@@ -134,9 +145,7 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(dropValue);
 		common.findElement(dropValue).click();
 
-		common.pause(5);
 		common.scrollPage();
-		common.pause(5);
 
 		common.waitForElement(loading);
 		common.findElementBy(loading,"Click on loading group icon").click();
@@ -154,7 +163,6 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(newCheckbox).click();
 
 		common.findElementBy(applyBtn,"Click on apply button").click();
-		common.pause(10);
 
 		test.log(LogStatus.INFO, "Step :: Select Valuation Cat. option");
 		System.out.println("Step :: Select Valuation Cat. option");
@@ -181,7 +189,7 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on submit button");
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(40);
+		common.pause(10);
 
 		//If duplicate record popup appear then click on continue
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
@@ -211,7 +219,7 @@ public class AddMaterialMaster extends Locators {
 			System.out.println("Step :: click on submit button");
 			common.log("click on submit button");
 			common.findElement(submitBtn).click();
-			common.pause(40);
+			common.pause(10);
 		}
 		else {
 
@@ -265,12 +273,20 @@ public class AddMaterialMaster extends Locators {
 
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
-		test.log(LogStatus.INFO, "Step :: click on material master workflow roles");
-		System.out.println("Step :: click on material master workflow roles");
-		common.log("Click on material master workflow roles");
-		common.waitForElement(materialMasterRoleValue);
+		common.pause(5);
 
-		common.findElement(materialMasterRoleValue).click();
+		if (common.isElementPresent(sequentialMaterialOption))
+		{
+			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
+		}
+		else {
+			test.log(LogStatus.INFO, "Step :: click on material master workflow roles");
+			System.out.println("Step :: click on material master workflow roles");
+			common.log("Click on material master workflow roles");
+			common.waitForElement(materialMasterRoleValue);
+
+			common.findElement(materialMasterRoleValue).click();
+		}
 		common.waitForElement(materialGroup);
 		common.pause(10);
 
@@ -283,6 +299,11 @@ public class AddMaterialMaster extends Locators {
 
 		common.findElementBy(generateDesc,"Click on generate description").click();
 		common.findElement(generateDesc).click();
+
+		if (common.isElementPresent(xPlantMaterialStatusField))
+		{
+			common.findElementBy(xPlantMaterialStatusField,"Select value from X-Plant Material Status field").click();
+		}
 
 		test.log(LogStatus.INFO, "Step :: Select class value");
 		System.out.println("Step :: Select class value");

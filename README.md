@@ -28,6 +28,7 @@ Execution
 	•	example: /Users/qamacbookpro/Desktop/latest_prospecta/Bitbucket_docker/test-automation-script
 	•	Run 'mvn clean verify' - to run all tests
 	•	Run 'mvn clean test -Dsurefire.suiteXmlFiles=build_xmls/list_Page_Search.xml -Denv=QAH' - to run single xml with specific env
-You can find the test result in Prospecta\target\surefire-reports\html\index.html or output.html.
+    •   Run 'mvn clean verify -Denv=QAH/QAR/SAND' - to run all-suite against env
+        You can find the test result in Prospecta\target\surefire-reports\html\index.html or output.html.
 
 

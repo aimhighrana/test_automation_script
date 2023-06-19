@@ -301,7 +301,7 @@ public class Common extends Locators {
 	 * @param msg Message/Log to be reported.
 	 */
 	public void log(String msg) {
-		Reporter.log("<br>Step :: "+msg+"</br>");
+		Reporter.log("Step :: "+msg);
 
 	}
 
@@ -357,6 +357,16 @@ public class Common extends Locators {
 		try {
 			webElement = this.findElement(elementName);
 			return webElement.isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	public boolean isElementNotDisplayed(String elementName) {
+
+		WebElement webElement;
+		try {
+			webElement = this.findElement(elementName);
+			return !webElement.isDisplayed();
 		} catch (Exception e) {
 			return false;
 		}

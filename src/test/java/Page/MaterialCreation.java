@@ -468,26 +468,38 @@ public class MaterialCreation extends Locators {
 		common.log("Click on add new record button");
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
-
-		common.waitForElement(materialCreationRecord);
-		common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
-
-		common.waitForElement(materialTypeField);
-
-		common.waitForElement(addRowLanguageGrid);
-		common.findElementBy(addRowLanguageGrid,"Click on Add row button in Language grid section").click();
 		common.pause(5);
-		common.waitForElement(languageInput);
-		common.findElementBy(languageInput,"Click on Language dropdown").click();
 
-		common.waitForElement(germanLanguage);
-		common.findElementBy(germanLanguage,"Select German language from option").click();
+		if(common.isElementDisplayed(sequentialMaterialOption))
+		{
+			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
 
-		common.findElementBy(materialDescFormView,"Enter material description").sendKeys("Test");
-		common.findElementBy(saveFormView,"Click on save on form view").click();
+			common.waitForElement(materialTypeField);
 
-		common.waitForElement(germanLanguage);
+			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
+			common.waitForElement(dropValue);
+			common.findElementBy(dropValue, "Select option").click();
+		}
+		else {
+			common.waitForElement(materialCreationRecord);
+			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
 
+			common.waitForElement(materialTypeField);
+
+			common.waitForElement(addRowLanguageGrid);
+			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
+			common.pause(5);
+			common.waitForElement(languageInput);
+			common.findElementBy(languageInput, "Click on Language dropdown").click();
+
+			common.waitForElement(germanLanguage);
+			common.findElementBy(germanLanguage, "Select German language from option").click();
+
+			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("Test");
+			common.findElementBy(saveFormView, "Click on save on form view").click();
+
+			common.waitForElement(germanLanguage);
+		}
 		common.findElementBy(submitBtn,"Click on submit button").click();
 		common.pause(20);
 		common.waitForElement(errorMessage);
@@ -498,8 +510,134 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(viewRecord,"Click on View record link text").click();
 
 		common.pause(10);
-		String duplicateRecordStr = common.findElement("//th[normalize-space()='Base Unit of measure']//..//..//..//td[3]//p").getText();
-common.log("Duplicate Object number: "+duplicateRecordStr);
+		String duplicateRecordStr = common.findElement("//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p").getText();
+		common.log("Duplicate Object number: "+duplicateRecordStr);
+		System.out.println("Duplicate Object number: "+duplicateRecordStr);
+	}
+	public void duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event() {
+		System.out.println("Step :: Click on Data tab");
+		common.log("Click on Data tab");
+		common.waitForElement(dataTab);
+		driver.findElement(By.xpath(dataTab)).click();
+
+		common.pause(5);
+		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.refreshPage();
+
+		System.out.println("Step :: click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+		common.waitForElement(materialMaster);
+		driver.findElement(By.xpath(materialMaster)).click();
+		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.pause(10);
+		String mmN = driver.findElement(By.xpath(materialMasterNum)).getText();
+		System.out.println("Step:: Material master number is ::" + mmN);
+
+		common.pause(10);
+		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+
+		System.out.println("Step :: Click on copy");
+		common.log("Click on copy");
+		common.pause(5);
+		common.findElement(copy).click();
+		common.pause(5);
+
+		common.findElementBy(sequentialMaterialOption,"Select Sequential Material").click();
+		common.waitForElement(copyButton);
+		common.findElementBy(headerData,"Header data verified");
+
+		common.findElementBy(copyButton, "Click on Copy button").click();
+		common.waitForElement(submitBtn);
+		common.findElementBy(submitBtn,"Click on Submit button").click();
+
+		common.waitForElement(errorMessage);
+		String errorStr = common.findElement(errorMessage).getText();
+		common.log("Error showing: "+errorStr);
+
+		common.findElementBy(viewRecord,"Click on View record link text").click();
+
+		common.pause(10);
+		String duplicateRecordStr = common.findElement("//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p").getText();
+		common.log("Duplicate Object number: "+duplicateRecordStr);
+		System.out.println("Duplicate Object number: "+duplicateRecordStr);
 
 	}
-}
+
+	/**
+	 * verify Duplicacy Is Working At Change Event
+	 *
+	 */
+	public void verify_Duplicacy_Is_Working_At_Change_Event() {
+
+		test.log(LogStatus.INFO, "Step :: Click on Data tab");
+		System.out.println("Step :: Click on Data tab");
+		common.log("Click on Data tab");
+		common.waitForElement(dataTab);
+		driver.findElement(By.xpath(dataTab)).click();
+
+		common.pause(5);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.refreshPage();
+
+		common.waitForElement(materialMaster);
+		test.log(LogStatus.INFO, "Step :: Click on material master from left nav");
+		System.out.println("Step :: Click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+
+		driver.findElement(By.xpath(materialMaster)).click();
+		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
+		System.out.println("Step :: Material master number is ::" + materialMasterNumber);
+		System.out.println("Step :: Set filter status as a System");
+		common.log("Set filter status as a system");
+		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.pause(10);
+		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+
+		test.log(LogStatus.INFO, "Step :: Click on edit");
+		System.out.println("Step :: Click on edit");
+		common.log("Click on edit");
+
+		driver.findElement(By.xpath(edit)).click();
+		common.waitForElement(sequentialMaterialOption);
+		common.findElementBy(sequentialMaterialOption,"Click on Sequential Material").click();
+		common.waitForElement(saveButtonFilterPopup);
+		common.findElementBy(saveButtonFilterPopup,"Click on Save").click();
+
+		common.waitForElement(errorMessage);
+		String errorStr = common.findElement(errorMessage).getText();
+		common.log("Error showing: "+errorStr);
+
+		common.findElementBy(viewRecord,"Click on View record link text").click();
+
+		common.pause(10);
+		String duplicateRecordStr = common.findElement("//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p").getText();
+		common.log("Duplicate Object number: "+duplicateRecordStr);
+		System.out.println("Duplicate Object number: "+duplicateRecordStr);
+
+
+	}
+	}

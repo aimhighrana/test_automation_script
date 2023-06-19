@@ -42,14 +42,19 @@ public class LoginPage extends Locators {
 	 * Open URL
 	 * 
 	 */
-	public void goToURL() {
-		String URL = getPropertyValue("url");
+	public void goToURL(String env) {
+		String URL;
+		if(env.equals("SAND")) {
+			URL = getPropertyValue("urlSandBox");
 
+		}
+		else {
+			URL = getPropertyValue("url");
+
+		}
 		System.out.println("Step :: Open Url: "+URL);
-
 		common.log("Open URL: "+URL);
 		driver.get(URL);
-
 	}
 
 	
@@ -85,7 +90,7 @@ public class LoginPage extends Locators {
 			//wait for Data Tab appear
 
 		}
-		else {
+		else if(env.equals("QAR")){
 			System.out.println("Step :: Entering username: " + getPropertyValue("qarReqUserName"));
 			common.log("Entering username: " + getPropertyValue("qarReqUserName"));
 			common.findElement(userNameField).sendKeys(getPropertyValue("qarReqUserName"));
@@ -110,11 +115,41 @@ public class LoginPage extends Locators {
 			//wait for Data Tab appear
 
 		}
+		else if(env.equals("SAND")){
+			System.out.println("Step :: Entering username: " + getPropertyValue("sandBoxReqUserName"));
+			common.log("Entering username: " + getPropertyValue("sandBoxReqUserName"));
+			common.findElement(userNameField).sendKeys(getPropertyValue("sandBoxReqUserName"));
+
+			common.pause(10);
+			System.out.println("Step :: Click on continue button.");
+			common.log("Click on continue button.");
+			common.findElement(continueButton).click();
+			common.pause(5);
+
+			//If Use Password button display then click on that and then entering password
+			if (common.isElementPresent(usePasswordButton)) {
+
+				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+			}
+			common.pause(5);
+			System.out.println("Step :: Entering password:: " + getPropertyValue("sandBoxReqPassword"));
+			test.log(LogStatus.INFO, "Entering password:: " + getPropertyValue("sandBoxReqPassword"));
+			common.log("Entering password: " + getPropertyValue("sandBoxReqPassword"));
+			common.findElement(PasswordField).sendKeys(getPropertyValue("sandBoxReqPassword"));
+
+			//wait for Data Tab appear
+
+		}
 		common.pause(5);
 		test.log(LogStatus.INFO, "Click on Login button");
 		System.out.println("Step :: Click on login button");
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
+		common.pause(10);
+		if (common.isElementDisplayed("//p[normalize-space()='QA Sandbox']"))
+		{
+			common.findElementBy("//p[normalize-space()='QA Sandbox']", "Click on QA sandbox").click();
+		}
 
 		common.waitForElement(dataTab);
 		test.log(LogStatus.INFO, "Env URL:: " + driver.getCurrentUrl());
@@ -163,7 +198,7 @@ public class LoginPage extends Locators {
 			WebElement passwordField = driver.findElement(By.xpath(PasswordField));
 			passwordField.sendKeys(getPropertyValue("qahRevPassword"));
 		}
-		else
+		else if (env.equals("QAR"))
 		{
 			System.out.println("Step :: Enter value in email field: " + getPropertyValue("qarRevUserName"));
 			common.log("Enter the value in email field: " + getPropertyValue("qarRevUserName"));
@@ -184,6 +219,28 @@ public class LoginPage extends Locators {
 			common.log("Entering password: " + getPropertyValue("qarRevPassword"));
 			WebElement passwordField = driver.findElement(By.xpath(RevPwdField));
 			passwordField.sendKeys(getPropertyValue("qarRevPassword"));
+		}
+		else if (env.equals("SAND"))
+		{
+			System.out.println("Step :: Enter value in email field: " + getPropertyValue("sandBoxRevUserName"));
+			common.log("Enter the value in email field: " + getPropertyValue("sandBoxRevUserName"));
+			WebElement emailField = driver.findElement(By.xpath(revUsernameField));
+			emailField.sendKeys(getPropertyValue("sandBoxRevUserName"));
+
+			WebElement continueBtn = driver.findElement(By.xpath(continueButton));
+			continueBtn.click();
+			common.pause(10);
+			//If Use Password button display then click on that and then entering password
+			if (common.isElementPresent(usePasswordButton)) {
+
+				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+				common.pause(5);
+			}
+
+			System.out.println("Step :: Entering password: " + getPropertyValue("sandBoxRevPassword"));
+			common.log("Entering password: " + getPropertyValue("sandBoxRevPassword"));
+			WebElement passwordField = driver.findElement(By.xpath(RevPwdField));
+			passwordField.sendKeys(getPropertyValue("sandBoxRevPassword"));
 		}
 		common.pause(5);
 		test.log(LogStatus.INFO, "click on login button");

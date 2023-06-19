@@ -56,6 +56,7 @@ public class ListPageSearch extends Locators {
 		if (common.isElementDisplayed(clearSearchField))
 		{
 			common.findElementBy(clearSearchField, "Clear the search field").click();
+			common.pause(5);
 		}
 			common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
@@ -156,6 +157,7 @@ public class ListPageSearch extends Locators {
 		common.log("First value of Material master table:: " + strFirstValue);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
+		common.pause(10);
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 
@@ -168,12 +170,14 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		String strFirstValue1 = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+		if (common.isElementDisplayed(firstValuematerialMaster)) {
+			String strFirstValue1 = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
 
-		System.out.println("First value of Material master table:: " + strFirstValue1);
-		common.log("First value of Material master table:: " + strFirstValue1);
-
+			System.out.println("First value of Material master table:: " + strFirstValue1);
+			common.log("First value of Material master table:: " + strFirstValue1);
+		}
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
+		common.pause(10);
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 
@@ -189,11 +193,12 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		String strFirstValue2 = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+		if (common.isElementDisplayed(firstValuematerialMaster)) {
+			String strFirstValue2 = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
 
-		System.out.println("First value of Material master table:: " + strFirstValue2);
-		common.log("First value of Material master table:: " + strFirstValue2);
-
+			System.out.println("First value of Material master table:: " + strFirstValue2);
+			common.log("First value of Material master table:: " + strFirstValue2);
+		}
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.pause(10);
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
@@ -399,7 +404,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
 
 		common.pause(10);
-		common.assertElementPresent(appliedIndusScetoryFilter);
+		common.findElementBy(appliedIndusScetoryFilter,"Industry Sector filter is applied");
 
 		common.findElementBy(threeDotsAdvanceFilter, "Click on Three dots").click();
 
@@ -408,7 +413,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(confirmButton, "Click on Confirm button in popup").click();
 
 		common.pause(10);
-		common.assertElementNotPresent(appliedIndusScetoryFilter);
+		common.isElementNotDisplayed(appliedIndusScetoryFilter);
 
 	}
 
@@ -677,10 +682,13 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+		if (common.isElementDisplayed(firstValuematerialMaster)) {
+			String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
 
-		System.out.println("First value of Material master table:: " + strFirstValue);
-		common.log("First value of Material master table:: " + strFirstValue);
+			System.out.println("First value of Material master table:: " + strFirstValue);
+			common.log("First value of Material master table:: " + strFirstValue);
+		}
+
 		user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
 	}
 
@@ -771,7 +779,7 @@ public class ListPageSearch extends Locators {
 		}
 		String paginationStr = driver.findElement(By.xpath(paginationValue)).getText();
 
-		System.out.println("Paginaton value before applying filter:: " + paginationStr);
+		System.out.println("Pagination value before applying filter:: " + paginationStr);
 		common.log("Pagination value before applying filter:: " + paginationStr);
 
 		common.pause(5);

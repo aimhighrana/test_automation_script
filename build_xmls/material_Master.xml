@@ -134,4 +134,14 @@
 			</class>
 		</classes>
 	</test>
+<!--	<test name="verify API">-->
+<!--			<classes>-->
+<!--				<class name="Test.MaterialMasterTestcases">-->
+<!--					<methods>-->
+<!--						<include name="Api"></include>-->
+<!--					</methods>-->
+<!--				</class>-->
+<!--			</classes>-->
+<!--		</test>-->
+
 </suite>
