@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.commons.io.IOUtils;
+import org.checkerframework.checker.units.qual.C;
 import org.testng.annotations.*;
 import org.testng.annotations.Test;
 import Page.LoginPage;
@@ -19,11 +20,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
+import static io.restassured.RestAssured.when;
+
 public class MaterialMasterTestcases extends BasePage {
 
 	// public WebDriver driver;
 	Common common = new Common(driver);
-
 	/**
 	 * 1
 	 * Material Master Module
@@ -305,5 +307,4 @@ public class MaterialMasterTestcases extends BasePage {
 		}
 	//	Assert.assertEquals(res.getStatusCode(),200);
 	}
-
 }

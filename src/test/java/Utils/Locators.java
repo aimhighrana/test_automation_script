@@ -28,8 +28,8 @@ public abstract class Locators extends BasePage {
 	public static String search = "//input[@placeholder='Search Data'] | //input[@placeholder='Search data']";
 	public static String materialMaster = "//p[normalize-space()='Material Master']";
 	public static String newRecordBtn = "//span[contains(text(),'New record')] | //div[@class='f-col state-container']//div[@class='f-row']";
-	public static String revUsernameField = "//input[@id='mat-input-3']";
-	public static String RevPwdField = "//input[@id='mat-input-5']";
+	public static String revUsernameField = "//p[@class='xsmall strong ng-star-inserted']//..//..//..//input";
+	public static String RevPwdField = "//p[normalize-space()='Password']//..//..//..//input";
 	public static String userPasswordLink = "//p[contains(text(),'Use password')]";
 	public static String materialNumFromTbl = "//table//tr[1]//td[3]";
 	public static String actionIconForFirstValue = "//tbody/tr[1]/td[1]//..//button//span//mat-icon";
@@ -324,6 +324,16 @@ public abstract class Locators extends BasePage {
 	public static String deleteRowOption = "//button[normalize-space()='Delete Row']";
 	public static String errorMessage ="//div[@class='mdo-notice f-row mdo-notice-error']";
 	public static String viewRecord = "//span[@class='info-link']";
+
+	//Duplicacy rule
+	public static String materialDescReviewer = "//p[normalize-space()='Material Description']//..//..//..//input";
+	public static String divisionField = "//p[normalize-space()='Division']//..//..//div//input";
+	public static String manufacturerField = "//p[normalize-space()='Manufacturer Part Number']//..//..//..//input";
+	public static String oldMaterialNumField = "//p[normalize-space()='Old Material Number']//..//..//..//input";
+	public static String duplicateRecordFirst = "//tr[1]/td[2]/lib-text-line[1]/p[1]";
+	public static String approveButtonReviewer = "//span[normalize-space()='Approve']";
+
+
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
 	protected WebElement filterIndustrySector1;
 

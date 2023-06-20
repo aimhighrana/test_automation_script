@@ -165,10 +165,9 @@ public class LoginPage extends Locators {
 	public void revSignIn(String env) {
 
 		//Sign out the approver
-		WebElement Profile = driver.findElement(By.xpath(profileIcon));
-		if (Profile.isDisplayed()) {
+		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
-			Profile.click();
+			common.findElementBy(profileIcon,"Click on profile icon").click();
 			driver.findElement(By.xpath(signOut)).click();
 		}
 
@@ -224,6 +223,7 @@ public class LoginPage extends Locators {
 		{
 			System.out.println("Step :: Enter value in email field: " + getPropertyValue("sandBoxRevUserName"));
 			common.log("Enter the value in email field: " + getPropertyValue("sandBoxRevUserName"));
+			common.waitForElement(revUsernameField);
 			WebElement emailField = driver.findElement(By.xpath(revUsernameField));
 			emailField.sendKeys(getPropertyValue("sandBoxRevUserName"));
 
@@ -247,7 +247,12 @@ public class LoginPage extends Locators {
 		System.out.println("Step :: click on login button");
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
-		common.pause(20);
+		common.pause(10);
+		if (common.isElementDisplayed("//p[normalize-space()='QA Sandbox']"))
+		{
+			common.findElementBy("//p[normalize-space()='QA Sandbox']", "Click on QA sandbox").click();
+		}
+
 
 	}
 

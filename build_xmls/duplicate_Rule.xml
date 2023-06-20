@@ -37,5 +37,15 @@
 			</class>
 		</classes>
 	</test>
+
+	<test name="verify That Duplicacy Check Is Working At The Time Of Approval From Reviewer">
+		<classes>
+			<class name="Test.DuplicateRuleTestcases">
+				<methods>
+					<include name="verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Approval_From_Reviewer"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>
 

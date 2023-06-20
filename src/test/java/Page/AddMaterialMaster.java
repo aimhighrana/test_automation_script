@@ -1467,5 +1467,4 @@ public class AddMaterialMaster extends Locators {
 			common.log("No records available");
 		}
 	}
-
 }

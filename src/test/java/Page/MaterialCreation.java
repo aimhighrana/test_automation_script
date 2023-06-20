@@ -57,87 +57,101 @@ public class MaterialCreation extends Locators {
 		common.log("Click on add new record button");
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
-
-		common.waitForElement(materialCreationRecord);
-		common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
-
-		common.waitForElement(materialTypeField);
-
-		common.waitForElement(addRowLanguageGrid);
-		common.findElementBy(addRowLanguageGrid,"Click on Add row button in Language grid section").click();
-		common.pause(5);
-		common.waitForElement(languageInput);
-		common.findElementBy(languageInput,"Click on Language dropdown").click();
-
-		common.waitForElement(germanLanguage);
-		common.findElementBy(germanLanguage,"Select German language from option").click();
-
-		common.findElementBy(materialDescFormView,"Enter material description").sendKeys("Test");
-		common.findElementBy(saveFormView,"Click on save on form view").click();
-
-		common.waitForElement(germanLanguage);
-
-
-		String strMaterialType = driver.findElement(By.xpath(materialTypeField)).getAttribute("value");
-		System.out.println("Step :: Verified Material Type field: "+strMaterialType);
-		common.log("Verified Material Type field: "+strMaterialType);
-
-		String strMaterialGroup = driver.findElement(By.xpath(materialGroupField)).getAttribute("value");
-		System.out.println("Step :: Verified Material Group field: "+strMaterialGroup);
-		common.log("Verified Material Group field: "+strMaterialGroup);
-
-		String strIndustrySector = driver.findElement(By.xpath(industrySectorField)).getAttribute("value");
-		System.out.println("Step :: Verified Industry sector field: "+strIndustrySector);
-		common.log("Verified Industry sector field: "+strIndustrySector);
-
-		common.findElementBy(plantDataAddHierarchy,"Click on Plant Data - add... button").click();
-		common.waitForElement(searchBoxHierarchy);
-		common.findElementBy(searchBoxHierarchy,"Search value: PLANT 0001").sendKeys("PLANT 0001");
-		common.pause(5);
-		common.waitForElement(selectSearchedOption);
-		common.findElementBy(selectSearchedOption,"Select searched option").click();
-		common.waitForElement(applyBtn);
-		common.findElementBy(applyBtn,"Click on Apply button").click();
 		common.pause(5);
 
-		common.findElementBy(valuationDataAddHierarchy,"Click on Valuation Data - add... button").click();
-		common.waitForElement(searchBoxHierarchy);
-		common.pause(5);
-		common.findElementBy(searchBoxHierarchy,"Search value: N.A -- Not Applicable").sendKeys("N.A");
-		common.waitForElement(selectSearchedOption);
-		common.pause(5);
-		common.findElementBy(selectSearchedOption,"Select searched option").click();
-		common.findElementBy(applyBtn,"Click on Apply button").click();
-		common.pause(10);
+		if (common.isElementDisplayed(materialCreationRecord)) {
+			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
 
-		String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
-		System.out.println("Step :: Verified Valuation Type field: "+strValuationType);
-		common.log("Verified Valuation Type field: "+strValuationType);
+			common.waitForElement(materialTypeField);
 
-		common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
+			common.waitForElement(addRowLanguageGrid);
+			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
+			common.pause(5);
+			common.waitForElement(languageInput);
+			common.findElementBy(languageInput, "Click on Language dropdown").click();
 
-		common.findElementBy(searchClassDropdown,"Click on Search class dropdown").click();
-		common.waitForElement(searchBoxClassDropdown);
-		common.pause(10);
-		common.findElementBy(searchBoxClassDropdown,"Click on Search box").click();
-		common.pause(10);
+			common.waitForElement(germanLanguage);
+			common.findElementBy(germanLanguage, "Select German language from option").click();
+
+			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("Test");
+			common.findElementBy(saveFormView, "Click on save on form view").click();
+
+			common.waitForElement(germanLanguage);
+
+
+			String strMaterialType = driver.findElement(By.xpath(materialTypeField)).getAttribute("value");
+			System.out.println("Step :: Verified Material Type field: " + strMaterialType);
+			common.log("Verified Material Type field: " + strMaterialType);
+
+			String strMaterialGroup = driver.findElement(By.xpath(materialGroupField)).getAttribute("value");
+			System.out.println("Step :: Verified Material Group field: " + strMaterialGroup);
+			common.log("Verified Material Group field: " + strMaterialGroup);
+
+			String strIndustrySector = driver.findElement(By.xpath(industrySectorField)).getAttribute("value");
+			System.out.println("Step :: Verified Industry sector field: " + strIndustrySector);
+			common.log("Verified Industry sector field: " + strIndustrySector);
+
+			common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
+			common.waitForElement(searchBoxHierarchy);
+			common.findElementBy(searchBoxHierarchy, "Search value: PLANT 0001").sendKeys("PLANT 0001");
+			common.pause(5);
+			common.waitForElement(selectSearchedOption);
+			common.findElementBy(selectSearchedOption, "Select searched option").click();
+			common.waitForElement(applyBtn);
+			common.findElementBy(applyBtn, "Click on Apply button").click();
+			common.pause(5);
+
+			common.findElementBy(valuationDataAddHierarchy, "Click on Valuation Data - add... button").click();
+			common.waitForElement(searchBoxHierarchy);
+			common.pause(5);
+			common.findElementBy(searchBoxHierarchy, "Search value: N.A -- Not Applicable").sendKeys("N.A");
+			common.waitForElement(selectSearchedOption);
+			common.pause(5);
+			common.findElementBy(selectSearchedOption, "Select searched option").click();
+			common.findElementBy(applyBtn, "Click on Apply button").click();
+			common.pause(10);
+
+			String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
+			System.out.println("Step :: Verified Valuation Type field: " + strValuationType);
+			common.log("Verified Valuation Type field: " + strValuationType);
+
+			common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
+
+			common.findElementBy(searchClassDropdown, "Click on Search class dropdown").click();
+			common.waitForElement(searchBoxClassDropdown);
+			common.pause(10);
+			common.findElementBy(searchBoxClassDropdown, "Click on Search box").click();
+			common.pause(10);
 //		common.findElementBy(searchBoxClassDropdown,"Search the value: Hood").sendKeys("Hood");
 
-		common.waitForElement(selectFirstValueClassDropdown);
-		common.findElementBy(selectFirstValueClassDropdown,"Select first value").click();
-		common.pause(5);
-		common.waitForElement(firstOptionSearchClass);
-		String strValueClassDropdown = driver.findElement(By.xpath(firstOptionSearchClass)).getText();
-		common.log("Selected value: "+strValueClassDropdown);
+			common.waitForElement(selectFirstValueClassDropdown);
+			common.findElementBy(selectFirstValueClassDropdown, "Select first value").click();
+			common.pause(5);
+			common.waitForElement(firstOptionSearchClass);
+			String strValueClassDropdown = driver.findElement(By.xpath(firstOptionSearchClass)).getText();
+			common.log("Selected value: " + strValueClassDropdown);
 
-		//verifying attributes after select class
-		common.log("Verified generated attributes: "+typeAttributes+" & "+gritAttributes);
-		common.assertElementPresent(typeAttributes);
-		common.assertElementPresent(gritAttributes);
+			//verifying attributes after select class
+			common.log("Verified generated attributes: " + typeAttributes + " & " + gritAttributes);
+			common.assertElementPresent(typeAttributes);
+			common.assertElementPresent(gritAttributes);
 
-		common.findElementBy(submitBtn,"Click on submit button").click();
-		common.pause(20);
-		common.waitForElement(dataTab);
+			common.findElementBy(submitBtn, "Click on submit button").click();
+			common.pause(20);
+			common.waitForElement(dataTab);
+		} else if (common.isElementDisplayed(sequentialMaterialOption)) {
+			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
+
+			common.waitForElement(materialTypeField);
+
+			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
+			common.waitForElement(dropValue);
+			common.findElementBy(dropValue, "Select option").click();
+
+			common.findElementBy(submitBtn, "Click on submit button").click();
+			common.pause(20);
+			common.waitForElement(dataTab);
+		}
 
 	}
 
@@ -514,6 +528,7 @@ public class MaterialCreation extends Locators {
 		common.log("Duplicate Object number: "+duplicateRecordStr);
 		System.out.println("Duplicate Object number: "+duplicateRecordStr);
 	}
+
 	public void duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event() {
 		System.out.println("Step :: Click on Data tab");
 		common.log("Click on Data tab");
@@ -638,6 +653,66 @@ public class MaterialCreation extends Locators {
 		common.log("Duplicate Object number: "+duplicateRecordStr);
 		System.out.println("Duplicate Object number: "+duplicateRecordStr);
 
+	}
+	/**
+	 * check Duplicacy Is Working At The Time Of Approval From Reviewer
+	 *
+	 */
+	public void check_Duplicacy_Is_Working_At_The_Time_Of_Approval_From_Reviewer() {
+		common.pause(20);
+		common.refreshPage();
 
+		test.log(LogStatus.INFO, "Step :: Home tab opened");
+		System.out.println("Step :: Home tab opened");
+		common.log("Home tab opened");
+
+		common.waitForElement(inboxMenu);
+		test.log(LogStatus.INFO, "Step :: click on My request Menu ");
+		System.out.println("Step :: click on My request Menu");
+		common.log("Click on inbox Menu");
+		driver.findElement(By.xpath(myReqTab)).click();
+		common.pause(25);
+
+		//If first value appear in Inbox menu then it will reject the flow from Approve option
+
+		if (common.isElementDisplayed(firstActionIconForInbox) == true) {
+
+			common.waitForElement(firstActionIconForInbox);
+			driver.findElement(By.xpath(firstActionIconForInbox)).click();
+			common.pause(10);
+
+			test.log(LogStatus.INFO, "Step :: click on approve");
+			System.out.println("Step :: click on approve");
+			common.log("Click on my approve");
+			driver.findElement(By.xpath(approveVal)).click();
+			common.waitForElement(materialDescReviewer);
+
+			if (common.isElementDisplayed(materialDescReviewer)) {
+				common.findElementBy(materialDescReviewer, "Enter description").sendKeys("material desc");
+
+				common.findElementBy(divisionField, "Select Division field").click();
+				common.findElementBy(dropValue, "Select value").click();
+
+				common.findElementBy(manufacturerField, "Enter Manufacturer number").sendKeys("54321");
+				common.findElementBy(oldMaterialNumField, "Enter Old material number").sendKeys("12345");
+
+				common.findElementBy(approveButtonReviewer, "Click on Approve").click();
+
+				common.waitForElement(duplicateRecordFirst);
+
+				String duplicateRecordStr = common.findElement(duplicateRecordFirst).getText();
+				common.log("Duplicate Object number: " + duplicateRecordStr);
+				System.out.println("Duplicate Object number: " + duplicateRecordStr);
+			}
+			else {
+				common.findElementBy(approveButtonReviewer, "Click on Approve").click();
+
+				common.waitForElement(duplicateRecordFirst);
+
+				String duplicateRecordStr = common.findElement(duplicateRecordFirst).getText();
+				common.log("Duplicate Object number: " + duplicateRecordStr);
+				System.out.println("Duplicate Object number: " + duplicateRecordStr);
+			}
+		}
 	}
 	}

@@ -66,4 +66,24 @@ public class DuplicateRuleTestcases extends BasePage {
 		materialCreation.verify_Duplicacy_Is_Working_At_Change_Event();
 	}
 
+	/**
+	 * 4
+	 * 	Verify that duplicacy check is working at the time of Approval from reviewer
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Approval_From_Reviewer(String env) {
+		common.log("TC:MDMF-TC-6905");
+		common.log("Pre condition: Duplicate Rule must be configured for reviewer");
+		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
+		loginPage.revSignIn(env);
+		materialCreation.check_Duplicacy_Is_Working_At_The_Time_Of_Approval_From_Reviewer();
+	}
+
 }
