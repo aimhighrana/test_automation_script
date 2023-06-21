@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="User Defined Rule Automation Testcases" verbose="10" parallel="tests"
+	thread-count="1">
+	<listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+	<parameter name="env" value="QAH" />
+
+<!--	 <test name="verify UDR Rule With Common Operators">-->
+<!--		<classes>-->
+<!--			<class name="Test.UserDefinedRuleTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_UDR_Rule_With_Common_Operators"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
+
+
+<!--	<test name="verify UDR Rule With Special Operators">-->
+<!--		<classes>-->
+<!--			<class name="Test.UserDefinedRuleTestcases">-->
+<!--				<methods>-->
+<!--					<include name="verify_UDR_Rule_With_Special_Operators"></include>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
+	<test name="verify UDR Rule With Range numeric Operators">
+		<classes>
+			<class name="Test.UserDefinedRuleTestcases">
+				<methods>
+					<include name="validate_Selecting_Header_While_Setup_UDR_With_Numerical_Operator_RANGE"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
+
