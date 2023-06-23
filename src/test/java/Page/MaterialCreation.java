@@ -451,69 +451,8 @@ public class MaterialCreation extends Locators {
 	 *
 	 */
 	public void verify_That_Exact_Match_Duplicacy_Is_Working_For_Material_Creation() {
-
-		common.waitForElement(dataTab);
-		common.findElementBy(dataTab,"Click on Data tab").click();
-		common.pause(5);
-		common.findElement(dataTab).click();
-
-		test.log(LogStatus.INFO, "click on Material master from left nav");
-		System.out.println("Step :: click on Material master from left nav");
-		common.log("Click on Material master from left nav");
-		common.waitForElement(search);
-		common.pause(5);
-
-		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
-		common.findElement(materialMaster).click();
-		common.pause(10);
-
-		//if Default view not appear them click on view dropdown icon and select Default view
-		if (!common.isElementPresent(defaultView)) {
-
-			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
-			common.pause(2);
-			common.findElementBy(defaultViewOption, "Click on Default view option").click();
-			common.pause(10);
-
-		}
-		common.waitForElement(newRecordBtn);
-		System.out.println("Step :: Click on add new record button");
-		common.log("Click on add new record button");
-		WebElement newButton = common.findElement(newRecordBtn);
-		newButton.click();
-		common.pause(5);
-
-		if(common.isElementDisplayed(sequentialMaterialOption))
-		{
-			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
-
-			common.waitForElement(materialTypeField);
-
-			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
-			common.waitForElement(dropValue);
-			common.findElementBy(dropValue, "Select option").click();
-		}
-		else {
-			common.waitForElement(materialCreationRecord);
-			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
-
-			common.waitForElement(materialTypeField);
-
-			common.waitForElement(addRowLanguageGrid);
-			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
-			common.pause(5);
-			common.waitForElement(languageInput);
-			common.findElementBy(languageInput, "Click on Language dropdown").click();
-
-			common.waitForElement(germanLanguage);
-			common.findElementBy(germanLanguage, "Select German language from option").click();
-
-			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("Test");
-			common.findElementBy(saveFormView, "Click on save on form view").click();
-
-			common.waitForElement(germanLanguage);
-		}
+		
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
 		common.findElementBy(submitBtn,"Click on submit button").click();
 		common.pause(20);
 		common.waitForElement(errorMessage);
@@ -715,12 +654,8 @@ public class MaterialCreation extends Locators {
 			}
 		}
 	}
-	/**
-	 * verify UDR Rule Is Working Fine With Common Operators
-	 *
-	 */
-	public void verify_UDR_Rule_Is_Working_Fine_With_Common_Operators() {
-
+	public void select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset()
+	{
 		common.waitForElement(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
@@ -783,6 +718,14 @@ public class MaterialCreation extends Locators {
 
 			common.waitForElement(germanLanguage);
 		}
+	}
+	/**
+	 * verify UDR Rule Is Working Fine With Common Operators
+	 *
+	 */
+	public void verify_UDR_Rule_Is_Working_Fine_With_Common_Operators() {
+
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
 		common.findElementBy(submitBtn,"Click on submit button").click();
 		common.pause(20);
 		common.waitForElement(errorMessage);
@@ -796,73 +739,9 @@ public class MaterialCreation extends Locators {
 	 *
 	 */
 	public void verify_UDR_Rule_Is_Working_Fine_With_Special_Operators() {
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.findElementBy(materialDescReviewer,"Enter regex in Material description field").sendKeys("material$");
 
-		common.waitForElement(dataTab);
-		common.findElementBy(dataTab,"Click on Data tab").click();
-		common.pause(5);
-		common.findElement(dataTab).click();
-
-		test.log(LogStatus.INFO, "click on Material master from left nav");
-		System.out.println("Step :: click on Material master from left nav");
-		common.log("Click on Material master from left nav");
-		common.waitForElement(search);
-		common.pause(5);
-
-		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
-		common.findElement(materialMaster).click();
-		common.pause(10);
-
-		//if Default view not appear them click on view dropdown icon and select Default view
-		if (!common.isElementPresent(defaultView)) {
-
-			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
-			common.pause(2);
-			common.findElementBy(defaultViewOption, "Click on Default view option").click();
-			common.pause(10);
-
-		}
-		common.waitForElement(newRecordBtn);
-		System.out.println("Step :: Click on add new record button");
-		common.log("Click on add new record button");
-		WebElement newButton = common.findElement(newRecordBtn);
-		newButton.click();
-		common.pause(5);
-
-		if(common.isElementDisplayed(sequentialMaterialOption))
-		{
-			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
-
-			common.waitForElement(materialTypeField);
-
-			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
-			common.waitForElement(dropValue);
-			common.findElementBy(dropValue, "Select option").click();
-
-			common.findElementBy(materialDescReviewer,"Enter regex in Material description field").sendKeys("material$");
-		}
-		else {
-			common.waitForElement(materialCreationRecord);
-			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
-
-			common.waitForElement(materialTypeField);
-
-			common.waitForElement(addRowLanguageGrid);
-			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
-			common.pause(5);
-			common.waitForElement(languageInput);
-			common.findElementBy(languageInput, "Click on Language dropdown").click();
-
-			common.waitForElement(germanLanguage);
-			common.findElementBy(germanLanguage, "Select German language from option").click();
-
-			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("Test");
-			common.findElementBy(saveFormView, "Click on save on form view").click();
-
-			common.waitForElement(germanLanguage);
-			common.findElementBy(materialDescReviewer,"Enter regex in Material description field").sendKeys("material$");
-
-		}
 		common.findElementBy(submitBtn,"Click on submit button").click();
 		common.pause(20);
 		common.waitForElement(errorMessage);
@@ -877,72 +756,9 @@ public class MaterialCreation extends Locators {
 	 */
 	public void verify_UDR_Rule_Is_Working_Fine_With_Numeric_Range_Operators() {
 
-		common.waitForElement(dataTab);
-		common.findElementBy(dataTab,"Click on Data tab").click();
-		common.pause(5);
-		common.findElement(dataTab).click();
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.findElementBy(materialDescReviewer,"Enter wrong numerical value in Material description field").sendKeys("100");
 
-		test.log(LogStatus.INFO, "click on Material master from left nav");
-		System.out.println("Step :: click on Material master from left nav");
-		common.log("Click on Material master from left nav");
-		common.waitForElement(search);
-		common.pause(5);
-
-		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
-		common.findElement(materialMaster).click();
-		common.pause(10);
-
-		//if Default view not appear them click on view dropdown icon and select Default view
-		if (!common.isElementPresent(defaultView)) {
-
-			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
-			common.pause(2);
-			common.findElementBy(defaultViewOption, "Click on Default view option").click();
-			common.pause(10);
-
-		}
-		common.waitForElement(newRecordBtn);
-		System.out.println("Step :: Click on add new record button");
-		common.log("Click on add new record button");
-		WebElement newButton = common.findElement(newRecordBtn);
-		newButton.click();
-		common.pause(5);
-
-		if(common.isElementDisplayed(sequentialMaterialOption))
-		{
-			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
-
-			common.waitForElement(materialTypeField);
-
-			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
-			common.waitForElement(dropValue);
-			common.findElementBy(dropValue, "Select option").click();
-
-			common.findElementBy(materialDescReviewer,"Enter wrong numerical value in Material description field").sendKeys("100");
-		}
-		else {
-			common.waitForElement(materialCreationRecord);
-			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
-
-			common.waitForElement(materialTypeField);
-
-			common.waitForElement(addRowLanguageGrid);
-			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
-			common.pause(5);
-			common.waitForElement(languageInput);
-			common.findElementBy(languageInput, "Click on Language dropdown").click();
-
-			common.waitForElement(germanLanguage);
-			common.findElementBy(germanLanguage, "Select German language from option").click();
-
-			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("Test");
-			common.findElementBy(saveFormView, "Click on save on form view").click();
-
-			common.waitForElement(germanLanguage);
-			common.findElementBy(materialDescReviewer,"Enter wrong numerical value in Material description field").sendKeys("100");
-
-		}
 		common.findElementBy(submitBtn,"Click on submit button").click();
 		common.pause(20);
 		common.waitForElement(errorMessage);
@@ -953,6 +769,82 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(submitBtn,"Click on submit button").click();
 		common.pause(20);
 		common.waitForElement(dataTab);
-	}
 
+		common.log("Successfully saved");
+	}
+	/**
+	 * verify UDR Rule Is Working Fine With EMPTY Operators
+	 *
+	 */
+	public void verify_UDR_Rule_Is_Working_Fine_With_EMPTY_Operators() {
+
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("qwerty");
+
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+		common.waitForElement(errorMessage);
+
+		String errorStr = common.findElement("//p[@class='small ng-star-inserted']").getText();
+		common.log("Error showing for UDR rule: "+errorStr);
+		common.findElementBy(materialDescReviewer,"Remove value from in Material description field").click();
+		common.pause(5);
+		common.log("Remove value from in Material description field");
+		for (int i=0; i<10;i++) {
+			common.findElement(materialDescReviewer).sendKeys(Keys.BACK_SPACE);
+		}
+		common.pause(5);
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+		common.waitForElement(dataTab);
+		common.log("Successfully saved");
+	}
+	/**
+	 * verify UDR Rule Is Working Fine With ENDSWITH Operators
+	 *
+	 */
+	public void verify_UDR_Rule_Is_Working_Fine_With_ENDSWITH_Operators() {
+
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("qwerty");
+
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+		common.waitForElement(errorMessage);
+
+		String errorStr = common.findElement("//p[@class='small ng-star-inserted']").getText();
+		common.log("Error showing for UDR rule: "+errorStr);
+		common.pause(5);
+		common.findElementBy(materialDescReviewer,"Remove value from in Material description field").click();
+		common.pause(5);
+		common.findElementBy(materialDescReviewer,"Add '.' after value in Material description field").sendKeys(".");
+
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.waitForElement(dataTab);
+		common.log("Successfully saved");
+	}
+	/**
+	 * verify UDR Rule Is Working Fine With LENGTH Operators
+	 *
+	 */
+	public void verify_UDR_Rule_Is_Working_Fine_With_LENGTH_Operators() {
+
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("qwerty");
+
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+		common.waitForElement(errorMessage);
+
+		String errorStr = common.findElement("//p[@class='small ng-star-inserted']").getText();
+		common.log("Error showing for UDR rule: "+errorStr);
+
+		common.findElementBy(materialDescReviewer,"Click on Material description field").click();
+		common.pause(5);
+		common.findElementBy(materialDescReviewer,"Enter 10 length value from in Material description field").sendKeys("1234");
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+		common.waitForElement(dataTab);
+		common.log("Successfully saved");
+	}
 }

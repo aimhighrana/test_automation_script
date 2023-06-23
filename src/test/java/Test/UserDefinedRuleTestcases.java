@@ -22,8 +22,8 @@ public class UserDefinedRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_UDR_Rule_With_Common_Operators(String env) throws InterruptedException, IOException {
-		common.log("TC:MDMF-TC-6848");
-		common.log("Pre condition: UDR Rule must be configured with equals operator");
+		common.log("TC:MDMF-TC-6848/MDMF-TC-6851/MDMF-TC-6852");
+		common.log("Pre condition: UDR Rule must be configured with EQUALS OR NOT EQUALS operator");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
 		loginPage.check_SignIn(env);
@@ -65,6 +65,56 @@ public class UserDefinedRuleTestcases extends BasePage {
 		loginPage.check_SignIn(env);
 		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_Numeric_Range_Operators();
 	}
-
+	/**
+	 * 4
+	 * Validate selecting header, hierarchy and grid fields while setup UDR with ENDSWITH operator
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_ENDSWITH_Operator(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-6854");
+		common.log("Pre condition: UDR Rule must be configured with ENDSWITH operator with adding '.' in value for Material description field");
+		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_ENDSWITH_Operators();
+	}
+	/**
+	 * 5
+	 * Validate selecting header, hierarchy and grid fields while setup UDR with EMPTY operator
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_EMPTY_Operator(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-6856");
+		common.log("Pre condition: UDR Rule must be configured with EMPTY operator for Material description field");
+		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_EMPTY_Operators();
+	}
+	/**
+	 * 6
+	 * Validate selecting header, hierarchy and grid fields while setup UDR with LENGTH operator
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_LENGTH_Operator(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-6858");
+		common.log("Pre condition: UDR Rule must be configured with LENGTH operator with adding '10' value for Material description field");
+		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_LENGTH_Operators();
+	}
 
 }
