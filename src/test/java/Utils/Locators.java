@@ -328,6 +328,7 @@ public abstract class Locators extends BasePage {
 	//Duplicacy rule
 	public static String materialDescReviewer = "//p[normalize-space()='Material Description']//..//..//..//input";
 	public static String divisionField = "//p[normalize-space()='Division']//..//..//div//input";
+	public static String materialDesclLabel = "//p[normalize-space()='Material Description']";
 	public static String manufacturerField = "//p[normalize-space()='Manufacturer Part Number']//..//..//..//input";
 	public static String oldMaterialNumField = "//p[normalize-space()='Old Material Number']//..//..//..//input";
 	public static String duplicateRecordFirst = "//tr[1]/td[2]/lib-text-line[1]/p[1]";

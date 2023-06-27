@@ -226,6 +226,9 @@ public class AddMaterialMaster extends Locators {
 			System.out.println("Step :: No Something went error");
 		}
 
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
 		common.waitForElement(dataTab);
 		test.log(LogStatus.INFO, "Step :: Verifying Data tab available");
 		System.out.println("Step :: Verifying Data tab available");
@@ -378,7 +381,7 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on submit button");
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(40);
+		common.pause(20);
 
 		//If duplicate record popup appear then click on submit
 		if (common.isDisplayed(duplicateRecordHeader) == true) {

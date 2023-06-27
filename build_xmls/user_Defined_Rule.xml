@@ -18,7 +18,6 @@
 		</classes>
 	</test>
 
-
 	<test name="verify UDR Rule With Special Operators">
 		<classes>
 			<class name="Test.UserDefinedRuleTestcases">
@@ -58,6 +57,7 @@
 			</class>
 		</classes>
 	</test>
+
 	<test name="verify UDR Rule With LENGTH Operators">
 	<classes>
 		<class name="Test.UserDefinedRuleTestcases">
@@ -66,7 +66,27 @@
 			</methods>
 		</class>
 	</classes>
-</test>
+	</test>
+
+	<test name="verify UDR Rule With LESS THAN LESS THAN EQUAL Operators">
+		<classes>
+			<class name="Test.UserDefinedRuleTestcases">
+				<methods>
+					<include name="validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_Numerical_Operator_LESS_THAN_LESS_THAN_EQUAL"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="verify UDR Rule With GREATER THAN GREATER THAN EQUAL Operators">
+		<classes>
+			<class name="Test.UserDefinedRuleTestcases">
+				<methods>
+					<include name="validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_Numerical_Operator_GREATER_THAN_GREATER_THAN_EQUAL"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 
 </suite>
 

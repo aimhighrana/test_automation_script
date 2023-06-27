@@ -205,6 +205,7 @@
 						<configuration>
 							<skip>false</skip>
 							<suiteXmlFiles>
+								<!--this home_Page xml include all the test regarding Home page menus-->
 								<suiteXmlFile>build_xmls/home_Page.xml</suiteXmlFile>
 								<!--this list_Page_Search xml include all the test regarding advance search-->
 								<suiteXmlFile>build_xmls/list_Page_Search.xml</suiteXmlFile>
@@ -220,6 +221,8 @@
 								<suiteXmlFile>build_xmls/duplicate_Rule.xml</suiteXmlFile>
 								<!--this user_Defined_Rule xml include all the test regarding User Defined business rule functionality-->
 								<suiteXmlFile>build_xmls/user_Defined_Rule.xml</suiteXmlFile>
+								<!--this transformation_Rule xml include all the test regarding Transformation business rule functionality-->
+								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>
 							</suiteXmlFiles>
 							<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
 						</configuration>

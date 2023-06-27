@@ -136,9 +136,6 @@ public class MaterialCreation extends Locators {
 			common.assertElementPresent(typeAttributes);
 			common.assertElementPresent(gritAttributes);
 
-			common.findElementBy(submitBtn, "Click on submit button").click();
-			common.pause(20);
-			common.waitForElement(dataTab);
 		} else if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
 
@@ -148,10 +145,15 @@ public class MaterialCreation extends Locators {
 			common.waitForElement(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
 
-			common.findElementBy(submitBtn, "Click on submit button").click();
-			common.pause(20);
-			common.waitForElement(dataTab);
 		}
+
+		common.findElementBy(submitBtn, "Click on submit button").click();
+		common.pause(20);
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
+		common.waitForElement(dataTab);
 
 	}
 
@@ -765,12 +767,17 @@ public class MaterialCreation extends Locators {
 
 		String errorStr = common.findElement("//p[@class='small ng-star-inserted']").getText();
 		common.log("Error showing for UDR rule: "+errorStr);
+		for (int i=0;i<=15;i++)
+		{
+			common.findElement(materialDescReviewer).sendKeys(Keys.BACK_SPACE);
+		}
 		common.findElementBy(materialDescReviewer,"Enter valid numerical value between 0 TO 9 in Material description field").sendKeys("5");
 		common.findElementBy(submitBtn,"Click on submit button").click();
 		common.pause(20);
-		common.waitForElement(dataTab);
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
 
-		common.log("Successfully saved");
 	}
 	/**
 	 * verify UDR Rule Is Working Fine With EMPTY Operators
@@ -796,8 +803,10 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElementBy(submitBtn,"Click on submit button").click();
 		common.pause(20);
-		common.waitForElement(dataTab);
-		common.log("Successfully saved");
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
 	}
 	/**
 	 * verify UDR Rule Is Working Fine With ENDSWITH Operators
@@ -820,8 +829,10 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(materialDescReviewer,"Add '.' after value in Material description field").sendKeys(".");
 
 		common.findElementBy(submitBtn,"Click on submit button").click();
-		common.waitForElement(dataTab);
-		common.log("Successfully saved");
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
 	}
 	/**
 	 * verify UDR Rule Is Working Fine With LENGTH Operators
@@ -844,7 +855,181 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(materialDescReviewer,"Enter 10 length value from in Material description field").sendKeys("1234");
 		common.findElementBy(submitBtn,"Click on submit button").click();
 		common.pause(20);
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
+	}
+	/**
+	 * verify UDR Rule Is Working Fine With LESS THAN/LESS THAN EQUAL Operators
+	 *
+	 */
+	public void verify_UDR_Rule_Is_Working_Fine_With_LESS_THAN_LESS_THAN_EQUAL_Operators() {
+
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.findElementBy(materialDescReviewer,"Enter numeric value greater than 10 in Material description field").sendKeys("15");
+		common.pause(5);
+
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+		common.waitForElement(errorMessage);
+
+		String errorStr = common.findElement("//p[@class='small ng-star-inserted']").getText();
+		common.log("Error showing for UDR rule: "+errorStr);
+
+		common.findElementBy(materialDescReviewer,"Click on Material description field").click();
+		common.pause(5);
+		for (int i=0;i<=15;i++)
+		{
+			common.findElement(materialDescReviewer).sendKeys(Keys.BACK_SPACE);
+		}
+		common.findElementBy(materialDescReviewer, "Enter numeric value less than 10 in Material description field").sendKeys("5");
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
+
+	}
+	/**
+	 * verify UDR Rule Is Working Fine With GREATER THAN/GREATER THAN EQUAL Operators
+	 *
+	 */
+	public void verify_UDR_Rule_Is_Working_Fine_With_GREATER_THAN_GREATER_THAN_EQUAL_Operators() {
+
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.findElementBy(materialDescReviewer,"Enter numeric value less than 10 in Material description field").sendKeys("08");
+		common.pause(5);
+
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+		common.waitForElement(errorMessage);
+
+		String errorStr = common.findElement("//p[@class='small ng-star-inserted']").getText();
+		common.log("Error showing for UDR rule: "+errorStr);
+
+		common.findElementBy(materialDescReviewer,"Click on Material description field").click();
+		common.pause(5);
+		for (int i=0;i<=15;i++)
+		{
+			common.findElement(materialDescReviewer).sendKeys(Keys.BACK_SPACE);
+		}
+		common.findElementBy(materialDescReviewer, "Enter numeric value greater than 10 in Material description field").sendKeys("15");
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
+
+	}
+	/**
+	 * verify Transformation Rule Is Working Fine With Add leading Zeros
+	 *
+	 */
+	public void verify_Transformation_Rule_Is_Working_Fine_With_Add_Leading_Zeros() {
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.findElementBy(materialDescReviewer,"Enter value in Material description field: material").sendKeys("material");
+		common.findElement(materialDesclLabel).click();
+		common.pause(5);
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
+	}
+	/**
+	 * verify Transformation Rule Is Working Fine With Remove Leading Zeros
+	 *
+	 */
+	public void verify_Transformation_Rule_Is_Working_Fine_With_Remove_Leading_Zeros() {
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.findElementBy(materialDescReviewer,"Enter value with zeros in Material description field : 00000material").sendKeys("00000material");
+		common.findElement(materialDesclLabel).click();
+		common.pause(5);
+		common.findElementBy(submitBtn,"Click on submit button").click();
+		common.pause(20);
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
+	}
+	public void verify_Description_on_Summary_Page()
+	{
+		common.refreshPage();
 		common.waitForElement(dataTab);
-		common.log("Successfully saved");
+		common.findElement(dataTab).click();
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		common.waitForElement(actionIconForFirstValue);
+		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
+		common.findElementBy(summaryOption, "Click on Summary option").click();
+		common.pause(5);
+		common.findElementBy(sequentialMaterialOption, "Click on sequentialMaterial option").click();
+		common.pause(10);
+
+		String strDescription = common.findElementBy(materialDescReviewer,"Get value from material description field").getAttribute("value");
+		common.log("Value of Material description field: "+strDescription);
+		strDescription.contains("0");
+	}
+	public void verify_Remove_Leading_Zeros_From_Description_on_Summary_Page()
+	{
+		common.refreshPage();
+		common.waitForElement(dataTab);
+		common.findElement(dataTab).click();
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		common.waitForElement(actionIconForFirstValue);
+		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
+		common.findElementBy(summaryOption, "Click on Summary option").click();
+		common.pause(5);
+		common.findElementBy(sequentialMaterialOption, "Click on sequentialMaterial option").click();
+		common.pause(10);
+
+		String strDescription = common.findElementBy(materialDescReviewer,"Get value from material description field").getAttribute("value");
+		common.log("Value of Material description field: "+strDescription);
+
+		boolean b = !strDescription.contains("0");
+		assert b;
+	}
+	public void verify_Description_Field_For_ConstantValue_on_Summary_Page()
+	{
+		common.refreshPage();
+		common.waitForElement(dataTab);
+		common.findElement(dataTab).click();
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+		common.waitForElement(actionIconForFirstValue);
+		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
+		common.findElementBy(summaryOption, "Click on Summary option").click();
+		common.pause(5);
+		common.findElementBy(sequentialMaterialOption, "Click on sequentialMaterial option").click();
+		common.pause(10);
+
+		String strDescription = common.findElementBy(materialDescReviewer,"Get value from material description field").getAttribute("value");
+		common.log("Value of Material description field: "+strDescription);
+		boolean b = strDescription.contains("QA");
+		assert b;
 	}
 }

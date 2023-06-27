@@ -116,5 +116,39 @@ public class UserDefinedRuleTestcases extends BasePage {
 		loginPage.check_SignIn(env);
 		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_LENGTH_Operators();
 	}
+	/**
+	 * 7
+	 * Validate selecting header, hierarchy and grid fields while setup UDR with Numerical Operator - LESS THAN/LESS THAN EQUAL
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_Numerical_Operator_LESS_THAN_LESS_THAN_EQUAL(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-6859");
+		common.log("Pre condition: UDR Rule must be configured with LESS THAN or LESS THAN EQUALS operator with adding '10' value for Material description field");
+		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_LESS_THAN_LESS_THAN_EQUAL_Operators();
+	}
 
+/**
+ * 8
+ * Validate selecting header, hierarchy and grid fields while setup UDR with Numerical Operator - GREATER THAN/GREATER THAN EQUAL
+ *
+ * @throws InterruptedException
+ * @throws IOException
+ */
+	@Test
+	@Parameters("env")
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_Numerical_Operator_GREATER_THAN_GREATER_THAN_EQUAL(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-6860/DMF-TC-6861");
+		common.log("Pre condition: UDR Rule must be configured with GREATER THAN or GREATER THAN EQUALS operator with adding '10' value for Material description field");
+		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_GREATER_THAN_GREATER_THAN_EQUAL_Operators();
+	}
 }
