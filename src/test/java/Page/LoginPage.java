@@ -64,6 +64,12 @@ public class LoginPage extends Locators {
 	 */
 	public void check_SignIn(String env) {
 
+		if (common.isDisplayed(profileIcon)) {
+			common.pause(10);
+			common.findElementBy(profileIcon,"Click on profile icon").click();
+			driver.findElement(By.xpath(signOut)).click();
+			common.pause(10);
+		}
 		if(env.equals("QAH")) {
 
 			System.out.println("Step :: Entering username: " + getPropertyValue("qahReqUserName"));

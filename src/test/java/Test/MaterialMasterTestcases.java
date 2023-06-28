@@ -261,11 +261,51 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.copyRecord();
 		materialmaster.rejectionFlowFromApprover();
 	}
-
 	/**
 	 * 14
+	 * Copy: Reapproving rejected task from Initiator & final approver approval
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Reapproving_Rejected_Task_From_Initiator_final_Approver_Approval(String env) {
+		common.log("TC:Reapproving rejected task from Initiator & final approver approval: MDMF-TC-8425");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialmaster.addNewMaterialMaster();
+		materialmaster.copyRecord();
+		loginPage.revSignIn(env);
+		materialmaster.rejectionFlowFromReviewer();
+		loginPage.check_SignIn(env);
+		materialmaster.reApprove_Rejected_Task_Status();
+
+	}
+
+	/**
+	 * 15
+	 * Change: Verify that user is able to view the process logs & summary after final approval
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_That_User_Is_Able_To_View_The_Process_Logs_Summary_After_Final_Approval(String env) throws InterruptedException, IOException {
+		common.log("TC:MDMF-TC-8405");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialmaster.addNewMaterialMaster();
+		loginPage.revSignIn(env);
+		materialmaster.approveStatus();
+		loginPage.check_SignIn(env);
+		materialmaster.viewMaterialMasterCompletedProcessLog();
+	}
+	/**
+	 * 16
 	 * Verify Draft Approval Record Process Scenario
-	 * 
+	 *
 	 * @throws InterruptedException
 	 * @throws IOException
 	 */
@@ -277,7 +317,6 @@ public class MaterialMasterTestcases extends BasePage {
 		driver.quit();
 
 	}
-
 	/**
 	 * Generating Material master records for QAR through the rest assured API
 	 * @param env

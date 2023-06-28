@@ -108,6 +108,8 @@ public abstract class Locators extends BasePage {
 	public static String closeIcoForViewChange = "//pros-view-changes[@class='ng-star-inserted']//mat-icon[@role='img'][normalize-space()='times']";
 	public static String firstActionIconForInbox = "//tbody/tr[1]/td[2]/lib-button-group[1]/ul[1]/li[1]/lib-button[1]/button[1]/span[1]/mat-icon[1]";
 	public static String approveBtn = "//button[contains(text(),'Approve')]";
+	public static String sequentialHeader = "//h4[contains(text(),'SequentialMaterial')]";
+
 	public static String approveButton = "//span[contains(text(),' Approve ')]";
 	public static String claim = "//button[contains(text(),'Claim')]";
 	public static String unclaim = "//button[normalize-space()='Unclaim']";
@@ -124,7 +126,7 @@ public abstract class Locators extends BasePage {
 	public static String processLogTitle = "//mat-expansion-panel-header/span[1]/mat-panel-title[1]/div[1]";
 	public static String statusCom = "//span[normalize-space()='Completed']";
 	
-	public static String headerData = "//p[contains(text(),'Header data')]";
+	public static String headerData = "//p[normalize-space()='Header data']";
 	public static String design = "//h2[contains(text(),'Design')]";
 	public static String pTitle = "//h4[contains(text(),' Process log ')]";
 	public static String currentDate = "//p[contains(text(),'%s')]";

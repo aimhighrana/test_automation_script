@@ -134,6 +134,25 @@
 			</class>
 		</classes>
 	</test>
+
+	<test name="verify Reapproving Rejected Task From Initiator final Approver Approval">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verify_Reapproving_Rejected_Task_From_Initiator_final_Approver_Approval"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="verify That User Is Able To View The Process Logs Summary After Final Approval">
+		<classes>
+			<class name="Test.MaterialMasterTestcases">
+				<methods>
+					<include name="verify_That_User_Is_Able_To_View_The_Process_Logs_Summary_After_Final_Approval"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 <!--	<test name="verify API">-->
 <!--			<classes>-->
 <!--				<class name="Test.MaterialMasterTestcases">-->
@@ -142,6 +161,6 @@
 <!--					</methods>-->
 <!--				</class>-->
 <!--			</classes>-->
-<!--		</test>-->
+<!--</test>-->
 
 </suite>
