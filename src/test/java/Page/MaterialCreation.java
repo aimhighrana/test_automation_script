@@ -1032,4 +1032,268 @@ public class MaterialCreation extends Locators {
 		boolean b = strDescription.contains("QA");
 		assert b;
 	}
+
+	/**
+	 * verify Description Generator Short And Long Description Should Auto Populate
+	 *
+	 */
+	public void verify_Description_Generator_Short_And_Long_Description_Should_Auto_Populate() {
+
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
+
+		test.log(LogStatus.INFO, "click on Material master from left nav");
+		System.out.println("Step :: click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+		common.waitForElement(search);
+		common.pause(5);
+
+		common.type(search, "Material Master");
+		common.waitForElement(materialMaster);
+		common.findElement(materialMaster).click();
+		common.pause(10);
+
+		//if Default view not appear them click on view dropdown icon and select Default view
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+		common.waitForElement(newRecordBtn);
+		System.out.println("Step :: Click on add new record button");
+		common.log("Click on add new record button");
+		WebElement newButton = common.findElement(newRecordBtn);
+		newButton.click();
+		common.pause(5);
+
+		if (common.isElementDisplayed(materialCreationRecord)) {
+			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
+
+			common.waitForElement(materialTypeField);
+
+			common.waitForElement(addRowLanguageGrid);
+			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
+			common.pause(5);
+			common.waitForElement(languageInput);
+			common.findElementBy(languageInput, "Click on Language dropdown").click();
+
+			common.waitForElement(germanLanguage);
+			common.findElementBy(germanLanguage, "Select German language from option").click();
+
+			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("Test");
+			common.findElementBy(saveFormView, "Click on save on form view").click();
+
+			common.waitForElement(germanLanguage);
+
+
+		} else if (common.isElementDisplayed(sequentialMaterialOption)) {
+			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
+
+			common.waitForElement(materialTypeField);
+
+			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
+			common.waitForElement(dropValue);
+			common.findElementBy(dropValue, "Select option").click();
+
+		}
+
+		common.findElementBy(classField,"Click on class dropdown").click();
+		common.findElementBy(bearingBallClassOption,"Select Bearing-Ball option").click();
+
+		common.findElementBy(typeField,"Click on Type dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(widthField,"Click on Width dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(seriesField,"Click on Series dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.pause(5);
+		common.findElementBy(insideDiameterField,"Click on INSIDE DIAMETER dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(outsideDiameterField,"Click on OUTSIDE DIAMETER dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(cageMaterialField,"Click on CAGE MATERIAL dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(manufacturerFieldDesc,"Click on MANUFACTURER dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.pause(5);
+		common.findElementBy(modelNumberField,"Enter value in Model number field").sendKeys("34567");
+
+		common.findElementBy(rowField,"Click on ROW dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(partNumberField,"Enter value in part number field").sendKeys("54321");
+		common.pause(5);
+		common.findElement(materialDescReviewer).click();
+		common.findElement(materialDescReviewer).click();
+		common.pause(10);
+
+		common.findElementBy(generateDescriptionLabel, "Click on Generate description button").click();
+		common.pause(10);
+		String shortDescStr = common.findElement(shortDescriptionField).getAttribute("value");
+		common.log("Short Description auto populate: "+shortDescStr);
+		System.out.println("Short Description auto populate: "+shortDescStr);
+
+		String longDescStr = common.findElement(longDescriptionField).getAttribute("value");
+		common.log("Long Description auto populate: "+longDescStr);
+		System.out.println("Long Description auto populate: "+longDescStr);
+
+
+		common.findElementBy(submitBtn, "Click on submit button").click();
+		common.pause(20);
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
+		common.waitForElement(dataTab);
+
+	}
+	/**
+	 * verify Description Generator Language Grid And PO Text Grid Should Be AutoPopulate
+	 *
+	 */
+	public void verify_Description_Generator_Language_Grid_And_PO_Text_Grid_Should_Be_Auto_Populate() {
+
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
+
+		test.log(LogStatus.INFO, "click on Material master from left nav");
+		System.out.println("Step :: click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+		common.waitForElement(search);
+		common.pause(5);
+
+		common.type(search, "Material Master");
+		common.waitForElement(materialMaster);
+		common.findElement(materialMaster).click();
+		common.pause(10);
+
+		//if Default view not appear them click on view dropdown icon and select Default view
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+		common.waitForElement(newRecordBtn);
+		System.out.println("Step :: Click on add new record button");
+		common.log("Click on add new record button");
+		WebElement newButton = common.findElement(newRecordBtn);
+		newButton.click();
+		common.pause(5);
+
+		if (common.isElementDisplayed(materialCreationRecord)) {
+			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
+
+			common.waitForElement(materialTypeField);
+
+			common.waitForElement(addRowLanguageGrid);
+			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
+			common.pause(5);
+			common.waitForElement(languageInput);
+			common.findElementBy(languageInput, "Click on Language dropdown").click();
+
+			common.waitForElement(germanLanguage);
+			common.findElementBy(germanLanguage, "Select German language from option").click();
+
+			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("Test");
+			common.findElementBy(saveFormView, "Click on save on form view").click();
+
+			common.waitForElement(germanLanguage);
+
+
+		} else if (common.isElementDisplayed(sequentialMaterialOption)) {
+			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
+
+			common.waitForElement(materialTypeField);
+
+			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
+			common.waitForElement(dropValue);
+			common.findElementBy(dropValue, "Select option").click();
+
+		}
+
+		common.waitForElement(classField);
+		common.findElementBy(classField,"Click on class dropdown").click();
+		common.waitForElement(bearingBallClassOption);
+		common.findElementBy(bearingBallClassOption,"Select Bearing-Ball option").click();
+
+		common.pause(5);
+		common.findElementBy(typeField,"Click on Type dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(widthField,"Click on Width dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(seriesField,"Click on Series dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.pause(5);
+		common.findElementBy(insideDiameterField,"Click on INSIDE DIAMETER dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(outsideDiameterField,"Click on OUTSIDE DIAMETER dropdown").click();
+		common.pause(5);
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(cageMaterialField,"Click on CAGE MATERIAL dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(manufacturerFieldDesc,"Click on MANUFACTURER dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.pause(5);
+		common.findElementBy(modelNumberField,"Enter value in Model number field").sendKeys("34567");
+
+		common.findElementBy(rowField,"Click on ROW dropdown").click();
+		common.findElementBy(dropValue, "Select value").click();
+
+		common.findElementBy(partNumberField,"Enter value in part number field").sendKeys("54321");
+		common.pause(5);
+		common.findElement(materialDescReviewer).click();
+		common.findElement(materialDescReviewer).click();
+		common.pause(10);
+
+		common.findElementBy(generateDescriptionLabel, "Click on Generate description button").click();
+		common.pause(10);
+		String shortDescStr = common.findElement(shortDescriptionField).getAttribute("value");
+		common.log("Short Description auto populate: "+shortDescStr);
+		System.out.println("Short Description auto populate: "+shortDescStr);
+
+		String longDescStr = common.findElement(longDescriptionField).getAttribute("value");
+		common.log("Long Description auto populate: "+longDescStr);
+		System.out.println("Long Description auto populate: "+longDescStr);
+
+		List<WebElement> languageDescription = driver.findElements(By.xpath("//div[contains(text(),'Material Description')]//..//..//..//..//..//..//lib-input[1]//div[1]//div//input[1]"));
+
+		for(WebElement e : languageDescription) {
+
+			System.out.println("Language Grid Material descriptions: " + e.getAttribute("value"));
+			common.log("Language Grid Material descriptions: " + e.getAttribute("value"));
+		}
+
+		common.findElementBy(submitBtn, "Click on submit button").click();
+		common.pause(20);
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
+		common.waitForElement(dataTab);
+
+	}
 }

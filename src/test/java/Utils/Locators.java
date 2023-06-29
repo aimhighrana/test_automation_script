@@ -329,6 +329,7 @@ public abstract class Locators extends BasePage {
 
 	//Duplicacy rule
 	public static String materialDescReviewer = "//p[normalize-space()='Material Description']//..//..//..//input";
+	public static String generateDescriptionLabel ="//h4[normalize-space()='Generate description']";
 	public static String divisionField = "//p[normalize-space()='Division']//..//..//div//input";
 	public static String materialDesclLabel = "//p[normalize-space()='Material Description']";
 	public static String manufacturerField = "//p[normalize-space()='Manufacturer Part Number']//..//..//..//input";
@@ -336,10 +337,34 @@ public abstract class Locators extends BasePage {
 	public static String duplicateRecordFirst = "//tr[1]/td[2]/lib-text-line[1]/p[1]";
 	public static String approveButtonReviewer = "//span[normalize-space()='Approve']";
 
+	public static String classField = "//p[normalize-space()='Class']//..//..//input";
+	public static String bearingBallClassOption  ="//span[normalize-space()='Bearing - Ball']";
 
+	public static String typeField  ="//p[normalize-space()='Type']//..//..//div//input";
+
+	public static String widthField  ="//p[normalize-space()='Width']//..//..//div//input";
+
+	public static String seriesField  ="//p[normalize-space()='Series']//..//..//div//input";
+
+	public static String insideDiameterField  ="//p[normalize-space()='INSIDE DIAMETER']//..//..//div//input";
+
+	public static String outsideDiameterField  ="//p[normalize-space()='OUTSIDE DIAMETER']//..//..//div//input";
+
+	public static String cageMaterialField  ="//p[normalize-space()='CAGE MTERIAL']//..//..//div//input";
+
+	public static String manufacturerFieldDesc  ="//p[normalize-space()='MANUFACTURER']//..//..//div//input";
+
+	public static String modelNumberField  ="//p[normalize-space()='Model Number']//..//..//..//input";
+
+	public static String rowField  ="//p[normalize-space()='ROW']//..//..//div//input";
+
+	public static String partNumberField  ="//p[normalize-space()='Part number']//..//..//..//input";
+
+	public static String shortDescriptionField  ="//p[normalize-space()='Short description']//..//..//..//input";
+
+	public static String longDescriptionField  ="//div[contains (text(),'Long description')]//..//..//div//textarea";
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
 	protected WebElement filterIndustrySector1;
-
 
 
 	}

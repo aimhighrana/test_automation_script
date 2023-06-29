@@ -157,4 +157,35 @@ public class MaterialCreationTestcases extends BasePage {
 		loginPage.revSignIn(env);
 		materialmaster.approveStatus();
 	}
+
+	/**
+	 * 10
+	 * verify that based on the configured rule for description generator, short and long description should auto populate while generating description
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_That_Based_On_The_Configured_Rule_For_Description_Generator_Short_And_Long_Description_Should_Auto_Populate(String env) throws InterruptedException, IOException, Exception {
+		common.log("TC:MDMF-TC-8388");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialCreation.verify_Description_Generator_Short_And_Long_Description_Should_Auto_Populate();
+	}
+	/**
+	 * 11
+	 * verify that after generating description, langauge grid and PO text grid should be auto-populated as per configured description rule and with all languages
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_That_After_Generating_Description_Language_Grid_And_PO_Text_Grid_Should_Be_Auto_Populated(String env) throws InterruptedException, IOException, Exception {
+		common.log("TC:MDMF-TC-8389/MDMF-TC-8390");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialCreation.verify_Description_Generator_Language_Grid_And_PO_Text_Grid_Should_Be_Auto_Populate();
+	}
 }

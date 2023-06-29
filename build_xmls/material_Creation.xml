@@ -95,5 +95,25 @@
 			</class>
 		</classes>
 	</test>
+
+	<test name="verify That Based On The Configured Rule For Description Generator Short And Long Description Should Auto Populate">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_That_Based_On_The_Configured_Rule_For_Description_Generator_Short_And_Long_Description_Should_Auto_Populate"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="verify That After Generating Description Language Grid And PO Text Grid Should Be Auto Populated">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_That_After_Generating_Description_Language_Grid_And_PO_Text_Grid_Should_Be_Auto_Populated"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>
 
