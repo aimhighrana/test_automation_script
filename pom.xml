@@ -218,11 +218,11 @@
 								<!--this material_Creation xml include all the test regarding material creation record functionality-->
 								<suiteXmlFile>build_xmls/material_Creation.xml</suiteXmlFile>
 								<!--this duplicate_Rule xml include all the test regarding Duplicate business rule functionality-->
-								<suiteXmlFile>build_xmls/duplicate_Rule.xml</suiteXmlFile>
+<!--								<suiteXmlFile>build_xmls/duplicate_Rule.xml</suiteXmlFile>-->
 								<!--this user_Defined_Rule xml include all the test regarding User Defined business rule functionality-->
-								<suiteXmlFile>build_xmls/user_Defined_Rule.xml</suiteXmlFile>
+<!--								<suiteXmlFile>build_xmls/user_Defined_Rule.xml</suiteXmlFile>-->
 								<!--this transformation_Rule xml include all the test regarding Transformation business rule functionality-->
-								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>
+<!--								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>-->
 							</suiteXmlFiles>
 							<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
 						</configuration>
@@ -235,25 +235,25 @@
 					</execution>
 				</executions>
 			</plugin>
-<!--			<plugin>-->
-<!--				<groupId>com.decipherzone</groupId>-->
-<!--				<artifactId>qa-parse-maven-plugin</artifactId>-->
-<!--				<version>1.5.2</version>-->
-<!--				<executions>-->
+			<plugin>
+				<groupId>com.decipherzone</groupId>
+				<artifactId>qa-parse-maven-plugin</artifactId>
+				<version>1.5.2</version>
+				<executions>
 
-<!--					<execution>-->
-<!--						<phase>integration-test</phase>-->
-<!--						<configuration>-->
-<!--							<projectBaseUrl>https://app.dekhoreport.com/qa-java-api</projectBaseUrl>-->
-<!--							<sourceFilePath>${project.build.directory}/test-output/testng-results.xml</sourceFilePath>-->
-<!--							<projectAccessKey>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb21wYW55SWRcIjpcIjY0Nzg5ZDgzMDlmY2IxN2FlMWE2OTlmMFwiLFwiand0VG9rZW5cIjpcImV5SmhiR2NpT2lKSVV6VXhNaUo5LmV5SnpkV0lpT2lKeVlXaDFiRUJ3WlhKbVpXTjBjV0Z6WlhKMmFXTmxjeTVqYjIwaUxDSnBZWFFpT2pFMk9EWXdNams1TXpZc0ltVjRjQ0k2TVRZNE5qWXpORGN6Tm4wLkZhZ1NsVFRGQkJxWENGZkRiaE1OajBINDhCOEF1TEdZR2w1YkMwNHhhdW9FUGRNSnpaN0FHdGRGdXRSWEttSGVlSGF4b1c2MXd2dG81aG05eEtkT2tnXCIsXCJwcm9qZWN0SWRcIjpcIjY0Nzg5ZGE1MDlmY2IxN2FlMWE2OTlmMlwifSIsImlhdCI6MTY4NjA0MzUxMSwiZXhwIjoxNjg2NjQ4MzExfQ.U_9tPGqVLjB_hRzlntRsrW489W5mcsSbCg6rjvaijKy0V1F1ESaFF6DuZPhKuYcGGfPQG1M15OeQM4flAdZIvw</projectAccessKey>-->
-<!--						</configuration>-->
-<!--						<goals>-->
-<!--							<goal>xmltojson</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
+					<execution>
+						<phase>integration-test</phase>
+						<configuration>
+							<projectBaseUrl>https://app.dekhoreport.com/qa-java-api</projectBaseUrl>
+							<sourceFilePath>${project.build.directory}/test-output/testng-results.xml</sourceFilePath>
+							<projectAccessKey>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb21wYW55SWRcIjpcIjY0Nzg5ZDgzMDlmY2IxN2FlMWE2OTlmMFwiLFwiand0VG9rZW5cIjpcImV5SmhiR2NpT2lKSVV6VXhNaUo5LmV5SnpkV0lpT2lKeVlXaDFiRUJ3WlhKbVpXTjBjV0Z6WlhKMmFXTmxjeTVqYjIwaUxDSnBZWFFpT2pFMk9EZ3hNREUxT0RJc0ltVjRjQ0k2TVRZNE9EY3dOak00TW4wLjdTZC0tMHdkX2x5TXI5ams1Rzd0MmVSSzI2bWxLVUZMS2gtcVhnRndRUUdmSE1ueW9hSDRERDZLQVJqdGRXcU5aeUhIVFRDY0NRb21pbktfQV9JQUpnXCIsXCJwcm9qZWN0SWRcIjpcIjY0Nzg5ZGE1MDlmY2IxN2FlMWE2OTlmMlwifSIsImlhdCI6MTY4ODEwMjE0MSwiZXhwIjoxNjg4NzA2OTQxfQ.R_97exXh40hvjGdP3xK_XAwAD0LrztvRPOPDv4vchVGnCHVoj7voLxXH_t6S-tk10crvDlO0-3WpLTHbqMexsQ</projectAccessKey>
+						</configuration>
+						<goals>
+							<goal>xmltojson</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>

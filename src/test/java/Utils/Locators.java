@@ -361,7 +361,7 @@ public abstract class Locators extends BasePage {
 	public static String partNumberField  ="//p[normalize-space()='Part number']//..//..//..//input";
 
 	public static String shortDescriptionField  ="//p[normalize-space()='Short description']//..//..//..//input";
-
+	public static String qaFormOption  = "//button[normalize-space()='QA Form']";
 	public static String longDescriptionField  ="//div[contains (text(),'Long description')]//..//..//div//textarea";
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
 	protected WebElement filterIndustrySector1;

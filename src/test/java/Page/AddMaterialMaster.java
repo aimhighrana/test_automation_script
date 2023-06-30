@@ -190,7 +190,7 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on submit button");
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(10);
+		common.pause(2);
 
 		//If duplicate record popup appear then click on continue
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
@@ -209,6 +209,7 @@ public class AddMaterialMaster extends Locators {
 		{
 
 			System.out.println("Step :: Something went error appear");
+			common.log("Something went error appear");
 			common.refreshPage();
 			common.pause(20);
 			common.findElement(industrySec).click();
@@ -248,6 +249,7 @@ public class AddMaterialMaster extends Locators {
 
 		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.pause(5);
 
 		common.waitForElement(search);
 		common.type(search,"Material master");
@@ -256,7 +258,7 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
-		common.pause(10);
+		common.pause(5);
 		common.findElement(materialMaster).click();
 		common.pause(10);
 
@@ -294,12 +296,13 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(materialGroup);
 		common.pause(10);
 
-		common.waitForElement(industrySec);
-		common.findElementBy(industrySec,"Click on Industry sector dropdown and select value from it").click();
-		common.waitForElement(dropValue);
-		common.findElement(dropValue).click();
-
-		common.pause(20);
+		if (common.isElementDisplayed(industrySec)) {
+			common.waitForElement(industrySec);
+			common.findElementBy(industrySec, "Click on Industry sector dropdown and select value from it").click();
+			common.waitForElement(dropValue);
+			common.findElement(dropValue).click();
+		}
+		common.pause(5);
 
 		common.findElementBy(generateDesc,"Click on generate description").click();
 		common.findElement(generateDesc).click();
@@ -628,14 +631,23 @@ public class AddMaterialMaster extends Locators {
 			common.findElementBy(divisionField,"Select value from Division dropdown").click();
 			common.waitForElement(dropValue);
 			common.findElement(dropValue).click();
+			common.pause(5);
 		}
 		common.waitForElement(approveButton);
 		test.log(LogStatus.INFO, "Step :: click on Approve button ");
 		System.out.println("Step :: click on Approve button");
-		common.log("Click on submit button");
-
 		common.findElement(approveButton).click();
-		common.pause(10);
+		common.pause(2);
+
+		if (common.isDisplayed(duplicateRecordHeader) == true) {
+
+			System.out.println("Step :: Duplicate records");
+			driver.findElement(By.xpath(continueDuplicateRecord)).click();
+		} else {
+
+			System.out.println("Step :: No duplicate records");
+		}
+
 		common.waitForElement("//div[@class='cdk-overlay-pane']");
 		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
 		common.log("Message display: "+successStr);
@@ -683,10 +695,8 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(approveButton);
 		test.log(LogStatus.INFO, "Step :: click on Approve button ");
 		System.out.println("Step :: click on Approve button");
-		common.log("Click on submit button");
 
 		common.findElement(approveButton).click();
-		common.pause(10);
 		common.waitForElement("//div[@class='cdk-overlay-pane']");
 		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
 		common.log("Message display: "+successStr);
@@ -780,7 +790,7 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on claim");
 		common.findElement(claim).click();
 
-		common.waitForElement("//div[@id='cdk-overlay-13']");
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
 
 		test.log(LogStatus.INFO, "Step :: click on my request ");
 		System.out.println("Step :: click on my request");
@@ -957,29 +967,37 @@ public class AddMaterialMaster extends Locators {
 
 		driver.findElement(By.xpath(edit)).click();
 		common.pause(10);
-		test.log(LogStatus.INFO, "Step :: Click on material master record role ");
-		System.out.println("Step :: Click on material master record role");
-		common.log("Click on material master workflow role");
-		driver.findElement(By.xpath(materrialMasterRecordOption)).click();
-		common.pause(10);
-		common.waitForElement(headerData);
-		common.pause(20);
 
-		test.log(LogStatus.INFO, "Step :: Select Industry Sector ");
-		System.out.println("Step :: Select Industry Sector");
-		common.log("Select Industry Sector");
-		common.waitForElement(industrySec);
-		common.findElement(industrySec).click();
-		common.pause(5);
-		common.findElement(dropValue).click();
+		if(common.isElementDisplayed(qaFormOption))
+		{
+			common.findElementBy(qaFormOption, "Click on QA Form option").click();
+		}
+		else {
 
-		common.findElementBy(plusStorageData, "Click on plus icon for Storage Data hierarchy");
 
-		common.findElementBy(firstOptionStorageData, "Select first option for Storage Data hierarchy");
+			test.log(LogStatus.INFO, "Step :: Click on material master record role ");
+			System.out.println("Step :: Click on material master record role");
+			common.log("Click on material master workflow role");
+			driver.findElement(By.xpath(materrialMasterRecordOption)).click();
+			common.pause(10);
+			common.waitForElement(headerData);
+			common.pause(20);
 
-		common.findElementBy(applyFilterButton, "Click on apply button");
-		common.pause(5);
+			test.log(LogStatus.INFO, "Step :: Select Industry Sector ");
+			System.out.println("Step :: Select Industry Sector");
+			common.log("Select Industry Sector");
+			common.waitForElement(industrySec);
+			common.findElement(industrySec).click();
+			common.pause(5);
+			common.findElement(dropValue).click();
 
+			common.findElementBy(plusStorageData, "Click on plus icon for Storage Data hierarchy");
+
+			common.findElementBy(firstOptionStorageData, "Select first option for Storage Data hierarchy");
+
+			common.findElementBy(applyFilterButton, "Click on apply button");
+			common.pause(5);
+		}
 		test.log(LogStatus.INFO, "Step :: Click on save button");
 		System.out.println("Step :: Click on save button");
 		common.log("Click on save button");
@@ -1383,12 +1401,12 @@ public class AddMaterialMaster extends Locators {
 
 			test.log(LogStatus.INFO, "Step :: click on approve");
 			System.out.println("Step :: click on approve");
-			common.log("Click on my approve");
+			common.log("Click on approve");
 			driver.findElement(By.xpath(approveVal)).click();
 			common.pause(5);
 
-			System.out.println("Step :: click on approve down icon");
-			common.log("Click on my down");
+			System.out.println("Step :: click on approve drop-down icon");
+			common.log("Click on approve drop-down icon");
 			common.waitForElement(approveDropDownIcon);
 			driver.findElement(By.xpath(approveDropDownIcon)).click();
 

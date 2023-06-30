@@ -121,7 +121,7 @@ public class MaterialCreationTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_Checking_Mandatory_Fields_Error_On_The_Execution_Page(String env) throws InterruptedException, IOException {
+	public void verify_Checking_Mandatory_Fields_Error_On_The_Execution_Page(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-8431");
 		loginPage.goToURL(env);
 		loginPage.check_SignIn(env);
@@ -137,7 +137,7 @@ public class MaterialCreationTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_That_User_Is_Able_To_Save_The_Record_With_The_Extension_Process(String env) throws InterruptedException, IOException {
+	public void verify_That_User_Is_Able_To_Save_The_Record_With_The_Extension_Process(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-8432");
 		verify_Checking_Mandatory_Fields_Error_On_The_Execution_Page(env);
 		materialCreation.verify_User_Is_Able_To_Save_The_Record_With_The_Extension_Process();
@@ -151,7 +151,7 @@ public class MaterialCreationTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_Reviewer_Task_List_Checks(String env) throws InterruptedException, IOException {
+	public void verify_Reviewer_Task_List_Checks(String env) throws Exception {
 		common.log("TC:MDMF-TC-8433/MDMF-TC-8434/MDMF-TC-8435");
 		verify_That_User_Is_Able_To_Save_The_Record_With_The_Extension_Process(env);
 		loginPage.revSignIn(env);
@@ -183,9 +183,26 @@ public class MaterialCreationTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_After_Generating_Description_Language_Grid_And_PO_Text_Grid_Should_Be_Auto_Populated(String env) throws InterruptedException, IOException, Exception {
-		common.log("TC:MDMF-TC-8389/MDMF-TC-8390");
+		common.log("TC:MDMF-TC-8396");
 		loginPage.goToURL(env);
 		loginPage.check_SignIn(env);
 		materialCreation.verify_Description_Generator_Language_Grid_And_PO_Text_Grid_Should_Be_Auto_Populate();
+	}
+	/**
+	 * 12
+	 * Creation: Reapproving rejected task from Initiator
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_Reapproving_Rejected_Task_From_Initiator(String env) {
+		common.log("TC:Reapproving rejected task from Initiator: MDMF-TC-8396");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialmaster.addNewMaterialMaster();
+		materialmaster.rejectionFlowFromApprover();
+		materialmaster.reApprove_Rejected_Task_Status();
 	}
 }
