@@ -109,6 +109,11 @@ public abstract class Locators extends BasePage {
 	public static String firstActionIconForInbox = "//tbody/tr[1]/td[2]/lib-button-group[1]/ul[1]/li[1]/lib-button[1]/button[1]/span[1]/mat-icon[1]";
 	public static String approveBtn = "//button[contains(text(),'Approve')]";
 	public static String sequentialHeader = "//h4[contains(text(),'SequentialMaterial')]";
+	public static String planingCycleField = "//p[normalize-space()='Planning Cycle']//..//..//..//input";
+	public static String lastForecastField = "//p[normalize-space()='Last forecast']//..//..//..//input";
+	public static String dnuFixedPeriods = "//p[normalize-space()='DNU Fixed periods']//..//..//..//input";
+	public static String unitOfWeightField = "//p[normalize-space()='Unit of Weight']//..//..//input";
+	public static String volumeUnitField = "//p[normalize-space()='Volume unit']//..//..//div//input";
 
 	public static String approveButton = "//span[contains(text(),' Approve ')]";
 	public static String claim = "//button[contains(text(),'Claim')]";
@@ -288,6 +293,7 @@ public abstract class Locators extends BasePage {
 
 	public static String plantDataAddHierarchy = "//p[normalize-space()='Plant Data']//..//..//..//p[normalize-space()='Add...']";
 
+	public static String plantDataOption0002 = "//span[contains (text(),'0002')]";
 	public static String searchBoxHierarchy = "//div[@class='dropdown-search-wrapper']//mat-icon[@role='img'][normalize-space()='search']//..//input";
 
 	public static String selectSearchedOption = "//span[@class='mat-checkbox-inner-container']";
@@ -314,6 +320,12 @@ public abstract class Locators extends BasePage {
 	public static String addPlantData =	"//p[normalize-space()='Plant Data']//..//..//..//p[normalize-space()='Add...']";
 
 	public static String searchPlantData  ="//div[@class='dropdown-search-wrapper']//mat-icon[@role='img'][normalize-space()='search']//..//input";
+
+	public static String storageDataAdd  ="//p[normalize-space()='Storage Data']//..//..//..//p[normalize-space()='Add...']";
+
+	public static String valuationDataAdd  ="//p[normalize-space()='Valuation Data']//..//..//..//p[normalize-space()='Add...']";
+
+	public static String firstOptionFromHierarchy  ="//lib-filter-option[1]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[2]";
 
 	public static String searchedPantValue = "//span[@class='mat-checkbox-inner-container']";
 

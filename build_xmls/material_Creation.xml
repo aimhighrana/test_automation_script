@@ -125,5 +125,24 @@
 			</class>
 		</classes>
 	</test>
+
+	<test name="verify ReApproving Rejected Task From Initiator And From Final Approval Step">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="reApproving_Rejected_Task_From_Initiator_And_From_Final_Approval_Step"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="verify That User Should Be Able To Extend Multiple Similar Child Hierarchies At The Same Time">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include name="verify_That_User_Should_Be_Able_To_Extend_Multiple_Similar_Child_Hierarchies_At_The_Same_Time"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>
 

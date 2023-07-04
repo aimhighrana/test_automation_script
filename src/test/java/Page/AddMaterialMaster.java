@@ -654,6 +654,7 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(inboxMenu);
 
 	}
+
 	/**
 	 * Re-Approve Rejected Task
 	 *
@@ -701,7 +702,6 @@ public class AddMaterialMaster extends Locators {
 		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
 		common.log("Message display: "+successStr);
 		common.waitForElement(inboxMenu);
-
 	}
 
 	/**
@@ -1504,4 +1504,70 @@ public class AddMaterialMaster extends Locators {
 			common.log("No records available");
 		}
 	}
+	/**
+	 * Re-Approve Rejected Task Status With Extend Plant Data
+	 *
+	 */
+	public void reApprove_Rejected_Task_Status_With_Extend_Plant_Data() {
+
+		//wait for Home tab
+		common.waitForElement(homeTab);
+		common.findElementBy(homeTab,"Click on Home tab").click();
+
+		//wait for Inbox menu
+		common.waitForElement(myReqTab);
+		common.findElementBy(myReqTab,"Click on My Request menu").click();
+		common.findElement(myReqTab).click();
+
+		//wait for first value
+		common.waitForElement(firstActionIconForInbox);
+
+		test.log(LogStatus.INFO, "Step :: Click on action menu for first row ");
+		System.out.println("Step :: Click on action menu for first row");
+		common.log("Click on action menu for first row");
+		driver.findElement(By.xpath(firstActionIconForInbox)).click();
+
+		System.out.println("Step :: click on approve");
+		common.log("Click on approve");
+		common.findElement(approveBtn).click();
+
+		common.waitForElement(headerData);
+		common.findElementBy(headerData,"Verify Header data appear");
+
+		if (common.isElementDisplayed(sequentialHeader))
+		{
+			common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("Material desc 123");
+			common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
+			common.findElementBy(divisionField,"Select value from Division dropdown").click();
+			common.waitForElement(dropValue);
+			common.findElement(dropValue).click();
+		}
+		common.waitForElement(addPlantData);
+		common.findElementBy(addPlantData,"Click on Add Plant data").click();
+		common.waitForElement(searchPlantData);
+		if (common.isElementDisplayed("//input[@aria-checked='true']")) {
+			common.findElementBy("//input[@aria-checked='true']", "Uncheck the selected hierarchy").click();
+		}
+		common.findElementBy(searchPlantData,"Enter value 004").sendKeys("0004");
+		common.waitForElement(searchedPantValue);
+		common.pause(5);
+		common.findElementBy(searchedPantValue,"Select searched value").click();
+		common.pause(5);
+		common.findElementBy(applyFilterButton,"Click on apply button").click();
+		common.pause(5);
+		if (common.isElementDisplayed(planingCycleField)) {
+			common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
+		}
+
+			common.waitForElement(approveButton);
+		test.log(LogStatus.INFO, "Step :: click on Approve button ");
+		System.out.println("Step :: click on Approve button");
+
+		common.findElement(approveButton).click();
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: "+successStr);
+		common.waitForElement(inboxMenu);
+	}
+
 }

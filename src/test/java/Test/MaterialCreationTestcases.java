@@ -205,4 +205,40 @@ public class MaterialCreationTestcases extends BasePage {
 		materialmaster.rejectionFlowFromApprover();
 		materialmaster.reApprove_Rejected_Task_Status();
 	}
+	/**
+	 * 13
+	 * Extend: Reapproving rejected task from Initiator & from final approval step
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void reApproving_Rejected_Task_From_Initiator_And_From_Final_Approval_Step(String env) throws InterruptedException, IOException, Exception {
+		common.log("TC:MDMF-TC-8437");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialmaster.addNewMaterialMaster();
+		loginPage.revSignIn(env);
+		materialmaster.rejectionFlowFromReviewer();
+		loginPage.check_SignIn(env);
+		materialmaster.reApprove_Rejected_Task_Status_With_Extend_Plant_Data();
+	}
+
+	/**
+	 * 14
+	 * verify that user should be able to extend multiple similar child hierarchies at the same time
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	@Test
+	@Parameters("env")
+	public void verify_That_User_Should_Be_Able_To_Extend_Multiple_Similar_Child_Hierarchies_At_The_Same_Time(String env) throws InterruptedException, IOException, Exception {
+		common.log("TC:MDMF-TC-8439");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
+		materialCreation.verify_Able_To_Extend_Multiple_Similar_Child_Hierarchies_At_The_Same_Time();
+	}
 }
