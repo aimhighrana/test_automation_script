@@ -21,7 +21,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_UDR_Rule_With_Common_Operators(String env) throws InterruptedException, IOException {
+	public void verify_UDR_Rule_With_Common_Operators(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6848/MDMF-TC-6851/MDMF-TC-6852");
 		common.log("Pre condition: UDR Rule must be configured with EQUALS OR NOT EQUALS operator");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -39,7 +39,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_UDR_Rule_With_Special_Operators(String env) throws InterruptedException, IOException {
+	public void verify_UDR_Rule_With_Special_Operators(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6849");
 		common.log("Pre condition: UDR Rule must be configured with special operator for Material description field");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -57,7 +57,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void validate_Selecting_Header_While_Setup_UDR_With_Numerical_Operator_RANGE(String env) throws InterruptedException, IOException {
+	public void validate_Selecting_Header_While_Setup_UDR_With_Numerical_Operator_RANGE(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6850");
 		common.log("Pre condition: UDR Rule must be configured with numeric RANGE operator for Material description field Ex: 0 TO 9");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -74,7 +74,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_ENDSWITH_Operator(String env) throws InterruptedException, IOException {
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_ENDSWITH_Operator(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6854");
 		common.log("Pre condition: UDR Rule must be configured with ENDSWITH operator with adding '.' in value for Material description field");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -91,7 +91,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_EMPTY_Operator(String env) throws InterruptedException, IOException {
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_EMPTY_Operator(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6856");
 		common.log("Pre condition: UDR Rule must be configured with EMPTY operator for Material description field");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -108,7 +108,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_LENGTH_Operator(String env) throws InterruptedException, IOException {
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_LENGTH_Operator(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6858");
 		common.log("Pre condition: UDR Rule must be configured with LENGTH operator with adding '10' value for Material description field");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -125,7 +125,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_Numerical_Operator_LESS_THAN_LESS_THAN_EQUAL(String env) throws InterruptedException, IOException {
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_Numerical_Operator_LESS_THAN_LESS_THAN_EQUAL(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6859");
 		common.log("Pre condition: UDR Rule must be configured with LESS THAN or LESS THAN EQUALS operator with adding '10' value for Material description field");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -143,7 +143,7 @@ public class UserDefinedRuleTestcases extends BasePage {
  */
 	@Test
 	@Parameters("env")
-	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_Numerical_Operator_GREATER_THAN_GREATER_THAN_EQUAL(String env) throws InterruptedException, IOException {
+	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_Numerical_Operator_GREATER_THAN_GREATER_THAN_EQUAL(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6860/DMF-TC-6861");
 		common.log("Pre condition: UDR Rule must be configured with GREATER THAN or GREATER THAN EQUALS operator with adding '10' value for Material description field");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");

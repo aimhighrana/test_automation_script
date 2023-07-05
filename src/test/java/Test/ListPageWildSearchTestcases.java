@@ -23,7 +23,7 @@ public class ListPageWildSearchTestcases extends BasePage {
 	/**--1--**/
 	@Test
 	@Parameters("env")
-	public void verify_The_Search_Should_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search(String env) throws InterruptedException, IOException {
+	public void verify_The_Search_Should_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC --MDMF-TC-5501--/--MDMF-TC-5503--/--MDMF-TC-5504--/MDMF-TC-5497");
 		loginPage.goToURL(env);
 		loginPage.check_SignIn(env);
@@ -34,7 +34,7 @@ public class ListPageWildSearchTestcases extends BasePage {
 	/**--2--**/
 	@Test
 	@Parameters("env")
-	public void verify_While_Clearing_The_Text_Search_It_Should_Not_Impact_Any_Applied_Filters(String env) throws InterruptedException, IOException, AWTException {
+	public void verify_While_Clearing_The_Text_Search_It_Should_Not_Impact_Any_Applied_Filters(String env) throws InterruptedException, IOException, AWTException, Exception {
 		common.log("TC --MDMF-TC-5505--");
 		loginPage.goToURL(env);
 		loginPage.check_SignIn(env);
@@ -46,7 +46,7 @@ public class ListPageWildSearchTestcases extends BasePage {
 	/**--3--**/
 	@Test
 	@Parameters("env")
-	public void verify_The_User_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter(String env) throws InterruptedException, IOException, AWTException {
+	public void verify_The_User_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter(String env) throws InterruptedException, IOException, AWTException, Exception {
 		common.log("TC --MDMF-TC-5506--");
 		loginPage.goToURL(env);
 		loginPage.check_SignIn(env);

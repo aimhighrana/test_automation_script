@@ -21,7 +21,7 @@ public class DuplicateRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_That_Exact_Match_Fuzzy_Duplicacy_Is_Working(String env) throws InterruptedException, IOException {
+	public void verify_That_Exact_Match_Fuzzy_Duplicacy_Is_Working(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6898/MDMF-TC-6899/MDMF-TC-6900/MDMF-TC-6901");
 		common.log("Pre condition: Duplicate Rule must be configured");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -38,7 +38,7 @@ public class DuplicateRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event(String env) {
+	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event(String env) throws Exception {
 		common.log("TC:MDMF-TC-6903");
 		common.log("Pre condition: Duplicate Rule must be configured");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -57,7 +57,7 @@ public class DuplicateRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Change_Event(String env) {
+	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Change_Event(String env) throws Exception {
 		common.log("TC:MDMF-TC-6904");
 		common.log("Pre condition: Duplicate Rule must be configured");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -75,7 +75,7 @@ public class DuplicateRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Approval_From_Reviewer(String env) {
+	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Approval_From_Reviewer(String env) throws Exception{
 		common.log("TC:MDMF-TC-6905");
 		common.log("Pre condition: Duplicate Rule must be configured for reviewer");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");

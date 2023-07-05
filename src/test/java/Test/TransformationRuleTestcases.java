@@ -21,7 +21,7 @@ public class TransformationRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_Transformation_Rule_Of_Type_Zero_With_Add_Leading_Zeroes_On_Transaction_Page(String env) throws InterruptedException, IOException {
+	public void verify_Transformation_Rule_Of_Type_Zero_With_Add_Leading_Zeroes_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6813");
 		common.log("Pre condition: Transformation Rule must be configured with Add leading zeros option");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -40,7 +40,7 @@ public class TransformationRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_Transformation_Rule_Of_Type_Zero_With_Remove_Leading_Zeroes_On_Transaction_Page(String env) throws InterruptedException, IOException {
+	public void verify_Transformation_Rule_Of_Type_Zero_With_Remove_Leading_Zeroes_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6814");
 		common.log("Pre condition: Transformation Rule must be configured with Add leading zeros option");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
@@ -59,7 +59,7 @@ public class TransformationRuleTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_The_Transformation_Rule_Of_Type_Constant_Value_On_Transaction_Page(String env) throws InterruptedException, IOException {
+	public void verify_The_Transformation_Rule_Of_Type_Constant_Value_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
 		common.log("TC:MDMF-TC-6870");
 		common.log("Pre condition: Transformation Rule must be configured with Constant Value for Material description field: QA");
 		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");

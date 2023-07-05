@@ -50,10 +50,12 @@ public class BasePage implements ITestListener {
 	public LoginPage loginPage;
 	public AddMaterialMaster materialmaster;
 	public ListPageSearch listPageSearch;
+	public ProcessLog processLog;
 	public ListView listView;
 	public MaterialCreation materialCreation;
 	public Flow flow;
 	public HomePage homePage;
+
 	public static ExtentTest test;
 	public static ExtentReports report;
 
@@ -106,6 +108,7 @@ public class BasePage implements ITestListener {
 		listView = new ListView(driver);
 		homePage = new HomePage(driver);
 		materialCreation = new MaterialCreation(driver);
+		processLog = new ProcessLog(driver);
 	//	MyScreenRecorder.startRecording(currentTest);
 	}
 

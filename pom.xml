@@ -223,6 +223,8 @@
 								<suiteXmlFile>build_xmls/user_Defined_Rule.xml</suiteXmlFile>
 								<!--this transformation_Rule xml include all the test regarding Transformation business rule functionality-->
 								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>
+								<!--this Process_Log xml include all the test regarding View Process Log functionality-->
+								<suiteXmlFile>build_xmls/process_Log.xml</suiteXmlFile>
 							</suiteXmlFiles>
 							<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
 						</configuration>
