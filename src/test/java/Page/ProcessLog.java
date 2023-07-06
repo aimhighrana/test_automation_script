@@ -4,6 +4,7 @@ import Utils.Common;
 import Utils.Locators;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -227,6 +228,120 @@ public class ProcessLog extends Locators {
 			System.out.println("Step :: View process log: "+strProcessLog);
 			common.log("View process log: "+strProcessLog);
 		}
+	}
+	/**
+	 * Process log: verify User Is Able To View The View Integration Log
+	 *
+	 */
+	public void verify_User_Is_Able_To_View_The_View_Integration_Log() {
+
+		common.pause(5);
+		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.refreshPage();
+
+		common.pause(5);
+		common.findElementBy(dataTab, "Click on Data tab").click();
+
+		test.log(LogStatus.INFO, "Step :: click on material master number from left nav");
+		System.out.println("Step :: click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+
+		common.waitForElement(search);
+		test.log(LogStatus.INFO, "Step :: search for material master ");
+		common.type(search, "Material Master");
+		common.waitForElement(materialMaster);
+		common.findElement(materialMaster).click();
+		common.pause(15);
+
+		//If default view not appear then select it from View dropdown
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+		common.waitForElement(filterIcon);
+
+		common.findElementBy(filterIcon, "Click on Filter icon").click();
+		common.pause(10);
+		common.waitForElement(sapMaterialNumberFilter);
+		common.log("Click on SAP Material Number tab");
+		common.jsClick(sapMaterialNumberFilter);
+
+		common.pause(10);
+		common.findElement(sapMaterialNumberInputField).click();
+		common.findElementBy(sapMaterialNumberInputField, "Enter value in textarea : 000").sendKeys("000");
+		common.findElement(sapMaterialNumberInputField).sendKeys(Keys.ENTER);
+		common.pause(5);
+
+		common.findElementBy(applyFilterButton, "Click on apply button").click();
+		common.pause(10);
+
+		String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+
+		System.out.println("First value of Material master table:: " + strFirstValue);
+		common.log("First value of Material master table:: " + strFirstValue);
+
+		common.findElementBy(actionIconForFirstValue, "Click on first value action icon").click();
+		common.waitForElement(viewPLog);
+		common.findElementBy(viewPLog, "Select view process log option").click();
+		common.pause(10);
+
+		if (common.isElementDisplayed(processLogTitle)) {
+			common.waitForElement(processLogTitle);
+			String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
+			System.out.println("Step :: Process Log Title is ::" + pLog);
+			common.log("Process Log Title is ::" + pLog);
+			common.findElementBy(processLogTitle,"Expand Process log").click();
+
+		}
+		else {
+			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
+			System.out.println("Step :: View process log: "+strProcessLog);
+			common.log("View process log: "+strProcessLog);
+		}
+
+		//this loop will find which record has View integration logs under Process log
+		for (int i=1;i<=10;i++)
+		{
+			if (common.isElementDisplayed(viewIntegrationLogs))
+			{
+				common.findElementBy(viewIntegrationLogs,"Click on View Integration Logs").click();
+				common.waitForElement(integrationLogsHeader);
+				common.findElementBy(integrationLogsHeader,"Integration Logs header verified");
+				common.pause(5);
+				common.findElementBy(closeIntegrationLogsView,"Close Integration logs view").click();
+				common.pause(5);
+				common.findElementBy(closeIconForProcessLog,"Close Process log view").click();
+				break;
+			}
+			else
+			{
+				common.findElementBy(closeIconForProcessLog,"Close Process log view").click();
+				common.findElementBy("//tbody/tr[1]/td["+i+"]//..//button//span//mat-icon","Click on action icon for next record").click();
+
+				common.waitForElement(viewPLog);
+				common.findElementBy(viewPLog, "Select view process log option").click();
+				common.pause(10);
+
+				if (common.isElementDisplayed(processLogTitle)) {
+					common.waitForElement(processLogTitle);
+					String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
+					System.out.println("Step :: Process Log Title is ::" + pLog);
+					common.log("Process Log Title is ::" + pLog);
+					common.findElementBy(processLogTitle,"Expand Process log").click();
+
+				}
+				else {
+					String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
+					System.out.println("Step :: View process log: "+strProcessLog);
+					common.log("View process log: "+strProcessLog);
+				}
+			}
+		}
+
 	}
 
 }

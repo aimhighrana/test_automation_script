@@ -18,6 +18,15 @@
 		</classes>
 	</test>
 
+	<test name="verify That User Is Able To View The View Integration Log">
+		<classes>
+			<class name="Test.ProcessLogTestcases">
+				<methods>
+					<include name="verify_That_User_Is_Able_To_View_The_View_Integration_Log"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 	<test name="verify That Tooltip Is Visible For Comment Icon In Side Sheet">
 		<classes>
 			<class name="Test.ProcessLogTestcases">

@@ -132,6 +132,10 @@ public abstract class Locators extends BasePage {
 	public static String dSearchBox = "//pros-primary-navigation[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/pros-list-datatable[1]/div[1]/div[2]/div[1]/div[1]/lib-search[1]/div[1]/input[1]";
 	public static String apply = "//p[contains(text(),'Apply')]";
 	public static String thDot = "//tbody/tr[1]/td[2]/lib-button[1]/button[1]/span[1]/mat-icon[1]";
+	public static String fieldNameHeader = "//th[normalize-space()='Field Name']";
+	public static String beforeChangeHeader = "//th[normalize-space()='Before Change']";
+	public static String afterChangeHeader = "//th[normalize-space()='After Change']";
+
 	public static String processLogTitle = "//mat-expansion-panel-header/span[1]/mat-panel-title[1]/div[1]";
 	public static String commentIconProcessLog = "//lib-button[contains(@libtooltip, 'comments')]";
 	public static String chatBoxComment = "//pros-chat-editor[@class='chat-editor-outer']";
@@ -176,6 +180,15 @@ public abstract class Locators extends BasePage {
 
 	public static String filterIndustrySector = "//p[normalize-space()='Industry Sector'] | //p[normalize-space()='Industry sector']";
 
+	public static String sapMaterialNumberFilter = "//p[normalize-space()='SAP Material Number']";
+
+	public static String sapMaterialNumberInputField = "//lib-chip-list[@class='chips-list']//textarea";
+
+	public static String viewIntegrationLogs = "//p[normalize-space()='View integration logs']";
+
+	public static String integrationLogsHeader = "//h4[normalize-space()='Integration log']";
+
+	public static String closeIntegrationLogsView = "//h4[normalize-space()='Integration log']//..//..//..//..//mat-icon";
 	public static String valueFMCG_IndustrySectorFilter = "//mat-list-item[3]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]";
 
 	public static String valuationDataHierarchy = "//mat-tree-node[4]//div[1]//div[1]//lib-text-line[1]//p[1]//label";

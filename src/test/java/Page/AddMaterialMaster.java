@@ -568,16 +568,18 @@ public class AddMaterialMaster extends Locators {
 		common.log("Process Log Title is ::" + pLog);
 
 		driver.findElement(By.xpath(processLogTitle)).click();
+		common.pause(10);
 
 		common.waitForElement(statusCom);
 		String status = driver.findElement(By.xpath(statusCom)).getText();
 		System.out.println("Step :: Process Log Status is ::" + status);
 		common.log("Process Log Status is ::" + status);
 		assertEquals(status, "COMPLETED");
-
+		common.pause(10);
 		System.out.println("Step :: click on view change ");
 		common.log("Click on view change");
 		common.findElement(completedViewProcessLog).click();
+		common.pause(10);
 
 		common.waitForElement(headerData);
 		Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
@@ -585,6 +587,19 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: Header Title is displaying:: >>" + header);
 		common.log("Title is Header data :: >>" + header);
 
+		common.waitForElement(fieldNameHeader);
+		common.findElementBy(fieldNameHeader,"Field Name header is available");
+		common.findElementBy(beforeChangeHeader,"Before Change header is available");
+		common.findElementBy(afterChangeHeader,"After Change header is available");
+		common.log("First row data: ");
+		for (int i =1; i<=3;i++)
+		{
+			if (common.isElementDisplayed("//div[3]/table[1]/tbody[1]/tr[1]/td[1]"))
+			{
+				String str = driver.findElement(By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td["+i+"]")).getText();
+				common.log(str);
+			}
+		}
 		//expand header data
 //		common.expandingHeadData();
 
@@ -802,14 +817,16 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(firstActionIconForInbox).click();
 		common.pause(5);
 
-		test.log(LogStatus.INFO, "Step :: click on view Process Log ");
-		System.out.println("Step :: click on viewProcessLog");
-		common.log("Click on my viewProcessLog");
-		common.waitForElement(processLogOption);
-		common.findElement(processLogOption).click();
-		common.pause(20);
-		//wait for label text
-		common.waitForElement(lblText);
+			test.log(LogStatus.INFO, "Step :: click on view Process Log ");
+			System.out.println("Step :: click on viewProcessLog");
+			common.log("Click on my viewProcessLog");
+			common.waitForElement(processLogOption);
+			common.findElement(processLogOption).click();
+			common.pause(20);
+			if (common.isElementDisplayed(lblText)) {
+				//wait for label text
+				common.findElementBy(lblText,"Process log verified");
+			}
 
 		common.pause(20);
 		common.findElementBy(crossIconS,"Click on close icon").click();
