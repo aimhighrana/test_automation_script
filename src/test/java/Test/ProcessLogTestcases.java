@@ -16,7 +16,7 @@ public class ProcessLogTestcases extends BasePage {
 	// public WebDriver driver;
 	Common common = new Common(driver);
 
-	//MDMF-TC-5192/MDMF-TC-5193 TC is available in MaterialMasterTestcases
+	// MDMF-TC-5192/MDMF-TC-5193/MDMF-TC-5431 TC is available in MaterialMasterTestcases
 	/**
 	 *Process Log : To verify that user is able to view 'View Email logs' when email notification is configured
 	 * 
@@ -78,5 +78,21 @@ public class ProcessLogTestcases extends BasePage {
 		loginPage.check_SignIn(env);
 		processLog.verify_Tooltip_Is_Visible_For_External_Icon_In_Sidesheet();
 	}
+	/**
+	 *Process Log : Verify Classification data changes maintained in the process log for parent dataset or related dataset record
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	/**--5--**/
+	@Test
+	@Parameters("env")
+	public void verify_Classification_Data_Changes_Maintained_In_The_Process_Log_For_Parent_Dataset_Or_Related_Dataset_Record(String env) throws InterruptedException, IOException, AWTException, Exception {
+		common.log("TC:MDMF-TC-5144/MDMF-TC-5146/MDMF-TC-5148/MDMF-TC-5154/MDMF-TC-5177/MDMF-TC-5178/MDMF-TC-5180/MDMF-TC-6084");
+		loginPage.goToURL(env);
+		loginPage.check_SignIn(env);
+		processLog.verify_Classification_Data_Changes_Maintained_In_The_Process_Log();
+	}
+
 
 }

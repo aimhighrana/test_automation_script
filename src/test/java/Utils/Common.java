@@ -166,7 +166,7 @@ public class Common extends Locators {
 					} catch (Exception e) {
 						return null;
 					}
-				} else if (locator.startsWith("//")) {
+				} else if (locator.startsWith("//")||locator.startsWith("(//")) {
 					try {
 						return driver.findElement(By.xpath(locator));
 					} catch (Exception e) {

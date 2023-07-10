@@ -257,7 +257,7 @@ public class HomePage extends Locators {
 		common.waitForElement(inProgressMenu);
 
 		common.findElementBy(completedMenu, "Click on Completed menu").click();
-		common.pause(20);
+		common.pause(10);
 
 			if (common.isElementPresent("//tbody/tr[1]")) {
 				String firstRecord = driver.findElement(By.xpath("//tbody/tr[1]")).getText();

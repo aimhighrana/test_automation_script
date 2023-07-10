@@ -45,5 +45,14 @@
 			</class>
 		</classes>
 	</test>
+	<test name="verify Classification Data Changes Maintained In The Process Log For Parent Dataset OrRelated Dataset Record">
+		<classes>
+			<class name="Test.ProcessLogTestcases">
+				<methods>
+					<include name="verify_Classification_Data_Changes_Maintained_In_The_Process_Log_For_Parent_Dataset_Or_Related_Dataset_Record"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 
 </suite>

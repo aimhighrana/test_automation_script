@@ -216,12 +216,12 @@ public class ListView extends Locators {
 
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.pause(15);
+		common.pause(10);
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
-		common.pause(15);
+		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
 		if (!common.isElementPresent(defaultView)) {

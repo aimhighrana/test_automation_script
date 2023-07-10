@@ -98,7 +98,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(endDateTab, "Click on End tab in Datepicker").click();
 
 		common.findElementBy(date10, "Click on 10th date").click();
-		common.pause(20);
+		common.pause(10);
 
 		action.sendKeys(Keys.ESCAPE).perform();
 		common.pause(10);
@@ -464,7 +464,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(valuePercentage_BaseUnitFilter, "Select Percentage value").click();
 
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
-		common.pause(20);
+		common.pause(10);
 
 		if (common.isElementPresent(firstValuematerialMaster)) {
 
@@ -512,7 +512,7 @@ public class ListPageSearch extends Locators {
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
 
-		common.pause(20);
+		common.pause(10);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
 
 		common.pause(10);
@@ -544,7 +544,7 @@ public class ListPageSearch extends Locators {
 
 		common.pause(10);
 		common.refreshPage();
-		common.pause(15);
+		common.pause(10);
 
 		common.assertElementPresent(firstValuematerialMaster);
 
@@ -851,7 +851,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(inputManufacturerPartNumFilter, "").sendKeys(Keys.ENTER);
 
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
-		common.pause(15);
+		common.pause(10);
 
 		if (common.isElementPresent(firstValuematerialMaster)) {
 			String strFirstValue2 = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
@@ -1005,7 +1005,7 @@ public class ListPageSearch extends Locators {
 		common.pause(5);
 		common.findElementBy(filterStatusDropdown, "Click on Status filter dropdown and Enter System").click();
 		common.type(filterStatusDropdown, "System");
-		common.pause(20);
+		common.pause(10);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
 		common.pause(10);

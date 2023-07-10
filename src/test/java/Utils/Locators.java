@@ -41,7 +41,7 @@ public abstract class Locators extends BasePage {
 	public static String defaultView=	"//h4[contains (text(), 'Default view')]";
 	public static String viewDropDownIcon = "//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']//mat-icon[@role='img'][normalize-space()='caret-down']";
 
-	public static String approveVal = "//button[contains(text(),'Approve')]";
+	public static String approveVal = "//button[normalize-space()='Approve']";
 	public static String approveDropDownIcon = "//span[normalize-space()='Approve']//..//..//..//..//mat-icon";
 	public static String sendForCorrectionOption = "//button[normalize-space()='Send for correction']";
 	public static String rejectionCommentBox = "//div[contains(text(),'Comments')]//..//..//textarea";
@@ -67,7 +67,7 @@ public abstract class Locators extends BasePage {
 	public static String materialGroup = "//p[normalize-space()='Material Group']//..//..//div//input";
 	public static String generateDesc = "//span[contains(text(),'Generate description')]";
 	public static String claS = "//pros-transaction-generate-description[1]/div[2]/div[1]/form[1]/div[2]/div[1]/div[1]/input[1]";
-	public static String classval = "//span[contains(text(),' PIPE ')]| //span[contains(text(),' ADDITIVE ')]";
+	public static String classval = "(//span[@class='mat-option-text'])[1]";
 	public static String summaryVal = "//button[contains(text(),' Summary ')]";
 	public static String loading = "//p[normalize-space()='Loading Group']//..//..//mat-icon";
 
@@ -82,6 +82,7 @@ public abstract class Locators extends BasePage {
 	public static String newPlantD = "//div[1]/mat-tree[1]/mat-tree-node[3]/div[1]/div[1]/lib-text-line[1]/p[1]";
 	public static String sourceListDescription = "//p[normalize-space()='Source - List']//..//..//input[@placeholder='Select any one...']";
 	public static String dropValue = "//div[@role='listbox']//mat-option[2]";
+	public static String dropValue1 ="//div[@role='listbox']//mat-option[1]";
 	public static String sequentialMaterialOption =  "//button[normalize-space()='SequentialMaterial']";
 	public static String xPlantMaterialStatusField = "//p[normalize-space()='X-Plant Material Status']//..//..//div//input";
 	public static String dropValue3 = "//div[@role='listbox']//mat-option[3]//span";
@@ -116,7 +117,7 @@ public abstract class Locators extends BasePage {
 	public static String planingCycleField = "//p[normalize-space()='Planning Cycle']//..//..//..//input";
 	public static String lastForecastField = "//p[normalize-space()='Last forecast']//..//..//..//input";
 	public static String dnuFixedPeriods = "//p[normalize-space()='DNU Fixed periods']//..//..//..//input";
-	public static String unitOfWeightField = "//p[normalize-space()='Unit of Weight']//..//..//input";
+	public static String unitOfWeightField = "//p[normalize-space()='Unit of Weight']//..//..//div//input";
 	public static String volumeUnitField = "//p[normalize-space()='Volume unit']//..//..//div//input";
 
 	public static String approveButton = "//span[contains(text(),' Approve ')]";
@@ -137,6 +138,10 @@ public abstract class Locators extends BasePage {
 	public static String afterChangeHeader = "//th[normalize-space()='After Change']";
 
 	public static String processLogTitle = "//mat-expansion-panel-header/span[1]/mat-panel-title[1]/div[1]";
+
+	public static String dateProcessLog ="//div[1]/div[2]/div[1]/lib-text-line[1]/p[1]";
+
+	public static String timeProcessLog ="//div[1]/div[2]/div[1]/lib-text-line[2]/p[1]";
 	public static String commentIconProcessLog = "//lib-button[contains(@libtooltip, 'comments')]";
 	public static String chatBoxComment = "//pros-chat-editor[@class='chat-editor-outer']";
 	public static String externalIcon = "//lib-button[@icon='external-link-alt']";

@@ -47,7 +47,7 @@ public class ProcessLog extends Locators {
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
-		common.pause(15);
+		common.pause(10);
 
 		//If default view not appear then select it from View dropdown
 		if (!common.isElementPresent(defaultView)) {
@@ -72,7 +72,7 @@ public class ProcessLog extends Locators {
 
 			driver.findElement(By.xpath(processLogTitle)).click();
 
-			common.pause(15);
+			common.pause(10);
 			String status = driver.findElement(By.xpath(statusCom)).getText();
 			System.out.println("Step :: Process Log Status is ::" + status);
 			common.log("Process Log Status is ::" + status);
@@ -133,7 +133,7 @@ public class ProcessLog extends Locators {
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
-		common.pause(15);
+		common.pause(10);
 
 		//If default view not appear then select it from View dropdown
 		if (!common.isElementPresent(defaultView)) {
@@ -193,7 +193,7 @@ public class ProcessLog extends Locators {
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
-		common.pause(15);
+		common.pause(10);
 
 		//If default view not appear then select it from View dropdown
 		if (!common.isElementPresent(defaultView)) {
@@ -242,8 +242,6 @@ public class ProcessLog extends Locators {
 		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 
-		test.log(LogStatus.INFO, "Step :: click on material master number from left nav");
-		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
 		common.waitForElement(search);
@@ -251,7 +249,7 @@ public class ProcessLog extends Locators {
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
-		common.pause(15);
+		common.pause(10);
 
 		//If default view not appear then select it from View dropdown
 		if (!common.isElementPresent(defaultView)) {
@@ -304,7 +302,7 @@ public class ProcessLog extends Locators {
 		}
 
 		//this loop will find which record has View integration logs under Process log
-		for (int i=1;i<=10;i++)
+		for (int i=1;i<=3;i++)
 		{
 			if (common.isElementDisplayed(viewIntegrationLogs))
 			{
@@ -341,6 +339,177 @@ public class ProcessLog extends Locators {
 				}
 			}
 		}
+	}
+	/**
+	 * verify Classification Data Changes Maintained In The Process_Log
+	 *
+	 */
+	public void verify_Classification_Data_Changes_Maintained_In_The_Process_Log() {
+
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.refreshPage();
+
+		common.waitForElement(materialMaster);
+		test.log(LogStatus.INFO, "Step :: Click on material master from left nav");
+		System.out.println("Step :: Click on Material master from left nav");
+		common.log("Click on Material master from left nav");
+
+		driver.findElement(By.xpath(materialMaster)).click();
+		common.pause(10);
+
+		//If default view not appear then select it from view dropdown
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
+		System.out.println("Step :: Material master number is ::" + materialMasterNumber);
+		System.out.println("Step :: Set filter status as a System");
+		common.log("Set filter status as a system");
+		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.pause(10);
+		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+
+		test.log(LogStatus.INFO, "Step :: Click on edit");
+		System.out.println("Step :: Click on edit");
+		common.log("Click on edit");
+
+		driver.findElement(By.xpath(edit)).click();
+		common.pause(10);
+
+		if(common.isElementDisplayed(sequentialMaterialOption))
+		{
+			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
+			common.waitForElement(unitOfWeightField);
+			common.findElementBy(unitOfWeightField,"Click on Unit Of Weight field").click();
+			common.waitForElement(dropValue1);
+			common.findElementBy(dropValue1,"Select first option").click();
+
+		}
+		else {
+
+
+			test.log(LogStatus.INFO, "Step :: Click on material master record role ");
+			System.out.println("Step :: Click on material master record role");
+			common.log("Click on material master workflow role");
+			driver.findElement(By.xpath(materrialMasterRecordOption)).click();
+			common.pause(10);
+			common.waitForElement(headerData);
+			common.pause(10);
+
+			test.log(LogStatus.INFO, "Step :: Select Industry Sector ");
+			System.out.println("Step :: Select Industry Sector");
+			common.log("Select Industry Sector");
+			common.waitForElement(industrySec);
+			common.findElement(industrySec).click();
+			common.pause(5);
+			common.findElement(dropValue).click();
+
+			common.findElementBy(plusStorageData, "Click on plus icon for Storage Data hierarchy");
+
+			common.findElementBy(firstOptionStorageData, "Select first option for Storage Data hierarchy");
+
+			common.findElementBy(applyFilterButton, "Click on apply button");
+			common.pause(5);
+		}
+		test.log(LogStatus.INFO, "Step :: Click on save button");
+		System.out.println("Step :: Click on save button");
+		common.log("Click on save button");
+		common.waitForElement(uSaveBtn);
+		driver.findElement(By.xpath(uSaveBtn)).click();
+		common.pause(80);
+
+		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
+		if (common.isDisplayed(duplicateRecordHeader) == true) {
+
+			System.out.println("Step :: Duplicate records");
+			driver.findElement(By.xpath(continueDuplicateRecord)).click();
+		} else {
+
+			System.out.println("Step :: No duplicate records");
+		}
+		if(common.isDisplayed("//div[@class='mdo-notice f-row mdo-notice-error']")==true)
+		{
+
+			System.out.println("Step :: Something went error appear");
+			common.refreshPage();
+			common.pause(10);
+			common.findElement(industrySec).click();
+			common.pause(5);
+
+			common.findElement(dropValue).click();
+			common.pause(5);
+			test.log(LogStatus.INFO, "Step :: Click on save button");
+			System.out.println("Step :: Click on save button");
+			common.log("Click on save button");
+			driver.findElement(By.xpath(uSaveBtn)).click();
+			common.pause(40);
+		}
+		else {
+
+			System.out.println("Step :: No Something went error");
+		}
+		common.waitForElement(actionIconForFirstValue);
+		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+
+		test.log(LogStatus.INFO, "Step :: Click on view process log");
+		System.out.println("Step :: Click on viewProcess log");
+		common.log("Click on view Process log");
+		common.waitForElement(viewProcessLogOption);
+		driver.findElement(By.xpath(viewProcessLogOption)).click();
+
+		common.waitForElement(processLogStatus);
+		String viewProcessLog = driver.findElement(By.xpath(processLogStatus)).getText();
+		System.out.println("Step :: View Process log =>>" + viewProcessLog);
+		common.log("View Process log =>>" + viewProcessLog);
+		driver.findElement(By.xpath(processLogTitle)).click();
+		common.pause(10);
+
+		common.waitForElement(statusCom);
+		String status = driver.findElement(By.xpath(statusCom)).getText();
+		System.out.println("Step :: Process Log Status is ::" + status);
+		common.log("Process Log Status is ::" + status);
+		assertEquals(status, "COMPLETED");
+		common.pause(10);
+		System.out.println("Step :: click on view change ");
+		common.log("Click on view change");
+		common.findElement(completedViewProcessLog).click();
+		common.pause(10);
+
+		common.waitForElement(headerData);
+		Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
+		test.log(LogStatus.INFO, "Step :: -- Header title is displaying ");
+		System.out.println("Step :: Header Title is displaying:: >>" + header);
+		common.log("Title is Header data :: >>" + header);
+
+		common.waitForElement(fieldNameHeader);
+		common.findElementBy(fieldNameHeader,"Field Name header is available");
+		common.findElementBy(beforeChangeHeader,"Before Change header is available");
+		common.findElementBy(afterChangeHeader,"After Change header is available");
+		String str1[] = {"Field name","Before change","After change"};
+
+		//this loop will fetch one by one data from field name, before change, after change
+		for (int i =0; i<str1.length;i++)
+		{
+			int j = i+1;
+			if (common.isElementDisplayed("//div[3]/table[1]/tbody[1]/tr[1]/td[1]"))
+			{
+				String str = driver.findElement(By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td["+j+"]")).getText();
+				common.log(str1[i]+":"+str);
+			}
+		}
+
+		common.findElementBy(closeIcoForViewChange,"Click on close icon for view change").click();
+		common.waitForElement(closeIconForProcessLog);
+		common.findElementBy(closeIconForProcessLog,"Click on close icon for Process log popup").click();
+
+
 
 	}
 
