@@ -8,6 +8,36 @@
     </listeners>
 	<parameter name="env" value="QAH" />
 
+	<test name="verify Transformation Rule With remove leading spaces">
+		<classes>
+			<class name="Test.TransformationRuleTestcases">
+				<methods>
+					<include name="verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Leading_Spaces_On_Transaction_Page"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="verify Transformation Rule With remove trailing spaces">
+		<classes>
+			<class name="Test.TransformationRuleTestcases">
+				<methods>
+					<include name="verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Trailing_Spaces_On_Transaction_Page"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="verify Transformation Rule With remove all spaces">
+		<classes>
+			<class name="Test.TransformationRuleTestcases">
+				<methods>
+					<include name="verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_All_Spaces_On_Transaction_Page"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
 	 <test name="verify Transformation Rule With add leading zeros">
 		<classes>
 			<class name="Test.TransformationRuleTestcases">
@@ -27,6 +57,16 @@
 			</class>
 		</classes>
 	</test>
+
+	<test name="verify Transformation Rule With Concatenation Value">
+			<classes>
+				<class name="Test.TransformationRuleTestcases">
+					<methods>
+						<include name="verify_Transformation_Rule_Of_Type_Concatenation_With_Separation_Value_On_Transaction_Page"></include>
+					</methods>
+				</class>
+			</classes>
+		</test>
 
 	<test name="verify Transformation Rule With Constant Value">
 		<classes>

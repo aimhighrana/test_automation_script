@@ -371,6 +371,10 @@ public abstract class Locators extends BasePage {
 	public static String materialDesclLabel = "//p[normalize-space()='Material Description']";
 	public static String manufacturerField = "//p[normalize-space()='Manufacturer Part Number']//..//..//..//input";
 	public static String oldMaterialNumField = "//p[normalize-space()='Old Material Number']//..//..//..//input";
+	public static String grossWeightField = "//p[normalize-space()='Gross weight']//..//..//..//input";
+	public static String grossWeightLabel = "//p[normalize-space()='Gross weight']";
+	public static String volumeField = "//p[normalize-space()='Volume']//..//..//..//input";
+
 	public static String duplicateRecordFirst = "//tr[1]/td[2]/lib-text-line[1]/p[1]";
 	public static String approveButtonReviewer = "//span[normalize-space()='Approve']";
 

@@ -1587,5 +1587,138 @@ public class MaterialCreation extends Locators {
 			common.log("Error: " + strError);
 		}
 	}
+	public void verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Leading_Spaces_On_Transaction_Page()
+	{
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+			common.pause(10);
+			common.findElementBy(materialDescReviewer, "Enter value in material description field with leading spaces").sendKeys("        Test");
+			String value1 = common.findElement(materialDescReviewer).getAttribute("value");
+			System.out.println("value of description field: "+value1);
+			common.log("value of description field: "+value1);
 
+			common.pause(5);
+			common.findElementBy(materialDesclLabel,"Click on material description label").click();
+			common.pause(5);
+			String value2 = common.findElement(materialDescReviewer).getAttribute("value");
+			System.out.println("new value of description field: "+value2);
+			common.log("new value of description field: "+value2);
+
+			//verifying rule applied or not
+			if (value1.equals(value2))
+			{
+				common.log("Rule not applied");
+				common.log("Leading spaces removed");
+			}
+			else {
+				common.log("Rule applied");
+			}
+
+			common.findElementBy(submitBtn, "Click on submit button").click();
+
+			common.waitForElement("//div[@class='cdk-overlay-pane']");
+			String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+			common.log("Message display: " + successStr);
+			common.waitForElement(dataTab);
+	}
+	public void verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Trailing_Spaces_On_Transaction_Page() {
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.pause(10);
+		common.findElementBy(materialDescReviewer, "Enter value in material description field with leading spaces").sendKeys("Test          ");
+		String value1 = common.findElement(materialDescReviewer).getAttribute("value");
+		System.out.println("value of description field: " + value1);
+		common.log("value of description field: " + value1);
+
+		common.pause(5);
+		common.findElementBy(materialDesclLabel, "Click on material description label").click();
+		common.pause(5);
+		String value2 = common.findElement(materialDescReviewer).getAttribute("value");
+		System.out.println("new value of description field: " + value2);
+		common.log("new value of description field: " + value2);
+
+		//verifying rule applied or not
+		if (value1.equals(value2)) {
+			common.log("Rule not applied");
+			common.log("Trailing spaces removed");
+		} else {
+
+			common.log("Rule applied");
+		}
+
+		common.findElementBy(submitBtn, "Click on submit button").click();
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: " + successStr);
+		common.waitForElement(dataTab);
+	}
+	public void verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_All_Spaces_On_Transaction_Page()
+	{
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.pause(10);
+		common.findElementBy(materialDescReviewer, "Enter value in material description field with spaces").sendKeys("Test  test  test ");
+		String value1 = common.findElement(materialDescReviewer).getAttribute("value");
+		System.out.println("value of description field: "+value1);
+		common.log("value of description field: "+value1);
+
+		common.pause(5);
+		common.findElementBy(materialDesclLabel,"Click on material description label").click();
+		common.pause(5);
+		String value2 = common.findElement(materialDescReviewer).getAttribute("value");
+		System.out.println("new value of description field: "+value2);
+		common.log("new value of description field: "+value2);
+
+		//verifying rule applied or not
+		if (value1.equals(value2))
+		{
+			common.log("Rule not applied");
+			common.log("All spaces removed");
+		}
+		else {
+
+			common.log("Rule applied");
+		}
+
+		common.findElementBy(submitBtn, "Click on submit button").click();
+
+		common.waitForElement("//div[@class='cdk-overlay-pane']");
+		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+		common.log("Message display: " + successStr);
+		common.waitForElement(dataTab);
+	}
+
+	public void verify_Transformation_Rule_Of_Type_Concatenation_With_Remove_All_Spaces_On_Transaction_Page()
+	{
+		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
+		common.pause(10);
+		common.findElementBy(materialDescReviewer, "Enter value in material description").sendKeys("Test");
+		String materialDesc = common.findElement(materialDescReviewer).getAttribute("value");
+		System.out.println("value of description field: "+materialDesc);
+		common.log("value of description field: "+materialDesc);
+
+		common.findElementBy(grossWeightField, "Enter value Gross weight").sendKeys("10");
+		String grossWeight = common.findElement(grossWeightField).getAttribute("value");
+		System.out.println("value of Gross Weight field: "+grossWeight);
+		common.log("value of Gross Weight field: "+grossWeight);
+
+		common.pause(5);
+		common.findElementBy(grossWeightLabel,"Click on Gross weight label").click();
+		common.pause(5);
+
+		common.waitForElement(volumeField);
+		String volume = common.findElement(volumeField).getAttribute("value");
+		System.out.println("value of volume field: "+volume);
+		common.log("value of volume field: "+volume);
+
+		//verifying rule applied or not
+		if (volume.contains("@"))
+		{
+			common.log("Rule applied");
+			common.log("@ is there between two values");
+		}
+		else {
+
+			common.log("Rule not applied");
+		}
+
+	}
 }
