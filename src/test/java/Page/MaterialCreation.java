@@ -253,7 +253,8 @@ public class MaterialCreation extends Locators {
 			common.pause(5);
 			if (common.isElementDisplayed("//input[@aria-checked='true']"))
 			{
-				common.findElementBy("//input[@aria-checked='true']","Uncheck the selected hierarchy").click();
+				common.log("Uncheck the selected hierarchy");
+				common.jsClick("//input[@aria-checked='true']");
 			}
 			common.findElementBy(plantDataOption0002,"Select option '0002'").click();
 			common.findElementBy(applyFilterButton,"Click on Apply button").click();
@@ -305,18 +306,17 @@ public class MaterialCreation extends Locators {
 			System.out.println("Step :: No duplicate records");
 		}
 
-		common.waitForElement(errorMessage);
+		if (common.isElementDisplayed(errorMessage)) {
 
-		System.out.println("Step :: Showing mandatory errors");
-		common.log("Showing mandatory error");
-		List<WebElement> webElements = driver.findElements(By.xpath("//p[@class='small ng-star-inserted']"));
+			System.out.println("Step :: Showing mandatory errors");
+			common.log("Showing mandatory error");
+			List<WebElement> webElements = driver.findElements(By.xpath("//p[@class='small ng-star-inserted']"));
 
-		 for (WebElement e : webElements)
-		 {
-			 System.out.println("Error: " + e.getText());
-			 common.log("Error: " + e.getText());
-		 }
-
+			for (WebElement e : webElements) {
+				System.out.println("Error: " + e.getText());
+				common.log("Error: " + e.getText());
+			}
+		}
 
 	}
 
@@ -1391,7 +1391,8 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.waitForElement(searchPlantData);
 		if (common.isElementDisplayed("//input[@aria-checked='true']")) {
-			common.findElementBy("//input[@aria-checked='true']", "Uncheck the selected hierarchy").click();
+			common.log("Uncheck the selected hierarchy");
+			common.jsClick("//input[@aria-checked='true']");
 		}
 		common.findElementBy(searchPlantData,"Enter value 0002").sendKeys("0002");
 		common.waitForElement(searchedPantValue);
@@ -1695,10 +1696,15 @@ public class MaterialCreation extends Locators {
 		System.out.println("value of description field: "+materialDesc);
 		common.log("value of description field: "+materialDesc);
 
-		common.findElementBy(grossWeightField, "Enter value Gross weight").sendKeys("10");
+		common.findElementBy(grossWeightField, "Enter value in Gross weight").sendKeys("10");
 		String grossWeight = common.findElement(grossWeightField).getAttribute("value");
 		System.out.println("value of Gross Weight field: "+grossWeight);
 		common.log("value of Gross Weight field: "+grossWeight);
+
+		common.findElementBy(grossWeightField, "Enter value in Authorization group").sendKeys("qa");
+		String authorizationGroup = common.findElement(grossWeightField).getAttribute("value");
+		System.out.println("value of Authorization group field: "+grossWeight);
+		common.log("value of Authorization group field: "+grossWeight);
 
 		common.pause(5);
 		common.findElementBy(grossWeightLabel,"Click on Gross weight label").click();

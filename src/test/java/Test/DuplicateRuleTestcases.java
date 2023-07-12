@@ -22,11 +22,11 @@ public class DuplicateRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_Exact_Match_Fuzzy_Duplicacy_Is_Working(String env) throws InterruptedException, IOException, Exception {
-		common.log("TC:MDMF-TC-6898/MDMF-TC-6899/MDMF-TC-6900/MDMF-TC-6901");
-		common.log("Pre condition: Duplicate Rule must be configured");
-		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		log("Testcase:MDMF-TC-6898/MDMF-TC-6899/MDMF-TC-6900/MDMF-TC-6901");
+		log("Pre condition: Duplicate Rule must be configured");
+		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		materialCreation.verify_That_Exact_Match_Duplicacy_Is_Working_For_Material_Creation();
 	}
 	/**
@@ -39,11 +39,11 @@ public class DuplicateRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event(String env) throws Exception {
-		common.log("TC:MDMF-TC-6903");
-		common.log("Pre condition: Duplicate Rule must be configured");
-		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		log("Testcase:MDMF-TC-6903");
+		log("Pre condition: Duplicate Rule must be configured");
+		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		materialCreation.duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event();
 
 	}
@@ -58,11 +58,11 @@ public class DuplicateRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Change_Event(String env) throws Exception {
-		common.log("TC:MDMF-TC-6904");
-		common.log("Pre condition: Duplicate Rule must be configured");
-		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		log("Testcase:MDMF-TC-6904");
+		log("Pre condition: Duplicate Rule must be configured");
+		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		materialCreation.verify_Duplicacy_Is_Working_At_Change_Event();
 	}
 
@@ -76,13 +76,13 @@ public class DuplicateRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Approval_From_Reviewer(String env) throws Exception{
-		common.log("TC:MDMF-TC-6905");
-		common.log("Pre condition: Duplicate Rule must be configured for reviewer");
-		common.log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
+		log("Testcase:MDMF-TC-6905");
+		log("Pre condition: Duplicate Rule must be configured for reviewer");
+		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
-		loginPage.revSignIn(env);
+		loginPage.reviewer_SignIn(env);
 		materialCreation.check_Duplicacy_Is_Working_At_The_Time_Of_Approval_From_Reviewer();
 	}
 

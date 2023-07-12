@@ -161,7 +161,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterMaterialType, "Click on Material Type tab").click();
+		common.log("Click on Material Type tab");
+		common.jsClick(filterMaterialType);
 
 		common.waitForElement(valueSparePart_MaterialTypeFilter);
 		common.findElementBy(valueSparePart_MaterialTypeFilter, "Select value Spare part for Material Type filter")
@@ -325,7 +326,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.waitForElement(filterIndustrySector);
 
-		common.findElementBy(filterMaterialType, "Click on Material Type tab").click();
+		common.log("Click on Material Type tab");
+		common.jsClick(filterMaterialType);
 
 		common.waitForElement(valueSparePart_MaterialTypeFilter);
 
@@ -989,7 +991,6 @@ public class ListPageSearch extends Locators {
 			common.pause(2);
 			common.findElementBy(defaultViewOption, "Click on Default view option").click();
 			common.pause(10);
-
 		}
 
 		common.findElementBy(searchB,"Click on Search field and search '123' ").click();
@@ -1002,12 +1003,11 @@ public class ListPageSearch extends Locators {
 		System.out.println("Searched value:: " + strSearchedValue);
 		common.log("Searched value:: " + strSearchedValue);
 
-		common.pause(5);
-		common.findElementBy(filterStatusDropdown, "Click on Status filter dropdown and Enter System").click();
-		common.type(filterStatusDropdown, "System");
+		common.findElementBy(applySearch,"Click on Apply button").click();
 		common.pause(10);
 
-		common.findElementBy(applySearch,"Click on Apply button").click();
+		common.findElementBy(filterStatusDropdown, "Click on Status filter dropdown and Enter System").click();
+		common.type(filterStatusDropdown, "System");
 		common.pause(10);
 
 		if (common.isElementPresent(firstValuematerialMaster)) {

@@ -301,7 +301,7 @@ public class Common extends Locators {
 	 * @param msg Message/Log to be reported.
 	 */
 	public void log(String msg) {
-		Reporter.log("Step :: "+msg);
+		Reporter.log("<br>Step :: "+msg);
 
 	}
 

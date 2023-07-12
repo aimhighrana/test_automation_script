@@ -110,7 +110,7 @@ public abstract class Locators extends BasePage {
 	public static String closeIconForSummary ="//mat-icon[@class='mat-icon notranslate mdo-icons-light mat-icon-no-color ng-star-inserted'][normalize-space()='times']";
 	public static String crossIconS = "//lib-button[@icon='times']";
 	public static String crossIconViewEmailLogs = "//h4[normalize-space()='View details']//..//..//..//..//mat-icon";
-	public static String closeIcoForViewChange = "//pros-view-changes[@class='ng-star-inserted']//mat-icon[@role='img'][normalize-space()='times']";
+	public static String closeIcoForViewChange = "//h4[normalize-space()='View changes']//..//..//..//..//mat-icon";
 	public static String firstActionIconForInbox = "//tbody/tr[1]/td[2]/lib-button-group[1]/ul[1]/li[1]/lib-button[1]/button[1]/span[1]/mat-icon[1]";
 	public static String approveBtn = "//button[contains(text(),'Approve')]";
 	public static String sequentialHeader = "//h4[contains(text(),'SequentialMaterial')]";
@@ -299,7 +299,7 @@ public abstract class Locators extends BasePage {
 	public static String systemErrorsTab = "//lib-text-line[normalize-space()='System Errors']";
 	public static String searchSystemErrorsTab = "//lib-search[@placeholder='Search']//div[@class='mdo-search-pill f-row']//input";
 	public static String clearSearchSystemErrorsTab = "//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']";
-	public static String retriggerIcon = "//tbody/tr[1]/td[2]//mat-icon[text()='arrow-rotate-right']";
+	public static String retriggerIcon = "(//mat-icon[text()='arrow-rotate-right'])[1]";
 	public static String successRetrigger = "//div[@class='mdo-notice f-row mdo-notice-success']";
 
 	public static String flowFilter ="//span[normalize-space()='Flow']";
@@ -373,6 +373,9 @@ public abstract class Locators extends BasePage {
 	public static String oldMaterialNumField = "//p[normalize-space()='Old Material Number']//..//..//..//input";
 	public static String grossWeightField = "//p[normalize-space()='Gross weight']//..//..//..//input";
 	public static String grossWeightLabel = "//p[normalize-space()='Gross weight']";
+
+	public static String authorizationGroupField ="//p[normalize-space()='Authorization Group']//..//..//..//..//input";
+
 	public static String volumeField = "//p[normalize-space()='Volume']//..//..//..//input";
 
 	public static String duplicateRecordFirst = "//tr[1]/td[2]/lib-text-line[1]/p[1]";

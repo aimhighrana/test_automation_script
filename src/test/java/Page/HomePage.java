@@ -42,8 +42,8 @@ public class HomePage extends Locators {
 		for (int i = 1; i <= 5; i++) {
 			if (common.isElementPresent("//tbody/tr[" + i + "]/td[3]//p")) {
 				String recordNumber = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[3]//p")).getText();
-				System.out.println(i + " Record number in Inbox menu:: " + recordNumber);
-				common.log(i + " Record number in Inbox menu:: " + recordNumber);
+				System.out.println(i + " Record number in Inbox menu: " + recordNumber);
+				common.log(i + " Record number in Inbox menu: " + recordNumber);
 			} else {
 				break;
 			}

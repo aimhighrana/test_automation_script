@@ -85,6 +85,7 @@ public class AddMaterialMaster extends Locators {
 
 			common.waitForElement(xPlantMaterialStatusField);
 			common.findElementBy(xPlantMaterialStatusField,"Select value from X-Plant Material Status field").click();
+			common.pause(5);
 			common.waitForElement(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
 
@@ -346,7 +347,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(plantvalue).click();
 
 		common.findElementBy(applyBtn,"Click on apply button").click();
-		common.scrollPage();
+		common.pause(5);
 
 		System.out.println("Step :: Select MRP type");
 		common.log("Select MRP type");
@@ -361,14 +362,13 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(dropValue);
 		common.findElement(dropValue).click();
 
-		common.pause(10);
-		common.scrollPage();
 
 		common.pause(10);
 		System.out.println("Step :: Select Loading type");
 		common.log("Select Loading type");
-		common.waitForElement(loading);
-		common.findElement(loading).click();
+		common.jsClick(loading);
+		common.jsClick(loading);
+		common.jsClick(loading);
 		common.pause(5);
 		common.waitForElement(dropValueLoading);
 		common.findElement(dropValueLoading).click();
@@ -381,14 +381,11 @@ public class AddMaterialMaster extends Locators {
 
 		common.findElementBy(applyBtn,"Click on apply button").click();
 
-		common.waitForElement(valCat);
-		common.findElement(valCat).click();
-		common.waitForElement(dropValue);
-		common.findElement(dropValue).click();
-
 		common.pause(10);
-		for (int j = 0; j < 2; j++) {
-			common.scrollPage();
+
+		if (common.isElementDisplayed(planingCycleField))
+		{
+			common.findElementBy(planingCycleField,"Enter value in planing cycle field").sendKeys("10");
 		}
 
 		test.log(LogStatus.INFO, "Step :: -- click on submit button");
@@ -440,12 +437,12 @@ public class AddMaterialMaster extends Locators {
 		test.log(LogStatus.INFO, "Step :: -- Material master number is ");
 		System.out.println("Step :: Material master number is ::" + materialMasterNum);
 		common.log("Material master number is :: " + materialMasterNum);
-		common.pause(30);
+		common.pause(10);
 
-		common.waitForConditionIsElementPresent(searchB);
+		common.waitForElement(searchB);
 		common.findElementBy(searchB,"Click on Search field and search material master value").click();
 		driver.findElement(By.xpath(searchB)).sendKeys(materialMasterNum);
-		common.pause(25);
+		common.pause(10);
 		//verify searched material master record present
 		common.log("Material master number is available on table:: " + materialMasterNum);
 		common.assertElementPresent("//mark[normalize-space()='" + materialMasterNum + "']");
@@ -516,12 +513,12 @@ public class AddMaterialMaster extends Locators {
 
 			System.out.println("Step :: Close View change page ");
 			common.log("Close View change page ");
-			common.findElement(closeIcoForViewChange).click();
+			common.jsClick(closeIcoForViewChange);
+			common.pause(5);
 
 			System.out.println("Step :: Close process log page ");
 			common.log("Close View process log page ");
-			common.waitForConditionIsElementPresent(closeIconForProcessLog);
-			common.findElement(closeIconForProcessLog).click();
+			common.jsClick(closeIconForProcessLog);
 		}
 		else {
 			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
@@ -591,7 +588,6 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(completedViewProcessLog).click();
 		common.pause(10);
 
-		common.waitForElement(headerData);
 		Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
 		test.log(LogStatus.INFO, "Step :: -- Header title is displaying ");
 		System.out.println("Step :: Header Title is displaying:: >>" + header);
@@ -613,9 +609,12 @@ public class AddMaterialMaster extends Locators {
 		//expand header data
 //		common.expandingHeadData();
 
-		common.findElementBy(closeIcoForViewChange,"Click on close icon for view change").click();
-		common.waitForElement(closeIconForProcessLog);
-		common.findElementBy(closeIconForProcessLog,"Click on close icon for Process log popup").click();
+		common.log("Click on close icon for view change");
+		common.jsClick(closeIcoForViewChange);
+		common.pause(5);
+
+		common.log("Click on close icon for Process log popup");
+		common.jsClick(closeIconForProcessLog);
 
 	}
 
@@ -721,7 +720,8 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed(sequentialHeader))
 		{
 			common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("Material desc 123");
-			common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
+//			common.jsClick(oldMaterialNumField);
+//			common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
 			common.findElementBy(divisionField,"Select value from Division dropdown").click();
 			common.waitForElement(dropValue);
 			common.findElement(dropValue).click();

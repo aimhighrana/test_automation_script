@@ -62,7 +62,7 @@ public class LoginPage extends Locators {
 	 * Verify Sign In Scenario
 	 * 
 	 */
-	public void check_SignIn(String env) {
+	public void initiator_SignIn(String env) {
 
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
@@ -77,8 +77,8 @@ public class LoginPage extends Locators {
 			common.findElement(userNameField).sendKeys(getPropertyValue("qahReqUserName"));
 
 			common.pause(10);
-			System.out.println("Step :: Click on continue button.");
-			common.log("Click on continue button.");
+			System.out.println("Step :: Click on continue button");
+			common.log("Click on continue button");
 			common.findElement(continueButton).click();
 			common.pause(5);
 
@@ -102,8 +102,8 @@ public class LoginPage extends Locators {
 			common.findElement(userNameField).sendKeys(getPropertyValue("qarReqUserName"));
 
 			common.pause(10);
-			System.out.println("Step :: Click on continue button.");
-			common.log("Click on continue button.");
+			System.out.println("Step :: Click on continue button");
+			common.log("Click on continue button");
 			common.findElement(continueButton).click();
 			common.pause(5);
 
@@ -127,8 +127,8 @@ public class LoginPage extends Locators {
 			common.findElement(userNameField).sendKeys(getPropertyValue("sandBoxReqUserName"));
 
 			common.pause(10);
-			System.out.println("Step :: Click on continue button.");
-			common.log("Click on continue button.");
+			System.out.println("Step :: Click on continue button");
+			common.log("Click on continue button");
 			common.findElement(continueButton).click();
 			common.pause(5);
 
@@ -147,9 +147,8 @@ public class LoginPage extends Locators {
 
 		}
 		common.pause(5);
-		test.log(LogStatus.INFO, "Click on Login button");
 		System.out.println("Step :: Click on login button");
-		common.log("click on login button");
+		common.log("Click on login button");
 		common.findElement(loginBtn).click();
 		common.pause(10);
 		if (common.isElementDisplayed("//p[normalize-space()='QA Sandbox']"))
@@ -168,7 +167,7 @@ public class LoginPage extends Locators {
 	 * As a reviewer sign-in scenario
 	 * 
 	 */
-	public void revSignIn(String env) {
+	public void reviewer_SignIn(String env) {
 
 		//Sign out the approver
 		if (common.isDisplayed(profileIcon)) {

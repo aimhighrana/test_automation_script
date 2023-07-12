@@ -25,25 +25,26 @@ public class ListViewTestcases extends BasePage {
 	 * @throws IOException
 	 */
 
-	/**--1--**/
+	/**
+	 * 1
+	 * List View : To verify that user is able to Configure a view with the working behavior.
+	 **/
 	@Test
 	@Parameters("env")
 	public void verify_The_User_Should_Be_Able_To_Add_A_New_View_For_The_List_Page(String env) throws InterruptedException, IOException, Exception {
-		common.log("TC --MDMF-TC-1671/MDMF-TC-1672--/MDMF-TC-1673--/MDMF-TC-8534");
+		log("Testcase:MDMF-TC-1671/MDMF-TC-1672--/MDMF-TC-1673--/MDMF-TC-8534");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Add_A_New_View_For_The_List_Page();
 
 	}
-	 
-
 	/**--2--**/
 	@Test
 	@Parameters("env")
 	public void verify_User_Should_Be_Able_To_Select_Multiple_Records_At_A_Time(String env) throws InterruptedException, IOException, Exception {
-		common.log("TC --MDMF-TC-1687--");
+		log("Testcase:MDMF-TC-1687");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Select_Multiple_Records_At_A_Time();
 
 	}
@@ -52,21 +53,24 @@ public class ListViewTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_User_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page(String env) throws InterruptedException, IOException, Exception {
-		common.log("TC --MDMF-TC-1696--");
+		log("Testcase:MDMF-TC-1696");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page();
 
 	}
 	 
 	
-	/**--4--**/
+	/**
+	 *4
+	 * List View : To verify that user is able to delete the configured view
+	 **/
 	@Test
 	@Parameters("env")
 	public void verify_The_User_Should_Be_Able_To_Delete_The_Added_View(String env) throws InterruptedException, IOException, Exception {
-		common.log("TC --MDMF-TC-1697--/MDMF-TC-8535");
+		log("Testcase:MDMF-TC-1697/MDMF-TC-8535");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page();
 		listView.user_Should_Be_Able_To_Delete_The_Added_View();
 
@@ -76,9 +80,9 @@ public class ListViewTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_The_Pagination_On_List_Page_Should_Work_As_Expected(String env) throws InterruptedException, IOException, Exception {
-		common.log("TC --MDMF-TC-1707--");
+		log("Testcase:MDMF-TC-1707");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		listView.verify_The_Pagination_On_List_Page_Should_Work_As_Expected();
 
 	}
@@ -87,9 +91,8 @@ public class ListViewTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_The_User_Should_Be_Able_To_View_The_Summary_Of_The_Record_Using_Action_Button_On_The_Records(String env) throws InterruptedException, IOException, Exception {
-	//	common.log("--MDMF-TC-1707--");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_View_The_Summary_Of_The_Record_Using_Action_Button_On_The_Records();
 
 	}
@@ -98,9 +101,8 @@ public class ListViewTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_The_User_Should_Be_Able_To_Download_Template_Of_The_Record_Using_Action_Button_On_The_Records(String env) throws InterruptedException, IOException, Exception {
-	//	common.log("--MDMF-TC-1707--");
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Download_Template_Of_The_Record_Using_Action_Button_On_The_Records();
 
 	}

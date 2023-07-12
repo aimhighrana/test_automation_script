@@ -283,7 +283,7 @@ public class ListView extends Locators {
 		common.pause(5);
 		common.findElementBy(formClassnClassTypeOption, "Click on third option").click();
 		common.pause(5);
-		common.waitForElement(classType1);
+		common.waitForElement(headerData);
 		common.findElementBy(closeIcon, "Click on close icon").click();
 		
 

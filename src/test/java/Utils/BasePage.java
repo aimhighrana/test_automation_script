@@ -31,6 +31,8 @@ import java.util.logging.Logger;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+
+import static java.awt.Color.green;
 //import javax.mail.MessagingException;
 
 
@@ -82,6 +84,8 @@ public class BasePage implements ITestListener {
 
 		//Set property for chromedriver to run on chrome browser
 	//	System.setProperty("webdriver.chrome.driver",driverPath);
+
+		//it will fetch chromedriver from your system
 		WebDriverManager.chromedriver().setup();
 
 		//Run test against chrome browser
@@ -160,13 +164,13 @@ public class BasePage implements ITestListener {
 		Reporter.setCurrentTestResult(testResult);
 		File img = new File("target" + File.separator + "surefire-reports" + File.separator + testName + ".png");
 		if (testResult.getStatus() == 1) {
-			log("PASS :: " + testResult.getName());
+			log("<font color = 'green'><b><i><u><br>Pass :: " + testResult.getName()+"</u></i></b></font>");
 			testResult.getThrowable();
 		//	MyScreenRecorder.stopRecording();
 		//	MyScreenRecorder.deleteFile(testName+".avi");
 		}
 		if (testResult.getStatus() == 2) {
-			log("FAIL :: " + testResult.getName());
+			log("<font color = 'red'><b><i><u><br>Fail :: " + testResult.getName()+"</u></i></b></font>");
 
 //			MyScreenRecorder.stopRecording();
 
@@ -203,6 +207,6 @@ public class BasePage implements ITestListener {
 
 	public void log(String log) {
 		System.out.println(log);
-		Reporter.log(log );
+		Reporter.log("<font color = 'blue'><b><i><u><br>"+log+"</u></i></b></font>");
 	}
 }

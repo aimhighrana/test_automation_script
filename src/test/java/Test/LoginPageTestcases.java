@@ -34,7 +34,7 @@ public class LoginPageTestcases extends BasePage {
 	@Parameters("env")
 	public void loginPage(String env) throws InterruptedException, IOException, Exception {
 		loginPage.goToURL(env);
-		loginPage.check_SignIn(env);
+		loginPage.initiator_SignIn(env);
 
 	}
 
