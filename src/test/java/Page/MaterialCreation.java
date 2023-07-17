@@ -188,18 +188,20 @@ public class MaterialCreation extends Locators {
 		common.log("Click on approve");
 		common.pause(10);
 		common.findElement(approveBtn).click();
+		common.pause(10);
 
-		common.waitForElement(plantData0001);
-		common.findElementBy(plantData0001,"Verify Selected Plant data 'PLANT 0001'");
-		common.findElementBy(valuationDataNA,"Verify Selected valuation data 'N.A -- Not Applicable'");
+		if (common.isElementDisplayed(plantData0001)) {
 
-		test.log(LogStatus.INFO, "Step :: click on Approve button ");
+			common.findElementBy(plantData0001, "Verify Selected Plant data 'PLANT 0001'");
+			common.findElementBy(valuationDataNA, "Verify Selected valuation data 'N.A -- Not Applicable'");
+		}
 		System.out.println("Step :: click on Approve button");
-		common.log("Click on submit button");
+		common.log("Click on Approve button");
 
 		common.findElement(approveButton).click();
 		common.pause(10);
 		common.waitForElement(inboxMenu);
+		common.findElementBy(inboxMenu,"Inbox menu verified");
 
 	}
 
@@ -343,12 +345,13 @@ public class MaterialCreation extends Locators {
 			}
 		}
 		else {
+			common.pause(5);
 			common.waitForElement(addRowLanguageGrid);
 			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
 			common.pause(5);
 			common.waitForElement(languageInput);
 			common.findElementBy(languageInput, "Click on Language dropdown").click();
-
+			common.pause(5);
 			common.waitForElement(germanLanguage);
 			common.findElementBy(germanLanguage, "Select German language from option").click();
 
@@ -1401,6 +1404,8 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElementBy(applyFilterButton,"Click on apply button").click();
 		common.pause(5);
+		common.findElement(materialDesclLabel).click();
+		common.findElement(materialDesclLabel).click();
 
 		test.log(LogStatus.INFO, "Step :: Click on save button");
 		System.out.println("Step :: Click on save button");

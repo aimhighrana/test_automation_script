@@ -84,6 +84,9 @@ public abstract class Locators extends BasePage {
 	public static String dropValue = "//div[@role='listbox']//mat-option[2]";
 	public static String dropValue1 ="//div[@role='listbox']//mat-option[1]";
 	public static String sequentialMaterialOption =  "//button[normalize-space()='SequentialMaterial']";
+
+	public static String summaryFirstOption =  "//div[@role='menu']//div[1]/div[1]/button[1]";
+
 	public static String xPlantMaterialStatusField = "//p[normalize-space()='X-Plant Material Status']//..//..//div//input";
 	public static String dropValue3 = "//div[@role='listbox']//mat-option[3]//span";
 	public static String plusStorageData ="//p[text()='Storage Data ']//..//..//mat-icon[text()='plus']";
@@ -104,12 +107,19 @@ public abstract class Locators extends BasePage {
 	public static String viewPLog = "//button[normalize-space()='View process log']";
 	public static String completedViewProcessLog = "//span[normalize-space()='Completed']//..//..//..//..//p[contains(text(),'View changes')] | //span[normalize-space()='Completed']//..//..//..//..//..//p[contains(text(),'View changes')]";
 	public static String viewEmailLogs = "//mat-expansion-panel[1]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div[2]/div[2]/lib-text-line[2]/p[1]";
+	public static String viewPotentialOwner = "(//lib-text-line//P[text()=' View '])[1]";
+	public static String firstPotentialOwner = "(//div[normalize-space()=''])[1]";
+
 	public static String viewDetailsHeader = "//h4[normalize-space()='View details']";
 	public static String firstRecordOfEmailLogs = "//div[@class='message-list f-col']//tr[1]//td";
 	public static String closeIconForProcessLog = "//h4[normalize-space()='View process log']//..//..//..//..//mat-icon";
 	public static String closeIconForSummary ="//mat-icon[@class='mat-icon notranslate mdo-icons-light mat-icon-no-color ng-star-inserted'][normalize-space()='times']";
 	public static String crossIconS = "//lib-button[@icon='times']";
 	public static String crossIconViewEmailLogs = "//h4[normalize-space()='View details']//..//..//..//..//mat-icon";
+	public static String instanceDiagramIcon = "(//mat-expansion-panel-header[1]//span[1]//mat-icon[text()='diagram-subtask'])[1]";
+	public static String processFlowHeader = "//h4[contains(text(),'Process flow')]";
+	public static String instanceDiagramImage = "//draggable[1]/div[1]/img[1]";
+	public static String closeIconProcessFlow = "//h4[contains(text(),'Process flow')]//..//..//..//..//mat-icon";
 	public static String closeIcoForViewChange = "//h4[normalize-space()='View changes']//..//..//..//..//mat-icon";
 	public static String firstActionIconForInbox = "//tbody/tr[1]/td[2]/lib-button-group[1]/ul[1]/li[1]/lib-button[1]/button[1]/span[1]/mat-icon[1]";
 	public static String approveBtn = "//button[contains(text(),'Approve')]";

@@ -84,11 +84,18 @@ public class ProcessLog extends Locators {
 			driver.findElement(By.xpath(viewEmailLogs)).click();
 			common.waitForElement(viewDetailsHeader);
 
+			List<WebElement> eleColumns = driver.findElements(By.xpath("(//tr[@role='row'])[1]//th"));
+			common.log("Columns in email logs page :: >>");
+			for (WebElement e : eleColumns) {
+				System.out.println(e.getText());
+				common.log(e.getText());
+			}
+
 			//If record available then it will print
 			if (common.isElementDisplayed("//div[@class='message-list f-col']//tr[1]//td[1]")) {
-				List<WebElement> ele = driver.findElements(By.xpath(firstRecordOfEmailLogs));
+				List<WebElement> emailRecords = driver.findElements(By.xpath(firstRecordOfEmailLogs));
 
-				for (WebElement e : ele) {
+				for (WebElement e : emailRecords) {
 					System.out.println("Step :: First record is displaying:: >>" + e.getText());
 					common.log("First record is displaying :: >>" + e.getText());
 				}
@@ -394,8 +401,6 @@ public class ProcessLog extends Locators {
 		}
 		else {
 
-
-			test.log(LogStatus.INFO, "Step :: Click on material master record role ");
 			System.out.println("Step :: Click on material master record role");
 			common.log("Click on material master workflow role");
 			driver.findElement(By.xpath(materrialMasterRecordOption)).click();
@@ -418,12 +423,11 @@ public class ProcessLog extends Locators {
 			common.findElementBy(applyFilterButton, "Click on apply button");
 			common.pause(5);
 		}
-		test.log(LogStatus.INFO, "Step :: Click on save button");
 		System.out.println("Step :: Click on save button");
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
 		driver.findElement(By.xpath(uSaveBtn)).click();
-		common.pause(80);
+		common.pause(20);
 
 		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
@@ -463,6 +467,7 @@ public class ProcessLog extends Locators {
 		common.log("Click on view Process log");
 		common.waitForElement(viewProcessLogOption);
 		driver.findElement(By.xpath(viewProcessLogOption)).click();
+		common.pause(5);
 
 		common.waitForElement(processLogStatus);
 		String viewProcessLog = driver.findElement(By.xpath(processLogStatus)).getText();
@@ -507,9 +512,20 @@ public class ProcessLog extends Locators {
 
 		common.findElementBy(closeIcoForViewChange,"Click on close icon for view change").click();
 		common.waitForElement(closeIconForProcessLog);
-		common.findElementBy(closeIconForProcessLog,"Click on close icon for Process log popup").click();
-
-
+		common.findElementBy(instanceDiagramIcon,"Click on Instance Diagram icon").click();
+		common.waitForElement(processFlowHeader);
+		common.findElementBy(instanceDiagramImage,"Instance diagram verified");
+		common.pause(5);
+		common.findElementBy(closeIconProcessFlow,"Close Process flow page").click();
+		common.waitForElement(closeIconForProcessLog);
+		common.findElementBy(viewPotentialOwner,"Click on View link text in Potential Owner column").click();
+		common.pause(10);
+		List<WebElement> ele = driver.findElements(By.xpath("//div[@role='menu']//div//div[@role='menuitem']"));
+		common.log("List of potential owner displaying :: >>" );
+		for (WebElement e  : ele)
+		{
+			common.log(e.getText());
+		}
 
 	}
 

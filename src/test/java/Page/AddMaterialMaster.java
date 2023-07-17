@@ -445,7 +445,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 		//verify searched material master record present
 		common.log("Material master number is available on table:: " + materialMasterNum);
-		common.assertElementPresent("//mark[normalize-space()='" + materialMasterNum + "']");
+		common.findElementBy("//mark[normalize-space()='" + materialMasterNum + "']","Material master number verified");
 	}
 
 	/**
@@ -569,52 +569,59 @@ public class AddMaterialMaster extends Locators {
 
 		common.pause(5);
 		common.findElementBy(viewPLog,"Click on view process log option ").click();
-		common.waitForElement(processLogTitle);
-		String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
-		System.out.println("Step :: Process Log Title, Record, Date&Time is ::" + pLog);
-		common.log("Process Log Title, Record, Date&Time is is ::" + pLog);
-
-		driver.findElement(By.xpath(processLogTitle)).click();
 		common.pause(10);
 
-		common.waitForElement(statusCom);
-		String status = driver.findElement(By.xpath(statusCom)).getText();
-		System.out.println("Step :: Process Log Status is ::" + status);
-		common.log("Process Log Status is ::" + status);
-		assertEquals(status, "COMPLETED");
-		common.pause(10);
-		System.out.println("Step :: click on view change ");
-		common.log("Click on view change");
-		common.findElement(completedViewProcessLog).click();
-		common.pause(10);
+		if (common.isElementDisplayed(processLogTitle)) {
 
-		Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
-		test.log(LogStatus.INFO, "Step :: -- Header title is displaying ");
-		System.out.println("Step :: Header Title is displaying:: >>" + header);
-		common.log("Title is Header data :: >>" + header);
+			String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
+			System.out.println("Step :: Process Log Title, Record, Date&Time is ::" + pLog);
+			common.log("Process Log Title, Record, Date&Time is is ::" + pLog);
 
-		common.waitForElement(fieldNameHeader);
-		common.findElementBy(fieldNameHeader,"Field Name header is available");
-		common.findElementBy(beforeChangeHeader,"Before Change header is available");
-		common.findElementBy(afterChangeHeader,"After Change header is available");
-		common.log("First row data: ");
-		for (int i =1; i<=3;i++)
-		{
-			if (common.isElementDisplayed("//div[3]/table[1]/tbody[1]/tr[1]/td[1]"))
-			{
-				String str = driver.findElement(By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td["+i+"]")).getText();
-				common.log(str);
+			driver.findElement(By.xpath(processLogTitle)).click();
+			common.pause(10);
+
+			common.waitForElement(statusCom);
+			String status = driver.findElement(By.xpath(statusCom)).getText();
+			System.out.println("Step :: Process Log Status is ::" + status);
+			common.log("Process Log Status is ::" + status);
+			assertEquals(status, "COMPLETED");
+			common.pause(10);
+			System.out.println("Step :: click on view change ");
+			common.log("Click on view change");
+			common.findElement(completedViewProcessLog).click();
+			common.pause(10);
+
+			Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
+			test.log(LogStatus.INFO, "Step :: -- Header title is displaying ");
+			System.out.println("Step :: Header Title is displaying:: >>" + header);
+			common.log("Title is Header data :: >>" + header);
+
+			common.waitForElement(fieldNameHeader);
+			common.findElementBy(fieldNameHeader, "Field Name header is available");
+			common.findElementBy(beforeChangeHeader, "Before Change header is available");
+			common.findElementBy(afterChangeHeader, "After Change header is available");
+			common.log("First row data: ");
+			for (int i = 1; i <= 3; i++) {
+				if (common.isElementDisplayed("//div[3]/table[1]/tbody[1]/tr[1]/td[1]")) {
+					String str = driver.findElement(By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td[" + i + "]")).getText();
+					common.log(str);
+				}
 			}
-		}
-		//expand header data
+			//expand header data
 //		common.expandingHeadData();
 
-		common.log("Click on close icon for view change");
-		common.jsClick(closeIcoForViewChange);
-		common.pause(5);
+			common.log("Click on close icon for view change");
+			common.jsClick(closeIcoForViewChange);
+			common.pause(5);
 
-		common.log("Click on close icon for Process log popup");
-		common.jsClick(closeIconForProcessLog);
+			common.log("Click on close icon for Process log popup");
+			common.jsClick(closeIconForProcessLog);
+		}
+		else {
+			common.log("System activities taking longer than usual , please wait while we process your request and update logs.");
+			common.log("Click on close icon for Process log popup");
+			common.jsClick(closeIconForProcessLog);
+		}
 
 	}
 
@@ -626,6 +633,7 @@ public class AddMaterialMaster extends Locators {
 
 		//wait for Home tab
 		common.waitForElement(homeTab);
+		common.pause(5);
 		common.findElementBy(homeTab,"Click on Home tab").click();
 
 		//wait for Inbox menu

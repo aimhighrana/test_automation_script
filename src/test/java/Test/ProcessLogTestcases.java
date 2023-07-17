@@ -27,7 +27,7 @@ public class ProcessLogTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_User_Is_Able_To_View_Email_Logs_When_Email_Notification_Is_Configured(String env) throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase:MDMF-TC-5181/MDMF-TC-5183");
+		log("Testcase:MDMF-TC-5181/MDMF-TC-5183/MDMF-TC-6750/MDMF-TC-8701/MDMF-TC-9045");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		processLog.verify_That_User_Is_Able_To_View_Email_Logs_In_Process_Log();
@@ -42,7 +42,7 @@ public class ProcessLogTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_User_Is_Able_To_View_The_View_Integration_Log(String env) throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase:MDMF-TC-5185/MDMF-TC-5187");
+		log("Testcase:MDMF-TC-5185/MDMF-TC-5187/");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		processLog.verify_User_Is_Able_To_View_The_View_Integration_Log();
@@ -88,7 +88,7 @@ public class ProcessLogTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Classification_Data_Changes_Maintained_In_The_Process_Log_For_Parent_Dataset_Or_Related_Dataset_Record(String env) throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase:MDMF-TC-5144/MDMF-TC-5146/MDMF-TC-5148/MDMF-TC-5154/MDMF-TC-5177/MDMF-TC-5178/MDMF-TC-5180/MDMF-TC-6084");
+		log("Testcase:MDMF-TC-5144/MDMF-TC-5146/MDMF-TC-5148/MDMF-TC-5154/MDMF-TC-5177/MDMF-TC-5178/MDMF-TC-5180/MDMF-TC-6084/MDMF-TC-6087/MDMF-TC-6744");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		processLog.verify_Classification_Data_Changes_Maintained_In_The_Process_Log();

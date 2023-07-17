@@ -302,7 +302,6 @@ public class Common extends Locators {
 	 */
 	public void log(String msg) {
 		Reporter.log("<br>Step :: "+msg);
-
 	}
 
 	/**
