@@ -84,6 +84,7 @@ public class MaterialCreation extends Locators {
 			common.waitForElement(materialTypeField);
 
 			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
+			common.pause(5);
 			common.waitForElement(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
 
@@ -365,9 +366,11 @@ public class MaterialCreation extends Locators {
 			else if (common.isElementDisplayed(unitOfWeightField)) {
 				common.waitForElement(unitOfWeightField);
 				common.findElementBy(unitOfWeightField, "Click on Unit Of Weight dropdown").click();
+				common.pause(5);
 				common.waitForElement(dropValue);
 				common.findElementBy(dropValue, "Select option").click();
 				common.findElementBy(volumeUnitField, "Click on Volume Unit field").click();
+				common.pause(5);
 				common.waitForElement(dropValue);
 				common.findElementBy(dropValue, "Select option").click();
 			}
@@ -686,6 +689,7 @@ public class MaterialCreation extends Locators {
 			common.waitForElement(materialTypeField);
 
 			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
+			common.pause(5);
 			common.waitForElement(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
 		}
@@ -1153,7 +1157,8 @@ public class MaterialCreation extends Locators {
 			common.waitForElement(materialTypeField);
 
 			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
-			common.waitForElement(dropValue);
+			common.pause(5);
+common.waitForElement(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
 
 		}
@@ -1288,6 +1293,7 @@ public class MaterialCreation extends Locators {
 			common.waitForElement(materialTypeField);
 
 			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
+			common.pause(5);
 			common.waitForElement(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
 
