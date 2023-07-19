@@ -9,9 +9,6 @@ import java.io.IOException;
 
 public class DuplicateRuleTestcases extends BasePage {
 
-	// public WebDriver driver;
-	Common common = new Common(driver);
-
 	/**
 	 * 1
 	 * Duplicate Rule - To Verify that exact match duplicacy is working

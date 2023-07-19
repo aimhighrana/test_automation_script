@@ -9,8 +9,6 @@ import java.io.IOException;
 
 public class TransformationRuleTestcases extends BasePage {
 
-	// public WebDriver driver;
-	Common common = new Common(driver);
 
 	/**
 	 * 1
@@ -28,8 +26,8 @@ public class TransformationRuleTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialCreation.verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Leading_Spaces_On_Transaction_Page();
-
 	}
+
 	/**
 	 * 2
 	 * To verify transformation rule of type "EMPTY SPACE" with "Remove trailing Spaces" on transaction page
@@ -46,7 +44,6 @@ public class TransformationRuleTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialCreation.verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Trailing_Spaces_On_Transaction_Page();
-
 	}
 
 	/**
@@ -65,8 +62,8 @@ public class TransformationRuleTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialCreation.verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_All_Spaces_On_Transaction_Page();
-
 	}
+
 	/**
 	 * 4
 	 * Verify transformation rule of type "Zero" with "Add leading Zeroes" on transaction page
@@ -104,6 +101,7 @@ public class TransformationRuleTestcases extends BasePage {
 		materialCreation.verify_Transformation_Rule_Is_Working_Fine_With_Remove_Leading_Zeros();
 		materialCreation.verify_Remove_Leading_Zeros_From_Description_on_Summary_Page();
 	}
+
 	/**
 	 * 6
 	 * To verify the transformation rule of type "Concatenation" with Separation value on transaction page.
@@ -120,8 +118,8 @@ public class TransformationRuleTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialCreation.verify_Transformation_Rule_Of_Type_Concatenation_With_Remove_All_Spaces_On_Transaction_Page();
-
 	}
+
 	/**
 	 * 7
 	 * Verify the transformation rule of type "Constant Value" on transaction page

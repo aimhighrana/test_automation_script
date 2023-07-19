@@ -12,7 +12,8 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured"></include>
+					<include
+							name="verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured"/>
 				</methods>
 			</class>
 		</classes>
@@ -22,7 +23,7 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_That_Created_Record_Is_Visible_At_Reviewer_Task_List"></include>
+					<include name="verify_That_Created_Record_Is_Visible_At_Reviewer_Task_List"/>
 				</methods>
 			</class>
 		</classes>
@@ -32,7 +33,7 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_Data_Verification_For_Reviewer_At_Transaction_Screen"></include>
+					<include name="verify_Data_Verification_For_Reviewer_At_Transaction_Screen"/>
 				</methods>
 			</class>
 		</classes>
@@ -41,7 +42,7 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_Rejecting_The_Request_From_Approver"></include>
+					<include name="verify_Rejecting_The_Request_From_Approver"/>
 				</methods>
 			</class>
 		</classes>
@@ -50,7 +51,7 @@
 	<classes>
 		<class name="Test.MaterialCreationTestcases">
 			<methods>
-				<include name="verify_Approving_The_Request_From_Approver"></include>
+				<include name="verify_Approving_The_Request_From_Approver"/>
 			</methods>
 		</class>
 	</classes>
@@ -60,7 +61,7 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_Extend_Plant_Hierarchy_From_The_Created_Record_Which_Is_In_System_Status"></include>
+					<include name="verify_Extend_Plant_Hierarchy_From_The_Created_Record_Which_Is_In_System_Status"/>
 				</methods>
 			</class>
 		</classes>
@@ -70,7 +71,7 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_Checking_Mandatory_Fields_Error_On_The_Execution_Page"></include>
+					<include name="verify_Checking_Mandatory_Fields_Error_On_The_Execution_Page"/>
 				</methods>
 			</class>
 		</classes>
@@ -80,7 +81,7 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_That_User_Is_Able_To_Save_The_Record_With_The_Extension_Process"></include>
+					<include name="verify_That_User_Is_Able_To_Save_The_Record_With_The_Extension_Process"/>
 				</methods>
 			</class>
 		</classes>
@@ -90,7 +91,7 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_Reviewer_Task_List_Checks"></include>
+					<include name="verify_Reviewer_Task_List_Checks"/>
 				</methods>
 			</class>
 		</classes>
@@ -100,7 +101,8 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_That_Based_On_The_Configured_Rule_For_Description_Generator_Short_And_Long_Description_Should_Auto_Populate"></include>
+					<include
+							name="verify_That_Based_On_The_Configured_Rule_For_Description_Generator_Short_And_Long_Description_Should_Auto_Populate"/>
 				</methods>
 			</class>
 		</classes>
@@ -110,7 +112,8 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_That_After_Generating_Description_Language_Grid_And_PO_Text_Grid_Should_Be_Auto_Populated"></include>
+					<include
+							name="verify_That_After_Generating_Description_Language_Grid_And_PO_Text_Grid_Should_Be_Auto_Populated"/>
 				</methods>
 			</class>
 		</classes>
@@ -120,7 +123,7 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_Reapproving_Rejected_Task_From_Initiator"></include>
+					<include name="verify_Reapproving_Rejected_Task_From_Initiator"/>
 				</methods>
 			</class>
 		</classes>
@@ -130,7 +133,7 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="reApproving_Rejected_Task_From_Initiator_And_From_Final_Approval_Step"></include>
+					<include name="reApproving_Rejected_Task_From_Initiator_And_From_Final_Approval_Step"/>
 				</methods>
 			</class>
 		</classes>
@@ -139,7 +142,19 @@
 		<classes>
 			<class name="Test.MaterialCreationTestcases">
 				<methods>
-					<include name="verify_That_User_Should_Be_Able_To_Extend_Multiple_Similar_Child_Hierarchies_At_The_Same_Time"></include>
+					<include
+							name="verify_That_User_Should_Be_Able_To_Extend_Multiple_Similar_Child_Hierarchies_At_The_Same_Time"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="verify That After Submitting The Record Post Record Saving Functionality Will Be Working">
+		<classes>
+			<class name="Test.MaterialCreationTestcases">
+				<methods>
+					<include
+							name="verify_That_After_Submitting_The_Record_Post_Record_Saving_Functionality_Will_Be_Working"/>
 				</methods>
 			</class>
 		</classes>

@@ -38,9 +38,7 @@ import static java.awt.Color.green;
 
 public class BasePage implements ITestListener {
 
-
 	static Properties configProperties = null;
-
 
 	protected WebDriver driver;
 	public static String currentTest; // current running test
@@ -172,7 +170,7 @@ public class BasePage implements ITestListener {
 		if (testResult.getStatus() == 2) {
 			log("<font color = 'red'><b><i><u><br>Fail :: " + testResult.getName()+"</u></i></b></font>");
 
-//			MyScreenRecorder.stopRecording();
+		//	MyScreenRecorder.stopRecording();
 
 		//	makeScreenshot(driver, testName);
 		//	Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);

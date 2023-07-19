@@ -78,45 +78,64 @@ public class MaterialCreation extends Locators {
 
 			common.waitForElement(germanLanguage);
 
+		} else if (common.isElementDisplayed(sequentialMaterialOption)) {
+			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
 
-			String strMaterialType = driver.findElement(By.xpath(materialTypeField)).getAttribute("value");
-			System.out.println("Step :: Verified Material Type field: " + strMaterialType);
-			common.log("Verified Material Type field: " + strMaterialType);
+			common.waitForElement(materialTypeField);
 
-			String strMaterialGroup = driver.findElement(By.xpath(materialGroupField)).getAttribute("value");
-			System.out.println("Step :: Verified Material Group field: " + strMaterialGroup);
-			common.log("Verified Material Group field: " + strMaterialGroup);
+			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
+			common.waitForElement(dropValue);
+			common.findElementBy(dropValue, "Select option").click();
 
-			String strIndustrySector = driver.findElement(By.xpath(industrySectorField)).getAttribute("value");
-			System.out.println("Step :: Verified Industry sector field: " + strIndustrySector);
-			common.log("Verified Industry sector field: " + strIndustrySector);
+		}
 
-			common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
-			common.waitForElement(searchBoxHierarchy);
-			common.findElementBy(searchBoxHierarchy, "Search value: PLANT 0001").sendKeys("PLANT 0001");
-			common.pause(5);
-			common.waitForElement(selectSearchedOption);
-			common.findElementBy(selectSearchedOption, "Select searched option").click();
-			common.waitForElement(applyBtn);
+		String strMaterialType = driver.findElement(By.xpath(materialTypeField)).getAttribute("value");
+		System.out.println("Step :: Verified Material Type field: " + strMaterialType);
+		common.log("Verified Material Type field: " + strMaterialType);
+
+		String strMaterialGroup = driver.findElement(By.xpath(materialGroupField)).getAttribute("value");
+		System.out.println("Step :: Verified Material Group field: " + strMaterialGroup);
+		common.log("Verified Material Group field: " + strMaterialGroup);
+
+		String strIndustrySector = driver.findElement(By.xpath(industrySectorField)).getAttribute("value");
+		System.out.println("Step :: Verified Industry sector field: " + strIndustrySector);
+		common.log("Verified Industry sector field: " + strIndustrySector);
+
+		common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
+		common.waitForElement(searchBoxHierarchy);
+		common.findElementBy(searchBoxHierarchy, "Search value: PLANT 0001").sendKeys("PLANT 0001");
+		common.pause(5);
+		common.waitForElement(selectSearchedOption);
+		common.findElementBy(selectSearchedOption, "Select searched option").click();
+		common.waitForElement(applyBtn);
+		common.findElementBy(applyBtn, "Click on Apply button").click();
+		common.pause(5);
+
+		common.findElementBy(valuationDataAddHierarchy, "Click on Valuation Data - add... button").click();
+		common.waitForElement(searchBoxHierarchy);
+		common.pause(5);
+		common.findElementBy(searchBoxHierarchy, "Search value: N.A -- Not Applicable").sendKeys("N.A");
+		common.waitForElement(selectSearchedOption);
+		common.pause(5);
+		if (common.isElementDisplayed("//input[@aria-checked='true']//.."))
+		{
+			common.log("Already checked checkbox");
 			common.findElementBy(applyBtn, "Click on Apply button").click();
-			common.pause(5);
-
-			common.findElementBy(valuationDataAddHierarchy, "Click on Valuation Data - add... button").click();
-			common.waitForElement(searchBoxHierarchy);
-			common.pause(5);
-			common.findElementBy(searchBoxHierarchy, "Search value: N.A -- Not Applicable").sendKeys("N.A");
-			common.waitForElement(selectSearchedOption);
-			common.pause(5);
+			common.pause(10);
+		}
+		else {
 			common.findElementBy(selectSearchedOption, "Select searched option").click();
 			common.findElementBy(applyBtn, "Click on Apply button").click();
 			common.pause(10);
+		}
 
-			String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
-			System.out.println("Step :: Verified Valuation Type field: " + strValuationType);
-			common.log("Verified Valuation Type field: " + strValuationType);
+		String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
+		System.out.println("Step :: Verified Valuation Type field: " + strValuationType);
+		common.log("Verified Valuation Type field: " + strValuationType);
 
-			common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
+		common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
 
+		if (common.isElementDisplayed(searchClassDropdown)) {
 			common.findElementBy(searchClassDropdown, "Click on Search class dropdown").click();
 			common.waitForElement(searchBoxClassDropdown);
 			common.pause(10);
@@ -135,21 +154,30 @@ public class MaterialCreation extends Locators {
 			common.log("Verified generated attributes: " + typeAttributes + " & " + gritAttributes);
 			common.assertElementPresent(typeAttributes);
 			common.assertElementPresent(gritAttributes);
-
-		} else if (common.isElementDisplayed(sequentialMaterialOption)) {
-			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
-
-			common.waitForElement(materialTypeField);
-
-			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
-			common.waitForElement(dropValue);
-			common.findElementBy(dropValue, "Select option").click();
-
 		}
 
 		common.findElementBy(submitBtn, "Click on submit button").click();
 		common.pause(10);
+		if (common.isElementDisplayed(errorMessage)) {
 
+			System.out.println("Step :: Showing mandatory errors");
+			common.log("Showing mandatory error");
+			List<WebElement> webElements = driver.findElements(By.xpath("//p[@class='small ng-star-inserted']"));
+
+			for (WebElement e : webElements) {
+				System.out.println("Error: " + e.getText());
+				common.log("Error: " + e.getText());
+			}
+		}
+
+		if (common.isElementDisplayed(planingCycleField)) {
+			common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
+			common.pause(50);
+			common.findElementBy(dnuFixedPeriods, "Fill DNU Fixed periods field").sendKeys("5");
+			common.findElementBy(lastForecastField, "Fill last forecast field").sendKeys("10");
+		}
+		common.findElementBy(submitBtn, "Click on submit button").click();
+		common.pause(10);
 		common.waitForElement("//div[@class='cdk-overlay-pane']");
 		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
 		common.log("Message display: "+successStr);
@@ -960,7 +988,7 @@ public class MaterialCreation extends Locators {
 	public void verify_Transformation_Rule_Is_Working_Fine_With_Add_Leading_Zeros() {
 		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
 		common.findElementBy(materialDescReviewer,"Enter value in Material description field: material").sendKeys("material");
-		common.findElement(materialDesclLabel).click();
+		common.findElement(materialDescLabel).click();
 		common.pause(5);
 		common.findElementBy(submitBtn,"Click on submit button").click();
 
@@ -975,7 +1003,7 @@ public class MaterialCreation extends Locators {
 	public void verify_Transformation_Rule_Is_Working_Fine_With_Remove_Leading_Zeros() {
 		select_Flow_And_Fill_Mandatory_Fields_From_Material_Master_Dataset();
 		common.findElementBy(materialDescReviewer,"Enter value with zeros in Material description field : 00000material").sendKeys("00000material");
-		common.findElement(materialDesclLabel).click();
+		common.findElement(materialDescLabel).click();
 		common.pause(5);
 		common.findElementBy(submitBtn,"Click on submit button").click();
 
@@ -1073,7 +1101,6 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		test.log(LogStatus.INFO, "click on Material master from left nav");
 		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 		common.waitForElement(search);
@@ -1131,15 +1158,23 @@ public class MaterialCreation extends Locators {
 
 		}
 
+		if (!common.isElementDisplayed(classField)) {
+			common.findElementBy(generateDesc, "Click on Generate description button").click();
+		}
+		common.pause(5);
 		common.findElementBy(classField,"Click on class dropdown").click();
+		common.waitForElement(bearingBallClassOption);
 		common.findElementBy(bearingBallClassOption,"Select Bearing-Ball option").click();
 
+		common.pause(5);
 		common.findElementBy(typeField,"Click on Type dropdown").click();
 		common.findElementBy(dropValue, "Select value").click();
 
+		common.pause(5);
 		common.findElementBy(widthField,"Click on Width dropdown").click();
 		common.findElementBy(dropValue, "Select value").click();
 
+		common.pause(5);
 		common.findElementBy(seriesField,"Click on Series dropdown").click();
 		common.findElementBy(dropValue, "Select value").click();
 
@@ -1161,12 +1196,13 @@ public class MaterialCreation extends Locators {
 
 		common.findElementBy(rowField,"Click on ROW dropdown").click();
 		common.findElementBy(dropValue, "Select value").click();
-
-		common.findElementBy(partNumberField,"Enter value in part number field").sendKeys("54321");
 		common.pause(5);
-		common.findElement(materialDescReviewer).click();
-		common.findElement(materialDescReviewer).click();
+		common.findElementBy(partNumberField,"Enter value in part number field").sendKeys("54321");
 		common.pause(10);
+
+		common.findElement(partNumberLabel).click();
+		common.findElement(partNumberLabel).click();
+		common.pause(5);
 
 		common.findElementBy(generateDescriptionLabel, "Click on Generate description button").click();
 		common.pause(10);
@@ -1404,8 +1440,8 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElementBy(applyFilterButton,"Click on apply button").click();
 		common.pause(5);
-		common.findElement(materialDesclLabel).click();
-		common.findElement(materialDesclLabel).click();
+		common.findElement(materialDescLabel).click();
+		common.findElement(materialDescLabel).click();
 
 		test.log(LogStatus.INFO, "Step :: Click on save button");
 		System.out.println("Step :: Click on save button");
@@ -1603,7 +1639,7 @@ public class MaterialCreation extends Locators {
 			common.log("value of description field: "+value1);
 
 			common.pause(5);
-			common.findElementBy(materialDesclLabel,"Click on material description label").click();
+			common.findElementBy(materialDescLabel,"Click on material description label").click();
 			common.pause(5);
 			String value2 = common.findElement(materialDescReviewer).getAttribute("value");
 			System.out.println("new value of description field: "+value2);
@@ -1635,7 +1671,7 @@ public class MaterialCreation extends Locators {
 		common.log("value of description field: " + value1);
 
 		common.pause(5);
-		common.findElementBy(materialDesclLabel, "Click on material description label").click();
+		common.findElementBy(materialDescLabel, "Click on material description label").click();
 		common.pause(5);
 		String value2 = common.findElement(materialDescReviewer).getAttribute("value");
 		System.out.println("new value of description field: " + value2);
@@ -1667,7 +1703,7 @@ public class MaterialCreation extends Locators {
 		common.log("value of description field: "+value1);
 
 		common.pause(5);
-		common.findElementBy(materialDesclLabel,"Click on material description label").click();
+		common.findElementBy(materialDescLabel,"Click on material description label").click();
 		common.pause(5);
 		String value2 = common.findElement(materialDescReviewer).getAttribute("value");
 		System.out.println("new value of description field: "+value2);
@@ -1729,6 +1765,46 @@ public class MaterialCreation extends Locators {
 		else {
 
 			common.log("Rule not applied");
+		}
+	}
+	public void verify_Description_For_Newly_Created_Record_on_Summary_Page()
+	{
+		common.refreshPage();
+		common.waitForElement(dataTab);
+		common.findElement(dataTab).click();
+		if (!common.isElementPresent(defaultView)) {
+
+			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+			common.pause(2);
+			common.findElementBy(defaultViewOption, "Click on Default view option").click();
+			common.pause(10);
+
+		}
+
+		common.waitForElement(actionIconForFirstValue);
+		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
+		common.findElementBy(summaryOption, "Click on Summary option").click();
+		common.pause(5);
+		if (common.isElementDisplayed(sequentialMaterialOption)) {
+			common.findElementBy(sequentialMaterialOption, "Click on sequentialMaterial option").click();
+			common.pause(10);
+		}
+		else if (common.isElementDisplayed(materrialMasterRecordOption))
+		{
+			common.findElementBy(materrialMasterRecordOption, "Click on material master option").click();
+			common.pause(10);
+		}
+
+		List<WebElement> list = driver.findElements(By.xpath("//div[@class='f-col form-area-container ng-star-inserted']//..//p//..//..//input"));
+		common.log("All the values of Summary page: ");
+		for (WebElement e : list)
+		{
+			String str = e.getAttribute("value");
+			if (!str.equals(""))
+			{
+				common.log(str);
+			}
+
 		}
 
 	}

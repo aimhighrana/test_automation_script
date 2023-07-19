@@ -36,7 +36,6 @@ public class ListViewTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Add_A_New_View_For_The_List_Page();
-
 	}
 	/**--2--**/
 	@Test
@@ -46,7 +45,6 @@ public class ListViewTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Select_Multiple_Records_At_A_Time();
-
 	}
 	
 	/**--3--**/
@@ -57,7 +55,6 @@ public class ListViewTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page();
-
 	}
 	 
 	
@@ -73,7 +70,6 @@ public class ListViewTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page();
 		listView.user_Should_Be_Able_To_Delete_The_Added_View();
-
 	}
 	
 	/**--5--**/
@@ -84,7 +80,6 @@ public class ListViewTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listView.verify_The_Pagination_On_List_Page_Should_Work_As_Expected();
-
 	}
 	
 	/**--6--**/
@@ -94,7 +89,6 @@ public class ListViewTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_View_The_Summary_Of_The_Record_Using_Action_Button_On_The_Records();
-
 	}
 	
 	/**--7--**/
@@ -104,7 +98,6 @@ public class ListViewTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Download_Template_Of_The_Record_Using_Action_Button_On_The_Records();
-
 	}
 
 

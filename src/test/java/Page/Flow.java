@@ -31,7 +31,7 @@ import java.util.Properties;
 public class Flow extends Locators {
 
 	RemoteWebDriver driver;
-	Common common = new Common(driver);
+	Common common;
 	Properties obj = new Properties();
 
 	public Flow(WebDriver driver2) throws FileNotFoundException {
@@ -78,7 +78,7 @@ public class Flow extends Locators {
 		test.log(LogStatus.INFO, "Step :: Click on floe tab");
 		System.out.println("Step :: Click on Flow tab");
 		common.log("click on Flow tab");
-		driver.findElement(By.xpath(flowtab)).click();
+		driver.findElement(By.xpath(flowTab)).click();
 
 		common.waitForElement(manageFlowBtn);
 		test.log(LogStatus.INFO, "Step :: click on manage Flow button");
@@ -175,7 +175,7 @@ public class Flow extends Locators {
 
 			//if error occurred the close popup and check again view process log
 			if (common.isDisplayed(allerros) == true) {
-				common.findElement(ccrsicon).click();
+				common.findElement(ccrsIcon).click();
 
 				common.pause(10);
 				System.out.println("Step :: Click on three dot icon");
@@ -304,8 +304,8 @@ public class Flow extends Locators {
 
 			CSVWriter writer = new CSVWriter(new FileWriter(csv, true));
 
-			if (common.isDisplayed(allerros) == true) {
-				common.findElement(ccrsicon).click();
+			if (common.isElementDisplayed(allerros)) {
+				common.findElement(ccrsIcon).click();
 
 				common.pause(10);
 

@@ -12,7 +12,7 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_Search_CreatedModified_On_Date_In_The_Column_Filter"></include>
+					<include name="verify_Search_CreatedModified_On_Date_In_The_Column_Filter"/>
 				</methods>
 			</class>
 		</classes>
@@ -22,7 +22,8 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_Search_Based_On_MatrialDesc_Group_Type_Industry_Sector_BaseUnitOfMeasure_In_The_Column_Filter"></include>
+					<include
+							name="verify_Search_Based_On_MatrialDesc_Group_Type_Industry_Sector_BaseUnitOfMeasure_In_The_Column_Filter"/>
 				</methods>
 			</class>
 		</classes>
@@ -45,7 +46,7 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_User_Should_Be_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions"></include>
+					<include name="verify_User_Should_Be_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions"/>
 				</methods>
 			</class>
 		</classes>
@@ -55,7 +56,8 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_User_Should_Be_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button"></include>
+					<include
+							name="verify_User_Should_Be_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button"/>
 				</methods>
 			</class>
 		</classes>
@@ -65,7 +67,8 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_User_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search"></include>
+					<include
+							name="verify_User_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search"/>
 				</methods>
 			</class>
 		</classes>
@@ -75,7 +78,8 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_User_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button"></include>
+					<include
+							name="verify_User_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button"/>
 				</methods>
 			</class>
 		</classes>
@@ -85,7 +89,8 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_User_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button"></include>
+					<include
+							name="verify_User_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button"/>
 				</methods>
 			</class>
 		</classes>
@@ -96,7 +101,8 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_User_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches"></include>
+					<include
+							name="verify_User_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches"/>
 				</methods>
 			</class>
 		</classes>
@@ -106,7 +112,8 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_Column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields"></include>
+					<include
+							name="verify_Column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields"/>
 				</methods>
 			</class>
 		</classes>
@@ -115,7 +122,7 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_The_User_Is_Able_To_Delete_The_Saved_Filter"></include>
+					<include name="verify_The_User_Is_Able_To_Delete_The_Saved_Filter"/>
 				</methods>
 			</class>
 		</classes>
@@ -124,7 +131,7 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters"></include>
+					<include name="verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters"/>
 				</methods>
 			</class>
 		</classes>
@@ -133,7 +140,8 @@
 		<classes>
 			<class name="Test.ListPageSearchTestcases">
 				<methods>
-					<include name="verify_User_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field"></include>
+					<include
+							name="verify_User_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field"/>
 				</methods>
 			</class>
 		</classes>

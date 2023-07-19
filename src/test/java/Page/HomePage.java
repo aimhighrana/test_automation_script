@@ -14,11 +14,8 @@ import java.time.Duration;
 public class HomePage extends Locators {
 
 	Common common = new Common(driver);
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(15));
-	public HomePage(WebDriver driver) throws FileNotFoundException {
-
+	public HomePage(WebDriver driver) throws Exception {
 		super(driver);
-
 	}
 
 	/**
@@ -27,10 +24,10 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_In_INBOX_Folder_RecordId_Other_Data_And_Functionality_Should_Be_Working_Fine() {
 
-		common.pause(5);
+		common.waitForElement(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
-		common.waitForElement(inboxMenu);
 
+		common.waitForElement(inboxMenu);
 		common.findElementBy(inboxMenu, "Verify Inbox menu");
 		common.findElementBy(inProgressMenu, "Verify In Progress menu");
 		common.findElementBy(completedMenu, "Verify Completed menu");
@@ -56,10 +53,10 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_Different_Options_Will_Be_Present_Under_Action_Button() {
 
-		common.pause(5);
+		common.waitForElement(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
-		common.waitForElement(inboxMenu);
 
+		common.waitForElement(inboxMenu);
 		common.findElementBy(inboxMenu, "Click on Inbox menu").click();
 		common.waitForElement(firstActionIconForInbox);
 
@@ -80,7 +77,7 @@ public class HomePage extends Locators {
 	 */
 	public void verify_Column_Details_Displayed_In_Task_Folders() {
 
-		common.pause(5);
+		common.waitForElement(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
 		common.waitForElement(systemErrorsTab);
 
@@ -103,7 +100,7 @@ public class HomePage extends Locators {
 	 */
 	public void verify_Failed_Records_Column_For_Cross_Dataset_Integration_Daxe_Process_Log_Tasks() {
 
-		common.pause(5);
+		common.waitForElement(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
 		common.waitForElement(systemErrorsTab);
 
@@ -147,10 +144,10 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_Once_The_Record_Is_Successful_ReTrigger_For_Integration_Record_Should_Not_Reflecting_In_Error_Folder() {
 
-		common.pause(5);
+		common.waitForElement(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
-		common.waitForElement(systemErrorsTab);
 
+		common.waitForElement(systemErrorsTab);
 		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
 		common.waitForElement(searchSystemErrorsTab);
 
@@ -173,10 +170,10 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_All_The_Filters_Type_Are_Working_In_Error_Folder() {
 
-		common.pause(5);
+		common.waitForElement(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
-		common.waitForElement(systemErrorsTab);
 
+		common.waitForElement(systemErrorsTab);
 		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
 		common.waitForElement(searchSystemErrorsTab);
 
@@ -225,10 +222,10 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_In_In_progress_Folder_Record_Id_Other_Data_And_Functionality_Should_Be_Working_Fine() {
 
-		common.pause(5);
+		common.waitForElement(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
-		common.waitForElement(inProgressMenu);
 
+		common.waitForElement(inProgressMenu);
 		common.findElementBy(inProgressMenu, "Click on In Progress menu").click();
 		common.waitForElement(searchSystemErrorsTab);
 
@@ -252,7 +249,7 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_In_Completed_Folder_Record_Id_Other_Data_Functionality_Should_Be_Working_Fine() {
 
-		common.pause(5);
+		common.waitForElement(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
 		common.waitForElement(inProgressMenu);
 
@@ -280,10 +277,6 @@ public class HomePage extends Locators {
 			} else {
 				common.log("Nothing to see here!");
 			}
-
-
-
 	}
-
 
 }

@@ -284,7 +284,7 @@ public class ProcessLog extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+		String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
 		System.out.println("First value of Material master table:: " + strFirstValue);
 		common.log("First value of Material master table:: " + strFirstValue);

@@ -329,7 +329,7 @@ public class LoginPage extends Locators {
 		test.log(LogStatus.INFO, "Enter value in email field");
 		System.out.println("Step :: Enter value in email field");
 		common.log("Enter the value in email field");
-		common.findElement(usenameProd).sendKeys(getPropertyValue("ProdUserName"));
+		common.findElement(usernameProd).sendKeys(getPropertyValue("ProdUserName"));
 
 		common.pause(10);
 		common.findElement(continueButton).click();

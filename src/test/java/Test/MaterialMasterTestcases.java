@@ -24,8 +24,6 @@ import static io.restassured.RestAssured.when;
 
 public class MaterialMasterTestcases extends BasePage {
 
-	// public WebDriver driver;
-	Common common = new Common(driver);
 	/**
 	 * 1
 	 * Material Master Module
@@ -80,6 +78,7 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.approveStatus();
 
 	}
+
 	/**
 	 * 4
 	 * Approve request module
@@ -97,6 +96,7 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.approveStatus();
 
 	}
+
 	/**
 	 * 5
 	 * claim status
@@ -169,8 +169,8 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.copyRecord();
 		loginPage.reviewer_SignIn(env);
 		materialmaster.approveStatus();
-
 	}
+
 	/**
 	 * 9
 	 * Verify copy record and remove one hierarchy, Other should not remove
@@ -186,8 +186,6 @@ public class MaterialMasterTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		materialmaster.createMaterialMasterWithGenerateDesc();
 		materialmaster.verify_Copy_Record_And_Remove_One_Hierarchy_Other_Should_Not_Remove();
-
-
 	}
 
 	/**
@@ -224,6 +222,7 @@ public class MaterialMasterTestcases extends BasePage {
 		loginPage.reviewer_SignIn(env);
 		materialmaster.claimUnclaimStatus();
 	}
+
 	/**
 	 * 12
 	 * Verification of rejection Flow feature
@@ -243,6 +242,7 @@ public class MaterialMasterTestcases extends BasePage {
 		loginPage.reviewer_SignIn(env);
 		materialmaster.rejectionFlowFromReviewer();
 	}
+
 	/**
 	 * 13
 	 * Verification of rejection Flow feature for copied record
@@ -260,6 +260,7 @@ public class MaterialMasterTestcases extends BasePage {
 		materialmaster.copyRecord();
 		materialmaster.rejectionFlowFromApprover();
 	}
+
 	/**
 	 * 14
 	 * Copy: Reapproving rejected task from Initiator & final approver approval
@@ -300,6 +301,7 @@ public class MaterialMasterTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		materialmaster.viewMaterialMasterCompletedProcessLog();
 	}
+
 	/**
 	 * 16
 	 * Verify Draft Approval Record Process Scenario
@@ -310,7 +312,6 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Draft_Approval_Record(String env) throws Exception {
-
 		verify_Claim_UnClaim_Status(env);
 		driver.quit();
 

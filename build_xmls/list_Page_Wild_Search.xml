@@ -12,7 +12,7 @@
 		<classes>
 			<class name="Test.ListPageWildSearchTestcases">
 				<methods>
-					<include name="verify_The_Search_Should_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search"></include>
+					<include name="verify_The_Search_Should_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search"/>
 				</methods>
 			</class>
 		</classes>
@@ -22,7 +22,7 @@
 		<classes>
 			<class name="Test.ListPageWildSearchTestcases">
 				<methods>
-					<include name="verify_While_Clearing_The_Text_Search_It_Should_Not_Impact_Any_Applied_Filters"></include>
+					<include name="verify_While_Clearing_The_Text_Search_It_Should_Not_Impact_Any_Applied_Filters"/>
 				</methods>
 			</class>
 		</classes>
@@ -31,7 +31,7 @@
 		<classes>
 			<class name="Test.ListPageWildSearchTestcases">
 				<methods>
-					<include name="verify_The_User_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter"></include>
+					<include name="verify_The_User_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter"/>
 				</methods>
 			</class>
 		</classes>

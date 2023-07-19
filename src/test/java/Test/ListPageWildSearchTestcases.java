@@ -10,8 +10,6 @@ import java.io.IOException;
 
 public class ListPageWildSearchTestcases extends BasePage {
 
-	// public WebDriver driver;
-	Common common = new Common(driver);
 
 	/**
 	 * List Page Wild Search Module
@@ -30,7 +28,6 @@ public class ListPageWildSearchTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listPageSearch.user_Able_To_Search_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search();
-
 	}
 
 	/**--2--**/
@@ -42,7 +39,6 @@ public class ListPageWildSearchTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		listPageSearch.user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
 		listPageSearch.verify_While_Clearing_The_Text_Search_It_Should_Not_Impact_Any_Applied_Filters();
-
 	}
 
 	/**
@@ -56,6 +52,5 @@ public class ListPageWildSearchTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listPageSearch.user_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter();
-
 	}
 }

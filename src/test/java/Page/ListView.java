@@ -83,9 +83,9 @@ public class ListView extends Locators {
 
 		common.assertElementPresent("//h4[normalize-space()='Material Master - " + viewStr + "']");
 
-		if (common.isElementPresent(firstValuematerialMaster)) {
+		if (common.isElementPresent(firstValueMaterialMaster)) {
 
-			String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
 			System.out.println("First value" + " of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
@@ -98,7 +98,7 @@ public class ListView extends Locators {
 		common.findElementBy(defaultViewOption, "Click on Default view option from drop-down").click();
 		common.pause(10);
 
-		String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+		String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
 		System.out.println("First value of Material master table:: " + strFirstValue);
 		common.log("First value of Material master table:: " + strFirstValue);
@@ -177,7 +177,7 @@ public class ListView extends Locators {
 
 		if (common.isElementPresent("//h4[normalize-space()='Material Master - " + viewStr + "']")) {
 
-			String strFirstValue = driver.findElement(By.xpath(firstValuematerialMaster)).getText();
+			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
 			System.out.println("First value" + " of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);

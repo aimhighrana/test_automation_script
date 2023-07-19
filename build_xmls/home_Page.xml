@@ -12,7 +12,8 @@
 		<classes>
 			<class name="Test.HomePageTestcases">
 				<methods>
-					<include name="verify_That_In_INBOX_Folder_RecordId_Other_Data_And_Functionality_Should_Be_Working_Fine"></include>
+					<include
+							name="verify_That_In_INBOX_Folder_RecordId_Other_Data_And_Functionality_Should_Be_Working_Fine"/>
 				</methods>
 			</class>
 		</classes>
@@ -22,7 +23,7 @@
 		<classes>
 			<class name="Test.HomePageTestcases">
 				<methods>
-					<include name="verify_That_Different_Options_Will_Be_Present_Under_Action_Button"></include>
+					<include name="verify_That_Different_Options_Will_Be_Present_Under_Action_Button"/>
 				</methods>
 			</class>
 		</classes>
@@ -32,7 +33,7 @@
 		<classes>
 			<class name="Test.HomePageTestcases">
 				<methods>
-					<include name="verify_Column_Details_Displayed_In_Task_Folders"></include>
+					<include name="verify_Column_Details_Displayed_In_Task_Folders"/>
 				</methods>
 			</class>
 		</classes>
@@ -42,7 +43,7 @@
 		<classes>
 			<class name="Test.HomePageTestcases">
 				<methods>
-					<include name="verify_Failed_Records_Column_For_Cross_Dataset_Integration_Daxe_Process_Log_Tasks"></include>
+					<include name="verify_Failed_Records_Column_For_Cross_Dataset_Integration_Daxe_Process_Log_Tasks"/>
 				</methods>
 			</class>
 		</classes>
@@ -51,7 +52,8 @@
 		<classes>
 			<class name="Test.HomePageTestcases">
 				<methods>
-					<include name="verify_That_Once_The_Record_Is_Successful_ReTrigger_For_Integration_Record_Should_Not_Reflecting_In_Error_Folder"></include>
+					<include
+							name="verify_That_Once_The_Record_Is_Successful_ReTrigger_For_Integration_Record_Should_Not_Reflecting_In_Error_Folder"/>
 				</methods>
 			</class>
 		</classes>
@@ -61,7 +63,7 @@
 		<classes>
 			<class name="Test.HomePageTestcases">
 				<methods>
-					<include name="verify_That_All_The_Filters_Type_Are_Working_In_Error_Folder"></include>
+					<include name="verify_That_All_The_Filters_Type_Are_Working_In_Error_Folder"/>
 				</methods>
 			</class>
 		</classes>
@@ -71,7 +73,8 @@
 		<classes>
 			<class name="Test.HomePageTestcases">
 				<methods>
-					<include name="verify_That_In_In_progress_Folder_Record_Id_Other_Data_And_Functionality_Should_Be_Working_Fine"></include>
+					<include
+							name="verify_That_In_In_progress_Folder_Record_Id_Other_Data_And_Functionality_Should_Be_Working_Fine"/>
 				</methods>
 			</class>
 		</classes>
@@ -81,7 +84,8 @@
 		<classes>
 			<class name="Test.HomePageTestcases">
 				<methods>
-					<include name="verify_That_In_Completed_Folder_Record_Id_Other_Data_Functionality_Should_Be_Working_Fine"></include>
+					<include
+							name="verify_That_In_Completed_Folder_Record_Id_Other_Data_Functionality_Should_Be_Working_Fine"/>
 				</methods>
 			</class>
 		</classes>

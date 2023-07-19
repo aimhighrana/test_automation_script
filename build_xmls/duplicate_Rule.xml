@@ -12,7 +12,7 @@
 		<classes>
 			<class name="Test.DuplicateRuleTestcases">
 				<methods>
-					<include name="verify_That_Exact_Match_Fuzzy_Duplicacy_Is_Working"></include>
+					<include name="verify_That_Exact_Match_Fuzzy_Duplicacy_Is_Working"/>
 				</methods>
 			</class>
 		</classes>
@@ -22,7 +22,7 @@
 		<classes>
 			<class name="Test.DuplicateRuleTestcases">
 				<methods>
-					<include name="verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event"></include>
+					<include name="verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event"/>
 				</methods>
 			</class>
 		</classes>
@@ -32,7 +32,7 @@
 		<classes>
 			<class name="Test.DuplicateRuleTestcases">
 				<methods>
-					<include name="verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Change_Event"></include>
+					<include name="verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Change_Event"/>
 				</methods>
 			</class>
 		</classes>
@@ -42,7 +42,7 @@
 		<classes>
 			<class name="Test.DuplicateRuleTestcases">
 				<methods>
-					<include name="verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Approval_From_Reviewer"></include>
+					<include name="verify_That_Duplicacy_Check_Is_Working_At_The_Time_Of_Approval_From_Reviewer"/>
 				</methods>
 			</class>
 		</classes>

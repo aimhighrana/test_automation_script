@@ -18,7 +18,6 @@ public abstract class Locators extends BasePage {
 	// <! Login Page Locators !>
 	public static String userNameField = "//p[@class='xsmall strong ng-star-inserted']//..//..//..//input";
 	public static String continueButton = "//span[contains(text(),'Continue')]";
-
 	public static String usePasswordButton = "//p[normalize-space()='Use password']";
 	public static String PasswordField = "//input[@type='password']";
 	public static String nPasswordField = "//input[@type='password']";
@@ -49,7 +48,7 @@ public abstract class Locators extends BasePage {
 	public static String draft = " //button[contains(text(),'Save as draft')]";
 	public static String myRrequestHeader ="//h4[normalize-space()='My requests']";
 	public static String edit = "//button[contains(text(),'Edit')]";
-	public static String materrialMasterRecordOption = "//button[normalize-space()='Copy Of Material Master - QA']";
+	public static String materrialMasterRecordOption = "//button[normalize-space()='Material Master - QA']";
 	public static String statusFilter = "//th[@id='STATUS']//input[@placeholder='Filter']";
 	public static String uSaveBtn = "//span[contains(text(),'Save')]";
 	public static String allerros = "//h4[contains(text(),'All errors')]";
@@ -61,7 +60,7 @@ public abstract class Locators extends BasePage {
 	
 	// <! New record Page Locators !>
 	public static String dMaterialMaster = "//p[contains(text(),'Material Master')]";
-	public static String materialMasterRoleValue = "//button[normalize-space()='Copy Of Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']";
+	public static String materialMasterRoleValue = "//button[normalize-space()='Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']";
 
 	public static String industrySec = "//p[normalize-space()='Industry sector']//..//..//div//input | //p[normalize-space()='Industry Sector']//..//..//div//input";
 	public static String materialGroup = "//p[normalize-space()='Material Group']//..//..//div//input";
@@ -139,7 +138,7 @@ public abstract class Locators extends BasePage {
 	public static String viewProcessLogOption = "//button[contains(text(),' View process log ')] | //button[normalize-space()='Process log']";
 	public static String processLog = "//button[contains(text(),'Process log')]";
 	public static String processLogStatus = "(//p[@class='base no-wrap ng-star-inserted'])[1]";
-	public static String ccrsicon = "//body/pros-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/ng-component[1]/pros-transaction-builder[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/lib-button[1]/button[1]";
+	public static String ccrsIcon = "//body/pros-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/ng-component[1]/pros-transaction-builder[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/lib-button[1]/button[1]";
 	public static String dSearchBox = "//pros-primary-navigation[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/pros-list-datatable[1]/div[1]/div[2]/div[1]/div[1]/lib-search[1]/div[1]/input[1]";
 	public static String apply = "//p[contains(text(),'Apply')]";
 	public static String thDot = "//tbody/tr[1]/td[2]/lib-button[1]/button[1]/span[1]/mat-icon[1]";
@@ -164,7 +163,7 @@ public abstract class Locators extends BasePage {
 	public static String statusSuccessTxt = "//span[contains(text(),'SUCCESS')]";
 	public static String crossP = "//lib-button[@icon='times']//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']";
 	// Flow tab locators
-	public static String flowtab = "//div[contains(text(),' Flows ')]";
+	public static String flowTab = "//div[contains(text(),' Flows ')]";
 	public static String manageFlowBtn = "//span[contains(text(),'Manage flows')]";
 	public static String spac = "//div[@class='container-fluid container-cards-pf']";
 	public static String spacRecord = "//div[@class='container-fluid container-cards-pf']";
@@ -177,7 +176,7 @@ public abstract class Locators extends BasePage {
 	public static String searchPlaceHolder ="//input[@data-placeholder='Search']";
 
 	public static String log = "//input[@id='user_submit']";
-	 public static String usenameProd = "//mat-sidenav-container[1]/mat-sidenav-content[1]/pros-login[1]/div[1]/div[1]/form[1]/div[1]/lib-input[1]/div[1]/div[1]/input[1]";
+	 public static String usernameProd = "//mat-sidenav-container[1]/mat-sidenav-content[1]/pros-login[1]/div[1]/div[1]/form[1]/div[1]/lib-input[1]/div[1]/div[1]/input[1]";
 	 public static String prodEnv = "//p[contains(text(),'Production')]";
 
 	// List Page Search
@@ -187,7 +186,7 @@ public abstract class Locators extends BasePage {
 	public static String endDateTab = "//div[contains(text(),'End')]";
 	public static String date10 = "//div[normalize-space()='10']";
 	public static String modifiedOnFilter = "//th[@id='DATEMODIFIED']//pros-inline-table-column-filter";
-	public static String firstValuematerialMaster = "//tbody/tr[1]/td[3]//p";
+	public static String firstValueMaterialMaster = "//tbody/tr[1]/td[3]//p";
 
 	public static String filterIcon = "//mat-icon[normalize-space()='filter']";
 
@@ -243,8 +242,7 @@ public abstract class Locators extends BasePage {
 
 	public static String confirmButton = "//span[normalize-space()='Confirm']";
 
-	public static String appliedIndusScetoryFilter = "//span[normalize-space()='Industry Sector'] | //span[normalize-space()='Industry sector']";
-
+	public static String appliedIndusSectorFilter = "//span[normalize-space()='Industry Sector'] | //span[normalize-space()='Industry sector']";
 
 	public static String threeDotsIconAppliedFilter = "//mat-icon[@class='mat-icon notranslate mdo-icons mat-icon-no-color'][normalize-space()='ellipsis-h']";
 
@@ -258,7 +256,7 @@ public abstract class Locators extends BasePage {
 
 	public static String cancelButtonFilterPopup = "//span[normalize-space()='Cancel']";
 
-	public static String firstvalueCreatedOnDateInTable = "//tbody/tr[1]/td[4]";
+	public static String firstValueCreatedOnDateInTable = "//tbody/tr[1]/td[4]";
 	public static String createdOnSortFilter = "//p[normalize-space()='Created on']";
 	public static String deleteSavedFilters = "//button[normalize-space()='Delete']";
 	public static String paginationValue = "//div[@class='f-row list-pagination ng-star-inserted']//p";
@@ -378,7 +376,7 @@ public abstract class Locators extends BasePage {
 	public static String materialDescReviewer = "//p[normalize-space()='Material Description']//..//..//..//input";
 	public static String generateDescriptionLabel ="//h4[normalize-space()='Generate description']";
 	public static String divisionField = "//p[normalize-space()='Division']//..//..//div//input";
-	public static String materialDesclLabel = "//p[normalize-space()='Material Description']";
+	public static String materialDescLabel = "//p[normalize-space()='Material Description']";
 	public static String manufacturerField = "//p[normalize-space()='Manufacturer Part Number']//..//..//..//input";
 	public static String oldMaterialNumField = "//p[normalize-space()='Old Material Number']//..//..//..//input";
 	public static String grossWeightField = "//p[normalize-space()='Gross weight']//..//..//..//input";
@@ -411,12 +409,21 @@ public abstract class Locators extends BasePage {
 	public static String modelNumberField  ="//p[normalize-space()='Model Number']//..//..//..//input";
 
 	public static String rowField  ="//p[normalize-space()='ROW']//..//..//div//input";
-
+	public static String partNumberLabel  ="//p[normalize-space()='Part number']";
 	public static String partNumberField  ="//p[normalize-space()='Part number']//..//..//..//input";
 
 	public static String shortDescriptionField  ="//p[normalize-space()='Short description']//..//..//..//input";
 	public static String qaFormOption  = "//button[normalize-space()='QA Form']";
 	public static String longDescriptionField  ="//div[contains (text(),'Long description')]//..//..//div//textarea";
+
+	//Roles and Permissions
+	public static String settingsProfile  ="//span[normalize-space()='Settings']";
+	public static String rolesAndPermissionsMenu  ="//p[normalize-space()='Roles and Permissions']";
+	public static String initiatorRole  ="//p[normalize-space()='Initiator']";
+	public static String searchBoxPrivileges  ="//input[@data-placeholder='Search privileges']";
+	public static String saveSettings  ="//span[normalize-space()='Save']";
+	public static String rolesAndPrivilegesHeader  ="//h4[normalize-space()='Roles and Privileges']";
+
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
 	protected WebElement filterIndustrySector1;
 

@@ -12,7 +12,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="add_New_Material_Master"></include>
+					<include name="add_New_Material_Master"/>
 				</methods>
 			</class>
 		</classes>
@@ -21,7 +21,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="add_New_Material_Master_With_Generate_Description"></include>
+					<include name="add_New_Material_Master_With_Generate_Description"/>
 				</methods>
 			</class>
 		</classes>
@@ -30,7 +30,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="view_Process_Log"></include>
+					<include name="view_Process_Log"/>
 				</methods>
 			</class>
 		</classes>
@@ -39,7 +39,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Approve_Status_From_Reviewer"></include>
+					<include name="verify_Approve_Status_From_Reviewer"/>
 				</methods>
 			</class>
 		</classes>
@@ -49,7 +49,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Approve_Status_From_Approver"></include>
+					<include name="verify_Approve_Status_From_Approver"/>
 				</methods>
 			</class>
 		</classes>
@@ -59,7 +59,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Claim_Status"></include>
+					<include name="verify_Claim_Status"/>
 				</methods>
 			</class>
 		</classes>
@@ -69,7 +69,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Save_As_Draft"></include>
+					<include name="verify_Save_As_Draft"/>
 				</methods>
 			</class>
 		</classes>
@@ -79,7 +79,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Change"></include>
+					<include name="verify_Change"/>
 				</methods>
 			</class>
 		</classes>
@@ -89,7 +89,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Copy_Record_And_Approve_From_Reviewer"></include>
+					<include name="verify_Copy_Record_And_Approve_From_Reviewer"/>
 				</methods>
 			</class>
 		</classes>
@@ -99,7 +99,8 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Copy_Record_If_User_Remove_One_Child_Hierarchy_Other_Child_Hierarchies_Should_Not_Get_Removed"></include>
+					<include
+							name="verify_Copy_Record_If_User_Remove_One_Child_Hierarchy_Other_Child_Hierarchies_Should_Not_Get_Removed"/>
 				</methods>
 			</class>
 		</classes>
@@ -109,7 +110,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Claim_UnClaim_Status"></include>
+					<include name="verify_Claim_UnClaim_Status"/>
 				</methods>
 			</class>
 		</classes>
@@ -119,7 +120,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Rejection_Flow_For_New_Record"></include>
+					<include name="verify_Rejection_Flow_For_New_Record"/>
 				</methods>
 			</class>
 		</classes>
@@ -129,7 +130,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Copy_Record_And_Rejection_Flow_For_New_Record"></include>
+					<include name="verify_Copy_Record_And_Rejection_Flow_For_New_Record"/>
 				</methods>
 			</class>
 		</classes>
@@ -139,7 +140,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_Reapproving_Rejected_Task_From_Initiator_final_Approver_Approval"></include>
+					<include name="verify_Reapproving_Rejected_Task_From_Initiator_final_Approver_Approval"/>
 				</methods>
 			</class>
 		</classes>
@@ -148,7 +149,7 @@
 		<classes>
 			<class name="Test.MaterialMasterTestcases">
 				<methods>
-					<include name="verify_That_User_Is_Able_To_View_The_Process_Logs_Summary_After_Final_Approval"></include>
+					<include name="verify_That_User_Is_Able_To_View_The_Process_Logs_Summary_After_Final_Approval"/>
 				</methods>
 			</class>
 		</classes>

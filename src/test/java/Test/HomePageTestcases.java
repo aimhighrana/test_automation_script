@@ -10,8 +10,6 @@ import java.io.IOException;
 
 public class HomePageTestcases extends BasePage {
 
-	// public WebDriver driver;
-	Common common = new Common(driver);
 
 	/**Home Page Module**/
 	/**
@@ -29,7 +27,6 @@ public class HomePageTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		homePage.verify_That_In_INBOX_Folder_RecordId_Other_Data_And_Functionality_Should_Be_Working_Fine();
-
 	}
 
 	/**
@@ -43,7 +40,6 @@ public class HomePageTestcases extends BasePage {
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		homePage.verify_That_Different_Options_Will_Be_Present_Under_Action_Button();
-
 	}
 
 	/**

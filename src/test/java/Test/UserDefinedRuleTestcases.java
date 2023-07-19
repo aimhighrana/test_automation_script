@@ -9,8 +9,6 @@ import java.io.IOException;
 
 public class UserDefinedRuleTestcases extends BasePage {
 
-	// public WebDriver driver;
-	Common common = new Common(driver);
 
 	/**
 	 * 1
@@ -65,6 +63,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_Numeric_Range_Operators();
 	}
+
 	/**
 	 * 4
 	 * Validate selecting header, hierarchy and grid fields while setup UDR with ENDSWITH operator
@@ -82,6 +81,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_ENDSWITH_Operators();
 	}
+
 	/**
 	 * 5
 	 * Validate selecting header, hierarchy and grid fields while setup UDR with EMPTY operator
@@ -99,6 +99,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_EMPTY_Operators();
 	}
+
 	/**
 	 * 6
 	 * Validate selecting header, hierarchy and grid fields while setup UDR with LENGTH operator
@@ -116,6 +117,7 @@ public class UserDefinedRuleTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_LENGTH_Operators();
 	}
+
 	/**
 	 * 7
 	 * Validate selecting header, hierarchy and grid fields while setup UDR with Numerical Operator - LESS THAN/LESS THAN EQUAL
@@ -134,13 +136,13 @@ public class UserDefinedRuleTestcases extends BasePage {
 		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_LESS_THAN_LESS_THAN_EQUAL_Operators();
 	}
 
-/**
- * 8
- * Validate selecting header, hierarchy and grid fields while setup UDR with Numerical Operator - GREATER THAN/GREATER THAN EQUAL
- *
- * @throws InterruptedException
- * @throws IOException
- */
+	/**
+	 * 8
+	 * Validate selecting header, hierarchy and grid fields while setup UDR with Numerical Operator - GREATER THAN/GREATER THAN EQUAL
+	 *
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	@Test
 	@Parameters("env")
 	public void validate_Selecting_Header_Hierarchy_And_Grid_Fields_While_Setup_UDR_With_Numerical_Operator_GREATER_THAN_GREATER_THAN_EQUAL(String env) throws InterruptedException, IOException, Exception {

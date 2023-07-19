@@ -12,7 +12,7 @@
 		<classes>
 			<class name="Test.ProcessLogTestcases">
 				<methods>
-					<include name="verify_That_User_Is_Able_To_View_Email_Logs_When_Email_Notification_Is_Configured"></include>
+					<include name="verify_That_User_Is_Able_To_View_Email_Logs_When_Email_Notification_Is_Configured"/>
 				</methods>
 			</class>
 		</classes>
@@ -22,7 +22,7 @@
 		<classes>
 			<class name="Test.ProcessLogTestcases">
 				<methods>
-					<include name="verify_That_User_Is_Able_To_View_The_View_Integration_Log"></include>
+					<include name="verify_That_User_Is_Able_To_View_The_View_Integration_Log"/>
 				</methods>
 			</class>
 		</classes>
@@ -31,7 +31,7 @@
 		<classes>
 			<class name="Test.ProcessLogTestcases">
 				<methods>
-					<include name="verify_That_Tooltip_Is_Visible_For_Comment_Icon_In_Side_Sheet"></include>
+					<include name="verify_That_Tooltip_Is_Visible_For_Comment_Icon_In_Side_Sheet"/>
 				</methods>
 			</class>
 		</classes>
@@ -40,7 +40,7 @@
 		<classes>
 			<class name="Test.ProcessLogTestcases">
 				<methods>
-					<include name="verify_That_Tooltip_Is_Visible_For_External_Icon_In_Sidesheet"></include>
+					<include name="verify_That_Tooltip_Is_Visible_For_External_Icon_In_Sidesheet"/>
 				</methods>
 			</class>
 		</classes>
@@ -49,7 +49,8 @@
 		<classes>
 			<class name="Test.ProcessLogTestcases">
 				<methods>
-					<include name="verify_Classification_Data_Changes_Maintained_In_The_Process_Log_For_Parent_Dataset_Or_Related_Dataset_Record"></include>
+					<include
+							name="verify_Classification_Data_Changes_Maintained_In_The_Process_Log_For_Parent_Dataset_Or_Related_Dataset_Record"/>
 				</methods>
 			</class>
 		</classes>

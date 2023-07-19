@@ -12,7 +12,8 @@
 		<classes>
 			<class name="Test.TransformationRuleTestcases">
 				<methods>
-					<include name="verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Leading_Spaces_On_Transaction_Page"></include>
+					<include
+							name="verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Leading_Spaces_On_Transaction_Page"/>
 				</methods>
 			</class>
 		</classes>
@@ -22,7 +23,8 @@
 		<classes>
 			<class name="Test.TransformationRuleTestcases">
 				<methods>
-					<include name="verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Trailing_Spaces_On_Transaction_Page"></include>
+					<include
+							name="verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Trailing_Spaces_On_Transaction_Page"/>
 				</methods>
 			</class>
 		</classes>
@@ -32,7 +34,8 @@
 		<classes>
 			<class name="Test.TransformationRuleTestcases">
 				<methods>
-					<include name="verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_All_Spaces_On_Transaction_Page"></include>
+					<include
+							name="verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_All_Spaces_On_Transaction_Page"/>
 				</methods>
 			</class>
 		</classes>
@@ -42,7 +45,8 @@
 		<classes>
 			<class name="Test.TransformationRuleTestcases">
 				<methods>
-					<include name="verify_Transformation_Rule_Of_Type_Zero_With_Add_Leading_Zeroes_On_Transaction_Page"></include>
+					<include
+							name="verify_Transformation_Rule_Of_Type_Zero_With_Add_Leading_Zeroes_On_Transaction_Page"/>
 				</methods>
 			</class>
 		</classes>
@@ -52,7 +56,8 @@
 		<classes>
 			<class name="Test.TransformationRuleTestcases">
 				<methods>
-					<include name="verify_Transformation_Rule_Of_Type_Zero_With_Remove_Leading_Zeroes_On_Transaction_Page"></include>
+					<include
+							name="verify_Transformation_Rule_Of_Type_Zero_With_Remove_Leading_Zeroes_On_Transaction_Page"/>
 				</methods>
 			</class>
 		</classes>
@@ -62,7 +67,8 @@
 			<classes>
 				<class name="Test.TransformationRuleTestcases">
 					<methods>
-						<include name="verify_Transformation_Rule_Of_Type_Concatenation_With_Separation_Value_On_Transaction_Page"></include>
+						<include
+								name="verify_Transformation_Rule_Of_Type_Concatenation_With_Separation_Value_On_Transaction_Page"/>
 					</methods>
 				</class>
 			</classes>
@@ -72,7 +78,7 @@
 		<classes>
 			<class name="Test.TransformationRuleTestcases">
 				<methods>
-					<include name="verify_The_Transformation_Rule_Of_Type_Constant_Value_On_Transaction_Page"></include>
+					<include name="verify_The_Transformation_Rule_Of_Type_Constant_Value_On_Transaction_Page"/>
 				</methods>
 			</class>
 		</classes>

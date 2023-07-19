@@ -11,7 +11,7 @@
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
-					<include name="verify_The_User_Should_Be_Able_To_Add_A_New_View_For_The_List_Page"></include>
+					<include name="verify_The_User_Should_Be_Able_To_Add_A_New_View_For_The_List_Page"/>
 				</methods>
 			</class>
 		</classes>
@@ -21,7 +21,7 @@
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
-					<include name="verify_User_Should_Be_Able_To_Select_Multiple_Records_At_A_Time"></include>
+					<include name="verify_User_Should_Be_Able_To_Select_Multiple_Records_At_A_Time"/>
 				</methods>
 			</class>
 		</classes>
@@ -32,7 +32,7 @@
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
-					<include name="verify_User_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page"></include>
+					<include name="verify_User_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page"/>
 				</methods>
 			</class>
 		</classes>
@@ -42,7 +42,7 @@
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
-					<include name="verify_The_User_Should_Be_Able_To_Delete_The_Added_View"></include>
+					<include name="verify_The_User_Should_Be_Able_To_Delete_The_Added_View"/>
 				</methods>
 			</class>
 		</classes>
@@ -52,7 +52,7 @@
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
-					<include name="verify_The_Pagination_On_List_Page_Should_Work_As_Expected"></include>
+					<include name="verify_The_Pagination_On_List_Page_Should_Work_As_Expected"/>
 				</methods>
 			</class>
 		</classes>
@@ -62,7 +62,8 @@
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
-					<include name="verify_The_User_Should_Be_Able_To_View_The_Summary_Of_The_Record_Using_Action_Button_On_The_Records"></include>
+					<include
+							name="verify_The_User_Should_Be_Able_To_View_The_Summary_Of_The_Record_Using_Action_Button_On_The_Records"/>
 				</methods>
 			</class>
 		</classes>
@@ -72,10 +73,11 @@
 		<classes>
 			<class name="Test.ListViewTestcases">
 				<methods>
-					<include name="verify_The_User_Should_Be_Able_To_Download_Template_Of_The_Record_Using_Action_Button_On_The_Records"></include>
+					<include
+							name="verify_The_User_Should_Be_Able_To_Download_Template_Of_The_Record_Using_Action_Button_On_The_Records"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
 
-	</suite> <!-- Suite -->
+	</suite>

@@ -13,8 +13,6 @@ import java.sql.SQLOutput;
 
 public class ProcessLogTestcases extends BasePage {
 
-	// public WebDriver driver;
-	Common common = new Common(driver);
 
 	// MDMF-TC-5192/MDMF-TC-5193/MDMF-TC-5431 TC is available in MaterialMasterTestcases
 	/**
@@ -32,6 +30,7 @@ public class ProcessLogTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		processLog.verify_That_User_Is_Able_To_View_Email_Logs_In_Process_Log();
 	}
+
 	/**
  	*Process Log : To verify that user is able to view the 'View integration log'
  	*
@@ -47,6 +46,7 @@ public class ProcessLogTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		processLog.verify_User_Is_Able_To_View_The_View_Integration_Log();
 	}
+
 	/**
 	 *Process Log : To verify that tooltip is visible for 'Comment' icon in side sheet
 	 *
@@ -93,6 +93,5 @@ public class ProcessLogTestcases extends BasePage {
 		loginPage.initiator_SignIn(env);
 		processLog.verify_Classification_Data_Changes_Maintained_In_The_Process_Log();
 	}
-
 
 }
