@@ -36,7 +36,7 @@ public class ProcessLog extends Locators {
 		common.refreshPage();
 
 		common.pause(5);
-		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.findElement(dataTab).click();
 
 		test.log(LogStatus.INFO, "Step :: click on material master number from left nav");
 		System.out.println("Step :: click on Material master from left nav");
@@ -129,7 +129,7 @@ public class ProcessLog extends Locators {
 		common.refreshPage();
 
 		common.pause(5);
-		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.findElement(dataTab).click();
 
 		test.log(LogStatus.INFO, "Step :: click on material master number from left nav");
 		System.out.println("Step :: click on Material master from left nav");
@@ -189,7 +189,7 @@ public class ProcessLog extends Locators {
 		common.refreshPage();
 
 		common.pause(5);
-		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.findElement(dataTab).click();
 
 		test.log(LogStatus.INFO, "Step :: click on material master number from left nav");
 		System.out.println("Step :: click on Material master from left nav");
@@ -247,7 +247,7 @@ public class ProcessLog extends Locators {
 		common.refreshPage();
 
 		common.pause(5);
-		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.findElement(dataTab).click();
 
 		common.log("Click on Material master from left nav");
 

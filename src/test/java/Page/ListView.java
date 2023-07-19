@@ -47,8 +47,10 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Add_A_New_View_For_The_List_Page() {
 
-		common.pause(5);
+		common.waitForElement(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 		common.pause(5);
@@ -111,8 +113,10 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Select_Multiple_Records_At_A_Time() {
 
-		common.pause(5);
+		common.waitForElement(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
@@ -142,8 +146,10 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page() {
 
-		common.pause(5);
+		common.waitForElement(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
+		common.pause(5);
+		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
@@ -190,7 +196,8 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Delete_The_Added_View() {
 
-		common.pause(5);
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.findElement(dataTab).click();
 
 		common.findElementBy(threeDotsIconForView, "Click on three dots icon at top right corner").click();
@@ -214,9 +221,10 @@ public class ListView extends Locators {
 	 */
 	public void verify_The_Pagination_On_List_Page_Should_Work_As_Expected() {
 
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.pause(10);
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
@@ -251,9 +259,10 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_View_The_Summary_Of_The_Record_Using_Action_Button_On_The_Records() {
 
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
@@ -294,6 +303,8 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Download_Template_Of_The_Record_Using_Action_Button_On_The_Records() {
 
+		common.waitForElement(dataTab);
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 

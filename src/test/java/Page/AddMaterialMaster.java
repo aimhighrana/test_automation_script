@@ -46,6 +46,7 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
+		common.findElement(dataTab).click();
 
 		System.out.println("Step :: Click on Material master from left side menus");
 		common.log("Click on Material master from left side menus");
@@ -249,6 +250,7 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
+		common.findElement(dataTab).click();
 
 		common.waitForElement(search);
 		common.type(search,"Material master");
@@ -443,6 +445,8 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
+		common.findElement(dataTab).click();
+
 
 		System.out.println("Step :: click on Material master from left side menus");
 		common.log("Click on Material master from left side menus");
@@ -519,8 +523,9 @@ public class AddMaterialMaster extends Locators {
 
 		//wait for data tab
 		common.waitForElement(dataTab);
-		common.findElement(dataTab).click();
+		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
+		common.findElement(dataTab).click();
 
 		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
