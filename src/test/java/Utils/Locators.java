@@ -48,7 +48,7 @@ public abstract class Locators extends BasePage {
 	public static String draft = " //button[contains(text(),'Save as draft')]";
 	public static String myRrequestHeader ="//h4[normalize-space()='My requests']";
 	public static String edit = "//button[contains(text(),'Edit')]";
-	public static String materrialMasterRecordOption = "//button[normalize-space()='Material Master - QA']";
+	public static String materialMasterRecordOption = "//button[normalize-space()='Material Master - QA']";
 	public static String statusFilter = "//th[@id='STATUS']//input[@placeholder='Filter']";
 	public static String uSaveBtn = "//span[contains(text(),'Save')]";
 	public static String allerros = "//h4[contains(text(),'All errors')]";
@@ -295,7 +295,6 @@ public abstract class Locators extends BasePage {
 
 	public static String downloadTemplatesOption = "//button[normalize-space()='Download templates']";
 	public static String descriptionOption = "//div[@class='scroll-height']//button[2]";
-
 
 	// Home page
 

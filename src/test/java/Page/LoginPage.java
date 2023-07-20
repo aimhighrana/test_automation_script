@@ -48,6 +48,9 @@ public class LoginPage extends Locators {
 			URL = getPropertyValue("urlSandBox");
 
 		}
+		else if(env.equals("QAA")) {
+			URL = getPropertyValue("urlQAA");
+		}
 		else {
 			URL = getPropertyValue("url");
 
@@ -70,7 +73,33 @@ public class LoginPage extends Locators {
 			driver.findElement(By.xpath(signOut)).click();
 			common.pause(10);
 		}
-		if(env.equals("QAH")) {
+		if(env.equals("QAA")) {
+
+			System.out.println("Step :: Entering username: " + getPropertyValue("qaaReqUserName"));
+			common.log("Entering username: " + getPropertyValue("qaaReqUserName"));
+			common.findElement(userNameField).sendKeys(getPropertyValue("qaaReqUserName"));
+
+			common.pause(10);
+			System.out.println("Step :: Click on continue button");
+			common.log("Click on continue button");
+			common.findElement(continueButton).click();
+			common.pause(5);
+
+			//If Use Password button display then click on that and then entering password
+			if (common.isElementPresent(usePasswordButton)) {
+
+				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+			}
+			common.pause(5);
+			System.out.println("Step :: Entering password:: " + getPropertyValue("qaaReqPassword"));
+			test.log(LogStatus.INFO, "Entering password:: " + getPropertyValue("qaaReqPassword"));
+			common.log("Entering password: " + getPropertyValue("qaaReqPassword"));
+			common.findElement(PasswordField).sendKeys(getPropertyValue("qaaReqPassword"));
+
+			//wait for Data Tab appear
+
+		}
+		else if(env.equals("QAH")) {
 
 			System.out.println("Step :: Entering username: " + getPropertyValue("qahReqUserName"));
 			common.log("Entering username: " + getPropertyValue("qahReqUserName"));
@@ -156,7 +185,8 @@ public class LoginPage extends Locators {
 			common.findElementBy("//p[normalize-space()='QA Sandbox']", "Click on QA sandbox").click();
 		}
 
-		common.waitForElement(dataTab);
+		common.waitForElement(homeTab);
+		common.findElementBy(homeTab,"verify Home page available");
 		test.log(LogStatus.INFO, "Env URL:: " + driver.getCurrentUrl());
 		System.out.println("Step:: Env URL: " + driver.getCurrentUrl());
 		common.log("Env URL: " + driver.getCurrentUrl());
@@ -178,11 +208,29 @@ public class LoginPage extends Locators {
 
 		common.pause(5);
 		common.waitForElement(userNameField);
-		test.log(LogStatus.INFO, "Step :: --- User login as reviewer credentials");
 		System.out.println("Step :: --- User login as reviewer credentials");
 		common.log("--- User login as reviewer credentials");
+		if (env.equals("QAA")) {
+			System.out.println("Step :: Enter value in email field: " + getPropertyValue("qaaRevUserName"));
+			common.log("Enter the value in email field: " + getPropertyValue("qaaRevUserName"));
+			WebElement emailField = driver.findElement(By.xpath(revUsernameField));
+			emailField.sendKeys(getPropertyValue("qaaRevUserName"));
 
-		if (env.equals("QAH")) {
+			WebElement continueBtn = driver.findElement(By.xpath(continueButton));
+			continueBtn.click();
+			common.pause(10);
+			//If Use Password button display then click on that and then entering password
+			if (common.isElementPresent(usePasswordButton)) {
+
+				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+				common.pause(5);
+			}
+			System.out.println("Step :: Entering password: " + getPropertyValue("qaaRevPassword"));
+			common.log("Entering password: " + getPropertyValue("qaaRevPassword"));
+			WebElement passwordField = driver.findElement(By.xpath(PasswordField));
+			passwordField.sendKeys(getPropertyValue("qaaRevPassword"));
+		}
+		else if (env.equals("QAH")) {
 			System.out.println("Step :: Enter value in email field: " + getPropertyValue("qahRevUserName"));
 			common.log("Enter the value in email field: " + getPropertyValue("qahRevUserName"));
 			WebElement emailField = driver.findElement(By.xpath(revUsernameField));

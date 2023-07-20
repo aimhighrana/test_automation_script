@@ -18,10 +18,7 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -172,12 +169,12 @@ public class BasePage implements ITestListener {
 
 		//	MyScreenRecorder.stopRecording();
 
-		//	makeScreenshot(driver, testName);
-		//	Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
-		//	FileOutputStream screenshotStream = new FileOutputStream(img);
-		//	screenshotStream.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
-		//	log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
-		//			+ ".png' height='250' width='500'></img> </a>" + "<br>");
+			makeScreenshot(driver, testName);
+			Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
+			FileOutputStream screenshotStream = new FileOutputStream(img);
+			screenshotStream.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
+			log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
+					+ ".png' height='250' width='500'></img> </a>" + "<br>");
 		}
 		driver.manage().deleteAllCookies();
 		driver.quit();

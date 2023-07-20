@@ -6,7 +6,7 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
-	<parameter name="env" value="QAH" />
+	<parameter name="env" value="QAA" />
 
 	 <test name="verify That In INBOX Folder RecordId Other Data And Functionality Should Be Working Fine">
 		<classes>

@@ -1795,9 +1795,9 @@ common.waitForElement(dropValue);
 			common.findElementBy(sequentialMaterialOption, "Click on sequentialMaterial option").click();
 			common.pause(10);
 		}
-		else if (common.isElementDisplayed(materrialMasterRecordOption))
+		else if (common.isElementDisplayed(materialMasterRecordOption))
 		{
-			common.findElementBy(materrialMasterRecordOption, "Click on material master option").click();
+			common.findElementBy(materialMasterRecordOption, "Click on material master option").click();
 			common.pause(10);
 		}
 

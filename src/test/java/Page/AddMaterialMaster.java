@@ -1001,10 +1001,9 @@ public class AddMaterialMaster extends Locators {
 		}
 		else {
 
-			test.log(LogStatus.INFO, "Step :: Click on material master record role ");
 			System.out.println("Step :: Click on material master record role");
 			common.log("Click on material master workflow role");
-			driver.findElement(By.xpath(materrialMasterRecordOption)).click();
+			driver.findElement(By.xpath(materialMasterRecordOption)).click();
 			common.pause(10);
 			common.waitForElement(headerData);
 			common.pause(10);
@@ -1129,7 +1128,7 @@ public class AddMaterialMaster extends Locators {
 		else {
 			System.out.println("Step :: Click on material workflow");
 			common.log("Click on material workflow");
-			common.findElement(materrialMasterRecordOption).click();
+			common.findElement(materialMasterRecordOption).click();
 			common.pause(5);
 		}
 	//		String rN = driver.findElement(By.xpath(recordno)).getAttribute("value");
@@ -1264,7 +1263,7 @@ public class AddMaterialMaster extends Locators {
 
 		System.out.println("Step :: Click on material workflow");
 		common.log("Click on material workflow");
-		common.findElement(materrialMasterRecordOption).click();
+		common.findElement(materialMasterRecordOption).click();
 		common.pause(40);
 
 		String rN = driver.findElement(By.xpath(recordno)).getAttribute("value");

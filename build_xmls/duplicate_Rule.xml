@@ -6,7 +6,7 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
-	<parameter name="env" value="QAH" />
+	<parameter name="env" value="QAA" />
 
 	 <test name="verify That Exact Fuzzy Match Duplicacy Is Working">
 		<classes>
