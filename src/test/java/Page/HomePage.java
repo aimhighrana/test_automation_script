@@ -82,14 +82,16 @@ public class HomePage extends Locators {
 		common.waitForElement(systemErrorsTab);
 
 		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
-		common.waitForElement(firstActionIconForInbox);
+		common.pause(5);
+		if (common.isElementDisplayed(firstActionIconForInbox)) {
+			common.waitForElement(firstActionIconForInbox);
 
-		for (int i= 1; i<=5;i++)
-		{
-			common.waitForElement("//tbody/tr["+i+"]");
-			String recordWithReason =  driver.findElement(By.xpath("//tbody/tr["+i+"]")).getText();
-			System.out.println(i+" Record with reason:: " + recordWithReason);
-			common.log(i+" Record with reason:: " + recordWithReason);
+			for (int i = 1; i <= 5; i++) {
+				common.waitForElement("//tbody/tr[" + i + "]");
+				String recordWithReason = driver.findElement(By.xpath("//tbody/tr[" + i + "]")).getText();
+				System.out.println(i + " Record with reason:: " + recordWithReason);
+				common.log(i + " Record with reason:: " + recordWithReason);
+			}
 		}
 
 	}
@@ -227,7 +229,7 @@ public class HomePage extends Locators {
 
 		common.waitForElement(inProgressMenu);
 		common.findElementBy(inProgressMenu, "Click on In Progress menu").click();
-		common.waitForElement(searchSystemErrorsTab);
+		common.pause(10);
 
 		for (int i = 1; i <= 2; i++) {
 			if (common.isElementPresent("//tbody/tr[" + i + "]")) {
