@@ -65,7 +65,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -102,7 +102,7 @@ public class ListPageSearch extends Locators {
 		action.sendKeys(Keys.ESCAPE).perform();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
@@ -130,7 +130,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -215,7 +215,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue3 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
@@ -243,7 +243,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -297,7 +297,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -364,7 +364,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue3 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
@@ -392,7 +392,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -444,7 +444,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -477,7 +477,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue3 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
@@ -506,7 +506,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -531,7 +531,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
@@ -565,7 +565,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy("//button[normalize-space()='" + strFilter + "']", "Select last created filter").click();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
@@ -593,7 +593,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -618,7 +618,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
@@ -642,7 +642,7 @@ public class ListPageSearch extends Locators {
 
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
@@ -670,7 +670,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -721,7 +721,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -779,7 +779,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -835,7 +835,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -863,7 +863,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue2 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
 			System.out.println("First value of Material master table:: " + strFirstValue2);
@@ -892,7 +892,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -915,7 +915,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applySearch,"Click on Apply button").click();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
@@ -954,7 +954,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applySearch,"Click on Apply button").click();
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
@@ -992,7 +992,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1017,7 +1017,7 @@ public class ListPageSearch extends Locators {
 		common.type(filterStatusDropdown, "System");
 		common.pause(10);
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
 			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);

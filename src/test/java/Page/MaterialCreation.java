@@ -44,7 +44,7 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 
 		//if Default view not appear them click on view dropdown icon and select Default view
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -174,6 +174,10 @@ public class MaterialCreation extends Locators {
 		if (common.isElementDisplayed(planingCycleField)) {
 			common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
 			common.pause(5);
+			common.findElementBy(addForecastHierarchy,"Click on Add for forecast parameters").click();
+			common.pause(5);
+			common.findElement(applyFilterButton).click();
+			common.pause(10);
 			common.findElementBy(dnuFixedPeriods, "Fill DNU Fixed periods field").sendKeys("5");
 			common.findElementBy(lastForecastField, "Fill last forecast field").sendKeys("10");
 		}
@@ -252,7 +256,7 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -360,6 +364,11 @@ public class MaterialCreation extends Locators {
 		{
 			if (common.isElementDisplayed(planingCycleField)) {
 				common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
+				common.pause(5);
+				common.findElementBy(addForecastHierarchy,"Click on Add for forecast parameters").click();
+				common.pause(5);
+				common.findElement(applyFilterButton).click();
+				common.pause(10);
 				common.findElementBy(dnuFixedPeriods, "Fill DNU Fixed periods field").sendKeys("5");
 				common.findElementBy(lastForecastField, "Fill last forecast field").sendKeys("10");
 			}
@@ -465,7 +474,7 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -542,7 +551,7 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -627,7 +636,7 @@ public class MaterialCreation extends Locators {
 				common.findElementBy(dropValue, "Select value").click();
 
 				common.findElementBy(manufacturerField, "Enter Manufacturer number").sendKeys("54321");
-				common.findElementBy(oldMaterialNumField, "Enter Old material number").sendKeys("12345");
+			//	common.findElementBy(oldMaterialNumField, "Enter Old material number").sendKeys("12345");
 
 				common.findElementBy(approveButtonReviewer, "Click on Approve").click();
 
@@ -667,7 +676,7 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 
 		//if Default view not appear them click on view dropdown icon and select Default view
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1020,7 +1029,7 @@ public class MaterialCreation extends Locators {
 		common.refreshPage();
 		common.waitForElement(dataTab);
 		common.findElement(dataTab).click();
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1045,7 +1054,7 @@ public class MaterialCreation extends Locators {
 		common.refreshPage();
 		common.waitForElement(dataTab);
 		common.findElement(dataTab).click();
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1064,7 +1073,7 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(materialDescReviewer);
 		String strDescription = common.findElementBy(materialDescReviewer,"Get value from material description field").getAttribute("value");
 		common.log("Value of Material description field: "+strDescription);
-
+		System.out.println("Value of Material description field: "+strDescription);
 		boolean b = !strDescription.contains("0");
 		assert b;
 	}
@@ -1073,7 +1082,7 @@ public class MaterialCreation extends Locators {
 		common.refreshPage();
 		common.waitForElement(dataTab);
 		common.findElement(dataTab).click();
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1088,8 +1097,11 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(sequentialMaterialOption, "Click on sequentialMaterial option").click();
 		common.pause(10);
 
+		common.waitForElement(materialDescReviewer);
 		String strDescription = common.findElementBy(materialDescReviewer,"Get value from material description field").getAttribute("value");
 		common.log("Value of Material description field: "+strDescription);
+		System.out.println("Value of Material description field: "+strDescription);
+
 		boolean b = strDescription.contains("QA");
 		assert b;
 	}
@@ -1116,7 +1128,7 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 
 		//if Default view not appear them click on view dropdown icon and select Default view
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1158,13 +1170,14 @@ public class MaterialCreation extends Locators {
 
 			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
 			common.pause(5);
-common.waitForElement(dropValue);
+			common.waitForElement(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
 
 		}
-
+		common.pause(5);
 		if (!common.isElementDisplayed(classField)) {
-			common.findElementBy(generateDesc, "Click on Generate description button").click();
+			common.log("Click on Generate description button");
+			common.jsClick(generateDesc);
 		}
 		common.pause(5);
 		common.findElementBy(classField,"Click on class dropdown").click();
@@ -1209,7 +1222,7 @@ common.waitForElement(dropValue);
 		common.findElement(partNumberLabel).click();
 		common.pause(5);
 
-		common.findElementBy(generateDescriptionLabel, "Click on Generate description button").click();
+		common.findElementBy(generateDescriptionLabel, "Click on Generate description label").click();
 		common.pause(10);
 		String shortDescStr = common.findElement(shortDescriptionField).getAttribute("value");
 		common.log("Short Description auto populate: "+shortDescStr);
@@ -1221,7 +1234,7 @@ common.waitForElement(dropValue);
 
 
 		common.findElementBy(submitBtn, "Click on submit button").click();
-		common.pause(10);
+		common.pause(5);
 
 		common.waitForElement("//div[@class='cdk-overlay-pane']");
 		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
@@ -1252,7 +1265,7 @@ common.waitForElement(dropValue);
 		common.pause(10);
 
 		//if Default view not appear them click on view dropdown icon and select Default view
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1298,7 +1311,9 @@ common.waitForElement(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
 
 		}
-
+		common.pause(5);
+		common.log("Click on Generate description button");
+		common.jsClick(generateDesc);
 		common.waitForElement(classField);
 		common.findElementBy(classField, "Click on class dropdown").click();
 		common.waitForElement(bearingBallClassOption);
@@ -1340,7 +1355,8 @@ common.waitForElement(dropValue);
 		common.findElement(materialDescReviewer).click();
 		common.pause(10);
 
-		common.findElementBy(generateDescriptionLabel, "Click on Generate description button").click();
+		common.log("Click on Generate description button");
+		common.jsClick(generateDesc);
 		common.pause(10);
 		String shortDescStr = common.findElement(shortDescriptionField).getAttribute("value");
 		common.log("Short Description auto populate: " + shortDescStr);
@@ -1383,7 +1399,7 @@ common.waitForElement(dropValue);
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1484,7 +1500,7 @@ common.waitForElement(dropValue);
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1542,9 +1558,13 @@ common.waitForElement(dropValue);
 			if (common.isElementDisplayed(planingCycleField)) {
 				common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
 				common.pause(5);
-//				common.findElementBy(dnuFixedPeriods, "Fill DNU Fixed periods field").sendKeys("5");
-//				common.pause(5);
-//				common.findElementBy(lastForecastField, "Fill last forecast field").sendKeys("10");
+				common.findElementBy(addForecastHierarchy,"Click on Add for forecast parameters").click();
+				common.pause(5);
+				common.findElement(applyFilterButton).click();
+				common.pause(10);
+				common.findElementBy(dnuFixedPeriods, "Fill DNU Fixed periods field").sendKeys("5");
+				common.pause(5);
+				common.findElementBy(lastForecastField, "Fill last forecast field").sendKeys("10");
 			}
 
 		}
@@ -1645,7 +1665,9 @@ common.waitForElement(dropValue);
 			common.log("value of description field: "+value1);
 
 			common.pause(5);
+			//Clicking on Material description label(outside the input field) for applying rule
 			common.findElementBy(materialDescLabel,"Click on material description label").click();
+			common.findElement(materialDescLabel).click();
 			common.pause(5);
 			String value2 = common.findElement(materialDescReviewer).getAttribute("value");
 			System.out.println("new value of description field: "+value2);
@@ -1778,7 +1800,7 @@ common.waitForElement(dropValue);
 		common.refreshPage();
 		common.waitForElement(dataTab);
 		common.findElement(dataTab).click();
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);

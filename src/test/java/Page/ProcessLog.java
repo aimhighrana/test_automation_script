@@ -105,12 +105,12 @@ public class ProcessLog extends Locators {
 
 			System.out.println("Step :: Close View email logs page ");
 			common.log("Close View email logs page ");
-			common.findElement(crossIconViewEmailLogs).click();
+			common.jsClick(crossIconViewEmailLogs);
 
 			System.out.println("Step :: Close process log page ");
 			common.log("Close View process log page ");
 			common.waitForElement(closeIconForProcessLog);
-			common.findElement(closeIconForProcessLog).click();
+			common.jsClick(closeIconForProcessLog);
 		}
 		else {
 			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
@@ -317,9 +317,12 @@ public class ProcessLog extends Locators {
 				common.waitForElement(integrationLogsHeader);
 				common.findElementBy(integrationLogsHeader,"Integration Logs header verified");
 				common.pause(5);
-				common.findElementBy(closeIntegrationLogsView,"Close Integration logs view").click();
+				common.log("close Integration Logs view");
+				common.jsClick(closeIntegrationLogsView);
 				common.pause(5);
-				common.findElementBy(closeIconForProcessLog,"Close Process log view").click();
+				common.log("Close Process log view");
+				common.jsClick(closeIconForProcessLog);
+
 				break;
 			}
 			else
@@ -442,6 +445,14 @@ public class ProcessLog extends Locators {
 		{
 
 			System.out.println("Step :: Something went error appear");
+			System.out.println("Step :: Showing mandatory errors");
+			common.log("Showing mandatory error");
+			List<WebElement> webElements = driver.findElements(By.xpath("//p[@class='small ng-star-inserted']"));
+
+			for (WebElement e : webElements) {
+				System.out.println("Error: " + e.getText());
+				common.log("Error: " + e.getText());
+			}
 			common.refreshPage();
 			common.pause(10);
 			common.findElement(industrySec).click();
@@ -462,7 +473,6 @@ public class ProcessLog extends Locators {
 		common.waitForElement(actionIconForFirstValue);
 		driver.findElement(By.xpath(actionIconForFirstValue)).click();
 
-		test.log(LogStatus.INFO, "Step :: Click on view process log");
 		System.out.println("Step :: Click on viewProcess log");
 		common.log("Click on view Process log");
 		common.waitForElement(viewProcessLogOption);

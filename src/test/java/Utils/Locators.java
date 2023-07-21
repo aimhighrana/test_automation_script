@@ -126,6 +126,8 @@ public abstract class Locators extends BasePage {
 	public static String planingCycleField = "//p[normalize-space()='Planning Cycle']//..//..//..//input";
 	public static String lastForecastField = "//p[normalize-space()='Last forecast']//..//..//..//input";
 	public static String dnuFixedPeriods = "//p[normalize-space()='DNU Fixed periods']//..//..//..//input";
+
+	public static String addForecastHierarchy ="//p[contains(text(),'Forecast Parameters')]//..//..//lib-text-line//..//..//p[contains(text(),'Add')]";
 	public static String unitOfWeightField = "//p[normalize-space()='Unit of Weight']//..//..//div//input";
 	public static String volumeUnitField = "//p[normalize-space()='Volume unit']//..//..//div//input";
 

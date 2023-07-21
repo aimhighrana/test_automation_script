@@ -58,7 +58,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		//if Default view not appear them click on view dropdown icon and select Default view
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -75,7 +75,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 
 		//For SANDBOX perspective
-		if (common.isElementPresent(sequentialMaterialOption))
+		if (common.isElementDisplayed(sequentialMaterialOption))
 		{
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
 			common.pause(5);
@@ -263,7 +263,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		//If default view not appear then it select from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -281,7 +281,7 @@ public class AddMaterialMaster extends Locators {
 		newButton.click();
 		common.pause(5);
 
-		if (common.isElementPresent(sequentialMaterialOption))
+		if (common.isElementDisplayed(sequentialMaterialOption))
 		{
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
 		}
@@ -310,7 +310,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElementBy(generateDesc,"Click on generate description").click();
 		common.findElement(generateDesc).click();
 
-		if (common.isElementPresent(xPlantMaterialStatusField))
+		if (common.isElementDisplayed(xPlantMaterialStatusField))
 		{
 			common.findElementBy(xPlantMaterialStatusField,"Select value from X-Plant Material Status field").click();
 		}
@@ -459,7 +459,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from View dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -490,6 +490,7 @@ public class AddMaterialMaster extends Locators {
 			System.out.println("Step :: click on view change ");
 			common.log("Click on view change");
 			driver.findElement(By.xpath(completedViewProcessLog)).click();
+			common.pause(5);
 			common.waitForElement(headerData);
 			Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
 			test.log(LogStatus.INFO, "Step :: -- Header title is displaying ");
@@ -538,7 +539,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -642,7 +643,7 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed(sequentialHeader))
 		{
 			common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("Material desc 123");
-			common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
+		//	common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
 			common.findElementBy(divisionField,"Select value from Division dropdown").click();
 			common.waitForElement(dropValue);
 			common.findElement(dropValue).click();
@@ -863,7 +864,8 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 		common.waitForElement(lblText);
 
-		driver.findElement(By.xpath(crossIconS)).click();
+		common.jsClick(crossIconS);
+		common.pause(5);
 		common.waitForElement(firstActionIconForInbox);
 		common.findElement(firstActionIconForInbox).click();
 
@@ -970,7 +972,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1101,7 +1103,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1158,7 +1160,7 @@ public class AddMaterialMaster extends Locators {
 		}
 		String valD = "";
 
-		if (common.isElementPresent(valuationD)) {
+		if (common.isElementDisplayed(valuationD)) {
 			boolean valData = driver.findElement(By.xpath(valuationD)).isDisplayed();
 			if (valData == true) {
 				valD = driver.findElement(By.xpath(valuationD)).getText();
@@ -1189,7 +1191,7 @@ public class AddMaterialMaster extends Locators {
 			assertEquals(plD, nPlantD);
 
 
-			if (common.isElementPresent(valuationD)) {
+			if (common.isElementDisplayed(valuationD)) {
 				String nValuationD = driver.findElement(By.xpath(valuationD)).getText();
 				test.log(LogStatus.INFO, "Step :: New form valuation record field ==>" + nValuationD);
 				System.out.println("Step :: New form valuation record field ==>" + nValuationD);
@@ -1241,7 +1243,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -1291,7 +1293,7 @@ public class AddMaterialMaster extends Locators {
 		}
 		String valD = "";
 
-		if (common.isElementPresent(valuationD)) {
+		if (common.isElementDisplayed(valuationD)) {
 			boolean valData = driver.findElement(By.xpath(valuationD)).isDisplayed();
 			if (valData == true) {
 				valD = driver.findElement(By.xpath(valuationD)).getText();
@@ -1351,7 +1353,7 @@ public class AddMaterialMaster extends Locators {
 			assertEquals(plD, nPlantD);
 
 
-			if (common.isElementPresent(valuationD)) {
+			if (common.isElementDisplayed(valuationD)) {
 				String nValuationD = driver.findElement(By.xpath(valuationD)).getText();
 				test.log(LogStatus.INFO, "Step :: New form valuation record field ==>" + nValuationD);
 				System.out.println("Step :: New form valuation record field ==>" + nValuationD);
@@ -1546,7 +1548,7 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed(sequentialHeader))
 		{
 			common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("Material desc 123");
-			common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
+		//	common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
 			common.findElementBy(divisionField,"Select value from Division dropdown").click();
 			common.waitForElement(dropValue);
 			common.findElement(dropValue).click();

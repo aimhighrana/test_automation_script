@@ -86,7 +86,7 @@ public class LoginPage extends Locators {
 			common.pause(5);
 
 			//If Use Password button display then click on that and then entering password
-			if (common.isElementPresent(usePasswordButton)) {
+			if (common.isElementDisplayed(usePasswordButton)) {
 
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 			}
@@ -112,7 +112,7 @@ public class LoginPage extends Locators {
 			common.pause(5);
 
 			//If Use Password button display then click on that and then entering password
-			if (common.isElementPresent(usePasswordButton)) {
+			if (common.isElementDisplayed(usePasswordButton)) {
 
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 			}
@@ -137,7 +137,7 @@ public class LoginPage extends Locators {
 			common.pause(5);
 
 			//If Use Password button display then click on that and then entering password
-			if (common.isElementPresent(usePasswordButton)) {
+			if (common.isElementDisplayed(usePasswordButton)) {
 
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 			}
@@ -162,7 +162,7 @@ public class LoginPage extends Locators {
 			common.pause(5);
 
 			//If Use Password button display then click on that and then entering password
-			if (common.isElementPresent(usePasswordButton)) {
+			if (common.isElementDisplayed(usePasswordButton)) {
 
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 			}
@@ -220,7 +220,7 @@ public class LoginPage extends Locators {
 			continueBtn.click();
 			common.pause(10);
 			//If Use Password button display then click on that and then entering password
-			if (common.isElementPresent(usePasswordButton)) {
+			if (common.isElementDisplayed(usePasswordButton)) {
 
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 				common.pause(5);
@@ -240,7 +240,7 @@ public class LoginPage extends Locators {
 			continueBtn.click();
 			common.pause(10);
 			//If Use Password button display then click on that and then entering password
-			if (common.isElementPresent(usePasswordButton)) {
+			if (common.isElementDisplayed(usePasswordButton)) {
 
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 				common.pause(5);
@@ -261,7 +261,7 @@ public class LoginPage extends Locators {
 			continueBtn.click();
 			common.pause(10);
 			//If Use Password button display then click on that and then entering password
-			if (common.isElementPresent(usePasswordButton)) {
+			if (common.isElementDisplayed(usePasswordButton)) {
 
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 				common.pause(5);
@@ -284,7 +284,7 @@ public class LoginPage extends Locators {
 			continueBtn.click();
 			common.pause(10);
 			//If Use Password button display then click on that and then entering password
-			if (common.isElementPresent(usePasswordButton)) {
+			if (common.isElementDisplayed(usePasswordButton)) {
 
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 				common.pause(5);

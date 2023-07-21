@@ -57,9 +57,9 @@ public class ListView extends Locators {
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
-
+		 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -83,9 +83,10 @@ public class ListView extends Locators {
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
 
-		common.assertElementPresent("//h4[normalize-space()='Material Master - " + viewStr + "']");
+		common.findElementBy("//h4[normalize-space()='Material Master - " + viewStr + "']","Verified view");
 
-		if (common.isElementPresent(firstValueMaterialMaster)) {
+
+		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
@@ -124,7 +125,7 @@ public class ListView extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -159,7 +160,7 @@ public class ListView extends Locators {
 
 		common.pause(10);
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -181,7 +182,7 @@ public class ListView extends Locators {
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
 
-		if (common.isElementPresent("//h4[normalize-space()='Material Master - " + viewStr + "']")) {
+		if (common.isElementDisplayed("//h4[normalize-space()='Material Master - " + viewStr + "']")) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
@@ -232,7 +233,7 @@ public class ListView extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -270,7 +271,7 @@ public class ListView extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
@@ -315,7 +316,7 @@ public class ListView extends Locators {
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
-		if (!common.isElementPresent(defaultView)) {
+		if (!common.isElementDisplayed(defaultView)) {
 
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
