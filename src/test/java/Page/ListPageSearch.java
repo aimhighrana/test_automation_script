@@ -266,7 +266,7 @@ public class ListPageSearch extends Locators {
 		driver.findElement(By.xpath(filterModifiedByDropdown)).click();
 //		common.findElementBy(filterModifiedByDropdown, "Click on Modified By filter dropdown and Enter Reviewer")
 //				.click();
-		common.pause(50);
+		common.pause(10);
 		common.type(filterModifiedByDropdown, "Reviewer");
 		common.pause(10);
 

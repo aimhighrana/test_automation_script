@@ -427,7 +427,7 @@ public class ProcessLog extends Locators {
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
 		driver.findElement(By.xpath(uSaveBtn)).click();
-		common.pause(20);
+		common.pause(10);
 
 		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
@@ -453,7 +453,7 @@ public class ProcessLog extends Locators {
 			System.out.println("Step :: Click on save button");
 			common.log("Click on save button");
 			driver.findElement(By.xpath(uSaveBtn)).click();
-			common.pause(40);
+			common.pause(10);
 		}
 		else {
 

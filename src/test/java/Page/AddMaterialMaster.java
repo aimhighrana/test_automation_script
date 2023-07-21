@@ -409,7 +409,7 @@ public class AddMaterialMaster extends Locators {
 			common.log("click on submit button");
 			common.findElement(submitBtn).click();
 
-			common.pause(40);
+			common.pause(10);
 		}
 		else {
 
@@ -1028,7 +1028,7 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
 		driver.findElement(By.xpath(uSaveBtn)).click();
-		common.pause(80);
+		common.pause(10);
 
 		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
 		if (common.isElementDisplayed(duplicateRecordHeader)) {
@@ -1053,7 +1053,7 @@ public class AddMaterialMaster extends Locators {
 			System.out.println("Step :: Click on save button");
 			common.log("Click on save button");
 			driver.findElement(By.xpath(uSaveBtn)).click();
-			common.pause(40);
+			common.pause(10);
 		}
 		else {
 
@@ -1264,7 +1264,7 @@ public class AddMaterialMaster extends Locators {
 		System.out.println("Step :: Click on material workflow");
 		common.log("Click on material workflow");
 		common.findElement(materialMasterRecordOption).click();
-		common.pause(40);
+		common.pause(10);
 
 		String rN = driver.findElement(By.xpath(recordno)).getAttribute("value");
 		System.out.println("Step:: Record number is == > " + rN);

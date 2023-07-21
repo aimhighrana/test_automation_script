@@ -173,7 +173,7 @@ public class MaterialCreation extends Locators {
 
 		if (common.isElementDisplayed(planingCycleField)) {
 			common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
-			common.pause(50);
+			common.pause(5);
 			common.findElementBy(dnuFixedPeriods, "Fill DNU Fixed periods field").sendKeys("5");
 			common.findElementBy(lastForecastField, "Fill last forecast field").sendKeys("10");
 		}
