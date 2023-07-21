@@ -107,8 +107,10 @@ public class HomePage extends Locators {
 		common.waitForElement(systemErrorsTab);
 
 		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
+		common.pause(5);
 		common.waitForElement(searchSystemErrorsTab);
 
+		common.waitForElement("//tbody/tr[1]");
 		String integrationRecordWithReason = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
 		System.out.println("Integration first record with reason:: " + integrationRecordWithReason);
 		common.log("Integration first record with reason:: " + integrationRecordWithReason);
@@ -234,6 +236,7 @@ public class HomePage extends Locators {
 		common.findElementBy(inProgressMenu, "Click on In Progress menu").click();
 		common.pause(10);
 
+		common.waitForElement(firstActionIconForInbox);
 		for (int i = 1; i <= 2; i++) {
 			if (common.isElementDisplayed("//tbody/tr[" + i + "]")) {
 				String firstRecord = driver.findElement(By.xpath("//tbody/tr[" + i + "]")).getText();

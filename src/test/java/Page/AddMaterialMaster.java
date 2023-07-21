@@ -489,7 +489,7 @@ public class AddMaterialMaster extends Locators {
 
 			System.out.println("Step :: click on view change ");
 			common.log("Click on view change");
-			driver.findElement(By.xpath(completedViewProcessLog)).click();
+			common.jsClick(completedViewProcessLog);
 			common.pause(5);
 			common.waitForElement(headerData);
 			Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
@@ -839,7 +839,8 @@ public class AddMaterialMaster extends Locators {
 			}
 
 		common.pause(10);
-		common.findElementBy(crossIconS,"Click on close icon").click();
+			common.log("Click on close icon");
+			common.jsClick(crossIconS);
 
 		common.waitForElement(firstActionIconForInbox);
 		common.findElement(firstActionIconForInbox).click();

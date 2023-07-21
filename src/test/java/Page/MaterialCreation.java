@@ -171,7 +171,7 @@ public class MaterialCreation extends Locators {
 			}
 		}
 
-		if (common.isElementDisplayed(planingCycleField)) {
+		if (common.isElementPresent(planingCycleField)) {
 			common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
 			common.pause(5);
 			common.findElementBy(addForecastHierarchy,"Click on Add for forecast parameters").click();
@@ -362,7 +362,7 @@ public class MaterialCreation extends Locators {
 
 		if (common.isElementDisplayed(sequentialHeader))
 		{
-			if (common.isElementDisplayed(planingCycleField)) {
+			if (common.isElementPresent(planingCycleField)) {
 				common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
 				common.pause(5);
 				common.findElementBy(addForecastHierarchy,"Click on Add for forecast parameters").click();
@@ -1175,10 +1175,9 @@ public class MaterialCreation extends Locators {
 
 		}
 		common.pause(5);
-		if (!common.isElementDisplayed(classField)) {
 			common.log("Click on Generate description button");
 			common.jsClick(generateDesc);
-		}
+
 		common.pause(5);
 		common.findElementBy(classField,"Click on class dropdown").click();
 		common.waitForElement(bearingBallClassOption);
@@ -1555,7 +1554,7 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(applyFilterButton,"Click on apply button").click();
 			common.pause(5);
 
-			if (common.isElementDisplayed(planingCycleField)) {
+			if (common.isElementPresent(planingCycleField)) {
 				common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
 				common.pause(5);
 				common.findElementBy(addForecastHierarchy,"Click on Add for forecast parameters").click();
