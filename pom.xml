@@ -224,7 +224,6 @@
 				<artifactId>qa-parse-maven-plugin</artifactId>
 				<version>1.5.2</version>
 				<executions>
-
 					<execution>
 						<phase>integration-test</phase>
 						<configuration>
