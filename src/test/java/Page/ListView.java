@@ -105,7 +105,6 @@ public class ListView extends Locators {
 
 		System.out.println("First value of Material master table:: " + strFirstValue);
 		common.log("First value of Material master table:: " + strFirstValue);
-
 	}
 
 	/**

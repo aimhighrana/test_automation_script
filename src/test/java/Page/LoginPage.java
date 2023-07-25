@@ -30,6 +30,12 @@ public class LoginPage extends Locators {
 	Properties obj = new Properties();
 
 
+	/**
+	 * Verifyf Login Page Driver
+	 *
+	 * @param driver
+	 * @throws FileNotFoundException
+	 */
 	public LoginPage(WebDriver driver) throws FileNotFoundException {
 		// driver = d;
 		super(driver);
@@ -73,6 +79,11 @@ public class LoginPage extends Locators {
 			driver.findElement(By.xpath(signOut)).click();
 			common.pause(10);
 		}
+
+		/**
+		 * For QAA Environment
+		 *
+		 */
 		if(env.equals("QAA")) {
 
 			System.out.println("Step :: Entering username: " + getPropertyValue("qaaReqUserName"));
@@ -99,6 +110,11 @@ public class LoginPage extends Locators {
 			//wait for Data Tab appear
 
 		}
+
+		/**
+		 * For QAH Environment
+		 *
+		 */
 		else if(env.equals("QAH")) {
 
 			System.out.println("Step :: Entering username: " + getPropertyValue("qahReqUserName"));
@@ -125,6 +141,11 @@ public class LoginPage extends Locators {
 			//wait for Data Tab appear
 
 		}
+
+		/**
+		 * For QAR Environment
+		 *
+		 */
 		else if(env.equals("QAR")){
 			System.out.println("Step :: Entering username: " + getPropertyValue("qarReqUserName"));
 			common.log("Entering username: " + getPropertyValue("qarReqUserName"));
@@ -150,6 +171,11 @@ public class LoginPage extends Locators {
 			//wait for Data Tab appear
 
 		}
+
+		/**
+		 * For SAND Environment
+		 *
+		 */
 		else if(env.equals("SAND")){
 			System.out.println("Step :: Entering username: " + getPropertyValue("sandBoxReqUserName"));
 			common.log("Entering username: " + getPropertyValue("sandBoxReqUserName"));
@@ -372,8 +398,6 @@ public class LoginPage extends Locators {
 		common.pause(10);
 		common.findElement(continueButton).click();
 		common.pause(10);
-
-		
 		test.log(LogStatus.INFO, "Enter value in email field");
 		System.out.println("Step :: Enter value in email field");
 		common.log("Enter the value in email field");
@@ -403,7 +427,6 @@ public class LoginPage extends Locators {
 		common.log("Click on PROD");
 		common.waitForElement(prodEnv);
 		driver.findElement(By.xpath(prodEnv)).click();
-
 	}
 
 }
