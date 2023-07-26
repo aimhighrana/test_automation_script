@@ -226,6 +226,7 @@
 								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>
 								<!--this Process_Log xml include all the test regarding View Process Log functionality-->
 								<suiteXmlFile>build_xmls/process_Log.xml</suiteXmlFile>
+
 							</suiteXmlFiles>
 							<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
 						</configuration>
