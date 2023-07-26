@@ -32,7 +32,6 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		test.log(LogStatus.INFO, "click on Material master from left nav");
 		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 		common.waitForElement(search);
