@@ -20,7 +20,7 @@ public class TransformationRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Leading_Spaces_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-TC-6808");
+		log("Testcase:QAA-TC-50");
 		log("Pre condition: Transformation Rule must be configured with remove leading spaces option for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
@@ -38,7 +38,7 @@ public class TransformationRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Trailing_Spaces_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-TC-6809");
+		log("Testcase:QAA-TC-51");
 		log("Pre condition: Transformation Rule must be configured with remove trailing spaces option for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
@@ -56,7 +56,7 @@ public class TransformationRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_All_Spaces_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-TC-6810");
+		log("Testcase:QAA-TC-52");
 		log("Pre condition: Transformation Rule must be configured with remove all spaces option for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
@@ -74,7 +74,7 @@ public class TransformationRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Transformation_Rule_Of_Type_Zero_With_Add_Leading_Zeroes_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-TC-6813");
+		log("Testcase:QAA-TC-53");
 		log("Pre condition: Transformation Rule must be configured with Add leading zeros option");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
@@ -93,7 +93,7 @@ public class TransformationRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Transformation_Rule_Of_Type_Zero_With_Remove_Leading_Zeroes_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-TC-6814");
+		log("Testcase:QAA-TC-54");
 		log("Pre condition: Transformation Rule must be configured with Add leading zeros option");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
@@ -112,7 +112,7 @@ public class TransformationRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Transformation_Rule_Of_Type_Concatenation_With_Separation_Value_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-TC-6864/MDMF-TC-6865");
+		log("Testcase:QAA-TC-66/QAA-TC-67");
 		log("Pre condition: Transformation Rule must be configured with Type of Concatenation with Separation option: field1: Material description, field2: Gross weight, field3: Authorization group, Target Field: Volume");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
@@ -130,7 +130,7 @@ public class TransformationRuleTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_The_Transformation_Rule_Of_Type_Constant_Value_On_Transaction_Page(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-TC-6870");
+		log("Testcase:QAA-TC-71");
 		log("Pre condition: Transformation Rule must be configured with Constant Value for Material description field: QA");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
 		loginPage.goToURL(env);
