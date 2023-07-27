@@ -25,7 +25,7 @@ public class ProcessLogTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_User_Is_Able_To_View_Email_Logs_When_Email_Notification_Is_Configured(String env) throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase:MDMF-TC-12/MDMF-TC-13/MDMF-TC-46/MDMF-TC-268/MDMF-TC-270");
+		log("Testcase:QAA-TC-12/QAA-TC-13/QAA-TC-46/QAA-TC-268/QAA-TC-270");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		processLog.verify_That_User_Is_Able_To_View_Email_Logs_In_Process_Log();
