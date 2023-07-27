@@ -216,6 +216,11 @@ public class LoginPage extends Locators {
 			common.findElementBy("//p[normalize-space()='QA Sandbox']", "Click on QA sandbox").click();
 		}
 
+		if (common.isElementDisplayed("//p[normalize-space()='Tenant 1']"))
+		{
+			common.findElementBy("//p[normalize-space()='Tenant 1']","Select Tenant 1").click();
+		}
+
 		common.waitForElement(homeTab);
 		common.findElementBy(homeTab,"verify Home page appear");
 		test.log(LogStatus.INFO, "Env URL:: " + driver.getCurrentUrl());
