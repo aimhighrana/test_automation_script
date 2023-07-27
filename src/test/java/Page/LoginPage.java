@@ -224,7 +224,7 @@ public class LoginPage extends Locators {
 		common.waitForElement(homeTab);
 		common.findElementBy(homeTab,"verify Home page appear");
 		test.log(LogStatus.INFO, "Env URL:: " + driver.getCurrentUrl());
-		System.out.println("Step:: Env URL: " + driver.getCurrentUrl());
+		System.out.println("Step :: Env URL: " + driver.getCurrentUrl());
 		common.log("Env URL: " + driver.getCurrentUrl());
 
 	}

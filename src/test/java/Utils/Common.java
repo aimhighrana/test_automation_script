@@ -140,7 +140,7 @@ public class Common extends Locators {
 
 		String locator;
 
-		System.out.println("Step:: " +msg+"\n");
+		System.out.println("Step :: " +msg+"\n");
 		log(msg);
 
 		locator = elementName;

@@ -485,7 +485,7 @@ public class MaterialCreation extends Locators {
 		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
 		common.pause(10);
 		String mmN = driver.findElement(By.xpath(materialMasterNum)).getText();
-		System.out.println("Step:: Material master number is ::" + mmN);
+		System.out.println("Step :: Material master number is ::" + mmN);
 
 		common.pause(10);
 		driver.findElement(By.xpath(actionIconForFirstValue)).click();

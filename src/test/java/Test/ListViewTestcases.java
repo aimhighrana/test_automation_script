@@ -32,7 +32,7 @@ public class ListViewTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_The_User_Should_Be_Able_To_Add_A_New_View_For_The_List_Page(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-TC-1671/MDMF-TC-1672--/MDMF-TC-1673--/MDMF-TC-8534");
+		log("Testcase:QAA-TC-233/MDMF-TC-1672/MDMF-TC-1673");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Add_A_New_View_For_The_List_Page();
@@ -65,7 +65,7 @@ public class ListViewTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_The_User_Should_Be_Able_To_Delete_The_Added_View(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-TC-1697/MDMF-TC-8535");
+		log("Testcase:MDMF-TC-1697/QAA-TC-234");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listView.user_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page();
