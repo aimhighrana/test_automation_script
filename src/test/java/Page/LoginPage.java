@@ -210,6 +210,7 @@ public class LoginPage extends Locators {
 		common.log("Click on login button");
 		common.findElement(loginBtn).click();
 		common.pause(5);
+		common.waitForElement("(//div[@class='mat-list-item-content'])[1]");
 
 		if (common.isElementDisplayed("//p[normalize-space()='QA Sandbox']"))
 		{
