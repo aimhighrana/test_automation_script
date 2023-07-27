@@ -188,7 +188,7 @@ public class BasePage implements ITestListener {
 		String nameWithExtention = screenshotName + ".png";
 		// Copy screenshot to specific folder
 		try {
-			String reportFolder = "target" + File.separator + "surefire-reports" + File.separator;
+			String reportFolder = "target" + File.separator + "test-output" + File.separator;
 			File screenshotFolder = new File(reportFolder);
 			if (!screenshotFolder.getAbsoluteFile().exists()) {
 				screenshotFolder.mkdir();

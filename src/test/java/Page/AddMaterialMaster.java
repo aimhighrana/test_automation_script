@@ -1113,7 +1113,7 @@ public class AddMaterialMaster extends Locators {
 
 		}
 		String mmN = driver.findElement(By.xpath(materialMasterNum)).getText();
-		System.out.println("Step:: Material master number is ::" + mmN);
+		System.out.println("Step :: Material master number is ::" + mmN);
 
 		common.pause(10);
 		driver.findElement(By.xpath(actionIconForFirstValue)).click();
@@ -1135,14 +1135,14 @@ public class AddMaterialMaster extends Locators {
 			common.pause(5);
 		}
 	//		String rN = driver.findElement(By.xpath(recordno)).getAttribute("value");
-	//		System.out.println("Step:: Record number is == > " + rN);
+	//		System.out.println("Step :: Record number is == > " + rN);
 	//		common.log("Record number is == > " + rN);
 	//		assertEquals(rN, mmN);
 
 		common.waitForElement(plantD);
 		String plantData = driver.findElement(By.xpath(plantD)).getText();
 		test.log(LogStatus.INFO, "Step :: Field records" + plantData);
-		System.out.println("Step:: Field records :" + plantData);
+		System.out.println("Step :: Field records :" + plantData);
 
 		// verifying records fields
 		String plD = "";
@@ -1166,7 +1166,7 @@ public class AddMaterialMaster extends Locators {
 			if (valData == true) {
 				valD = driver.findElement(By.xpath(valuationD)).getText();
 				test.log(LogStatus.INFO, "Step :: valuation records is displayed: " + valD);
-				System.out.println("Step:: valuation records is displayed: " + valD);
+				System.out.println("Step :: valuation records is displayed: " + valD);
 				common.log("valuation records is displayed: " + valD);
 			}
 		}
@@ -1270,13 +1270,13 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		String rN = driver.findElement(By.xpath(recordno)).getAttribute("value");
-		System.out.println("Step:: Record number is == > " + rN);
+		System.out.println("Step :: Record number is == > " + rN);
 		common.log("Record number is == > " + rN);
 		assertEquals(rN, mmN);
 
 		String plantData = driver.findElement(By.xpath(plantD)).getText();
 		test.log(LogStatus.INFO, "Step :: Field records" + plantData);
-		System.out.println("Step:: Field records :" + plantData);
+		System.out.println("Step :: Field records :" + plantData);
 
 		// verifying records fields
 		String plD = "";
@@ -1299,7 +1299,7 @@ public class AddMaterialMaster extends Locators {
 			if (valData == true) {
 				valD = driver.findElement(By.xpath(valuationD)).getText();
 				test.log(LogStatus.INFO, "Step :: valuation records is displayed: " + valD);
-				System.out.println("Step:: valuation records is displayed: " + valD);
+				System.out.println("Step :: valuation records is displayed: " + valD);
 				common.log("valuation records is displayed: " + valD);
 			}
 		}

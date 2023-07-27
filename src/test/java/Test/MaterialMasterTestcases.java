@@ -51,7 +51,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void view_Process_Log(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:Add new material master record and check process log: MDMF-TC-8405");
+		log("Testcase:Add new material master record and check process log: QAA-TC-127");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.addNewMaterialMaster();
@@ -69,7 +69,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Approve_Status_From_Reviewer(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:Add new material master record and approve from Reviewer side: MDMF-TC-8401/MDMF-TC-8402");
+		log("Testcase:Add new material master record and approve from Reviewer side: QAA-TC-123/QAA-TC-124");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.addNewMaterialMaster();
@@ -89,7 +89,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Approve_Status_From_Approver(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:Add new material master record and approve from Approver side: MDMF-TC-8404");
+		log("Testcase:Add new material master record and approve from Approver side: QAA-TC-126");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.addNewMaterialMaster();
@@ -107,7 +107,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Claim_Status(String env) throws InterruptedException, IOException, Exception {
-		log("TC --MDMF-TC-8371--/MDMF-TC-8372");
+		log("Testcase:	MDMF-TC-98/QAA-TC-99");
 		log("Testcase:Add new material master record and Claim status from reviewer");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
@@ -146,7 +146,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Change(String env) throws Exception{
-		log("Testcase:Verify edit and update existing record: MDMF-TC-8399/MDMF-TC-8400/MDMF-TC-8403");
+		log("Testcase:Verify edit and update existing record: QAA-TC-121/QAA-TC-122/QAA-TC-125");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.doUpdate();
@@ -162,7 +162,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Copy_Record_And_Approve_From_Reviewer(String env) throws Exception {
-		log("Testcase:Verify copy record and approve from reviewer: MDMF-TC-8418/MDMF-TC-8419/MDMF-TC-8422/MDMF-TC-8423");
+		log("Testcase:Verify copy record and approve from reviewer: QAA-TC-129/QAA-TC-130/QAA-TC-132/QAA-TC-133");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.createMaterialMasterWithGenerateDesc();
@@ -181,7 +181,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Copy_Record_If_User_Remove_One_Child_Hierarchy_Other_Child_Hierarchies_Should_Not_Get_Removed(String env) throws Exception {
-		log("Testcase:MDMF-TC-8427/MDMF-TC-8428/MDMF-TC-8582/MDMF-TC-8699");
+		log("Testcase:QAA-TC-137/QAA-TC-138/QAA-TC-255/QAA-TC-266");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.createMaterialMasterWithGenerateDesc();
@@ -198,7 +198,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void add_New_Material_Master_With_Generate_Description(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:Add new material master record with description/MDMF-TC-6195");
+		log("Testcase:Add new material master record with description/QAA-TC-32");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.createMaterialMasterWithGenerateDesc();
@@ -214,7 +214,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Claim_UnClaim_Status(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:Add new material master record and Verify un-claim status from reviewer/MDMF-TC-5192/MDMF-TC-5193/MDMF-TC-5431");
+		log("Testcase:Add new material master record and Verify un-claim status from reviewer/QAA-TC-19/QAA-TC-20/MDMF-TC-21");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.addNewMaterialMaster();
@@ -253,7 +253,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Copy_Record_And_Rejection_Flow_For_New_Record(String env) throws Exception {
-		log("Testcase:Verify Copy record and Reject the flow from Approver: MDMF-TC-8424");
+		log("Testcase:Verify Copy record and Reject the flow from Approver: QAA-TC-134");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.addNewMaterialMaster();
@@ -271,7 +271,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Reapproving_Rejected_Task_From_Initiator_final_Approver_Approval(String env) throws Exception{
-		log("Testcase:Reapproving rejected task from Initiator & final approver approval: MDMF-TC-8425");
+		log("Testcase:Reapproving rejected task from Initiator & final approver approval: QAA-TC-135");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.addNewMaterialMaster();
@@ -292,7 +292,7 @@ public class MaterialMasterTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_User_Is_Able_To_View_The_Process_Logs_Summary_After_Final_Approval(String env) throws InterruptedException, IOException {
-		log("Testcase:MDMF-TC-8405");
+		log("Testcase:QAA-TC-127");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		materialmaster.addNewMaterialMaster();

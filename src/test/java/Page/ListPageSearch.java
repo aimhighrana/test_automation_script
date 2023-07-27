@@ -547,8 +547,8 @@ public class ListPageSearch extends Locators {
 
 		String strFilter = common.generateRandomChars(5);
 
-		System.out.println("Step:: Enter filter name in input field: " + strFilter);
-		common.log("Step:: Enter filter name in input field: " + strFilter);
+		System.out.println("Step :: Enter filter name in input field: " + strFilter);
+		common.log("Step :: Enter filter name in input field: " + strFilter);
 		common.type(filterNameInput, strFilter);
 
 		common.findElementBy(saveButtonFilterPopup, "Click on Save button in popup").click();
@@ -634,8 +634,8 @@ public class ListPageSearch extends Locators {
 
 		String strFilter = common.generateRandomChars(5);
 
-		System.out.println("Step:: Enter filter name in input field: " + strFilter);
-		common.log("Step:: Enter filter name in input field: " + strFilter);
+		System.out.println("Step :: Enter filter name in input field: " + strFilter);
+		common.log("Step :: Enter filter name in input field: " + strFilter);
 		common.type(filterNameInput, strFilter);
 
 		common.findElementBy(cancelButtonFilterPopup, "Click on Cancel button in popup").click();

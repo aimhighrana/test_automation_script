@@ -31,7 +31,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Search_CreatedModified_On_Date_In_The_Column_Filter(String env) throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase: MDMF-TC-6196/MDMF-TC-1279");
+		log("Testcase: QAA-TC-1/QAA-TC-33");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listPageSearch.user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
@@ -45,7 +45,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Search_Based_On_MatrialDesc_Group_Type_Industry_Sector_BaseUnitOfMeasure_In_The_Column_Filter(String env)
 			throws InterruptedException, IOException, Exception {
-		log("Testcase: MDMF-TC-6197/MDMF-TC-6205");
+		log("Testcase: QAA-TC-34/QAA-TC-35");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listPageSearch.user_AbleToSearch_BasedOn_MaterialDesc_Group_Type_Indus_BaseUnitOfMeasure_In_Column_Filter();
@@ -92,7 +92,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_User_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search(String env)
 			throws InterruptedException, IOException, Exception {
-		log("Testcase: MDMF-TC-6210");
+		log("Testcase: QAA-TC-36");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listPageSearch.user_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search();
@@ -128,7 +128,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_User_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches(String env)
 			throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase: MDMF-TC-6215");
+		log("Testcase: QAA-TC-37");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listPageSearch.user_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches();
@@ -142,7 +142,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields(String env)
 			throws InterruptedException, IOException, Exception {
-		log("Testcase: MDMF-TC-6216");
+		log("Testcase: QAA-TC-38");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listPageSearch.column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields();
@@ -167,7 +167,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters(String env)
 			throws InterruptedException, IOException, Exception {
-		log("Testcase: MDMF-TC-6218");
+		log("Testcase: QAA-TC-39");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listPageSearch.verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters();
@@ -181,7 +181,7 @@ public class ListPageSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_User_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field(String env)
 			throws InterruptedException, IOException, Exception {
-		log("Testcase: MDMF-TC-7338");
+		log("Testcase: QAA-TC-90");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		listPageSearch.user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field();
