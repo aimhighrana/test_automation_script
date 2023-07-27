@@ -182,6 +182,7 @@ public class BasePage implements ITestListener {
 	}
 
 	public void makeScreenshot(WebDriver driver, String screenshotName) {
+
 		WebDriver augmentedDriver = new Augmenter().augment(driver);
 		// Take a screenshot
 		File screenshot = ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);
