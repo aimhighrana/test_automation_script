@@ -65,7 +65,8 @@ public class Common extends Locators {
 		String locator;
 
 		locator = elementName;
-
+		WebElement ele = driver.findElement(By.xpath(locator));
+		highlightElement(ele);
 		int count = 0;
 		while (count < 4) {
 			try {
@@ -143,6 +144,8 @@ public class Common extends Locators {
 		log(msg);
 
 		locator = elementName;
+		WebElement ele = driver.findElement(By.xpath(locator));
+		highlightElement(ele);
 
 		int count = 0;
 		while (count < 4) {
@@ -213,7 +216,10 @@ public class Common extends Locators {
 		return null;
 
 	}
-
+	public void highlightElement(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].style.border='4px solid yellow'", element);
+	}
 
 	public void expandingHeadData() {
 		
