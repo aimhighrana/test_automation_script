@@ -41,7 +41,7 @@ public class ProcessLogTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_User_Is_Able_To_View_The_View_Integration_Log(String env) throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase:MDMF-TC-5185/MDMF-TC-5187/");
+		log("Testcase:QAA-TC-14/QAA-TC-15");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		processLog.verify_User_Is_Able_To_View_The_View_Integration_Log();
@@ -57,7 +57,7 @@ public class ProcessLogTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_Tooltip_Is_Visible_For_Comment_Icon_In_Side_Sheet(String env) throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase:MDMF-TC-5188");
+		log("Testcase:QAA-TC-16");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		processLog.verify_Tooltip_Is_Visible_For_Comment_Icon_In_Side_Sheet();
@@ -73,7 +73,7 @@ public class ProcessLogTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_That_Tooltip_Is_Visible_For_External_Icon_In_Sidesheet(String env) throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase:MDMF-TC-5189");
+		log("Testcase:QAA-TC-17");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		processLog.verify_Tooltip_Is_Visible_For_External_Icon_In_Sidesheet();
@@ -88,7 +88,7 @@ public class ProcessLogTestcases extends BasePage {
 	@Test
 	@Parameters("env")
 	public void verify_Classification_Data_Changes_Maintained_In_The_Process_Log_For_Parent_Dataset_Or_Related_Dataset_Record(String env) throws InterruptedException, IOException, AWTException, Exception {
-		log("Testcase:MDMF-TC-5144/MDMF-TC-5146/MDMF-TC-5148/MDMF-TC-5154/MDMF-TC-5177/MDMF-TC-5178/MDMF-TC-5180/MDMF-TC-6084/MDMF-TC-6087/MDMF-TC-6744");
+		log("Testcase:QAA-TC-5/QAA-TC-6/QAA-TC-7/QAA-TC-8/QAA-TC-9/QAA-TC-10/QAA-TC-11/QAA-TC-28/QAA-TC-31/QAA-TC-45");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 		processLog.verify_Classification_Data_Changes_Maintained_In_The_Process_Log();
