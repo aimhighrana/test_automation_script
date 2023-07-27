@@ -50,6 +50,7 @@ public class LoginPage extends Locators {
 	 */
 	public void goToURL(String env) {
 		String URL;
+		common.log("Open the browser");
 		if(env.equals("SAND")) {
 			URL = getPropertyValue("urlSandBox");
 
@@ -61,8 +62,8 @@ public class LoginPage extends Locators {
 			URL = getPropertyValue("url");
 
 		}
-		System.out.println("Step :: Open Url: "+URL);
-		common.log("Open URL: "+URL);
+		System.out.println("Step :: Enter the URL: "+URL);
+		common.log("Enter the URL: "+URL);
 		driver.get(URL);
 	}
 
@@ -130,6 +131,7 @@ public class LoginPage extends Locators {
 			//If Use Password button display then click on that and then entering password
 			if (common.isElementDisplayed(usePasswordButton)) {
 
+				common.findElementBy(usePasswordButton,"Use password hyperlink appear");
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 			}
 			common.pause(5);
@@ -160,6 +162,7 @@ public class LoginPage extends Locators {
 			//If Use Password button display then click on that and then entering password
 			if (common.isElementDisplayed(usePasswordButton)) {
 
+				common.findElementBy(usePasswordButton,"Use password hyperlink appear");
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 			}
 			common.pause(5);
@@ -190,6 +193,7 @@ public class LoginPage extends Locators {
 			//If Use Password button display then click on that and then entering password
 			if (common.isElementDisplayed(usePasswordButton)) {
 
+				common.findElementBy(usePasswordButton,"Use password hyperlink appear");
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 			}
 			common.pause(5);
@@ -205,14 +209,15 @@ public class LoginPage extends Locators {
 		System.out.println("Step :: Click on login button");
 		common.log("Click on login button");
 		common.findElement(loginBtn).click();
-		common.pause(10);
+		common.pause(5);
+
 		if (common.isElementDisplayed("//p[normalize-space()='QA Sandbox']"))
 		{
 			common.findElementBy("//p[normalize-space()='QA Sandbox']", "Click on QA sandbox").click();
 		}
 
 		common.waitForElement(homeTab);
-		common.findElementBy(homeTab,"verify Home page available");
+		common.findElementBy(homeTab,"verify Home page appear");
 		test.log(LogStatus.INFO, "Env URL:: " + driver.getCurrentUrl());
 		System.out.println("Step:: Env URL: " + driver.getCurrentUrl());
 		common.log("Env URL: " + driver.getCurrentUrl());
