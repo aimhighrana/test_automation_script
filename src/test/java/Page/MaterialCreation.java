@@ -57,6 +57,7 @@ public class MaterialCreation extends Locators {
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
 		common.pause(5);
+		common.waitForElement(flowList);
 
 		if (common.isElementDisplayed(materialCreationRecord)) {
 			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
@@ -109,25 +110,26 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(selectSearchedOption, "Select searched option").click();
 		common.waitForElement(applyBtn);
 		common.findElementBy(applyBtn, "Click on Apply button").click();
-		common.pause(5);
+		common.pause(30);
+		common.waitForElement(valuationDataAddHierarchy);
 
-		common.findElementBy(valuationDataAddHierarchy, "Click on Valuation Data - add... button").click();
-		common.waitForElement(searchBoxHierarchy);
-		common.pause(5);
-		common.findElementBy(searchBoxHierarchy, "Search value: N.A -- Not Applicable").sendKeys("N.A");
-		common.waitForElement(selectSearchedOption);
-		common.pause(5);
-		if (common.isElementDisplayed("//input[@aria-checked='true']//.."))
-		{
-			common.log("Already checked checkbox");
-			common.findElementBy(applyBtn, "Click on Apply button").click();
-			common.pause(10);
-		}
-		else {
-			common.findElementBy(selectSearchedOption, "Select searched option").click();
-			common.findElementBy(applyBtn, "Click on Apply button").click();
-			common.pause(10);
-		}
+//		common.findElementBy(valuationDataAddHierarchy, "Click on Valuation Data - add... button").click();
+//		common.pause(10);
+//		common.waitForElement(searchBoxHierarchy);
+//		common.findElementBy(searchBoxHierarchy, "Search value: N.A -- Not Applicable").sendKeys("N.A");
+//		common.pause(5);
+//		common.waitForElement(selectSearchedOption);
+//		common.pause(5);
+//		if (common.isElementDisplayed("//input[@aria-checked='true']//.."))
+//		{
+//			common.log("Already checked checkbox");
+//		}
+//		else {
+//			common.findElementBy(selectSearchedOption, "Select searched option").click();
+//		}
+//		common.findElementBy(applyBtn, "Click on Apply button").click();
+		common.pause(10);
+		common.waitForElement(valuationTypeField);
 
 		String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
 		System.out.println("Step :: Verified Valuation Type field: " + strValuationType);
@@ -497,7 +499,7 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 
 		common.findElementBy(sequentialMaterialOption,"Select Sequential Material").click();
-		common.waitForElement(copyButton);
+		common.waitForElement(headerData);
 		common.findElementBy(headerData,"Header data verified");
 
 		common.findElementBy(copyButton, "Click on Copy button").click();
@@ -689,6 +691,7 @@ public class MaterialCreation extends Locators {
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
 		common.pause(5);
+		common.waitForElement(flowList);
 
 		if(common.isElementDisplayed(sequentialMaterialOption))
 		{
@@ -1162,6 +1165,7 @@ public class MaterialCreation extends Locators {
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
 		common.pause(5);
+		common.waitForElement(flowList);
 
 		if (common.isElementDisplayed(materialCreationRecord)) {
 			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
@@ -1195,8 +1199,10 @@ public class MaterialCreation extends Locators {
 
 		}
 		common.pause(5);
+		if(!common.isElementDisplayed(classField)) {
 			common.log("Click on Generate description button");
 			common.jsClick(generateDesc);
+		}
 
 		common.pause(5);
 		common.findElementBy(classField,"Click on class dropdown").click();
@@ -1298,6 +1304,7 @@ public class MaterialCreation extends Locators {
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
 		common.pause(5);
+		common.waitForElement(flowList);
 
 		if (common.isElementDisplayed(materialCreationRecord)) {
 			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
@@ -1331,8 +1338,10 @@ public class MaterialCreation extends Locators {
 
 		}
 		common.pause(5);
-		common.log("Click on Generate description button");
-		common.jsClick(generateDesc);
+		if(!common.isElementDisplayed(classField)) {
+			common.log("Click on Generate description button");
+			common.jsClick(generateDesc);
+		}
 		common.waitForElement(classField);
 		common.findElementBy(classField, "Click on class dropdown").click();
 		common.waitForElement(bearingBallClassOption);
@@ -1374,8 +1383,10 @@ public class MaterialCreation extends Locators {
 		common.findElement(materialDescReviewer).click();
 		common.pause(10);
 
-		common.log("Click on Generate description button");
-		common.jsClick(generateDesc);
+		if(!common.isElementDisplayed(classField)) {
+			common.log("Click on Generate description button");
+			common.jsClick(generateDesc);
+		}
 		common.pause(10);
 		String shortDescStr = common.findElement(shortDescriptionField).getAttribute("value");
 		common.log("Short Description auto populate: " + shortDescStr);

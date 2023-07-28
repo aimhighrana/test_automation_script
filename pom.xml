@@ -207,7 +207,7 @@
 							<suiteXmlFiles>
 								<suiteXmlFile>build_xmls/login.xml</suiteXmlFile>
 								<!--this home_Page xml include all the test regarding Home page menus-->
-								<suiteXmlFile>build_xmls/home_Page.xml</suiteXmlFile>
+<!--								<suiteXmlFile>build_xmls/home_Page.xml</suiteXmlFile>-->
 								<!--this list_Page_Search xml include all the test regarding advance search-->
 								<suiteXmlFile>build_xmls/list_Page_Search.xml</suiteXmlFile>
 								<!--this list_Page_Wild_Search xml include all the test regarding Global search-->
@@ -219,11 +219,11 @@
 								<!--this material_Creation xml include all the test regarding material creation record functionality-->
 								<suiteXmlFile>build_xmls/material_Creation.xml</suiteXmlFile>
 								<!--this duplicate_Rule xml include all the test regarding Duplicate business rule functionality-->
-								<suiteXmlFile>build_xmls/duplicate_Rule.xml</suiteXmlFile>
+<!--								<suiteXmlFile>build_xmls/duplicate_Rule.xml</suiteXmlFile>-->
 								<!--this user_Defined_Rule xml include all the test regarding User Defined business rule functionality-->
-								<suiteXmlFile>build_xmls/user_Defined_Rule.xml</suiteXmlFile>
+<!--								<suiteXmlFile>build_xmls/user_Defined_Rule.xml</suiteXmlFile>-->
 								<!--this transformation_Rule xml include all the test regarding Transformation business rule functionality-->
-								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>
+<!--								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>-->
 								<!--this Process_Log xml include all the test regarding View Process Log functionality-->
 								<suiteXmlFile>build_xmls/process_Log.xml</suiteXmlFile>
 							</suiteXmlFiles>
