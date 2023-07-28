@@ -86,7 +86,7 @@ public abstract class Locators extends BasePage {
 
 	public static String summaryFirstOption =  "//div[@role='menu']//div[1]/div[1]/button[1]";
 
-	public static String xPlantMaterialStatusField = "//p[normalize-space()='X-Plant Material Status']//..//..//div//input";
+	public static String xPlantMaterialStatusField = "//p[normalize-space()='X-Plant Material Status']//..//..//div//mat-icon";
 	public static String dropValue3 = "//div[@role='listbox']//mat-option[3]//span";
 	public static String plusStorageData ="//p[text()='Storage Data ']//..//..//mat-icon[text()='plus']";
 	public static String firstOptionStorageData ="//label[@for='mat-checkbox-275-input']//span[@class='mat-checkbox-inner-container']";

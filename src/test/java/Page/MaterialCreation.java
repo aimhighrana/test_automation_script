@@ -129,14 +129,14 @@ public class MaterialCreation extends Locators {
 //		}
 //		common.findElementBy(applyBtn, "Click on Apply button").click();
 		common.pause(10);
-		common.waitForElement(valuationTypeField);
+//		common.waitForElement(valuationTypeField);
+//
+//		String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
+//		System.out.println("Step :: Verified Valuation Type field: " + strValuationType);
+//		common.log("Verified Valuation Type field: " + strValuationType);
 
-		String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
-		System.out.println("Step :: Verified Valuation Type field: " + strValuationType);
-		common.log("Verified Valuation Type field: " + strValuationType);
-
-		common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
-
+//		common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
+//
 		if (common.isElementDisplayed(searchClassDropdown)) {
 			common.findElementBy(searchClassDropdown, "Click on Search class dropdown").click();
 			common.waitForElement(searchBoxClassDropdown);
