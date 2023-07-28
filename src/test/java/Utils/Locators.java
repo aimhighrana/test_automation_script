@@ -48,7 +48,7 @@ public abstract class Locators extends BasePage {
 	public static String draft = " //button[contains(text(),'Save as draft')]";
 	public static String myRrequestHeader ="//h4[normalize-space()='My requests']";
 	public static String edit = "//button[contains(text(),'Edit')]";
-	public static String materialMasterRecordOption = "//button[normalize-space()='Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']";
+	public static String materialMasterRecordOption = "//button[normalize-space()='Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow'] | //button[normalize-space()='SequentialMaterial']";
 	public static String statusFilter = "//th[@id='STATUS']//input[@placeholder='Filter']";
 	public static String uSaveBtn = "//span[contains(text(),'Save')]";
 	public static String allerros = "//h4[contains(text(),'All errors')]";
@@ -82,7 +82,7 @@ public abstract class Locators extends BasePage {
 	public static String sourceListDescription = "//p[normalize-space()='Source - List']//..//..//input[@placeholder='Select any one...']";
 	public static String dropValue = "//div[@role='listbox']//mat-option[2]";
 	public static String dropValue1 ="//div[@role='listbox']//mat-option[1]";
-	public static String sequentialMaterialOption =  "//button[normalize-space()='SequentialMaterial']";
+	public static String sequentialMaterialOption =  "//button[normalize-space()='SequentialMaterial'] | //button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow']";
 
 	public static String summaryFirstOption =  "//div[@role='menu']//div[1]/div[1]/button[1]";
 
@@ -238,7 +238,7 @@ public abstract class Locators extends BasePage {
 
 	public static String clearIconForModifiedByFilter = "//mat-icon[@class='mat-icon notranslate mdo-icons-light mat-icon-no-color'][normalize-space()='times']";
 
-	public static String threeDotsAdvanceFilter = "//lib-button[@type='plain']//mat-icon[@role='img'][normalize-space()='ellipsis-h']";
+	public static String threeDotsAdvanceFilter = "//span[@class='filter-value'][normalize-space()='ellipsis-h']";
 
 	public static String resetButton = "//button[normalize-space()='Reset']";
 
@@ -316,7 +316,7 @@ public abstract class Locators extends BasePage {
 	public static String firstOptionFilter ="//div[@class='options']//lib-filter-option[1]//div[1]//label";
 
 	// Material creation
-
+	public static String flowList="//lib-section[@text='Flows']//..//button[1]";
 	public static String materialCreationRecord = "//button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow']";
 
 	public static String materialTypeField = "//p[normalize-space()='Material Type']//..//..//div//input";

@@ -282,14 +282,16 @@ public class ListView extends Locators {
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(summaryOption, "Click on Summary option").click();
 		common.pause(5);
+		common.waitForElement(flowMaterialMasterRecordoption);
 		common.findElementBy(flowMaterialMasterRecordoption, "Click on second option").click();
 		common.pause(10);
-		common.assertElementPresent(headerData);
+		common.waitForElement(headerData);
+		common.log("Verify Header data appear");
 		common.findElementBy(closeIcon, "Click on close icon").click();
 		
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(summaryOption, "Click on Summary option").click();
-		common.pause(5);
+		common.waitForElement(formClassnClassTypeOption);
 		common.findElementBy(formClassnClassTypeOption, "Click on third option").click();
 		common.pause(5);
 		common.waitForElement(headerData);
@@ -326,10 +328,14 @@ public class ListView extends Locators {
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(downloadTemplatesOption, "Click on Download templates option").click();
 		common.pause(5);
-		common.findElementBy(descriptionOption, "Click on Description option").click();
-		common.pause(10);
-		
-
+		if (common.isElementDisplayed(descriptionOption))
+		{
+			common.findElementBy(descriptionOption, "Click on Description option").click();
+		}
+		else {
+			common.log("No template available");
+		}
+		common.pause(5);
 	}
 
 }

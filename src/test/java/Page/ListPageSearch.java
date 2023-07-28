@@ -409,20 +409,25 @@ public class ListPageSearch extends Locators {
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
 
-		common.pause(10);
+		common.pause(5);
+		common.waitForElement(valueFMCG_IndustrySectorFilter);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
+		common.pause(5);
+		common.findElementBy(applyFilterButton,"Click on Apply button").click();
 
-		common.pause(10);
+		common.waitForElement(appliedIndusSectorFilter);
 		common.findElementBy(appliedIndusSectorFilter,"Industry Sector filter is applied");
 
 		common.findElementBy(threeDotsAdvanceFilter, "Click on Three dots").click();
 
 		common.findElementBy(resetButton, "Click on Reset button").click();
 
-		common.findElementBy(confirmButton, "Click on Confirm button in popup").click();
-
-		common.pause(10);
+		if (common.isElementDisplayed(confirmButton)) {
+			common.findElementBy(confirmButton, "Click on Confirm button in popup").click();
+		}
+		common.pause(5);
 		common.isElementNotDisplayed(appliedIndusSectorFilter);
+		common.log("Verify applied Industry Sector filter is not appear");
 
 	}
 

@@ -89,6 +89,7 @@ public class LoginPage extends Locators {
 
 			System.out.println("Step :: Entering username: " + getPropertyValue("qaaReqUserName"));
 			common.log("Entering username: " + getPropertyValue("qaaReqUserName"));
+			common.waitForElement(userNameField);
 			common.findElement(userNameField).sendKeys(getPropertyValue("qaaReqUserName"));
 
 			common.pause(10);
@@ -120,6 +121,7 @@ public class LoginPage extends Locators {
 
 			System.out.println("Step :: Entering username: " + getPropertyValue("qahReqUserName"));
 			common.log("Entering username: " + getPropertyValue("qahReqUserName"));
+			common.waitForElement(userNameField);
 			common.findElement(userNameField).sendKeys(getPropertyValue("qahReqUserName"));
 
 			common.pause(10);
@@ -151,6 +153,7 @@ public class LoginPage extends Locators {
 		else if(env.equals("QAR")){
 			System.out.println("Step :: Entering username: " + getPropertyValue("qarReqUserName"));
 			common.log("Entering username: " + getPropertyValue("qarReqUserName"));
+			common.waitForElement(userNameField);
 			common.findElement(userNameField).sendKeys(getPropertyValue("qarReqUserName"));
 
 			common.pause(10);
@@ -182,9 +185,10 @@ public class LoginPage extends Locators {
 		else if(env.equals("SAND")){
 			System.out.println("Step :: Entering username: " + getPropertyValue("sandBoxReqUserName"));
 			common.log("Entering username: " + getPropertyValue("sandBoxReqUserName"));
+			common.waitForElement(userNameField);
 			common.findElement(userNameField).sendKeys(getPropertyValue("sandBoxReqUserName"));
 
-			common.pause(10);
+			common.pause(5);
 			System.out.println("Step :: Click on continue button");
 			common.log("Click on continue button");
 			common.findElement(continueButton).click();

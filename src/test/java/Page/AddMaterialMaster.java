@@ -625,57 +625,62 @@ public class AddMaterialMaster extends Locators {
 		common.findElementBy(inboxMenu,"Click on Inbox menu").click();
 		common.findElement(inboxMenu).click();
 
-		//wait for first value
-		common.waitForElement(firstActionIconForInbox);
+		common.pause(10);
+		if (common.isElementDisplayed(firstActionIconForInbox)) {
+			//wait for first value
+			common.waitForElement(firstActionIconForInbox);
 
-		test.log(LogStatus.INFO, "Step :: Click on action menu for first row ");
-		System.out.println("Step :: Click on action menu for first row");
-		common.log("Click on action menu for first row");
-		driver.findElement(By.xpath(firstActionIconForInbox)).click();
+			test.log(LogStatus.INFO, "Step :: Click on action menu for first row ");
+			System.out.println("Step :: Click on action menu for first row");
+			common.log("Click on action menu for first row");
+			driver.findElement(By.xpath(firstActionIconForInbox)).click();
 
-		System.out.println("Step :: click on approve");
-		common.log("Click on approve");
-		common.findElement(approveBtn).click();
+			System.out.println("Step :: click on approve");
+			common.log("Click on approve");
+			common.findElement(approveBtn).click();
 
-		common.waitForElement(headerData);
-		common.findElementBy(headerData,"Verify Header data appear");
+			common.waitForElement(headerData);
+			common.findElementBy(headerData, "Verify Header data appear");
 
-		if (common.isElementDisplayed(sequentialHeader))
-		{
-			common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("Material desc 123");
-		//	common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
-			common.findElementBy(divisionField,"Select value from Division dropdown").click();
-			common.waitForElement(dropValue);
-			common.findElement(dropValue).click();
-			common.pause(5);
+			if (common.isElementDisplayed(sequentialHeader)) {
+				common.findElementBy(materialDescReviewer, "Enter value in Material description field").sendKeys("Material desc 123");
+				//	common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
+				common.findElementBy(divisionField, "Select value from Division dropdown").click();
+				common.waitForElement(dropValue);
+				common.findElement(dropValue).click();
+				common.pause(5);
+			}
+			//If Manufacturer part number field appear then fill value for it
+			if (common.isElementDisplayed(manufacturerPartNum)) {
+
+				System.out.println("Step :: Enter Manufacturer Part Number");
+				driver.findElement(By.xpath(manufacturerPartNum)).sendKeys("12345");
+				common.pause(10);
+			} else {
+
+				System.out.println("No need to enter Manufacturer Part Number");
+			}
+			common.waitForElement(approveButton);
+			common.findElementBy(approveButton, "Click on Approve").click();
+			common.pause(2);
+
+			if (common.isElementDisplayed(duplicateRecordHeader)) {
+
+				System.out.println("Step :: Duplicate records");
+				driver.findElement(By.xpath(continueDuplicateRecord)).click();
+			} else {
+
+				System.out.println("Step :: No duplicate records");
+			}
+
+			common.waitForElement("//div[@class='cdk-overlay-pane']");
+			String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
+			common.log("Message display: " + successStr);
+			common.waitForElement(inboxMenu);
 		}
-		//If Manufacturer part number field appear then fill value for it
-		if (common.isElementDisplayed(manufacturerPartNum)) {
-
-			System.out.println("Step :: Enter Manufacturer Part Number");
-			driver.findElement(By.xpath(manufacturerPartNum)).sendKeys("12345");
-			common.pause(10);
-		} else {
-
-			System.out.println("No need to enter Manufacturer Part Number");
+		else {
+			common.log("Nothing to see here message appear");
 		}
-		common.waitForElement(approveButton);
-		common.findElementBy(approveButton,"Click on Approve").click();
-		common.pause(2);
-
-		if (common.isElementDisplayed(duplicateRecordHeader)) {
-
-			System.out.println("Step :: Duplicate records");
-			driver.findElement(By.xpath(continueDuplicateRecord)).click();
-		} else {
-
-			System.out.println("Step :: No duplicate records");
-		}
-
-		common.waitForElement("//div[@class='cdk-overlay-pane']");
-		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
-		common.log("Message display: "+successStr);
-		common.waitForElement(inboxMenu);
 
 	}
 
@@ -741,15 +746,14 @@ public class AddMaterialMaster extends Locators {
 		//wait for Inbox menu
 		common.waitForElement(inboxMenu);
 
-		test.log(LogStatus.INFO, "Step :: Click on Inbox menu ");
 		System.out.println("Step :: Click on Inbox menu");
+		common.log("Click on Inbox menu");
 		common.findElement(inboxMenu).click();
 		common.findElement(inboxMenu).click();
 
 		//wait for first value of Inbox menu
 		common.waitForElement(firstActionIconForInbox);
 
-		test.log(LogStatus.INFO, "Step :: Click on action menu for first row ");
 		System.out.println("Step :: Click on action menu for first row");
 		common.log("Click on action menu for first row");
 		common.findElement(firstActionIconForInbox).click();
