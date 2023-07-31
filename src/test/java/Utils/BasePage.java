@@ -157,7 +157,7 @@ public class BasePage implements ITestListener {
 	public void tearDown(ITestResult testResult) throws Exception {
 		String testName = testResult.getName();
 		Reporter.setCurrentTestResult(testResult);
-		File img = new File("target" + File.separator + "surefire-reports" + File.separator + testName + ".png");
+		File img = new File("target" + File.separator + "test-output" + File.separator + testName + ".png");
 		if (testResult.getStatus() == 1) {
 			log("<font color = 'green'><b><i><u><br>Pass :: " + testResult.getName()+"</u></i></b></font>");
 			testResult.getThrowable();
@@ -189,7 +189,7 @@ public class BasePage implements ITestListener {
 		String nameWithExtention = screenshotName + ".png";
 		// Copy screenshot to specific folder
 		try {
-			String reportFolder = "target" + File.separator + "test-output" + File.separator;
+			String reportFolder = "target" + File.separator + "test-output" +File.separator;
 			File screenshotFolder = new File(reportFolder);
 			if (!screenshotFolder.getAbsoluteFile().exists()) {
 				screenshotFolder.mkdir();
