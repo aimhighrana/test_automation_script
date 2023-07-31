@@ -82,6 +82,7 @@ public class AddMaterialMaster extends Locators {
 
 			common.waitForElement(xPlantMaterialStatusField);
 			common.findElementBy(xPlantMaterialStatusField,"Select value from X-Plant Material Status field").click();
+			common.findElement(xPlantMaterialStatusField).click();
 			common.pause(5);
 			common.waitForElement(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
@@ -1179,10 +1180,10 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on copy button");
 		common.findElement(copyBtn).click();
 
-		common.pause(10);
+		common.pause(5);
+		common.waitForElement(newRecordTitle);
 		// verifying records in new record form
 		String nTitle = driver.findElement(By.xpath(newRecordTitle)).getText();
-		test.log(LogStatus.INFO, "Step :: New form title is ::" + nTitle);
 		System.out.println("Step :: New form title is ==>" + nTitle);
 		common.log("New form title is==>" + nTitle);
 
@@ -1273,6 +1274,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(materialMasterRecordOption).click();
 		common.pause(10);
 
+		common.waitForElement(recordno);
 		String rN = driver.findElement(By.xpath(recordno)).getAttribute("value");
 		System.out.println("Step :: Record number is == > " + rN);
 		common.log("Record number is == > " + rN);
@@ -1318,8 +1320,8 @@ public class AddMaterialMaster extends Locators {
 		common.log("Click on copy button");
 		common.findElement(copyBtn).click();
 
-		common.pause(10);
-
+		common.pause(5);
+		common.waitForElement(valuationPlusIcon);
 		common.findElementBy(valuationPlusIcon,"Click on + icon for Valuation hierarchy").click();
 		common.pause(5);
 

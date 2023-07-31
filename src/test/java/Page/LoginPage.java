@@ -49,18 +49,10 @@ public class LoginPage extends Locators {
 	 * 
 	 */
 	public void goToURL(String env) {
-		String URL;
+		String URL = null;
 		common.log("Open the browser");
-		if(env.equals("SAND")) {
-			URL = getPropertyValue("urlSandBox");
-
-		}
-		else if(env.equals("QAA")) {
-			URL = getPropertyValue("urlQAA");
-		}
-		else {
-			URL = getPropertyValue("url");
-
+		if(env.equals("QAA") || env.equals("QAH") || env.equals("QAR") || env.equals("SAND")) {
+			URL = getPropertyValue(env+"_url");
 		}
 		System.out.println("Step :: Enter the URL: "+URL);
 		common.log("Enter the URL: "+URL);
@@ -82,145 +74,48 @@ public class LoginPage extends Locators {
 		}
 
 		/**
-		 * For QAA Environment
+		 * For ALl Environment
 		 *
 		 */
-		if(env.equals("QAA")) {
+		if(env.equals("QAA") || env.equals("QAH") || env.equals("QAR") || env.equals("SAND")) {
 
-			System.out.println("Step :: Entering username: " + getPropertyValue("qaaReqUserName"));
-			common.log("Entering username: " + getPropertyValue("qaaReqUserName"));
+			System.out.println("Step :: Entering username: " + getPropertyValue(env+"ReqUserName"));
+			common.log("Entering username: " + getPropertyValue(env+"ReqUserName"));
 			common.waitForElement(userNameField);
-			common.findElement(userNameField).sendKeys(getPropertyValue("qaaReqUserName"));
+			common.findElement(userNameField).sendKeys(getPropertyValue(env+"ReqUserName"));
 
-			common.pause(10);
 			System.out.println("Step :: Click on continue button");
 			common.log("Click on continue button");
+			common.waitForElement(continueButton);
 			common.findElement(continueButton).click();
 			common.pause(5);
 
-			//If Use Password button display then click on that and then entering password
+			//If 'Use Password' button display then click on that and then entering password
 			if (common.isElementDisplayed(usePasswordButton)) {
-
 				common.findElementBy(usePasswordButton, "Click on Use password button").click();
 			}
-			common.pause(5);
-			System.out.println("Step :: Entering password:: " + getPropertyValue("qaaReqPassword"));
-			test.log(LogStatus.INFO, "Entering password:: " + getPropertyValue("qaaReqPassword"));
-			common.log("Entering password: " + getPropertyValue("qaaReqPassword"));
-			common.findElement(PasswordField).sendKeys(getPropertyValue("qaaReqPassword"));
 
-			//wait for Data Tab appear
-
+			System.out.println("Step :: Entering password:: " + getPropertyValue(env+"ReqPassword"));
+			common.log("Entering password: " + getPropertyValue(env+"ReqPassword"));
+			common.waitForElement(PasswordField);
+			common.findElement(PasswordField).sendKeys(getPropertyValue(env+"ReqPassword"));
 		}
 
-		/**
-		 * For QAH Environment
-		 *
-		 */
-		else if(env.equals("QAH")) {
-
-			System.out.println("Step :: Entering username: " + getPropertyValue("qahReqUserName"));
-			common.log("Entering username: " + getPropertyValue("qahReqUserName"));
-			common.waitForElement(userNameField);
-			common.findElement(userNameField).sendKeys(getPropertyValue("qahReqUserName"));
-
-			common.pause(10);
-			System.out.println("Step :: Click on continue button");
-			common.log("Click on continue button");
-			common.findElement(continueButton).click();
-			common.pause(5);
-
-			//If Use Password button display then click on that and then entering password
-			if (common.isElementDisplayed(usePasswordButton)) {
-
-				common.findElementBy(usePasswordButton,"Use password hyperlink appear");
-				common.findElementBy(usePasswordButton, "Click on Use password button").click();
-			}
-			common.pause(5);
-			System.out.println("Step :: Entering password:: " + getPropertyValue("qahReqPassword"));
-			test.log(LogStatus.INFO, "Entering password:: " + getPropertyValue("qahReqPassword"));
-			common.log("Entering password: " + getPropertyValue("qahReqPassword"));
-			common.findElement(PasswordField).sendKeys(getPropertyValue("qahReqPassword"));
-
-			//wait for Data Tab appear
-
-		}
-
-		/**
-		 * For QAR Environment
-		 *
-		 */
-		else if(env.equals("QAR")){
-			System.out.println("Step :: Entering username: " + getPropertyValue("qarReqUserName"));
-			common.log("Entering username: " + getPropertyValue("qarReqUserName"));
-			common.waitForElement(userNameField);
-			common.findElement(userNameField).sendKeys(getPropertyValue("qarReqUserName"));
-
-			common.pause(10);
-			System.out.println("Step :: Click on continue button");
-			common.log("Click on continue button");
-			common.findElement(continueButton).click();
-			common.pause(5);
-
-			//If Use Password button display then click on that and then entering password
-			if (common.isElementDisplayed(usePasswordButton)) {
-
-				common.findElementBy(usePasswordButton,"Use password hyperlink appear");
-				common.findElementBy(usePasswordButton, "Click on Use password button").click();
-			}
-			common.pause(5);
-			System.out.println("Step :: Entering password:: " + getPropertyValue("qarReqPassword"));
-			test.log(LogStatus.INFO, "Entering password:: " + getPropertyValue("qarReqPassword"));
-			common.log("Entering password: " + getPropertyValue("qarReqPassword"));
-			common.findElement(PasswordField).sendKeys(getPropertyValue("qarReqPassword"));
-
-			//wait for Data Tab appear
-
-		}
-
-		/**
-		 * For SAND Environment
-		 *
-		 */
-		else if(env.equals("SAND")){
-			System.out.println("Step :: Entering username: " + getPropertyValue("sandBoxReqUserName"));
-			common.log("Entering username: " + getPropertyValue("sandBoxReqUserName"));
-			common.waitForElement(userNameField);
-			common.findElement(userNameField).sendKeys(getPropertyValue("sandBoxReqUserName"));
-
-			common.pause(5);
-			System.out.println("Step :: Click on continue button");
-			common.log("Click on continue button");
-			common.findElement(continueButton).click();
-			common.pause(5);
-
-			//If Use Password button display then click on that and then entering password
-			if (common.isElementDisplayed(usePasswordButton)) {
-
-				common.findElementBy(usePasswordButton,"Use password hyperlink appear");
-				common.findElementBy(usePasswordButton, "Click on Use password button").click();
-			}
-			common.pause(5);
-			System.out.println("Step :: Entering password:: " + getPropertyValue("sandBoxReqPassword"));
-			test.log(LogStatus.INFO, "Entering password:: " + getPropertyValue("sandBoxReqPassword"));
-			common.log("Entering password: " + getPropertyValue("sandBoxReqPassword"));
-			common.findElement(PasswordField).sendKeys(getPropertyValue("sandBoxReqPassword"));
-
-			//wait for Data Tab appear
-
-		}
-		common.pause(5);
 		System.out.println("Step :: Click on login button");
 		common.log("Click on login button");
+		common.waitForElement(loginBtn);
 		common.findElement(loginBtn).click();
-		common.pause(5);
+
+		//Wait for options after login to select QA Sandbox or Tenant 1 or Home page
 		common.waitForElement("(//div[@class='mat-list-item-content'])[1]");
 
+		//if SANDBOX env is there then select QA Sandbox option
 		if (common.isElementDisplayed("//p[normalize-space()='QA Sandbox']"))
 		{
 			common.findElementBy("//p[normalize-space()='QA Sandbox']", "Click on QA sandbox").click();
 		}
 
+		//if QAR env is there then select Tenant 1 option
 		if (common.isElementDisplayed("//p[normalize-space()='Tenant 1']"))
 		{
 			common.findElementBy("//p[normalize-space()='Tenant 1']","Select Tenant 1").click();
@@ -228,10 +123,8 @@ public class LoginPage extends Locators {
 
 		common.waitForElement(homeTab);
 		common.findElementBy(homeTab,"verify Home page appear");
-		test.log(LogStatus.INFO, "Env URL:: " + driver.getCurrentUrl());
 		System.out.println("Step :: Env URL: " + driver.getCurrentUrl());
 		common.log("Env URL: " + driver.getCurrentUrl());
-
 	}
 
 	/**
