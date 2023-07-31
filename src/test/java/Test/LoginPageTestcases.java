@@ -27,15 +27,14 @@ public class LoginPageTestcases extends BasePage {
 	/**
 	 * Login Module
 	 * 
-	 * @throws InterruptedException
 	 * @throws IOException
 	 */
 	@Test
-	@Parameters("env")
-	public void loginPage(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:QAA-TC-91");
+	@Parameters({"env","testCaseId"})
+	public void loginPage(String env, String testCaseId) throws InterruptedException, IOException, Exception {
+		//log("Testcase:QAA-TC-91");
+		log("Testcase:"+testCaseId);
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);
 	}
-
 }

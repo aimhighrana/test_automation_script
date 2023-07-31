@@ -131,22 +131,7 @@
 			<artifactId>json-schema-validator</artifactId>
 			<version>4.5.1</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>name.wramner.httpclient</groupId>
-			<artifactId>HttpClient</artifactId>
-			<version>1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>name.wramner.httpclient</groupId>
-			<artifactId>HttpClient</artifactId>
-			<version>1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>name.wramner.httpclient</groupId>
-			<artifactId>HttpClient</artifactId>
-			<version>1.1</version>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>name.wramner.httpclient</groupId>
 			<artifactId>HttpClient</artifactId>

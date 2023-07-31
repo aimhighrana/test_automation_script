@@ -39,7 +39,9 @@ public class BasePage implements ITestListener {
 
 	protected WebDriver driver;
 	public static String currentTest; // current running test
+	protected static String environmentName = "";
 	protected static String test_data_folder_path = null;
+	
 
 	// screen-shot folder
 	protected static String screenshot_folder_path = null;
@@ -113,10 +115,16 @@ public class BasePage implements ITestListener {
 
 	protected Properties getConfigProperties() {
 		if (configProperties == null) {
-			configProperties = this.loadProperties(
-					Paths.get("").toAbsolutePath().normalize().toString() + "//config.properties");
-
-		}
+			configProperties = this.loadProperties(Paths.get("").toAbsolutePath().normalize().toString() + "//config.properties");					
+			//Paths.get("").toAbsolutePath().normalize().toString() + "//envQAR.properties");
+			//Paths.get("").toAbsolutePath().normalize().toString() + "//envQASB.properties");
+			//Paths.get("").toAbsolutePath().normalize().toString() + "//config.properties");
+		}		
+		return configProperties;
+	}
+	
+	protected Properties getConfigPropertiesForEnvironment(String propertyFilePath) {		
+		configProperties = this.loadProperties(Paths.get("").toAbsolutePath().normalize().toString() + propertyFilePath);			
 		return configProperties;
 	}
 
