@@ -1,16 +1,9 @@
 package Utils;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Random;
-import java.util.Set;
-import java.util.SimpleTimeZone;
-import java.util.TimeZone;
 
 //import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang.RandomStringUtils;
@@ -18,25 +11,14 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.Augmenter;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.Test;
-import org.apache.commons.io.FileUtils;
 
 /**
  * Define Common Webdriver
@@ -140,7 +122,6 @@ public class Common extends Locators {
 
 		String locator;
 
-		System.out.println("Step :: " +msg+"\n");
 		log(msg);
 
 		locator = elementName;
@@ -304,10 +285,19 @@ public class Common extends Locators {
 	/**
 	 * Log given message to Reporter output.
 	 * 
-	 * @param msg Message/Log to be reported.
+	 * @param print Message/Log to be reported.
 	 */
-	public void log(String msg) {
-		Reporter.log("<br>Step :: "+msg);
+	public void log(String print) {
+		String message = "Step :: "+print;
+		if (message.startsWith("Step")) {
+			String[] msg = message.split("::");
+			Reporter.log("<br>" + msg[0].trim() + " " + BasePage.step + " : " + msg[1].trim());
+			System.out.println(msg[0].trim() + " " + BasePage.step + " : " + msg[1].trim());
+			BasePage.step++;
+		} else {
+			Reporter.log("<br>Message : " + message);
+			System.out.println("Message : " + message);
+		}
 	}
 
 	/**
@@ -472,6 +462,12 @@ public class Common extends Locators {
 		} catch (InterruptedException interruptedException) {
 
 		}
+	}
+	public void scrollToElement(String element) throws InterruptedException {
+
+		WebElement ele = driver.findElement(By.xpath(element));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
+		Thread.sleep(500);
 	}
 
 	/**

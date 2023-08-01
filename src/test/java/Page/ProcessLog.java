@@ -38,12 +38,10 @@ public class ProcessLog extends Locators {
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		test.log(LogStatus.INFO, "Step :: click on material master number from left nav");
-		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
 		common.waitForElement(search);
-		test.log(LogStatus.INFO, "Step :: search for material master ");
+		common.log( "search for material master");
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
@@ -67,18 +65,15 @@ public class ProcessLog extends Locators {
 		if (common.isElementDisplayed(processLogTitle)) {
 			common.waitForElement(processLogTitle);
 			String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
-			System.out.println("Step :: Process Log Title is ::" + pLog);
 			common.log("Process Log Title is ::" + pLog);
 
 			driver.findElement(By.xpath(processLogTitle)).click();
 
 			common.pause(10);
 			String status = driver.findElement(By.xpath(statusCom)).getText();
-			System.out.println("Step :: Process Log Status is ::" + status);
 			common.log("Process Log Status is ::" + status);
 			assertEquals(status, "COMPLETED");
 
-			System.out.println("Step :: click on view email logs");
 			common.log("Click on view email logs");
 
 			driver.findElement(By.xpath(viewEmailLogs)).click();
@@ -87,7 +82,7 @@ public class ProcessLog extends Locators {
 			List<WebElement> eleColumns = driver.findElements(By.xpath("(//tr[@role='row'])[1]//th"));
 			common.log("Columns in email logs page :: >>");
 			for (WebElement e : eleColumns) {
-				System.out.println(e.getText());
+				common.log(e.getText());
 				common.log(e.getText());
 			}
 
@@ -96,25 +91,20 @@ public class ProcessLog extends Locators {
 				List<WebElement> emailRecords = driver.findElements(By.xpath(firstRecordOfEmailLogs));
 
 				for (WebElement e : emailRecords) {
-					System.out.println("Step :: First record is displaying:: >>" + e.getText());
 					common.log("First record is displaying :: >>" + e.getText());
 				}
 			}
 
 			common.pause(5);
-
-			System.out.println("Step :: Close View email logs page ");
 			common.log("Close View email logs page ");
 			common.jsClick(crossIconViewEmailLogs);
 
-			System.out.println("Step :: Close process log page ");
 			common.log("Close View process log page ");
 			common.waitForElement(closeIconForProcessLog);
 			common.jsClick(closeIconForProcessLog);
 		}
 		else {
 			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
-			System.out.println("Step :: View process log: "+strProcessLog);
 			common.log("View process log: "+strProcessLog);
 		}
 	}
@@ -131,12 +121,9 @@ public class ProcessLog extends Locators {
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		test.log(LogStatus.INFO, "Step :: click on material master number from left nav");
-		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
 		common.waitForElement(search);
-		test.log(LogStatus.INFO, "Step :: search for material master ");
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
@@ -160,11 +147,9 @@ public class ProcessLog extends Locators {
 		if (common.isElementDisplayed(processLogTitle)) {
 			common.waitForElement(processLogTitle);
 			String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
-			System.out.println("Step :: Process Log Title is ::" + pLog);
 			common.log("Process Log Title is ::" + pLog);
 
 			String strComment = driver.findElement(By.xpath(commentIconProcessLog)).getAttribute("libtooltip");
-			System.out.println("Step :: Comment tooltip ::" + strComment);
 			common.log("Comment tooltip ::" + strComment);
 
 			common.findElementBy(commentIconProcessLog,"Click on comment icon").click();
@@ -174,7 +159,6 @@ public class ProcessLog extends Locators {
 		}
 		else {
 			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
-			System.out.println("Step :: View process log: "+strProcessLog);
 			common.log("View process log: "+strProcessLog);
 		}
 	}
@@ -190,13 +174,9 @@ public class ProcessLog extends Locators {
 
 		common.pause(5);
 		common.findElement(dataTab).click();
-
-		test.log(LogStatus.INFO, "Step :: click on material master number from left nav");
-		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
 		common.waitForElement(search);
-		test.log(LogStatus.INFO, "Step :: search for material master ");
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
@@ -220,11 +200,9 @@ public class ProcessLog extends Locators {
 		if (common.isElementDisplayed(processLogTitle)) {
 			common.waitForElement(processLogTitle);
 			String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
-			System.out.println("Step :: Process Log Title is ::" + pLog);
 			common.log("Process Log Title is ::" + pLog);
 
 			String strExternalICon = driver.findElement(By.xpath(externalIcon)).getAttribute("libtooltip");
-			System.out.println("Step :: External Icon tooltip ::" + strExternalICon);
 			common.log("External Icon tooltip ::" + strExternalICon);
 
 			common.findElementBy(externalIcon,"Click on External icon").click();
@@ -232,7 +210,6 @@ public class ProcessLog extends Locators {
 		}
 		else {
 			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
-			System.out.println("Step :: View process log: "+strProcessLog);
 			common.log("View process log: "+strProcessLog);
 		}
 	}
@@ -252,7 +229,6 @@ public class ProcessLog extends Locators {
 		common.log("Click on Material master from left nav");
 
 		common.waitForElement(search);
-		test.log(LogStatus.INFO, "Step :: search for material master ");
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
 		common.findElement(materialMaster).click();
@@ -286,7 +262,6 @@ public class ProcessLog extends Locators {
 
 		String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
-		System.out.println("First value of Material master table:: " + strFirstValue);
 		common.log("First value of Material master table:: " + strFirstValue);
 
 		common.findElementBy(actionIconForFirstValue, "Click on first value action icon").click();
@@ -297,14 +272,12 @@ public class ProcessLog extends Locators {
 		if (common.isElementDisplayed(processLogTitle)) {
 			common.waitForElement(processLogTitle);
 			String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
-			System.out.println("Step :: Process Log Title is ::" + pLog);
 			common.log("Process Log Title is ::" + pLog);
 			common.findElementBy(processLogTitle,"Expand Process log").click();
 
 		}
 		else {
 			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
-			System.out.println("Step :: View process log: "+strProcessLog);
 			common.log("View process log: "+strProcessLog);
 		}
 
@@ -337,14 +310,12 @@ public class ProcessLog extends Locators {
 				if (common.isElementDisplayed(processLogTitle)) {
 					common.waitForElement(processLogTitle);
 					String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
-					System.out.println("Step :: Process Log Title is ::" + pLog);
 					common.log("Process Log Title is ::" + pLog);
 					common.findElementBy(processLogTitle,"Expand Process log").click();
 
 				}
 				else {
 					String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
-					System.out.println("Step :: View process log: "+strProcessLog);
 					common.log("View process log: "+strProcessLog);
 				}
 			}
@@ -361,8 +332,6 @@ public class ProcessLog extends Locators {
 		common.refreshPage();
 
 		common.waitForElement(materialMaster);
-		test.log(LogStatus.INFO, "Step :: Click on material master from left nav");
-		System.out.println("Step :: Click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
 		driver.findElement(By.xpath(materialMaster)).click();
@@ -379,15 +348,12 @@ public class ProcessLog extends Locators {
 		}
 
 		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		System.out.println("Step :: Material master number is ::" + materialMasterNumber);
-		System.out.println("Step :: Set filter status as a System");
+		common.log("Material master number is ::" + materialMasterNumber);
 		common.log("Set filter status as a system");
 		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
 		common.pause(10);
 		driver.findElement(By.xpath(actionIconForFirstValue)).click();
 
-		test.log(LogStatus.INFO, "Step :: Click on edit");
-		System.out.println("Step :: Click on edit");
 		common.log("Click on edit");
 
 		driver.findElement(By.xpath(edit)).click();
@@ -403,16 +369,12 @@ public class ProcessLog extends Locators {
 
 		}
 		else {
-
-			System.out.println("Step :: Click on material master record role");
 			common.log("Click on material master workflow role");
 			driver.findElement(By.xpath(materialMasterRecordOption)).click();
 			common.pause(10);
 			common.waitForElement(headerData);
 			common.pause(10);
 
-			test.log(LogStatus.INFO, "Step :: Select Industry Sector ");
-			System.out.println("Step :: Select Industry Sector");
 			common.log("Select Industry Sector");
 			common.waitForElement(industrySec);
 			common.findElement(industrySec).click();
@@ -426,7 +388,6 @@ public class ProcessLog extends Locators {
 			common.findElementBy(applyFilterButton, "Click on apply button");
 			common.pause(5);
 		}
-		System.out.println("Step :: Click on save button");
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
 		driver.findElement(By.xpath(uSaveBtn)).click();
@@ -435,22 +396,19 @@ public class ProcessLog extends Locators {
 		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
 
-			System.out.println("Step :: Duplicate records");
+		common.log("Duplicate records");
 			driver.findElement(By.xpath(continueDuplicateRecord)).click();
 		} else {
 
-			System.out.println("Step :: No duplicate records");
+			common.log("No duplicate records");
 		}
 		if(common.isDisplayed("//div[@class='mdo-notice f-row mdo-notice-error']")==true)
 		{
 
-			System.out.println("Step :: Something went error appear");
-			System.out.println("Step :: Showing mandatory errors");
 			common.log("Showing mandatory error");
 			List<WebElement> webElements = driver.findElements(By.xpath("//p[@class='small ng-star-inserted']"));
 
 			for (WebElement e : webElements) {
-				System.out.println("Error: " + e.getText());
 				common.log("Error: " + e.getText());
 			}
 			common.refreshPage();
@@ -460,20 +418,17 @@ public class ProcessLog extends Locators {
 
 			common.findElement(dropValue).click();
 			common.pause(5);
-			test.log(LogStatus.INFO, "Step :: Click on save button");
-			System.out.println("Step :: Click on save button");
 			common.log("Click on save button");
 			driver.findElement(By.xpath(uSaveBtn)).click();
 			common.pause(10);
 		}
 		else {
 
-			System.out.println("Step :: No Something went error");
+			common.log("No Something went error");
 		}
 		common.waitForElement(actionIconForFirstValue);
 		driver.findElement(By.xpath(actionIconForFirstValue)).click();
 
-		System.out.println("Step :: Click on viewProcess log");
 		common.log("Click on view Process log");
 		common.waitForElement(viewProcessLogOption);
 		driver.findElement(By.xpath(viewProcessLogOption)).click();
@@ -481,26 +436,21 @@ public class ProcessLog extends Locators {
 
 		common.waitForElement(processLogStatus);
 		String viewProcessLog = driver.findElement(By.xpath(processLogStatus)).getText();
-		System.out.println("Step :: View Process log =>>" + viewProcessLog);
 		common.log("View Process log =>>" + viewProcessLog);
 		driver.findElement(By.xpath(processLogTitle)).click();
 		common.pause(10);
 
 		common.waitForElement(statusCom);
 		String status = driver.findElement(By.xpath(statusCom)).getText();
-		System.out.println("Step :: Process Log Status is ::" + status);
 		common.log("Process Log Status is ::" + status);
 		assertEquals(status, "COMPLETED");
 		common.pause(10);
-		System.out.println("Step :: click on view change ");
 		common.log("Click on view change");
 		common.findElement(completedViewProcessLog).click();
 		common.pause(10);
 
 		common.waitForElement(headerData);
 		Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
-		test.log(LogStatus.INFO, "Step :: -- Header title is displaying ");
-		System.out.println("Step :: Header Title is displaying:: >>" + header);
 		common.log("Title is Header data :: >>" + header);
 
 		common.waitForElement(fieldNameHeader);

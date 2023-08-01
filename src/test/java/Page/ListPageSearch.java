@@ -104,7 +104,6 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);
@@ -153,8 +152,6 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-		System.out.println("First value of Material master table:: " + strFirstValue);
 		common.log("First value of Material master table:: " + strFirstValue);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
@@ -174,8 +171,6 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue1 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table:: " + strFirstValue1);
 			common.log("First value of Material master table:: " + strFirstValue1);
 		}
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
@@ -197,8 +192,6 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue2 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table:: " + strFirstValue2);
 			common.log("First value of Material master table:: " + strFirstValue2);
 		}
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
@@ -218,8 +211,6 @@ public class ListPageSearch extends Locators {
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue3 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table:: " + strFirstValue3);
 			common.log("First value of Material master table:: " + strFirstValue3);
 		}
 
@@ -256,8 +247,6 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		String strFirstValue = driver.findElement(By.xpath(firstValueOfStatus)).getText();
-
-		System.out.println("Status Of First value of Material master table:: " + strFirstValue);
 		common.log("Status Of First value of Material master table:: " + strFirstValue);
 
 		common.findElementBy(clearIconForStatusFilter, "Clear applied filter").click();
@@ -271,8 +260,6 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		String strFirstValue1 = driver.findElement(By.xpath(firstValueOfModifiedBy)).getText();
-
-		System.out.println("Modified By Of First value of Material master table:: " + strFirstValue1);
 		common.log("Modified By Of First value of Material master table:: " + strFirstValue1);
 
 		common.findElementBy(clearIconForModifiedByFilter, "Clear applied filter").click();
@@ -322,8 +309,6 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-		System.out.println("First value of Material master table:: " + strFirstValue);
 		common.log("First value of Material master table:: " + strFirstValue);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
@@ -344,8 +329,6 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		String strFirstValue1 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-		System.out.println("First value of Material master table:: " + strFirstValue1);
 		common.log("First value of Material master table:: " + strFirstValue1);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
@@ -367,8 +350,6 @@ public class ListPageSearch extends Locators {
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue3 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table:: " + strFirstValue3);
 			common.log("First value of Material master table:: " + strFirstValue3);
 		}
 
@@ -485,8 +466,6 @@ public class ListPageSearch extends Locators {
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue3 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table:: " + strFirstValue3);
 			common.log("First value of Material master table:: " + strFirstValue3);
 		}
 
@@ -539,8 +518,6 @@ public class ListPageSearch extends Locators {
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 		}
 
@@ -551,9 +528,7 @@ public class ListPageSearch extends Locators {
 		common.pause(5);
 
 		String strFilter = common.generateRandomChars(5);
-
-		System.out.println("Step :: Enter filter name in input field: " + strFilter);
-		common.log("Step :: Enter filter name in input field: " + strFilter);
+		common.log("Enter filter name in input field: " + strFilter);
 		common.type(filterNameInput, strFilter);
 
 		common.findElementBy(saveButtonFilterPopup, "Click on Save button in popup").click();
@@ -573,8 +548,6 @@ public class ListPageSearch extends Locators {
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table after select filter:: " + strFirstValue);
 			common.log("First value of Material master table after select filter:: " + strFirstValue);
 		}
 
@@ -626,8 +599,6 @@ public class ListPageSearch extends Locators {
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 		}
 
@@ -638,9 +609,7 @@ public class ListPageSearch extends Locators {
 		common.pause(5);
 
 		String strFilter = common.generateRandomChars(5);
-
-		System.out.println("Step :: Enter filter name in input field: " + strFilter);
-		common.log("Step :: Enter filter name in input field: " + strFilter);
+		common.log("Enter filter name in input field: " + strFilter);
 		common.type(filterNameInput, strFilter);
 
 		common.findElementBy(cancelButtonFilterPopup, "Click on Cancel button in popup").click();
@@ -650,8 +619,6 @@ public class ListPageSearch extends Locators {
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table after select filter:: " + strFirstValue);
 			common.log("First value of Material master table after select filter:: " + strFirstValue);
 		}
 
@@ -700,8 +667,6 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 		}
 
@@ -736,16 +701,12 @@ public class ListPageSearch extends Locators {
 		}
 		common.waitForElement(firstValueCreatedOnDateInTable);
 		String strFirstValue = driver.findElement(By.xpath(firstValueCreatedOnDateInTable)).getText();
-
-		System.out.println("Created On date of Material master before sorting:: " + strFirstValue);
 		common.log("Created On date of Material master before sorting:: " + strFirstValue);
 
 		common.findElementBy(createdOnSortFilter, "Click on Created On sort filter").click();
 		common.pause(10);
 
 		String strFirstValue1 = driver.findElement(By.xpath(firstValueCreatedOnDateInTable)).getText();
-
-		System.out.println("Created On date of Material master after sorting:: " + strFirstValue1);
 		common.log("Created On date of Material master after sorting:: " + strFirstValue1);
 
 	}
@@ -793,8 +754,6 @@ public class ListPageSearch extends Locators {
 
 		}
 		String paginationStr = driver.findElement(By.xpath(paginationValue)).getText();
-
-		System.out.println("Pagination value before applying filter:: " + paginationStr);
 		common.log("Pagination value before applying filter:: " + paginationStr);
 
 		common.pause(5);
@@ -814,8 +773,6 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		String paginationStr1 = driver.findElement(By.xpath(paginationValue)).getText();
-
-		System.out.println("Paginaton value after applying filter:: " + paginationStr1);
 		common.log("Pagination value after applying filter:: " + paginationStr1);
 
 		common.assertTwoValuesAreNotEqual(paginationStr, paginationStr1);
@@ -859,7 +816,6 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(inputManufacturerPartNumFilter);
 
 		common.pause(5);
-		System.out.println("Enter special characters");
 		common.log("Enter special characters");
 		common.type(inputManufacturerPartNumFilter, "#$%");
 
@@ -870,8 +826,6 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue2 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value of Material master table:: " + strFirstValue2);
 			common.log("First value of Material master table:: " + strFirstValue2);
 		}
 
@@ -914,7 +868,6 @@ public class ListPageSearch extends Locators {
 		//verify searched material master record present
 		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
 		String strSearchedValue = driver.findElement(By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
-		System.out.println("Searched value:: " + strSearchedValue);
 		common.log("Searched value:: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
@@ -922,7 +875,6 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);
@@ -953,7 +905,6 @@ public class ListPageSearch extends Locators {
 		//verify searched material master record present
 		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
 		String strSearchedValue = driver.findElement(By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
-		System.out.println("Searched value:: " + strSearchedValue);
 		common.log("Searched value:: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
@@ -961,7 +912,6 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);
@@ -1012,7 +962,6 @@ public class ListPageSearch extends Locators {
 		//verify searched material master record present
 		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
 		String strSearchedValue = driver.findElement(By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
-		System.out.println("Searched value:: " + strSearchedValue);
 		common.log("Searched value:: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
@@ -1024,7 +973,6 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 			String strFirstValue = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
-			System.out.println("First value of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);

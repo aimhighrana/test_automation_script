@@ -56,6 +56,8 @@ public class BasePage implements ITestListener {
 	public static ExtentTest test;
 	public static ExtentReports report;
 
+	public static int step = 0;
+
 	@BeforeMethod(alwaysRun = true)
 	public void setUp(Method method) throws Exception {
 
@@ -108,6 +110,7 @@ public class BasePage implements ITestListener {
 		homePage = new HomePage(driver);
 		materialCreation = new MaterialCreation(driver);
 		processLog = new ProcessLog(driver);
+		step = 1;
 	//	MyScreenRecorder.startRecording(currentTest);
 	}
 
@@ -176,6 +179,7 @@ public class BasePage implements ITestListener {
 			log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
 					+ ".png' height='250' width='500'></img> </a>" + "<br>");
 		}
+		step =0;
 		driver.manage().deleteAllCookies();
 		driver.quit();
 		//MyScreenRecorder.stopRecording();
