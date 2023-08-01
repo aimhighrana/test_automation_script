@@ -36,6 +36,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.LogStatus;
+
 import org.apache.commons.io.FileUtils;
 
 /**
@@ -136,11 +139,12 @@ public class Common extends Locators {
 		return null;
 
 	}
+
 	public WebElement findElementBy(String elementName, String msg) {
 
 		String locator;
 
-		System.out.println("Step :: " +msg+"\n");
+		System.out.println("Step :: " + msg + "\n");
 		log(msg);
 
 		locator = elementName;
@@ -169,7 +173,7 @@ public class Common extends Locators {
 					} catch (Exception e) {
 						return null;
 					}
-				} else if (locator.startsWith("//")||locator.startsWith("(//")) {
+				} else if (locator.startsWith("//") || locator.startsWith("(//")) {
 					try {
 						return driver.findElement(By.xpath(locator));
 					} catch (Exception e) {
@@ -216,27 +220,27 @@ public class Common extends Locators {
 		return null;
 
 	}
+
 	public void highlightElement(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='4px solid yellow'", element);
 	}
 
 	public void expandingHeadData() {
-		
+
 		driver.findElement(By.xpath(expandHeaderData)).click();
 		driver.findElement(By.xpath(expandPlantData)).click();
 		driver.findElement(By.xpath(expandPlant)).click();
 		driver.findElement(By.xpath(expandValuationData)).click();
-		
+
 	}
 
-	
 	public void click(String locator) {
-		
+
 		driver.findElement(By.xpath(locator)).click();
-		
+
 	}
-	
+
 	public void dismissAlert() {
 
 		pause(4);
@@ -307,7 +311,14 @@ public class Common extends Locators {
 	 * @param msg Message/Log to be reported.
 	 */
 	public void log(String msg) {
-		Reporter.log("<br>Step :: "+msg);
+		System.out.println("Step :: " + msg);
+		Reporter.log("<br>Step :: " + msg);
+	}
+	
+	public void log(LogStatus logStatus, String msg) {
+		System.out.println("Step :: " + msg);
+		Reporter.log("<br>Step :: " + msg);
+		test.log(logStatus, msg);
 	}
 
 	/**
@@ -366,6 +377,7 @@ public class Common extends Locators {
 			return false;
 		}
 	}
+
 	public boolean isElementNotDisplayed(String elementName) {
 
 		WebElement webElement;
@@ -483,16 +495,19 @@ public class Common extends Locators {
 	 */
 	public void type(String locator, String string) {
 
-	//	this.findElement(locator).clear();
+		// this.findElement(locator).clear();
 		driver.findElement(By.xpath(locator)).sendKeys(string);
 
 	}
+
 	public String generateRandomChars(int length) {
 		return RandomStringUtils.randomAlphabetic(length).toLowerCase();
 	}
+
 	public void assertTwoValuesAreEqual(Object value1, Object value2) {
 		Assert.assertEquals(value1, value2);
 	}
+
 	public void assertTwoValuesAreNotEqual(Object value1, Object value2) {
 
 		Assert.assertNotEquals(value1, value2);
