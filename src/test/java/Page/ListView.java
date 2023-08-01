@@ -90,7 +90,6 @@ public class ListView extends Locators {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
 
-			System.out.println("First value" + " of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 		}
 
@@ -102,8 +101,6 @@ public class ListView extends Locators {
 		common.pause(10);
 
 		String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-		System.out.println("First value of Material master table:: " + strFirstValue);
 		common.log("First value of Material master table:: " + strFirstValue);
 	}
 
@@ -133,7 +130,6 @@ public class ListView extends Locators {
 
 		}
 		for (int i = 1; i <= 6; i++) {
-			System.out.println("select " + i + " checkbox of record");
 			common.log("select " + i + " checkbox of record");
 			driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[1]//label")).click();
 		}
@@ -184,8 +180,6 @@ public class ListView extends Locators {
 		if (common.isElementDisplayed("//h4[normalize-space()='Material Master - " + viewStr + "']")) {
 
 			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-
-			System.out.println("First value" + " of Material master table:: " + strFirstValue);
 			common.log("First value of Material master table:: " + strFirstValue);
 		}
 	}
@@ -242,8 +236,6 @@ public class ListView extends Locators {
 		}
 		for (int i = 0; i <= 3; i++) {
 			String paginationStr = driver.findElement(By.xpath(paginationValue)).getText();
-
-			System.out.println("Paginaton value :: " + paginationStr);
 			common.log("Pagination value :: " + paginationStr);
 
 			common.findElementBy(nextPage, "Click on next button in pagination").click();

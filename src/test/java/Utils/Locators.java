@@ -128,7 +128,7 @@ public abstract class Locators extends BasePage {
 	public static String dnuFixedPeriods = "//p[normalize-space()='DNU Fixed periods']//..//..//..//input";
 
 	public static String addForecastHierarchy ="//p[contains(text(),'Forecast Parameters')]//..//..//lib-text-line//..//..//p[contains(text(),'Add')]";
-	public static String unitOfWeightField = "//p[normalize-space()='Unit of Weight']//..//..//div//input";
+	public static String unitOfWeightField = "//p[normalize-space()='Unit of Weight']//..//..//div//button";
 	public static String volumeUnitField = "//p[normalize-space()='Volume unit']//..//..//div//input";
 
 	public static String approveButton = "//span[contains(text(),' Approve ')]";
@@ -328,6 +328,7 @@ public abstract class Locators extends BasePage {
 	public static String plantDataAddHierarchy = "//p[normalize-space()='Plant Data']//..//..//..//p[normalize-space()='Add...']";
 
 	public static String plantDataOption0002 = "//span[contains (text(),'0002')]";
+
 	public static String searchBoxHierarchy = "//div[@class='dropdown-search-wrapper']//mat-icon[@role='img'][normalize-space()='search']//..//input";
 
 	public static String selectSearchedOption = "//span[@class='mat-checkbox-inner-container']";

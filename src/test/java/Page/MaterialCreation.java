@@ -31,8 +31,7 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-
-		System.out.println("Step :: click on Material master from left nav");
+		
 		common.log("Click on Material master from left nav");
 		common.waitForElement(search);
 		common.pause(5);
@@ -52,7 +51,6 @@ public class MaterialCreation extends Locators {
 
 		}
 		common.waitForElement(newRecordBtn);
-		System.out.println("Step :: Click on add new record button");
 		common.log("Click on add new record button");
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
@@ -92,15 +90,12 @@ public class MaterialCreation extends Locators {
 		}
 
 		String strMaterialType = driver.findElement(By.xpath(materialTypeField)).getAttribute("value");
-		System.out.println("Step :: Verified Material Type field: " + strMaterialType);
 		common.log("Verified Material Type field: " + strMaterialType);
 
 		String strMaterialGroup = driver.findElement(By.xpath(materialGroupField)).getAttribute("value");
-		System.out.println("Step :: Verified Material Group field: " + strMaterialGroup);
 		common.log("Verified Material Group field: " + strMaterialGroup);
 
 		String strIndustrySector = driver.findElement(By.xpath(industrySectorField)).getAttribute("value");
-		System.out.println("Step :: Verified Industry sector field: " + strIndustrySector);
 		common.log("Verified Industry sector field: " + strIndustrySector);
 
 		common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
@@ -111,8 +106,15 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(selectSearchedOption, "Select searched option").click();
 		common.waitForElement(applyBtn);
 		common.findElementBy(applyBtn, "Click on Apply button").click();
+
+		//added wait for auto populate the hierarchy valuation and forecast
 		common.pause(30);
 		common.waitForElement(valuationDataAddHierarchy);
+
+		//Double click on material description label for auto populate hierarchy
+		common.findElement(materialDescLabel).click();
+		common.findElement(materialDescLabel).click();
+
 
 //		common.findElementBy(valuationDataAddHierarchy, "Click on Valuation Data - add... button").click();
 //		common.pause(10);
@@ -129,11 +131,11 @@ public class MaterialCreation extends Locators {
 //			common.findElementBy(selectSearchedOption, "Select searched option").click();
 //		}
 //		common.findElementBy(applyBtn, "Click on Apply button").click();
-		common.pause(10);
+		common.pause(30);
+		common.waitForElement(planingCycleField);
 //		common.waitForElement(valuationTypeField);
 //
 //		String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
-//		System.out.println("Step :: Verified Valuation Type field: " + strValuationType);
 //		common.log("Verified Valuation Type field: " + strValuationType);
 
 //		common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
@@ -161,14 +163,13 @@ public class MaterialCreation extends Locators {
 
 		common.findElementBy(submitBtn, "Click on submit button").click();
 		common.pause(10);
+		common.waitForElement(submitBtn);
 		if (common.isElementDisplayed(errorMessage)) {
 
-			System.out.println("Step :: Showing mandatory errors");
 			common.log("Showing mandatory error");
 			List<WebElement> webElements = driver.findElements(By.xpath("//p[@class='small ng-star-inserted']"));
 
 			for (WebElement e : webElements) {
-				System.out.println("Error: " + e.getText());
 				common.log("Error: " + e.getText());
 			}
 		}
@@ -180,6 +181,7 @@ public class MaterialCreation extends Locators {
 			common.pause(5);
 			common.findElement(applyFilterButton).click();
 			common.pause(10);
+			common.waitForElement(lastForecastField);
 			common.findElementBy(dnuFixedPeriods, "Fill DNU Fixed periods field").sendKeys("5");
 			common.findElementBy(lastForecastField, "Fill last forecast field").sendKeys("10");
 		}
@@ -204,8 +206,6 @@ public class MaterialCreation extends Locators {
 
 		//wait for Inbox menu
 		common.waitForElement(inboxMenu);
-		test.log(LogStatus.INFO, "Step :: Click on Inbox menu ");
-		System.out.println("Step :: Click on Inbox menu");
 		common.log("Click on Inbox menu");
 		common.findElement(inboxMenu).click();
 		common.findElement(inboxMenu).click();
@@ -213,13 +213,9 @@ public class MaterialCreation extends Locators {
 		//wait for first value
 		common.waitForElement(firstActionIconForInbox);
 
-		test.log(LogStatus.INFO, "Step :: Click on action menu for first row ");
-		System.out.println("Step :: Click on action menu for first row");
 		common.log("Click on action menu for first row");
 		driver.findElement(By.xpath(firstActionIconForInbox)).click();
 
-		test.log(LogStatus.INFO, "Step :: click on approve ");
-		System.out.println("Step :: click on approve");
 		common.log("Click on approve");
 		common.pause(10);
 		common.findElement(approveBtn).click();
@@ -230,7 +226,6 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(plantData0001, "Verify Selected Plant data 'PLANT 0001'");
 			common.findElementBy(valuationDataNA, "Verify Selected valuation data 'N.A -- Not Applicable'");
 		}
-		System.out.println("Step :: click on Approve button");
 		common.log("Click on Approve button");
 
 		common.findElement(approveButton).click();
@@ -242,16 +237,12 @@ public class MaterialCreation extends Locators {
 
 	public void verify_Created_Record_Which_Is_In_System_Status() {
 
-		test.log(LogStatus.INFO, "Step :: Click on Data tab");
-		System.out.println("Step :: Click on Data tab");
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
 		driver.findElement(By.xpath(dataTab)).click();
 		common.refreshPage();
 
 		common.waitForElement(materialMaster);
-		test.log(LogStatus.INFO, "Step :: Click on material master from left nav");
-		System.out.println("Step :: Click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
 		driver.findElement(By.xpath(materialMaster)).click();
@@ -268,14 +259,12 @@ public class MaterialCreation extends Locators {
 		}
 
 		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		System.out.println("Step :: Material master number is ::" + materialMasterNumber);
-		System.out.println("Step :: Set filter status as a System");
+		common.log("Material master number is ::" + materialMasterNumber);
 		common.log("Set filter status as a system");
 		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
 		common.pause(10);
 		driver.findElement(By.xpath(actionIconForFirstValue)).click();
 
-		System.out.println("Step :: Click on edit");
 		common.log("Click on edit");
 		common.findElement(edit).click();
 		common.pause(10);
@@ -300,15 +289,12 @@ public class MaterialCreation extends Locators {
 		}
 		else {
 
-			System.out.println("Step :: Click on material creation process");
 			common.log("Click on material master creation process");
 			driver.findElement(By.xpath(materialCreationRecord)).click();
 			common.pause(10);
 			common.waitForElement(headerData);
 			common.pause(10);
 
-			test.log(LogStatus.INFO, "Step :: Select Industry Sector ");
-			System.out.println("Step :: Select Industry Sector");
 			common.log("Select Industry Sector");
 			common.waitForElement(industrySec);
 			common.findElement(industrySec).click();
@@ -327,7 +313,6 @@ public class MaterialCreation extends Locators {
 
 		}
 
-		System.out.println("Step :: Click on save button");
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
 		driver.findElement(By.xpath(uSaveBtn)).click();
@@ -336,21 +321,19 @@ public class MaterialCreation extends Locators {
 		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
 
-			System.out.println("Step :: Duplicate records");
+			common.log("Duplicate records");
 			driver.findElement(By.xpath(continueDuplicateRecord)).click();
 		} else {
 
-			System.out.println("Step :: No duplicate records");
+			common.log("No duplicate records");
 		}
 
 		if (common.isElementDisplayed(errorMessage)) {
 
-			System.out.println("Step :: Showing mandatory errors");
 			common.log("Showing mandatory error");
 			List<WebElement> webElements = driver.findElements(By.xpath("//p[@class='small ng-star-inserted']"));
 
 			for (WebElement e : webElements) {
-				System.out.println("Error: " + e.getText());
 				common.log("Error: " + e.getText());
 			}
 		}
@@ -360,7 +343,7 @@ public class MaterialCreation extends Locators {
 	/**
 	 *  Extend : To verify that user is able to save the record with the extension process
 	 */
-	public void verify_User_Is_Able_To_Save_The_Record_With_The_Extension_Process() {
+	public void verify_User_Is_Able_To_Save_The_Record_With_The_Extension_Process() throws InterruptedException {
 
 		if (common.isElementDisplayed(sequentialHeader))
 		{
@@ -374,13 +357,17 @@ public class MaterialCreation extends Locators {
 				common.findElementBy(dnuFixedPeriods, "Fill DNU Fixed periods field").sendKeys("5");
 				common.findElementBy(lastForecastField, "Fill last forecast field").sendKeys("10");
 			}
-			else if (common.isElementDisplayed(unitOfWeightField)) {
+			if (common.isElementDisplayed(unitOfWeightField)) {
 				common.waitForElement(unitOfWeightField);
-				common.findElementBy(unitOfWeightField, "Click on Unit Of Weight dropdown").click();
+				common.scrollToElement(unitOfWeightField);
+				common.pause(10);
+				common.log("Click on Unit Of Weight dropdown");
+				common.jsClick(unitOfWeightField);
+				common.jsClick(unitOfWeightField);
 				common.pause(5);
-				common.waitForElement(dropValue);
-				common.findElementBy(dropValue, "Select option").click();
-				common.findElementBy(volumeUnitField, "Click on Volume Unit field").click();
+				common.waitForElement(dropValue1);
+				common.findElementBy(dropValue1, "Select option").click();
+				common.findElementBy(volumeUnitField,"Click on Volume Unit field").click();
 				common.pause(5);
 				common.waitForElement(dropValue);
 				common.findElementBy(dropValue, "Select option").click();
@@ -417,8 +404,6 @@ public class MaterialCreation extends Locators {
 			common.pause(5);
 		}
 
-		test.log(LogStatus.INFO, "Step :: Click on save button");
-		System.out.println("Step :: Click on save button");
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
 		driver.findElement(By.xpath(uSaveBtn)).click();
@@ -452,7 +437,6 @@ public class MaterialCreation extends Locators {
 			common.pause(10);
 			String duplicateRecordStr = common.findElement("//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p").getText();
 			common.log("Duplicate Object number: " + duplicateRecordStr);
-			System.out.println("Duplicate Object number: " + duplicateRecordStr);
 		}
 		else {
 			common.log("Rule not applied");
@@ -460,7 +444,6 @@ public class MaterialCreation extends Locators {
 	}
 
 	public void duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event() {
-		System.out.println("Step :: Click on Data tab");
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
 		driver.findElement(By.xpath(dataTab)).click();
@@ -469,7 +452,6 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.refreshPage();
 
-		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 		common.waitForElement(materialMaster);
 		driver.findElement(By.xpath(materialMaster)).click();
@@ -488,12 +470,10 @@ public class MaterialCreation extends Locators {
 		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
 		common.pause(10);
 		String mmN = driver.findElement(By.xpath(materialMasterNum)).getText();
-		System.out.println("Step :: Material master number is ::" + mmN);
 
 		common.pause(10);
 		driver.findElement(By.xpath(actionIconForFirstValue)).click();
 
-		System.out.println("Step :: Click on copy");
 		common.log("Click on copy");
 		common.pause(5);
 		common.findElement(copy).click();
@@ -519,7 +499,6 @@ public class MaterialCreation extends Locators {
 			common.pause(10);
 			String duplicateRecordStr = common.findElement("//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p").getText();
 			common.log("Duplicate Object number: " + duplicateRecordStr);
-			System.out.println("Duplicate Object number: " + duplicateRecordStr);
 		}
 		else {
 
@@ -533,9 +512,7 @@ public class MaterialCreation extends Locators {
 	 *
 	 */
 	public void verify_Duplicacy_Is_Working_At_Change_Event() {
-
-		test.log(LogStatus.INFO, "Step :: Click on Data tab");
-		System.out.println("Step :: Click on Data tab");
+		
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
 		driver.findElement(By.xpath(dataTab)).click();
@@ -545,8 +522,6 @@ public class MaterialCreation extends Locators {
 		common.refreshPage();
 
 		common.waitForElement(materialMaster);
-		test.log(LogStatus.INFO, "Step :: Click on material master from left nav");
-		System.out.println("Step :: Click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
 		driver.findElement(By.xpath(materialMaster)).click();
@@ -563,18 +538,15 @@ public class MaterialCreation extends Locators {
 		}
 
 		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		System.out.println("Step :: Material master number is ::" + materialMasterNumber);
-		System.out.println("Step :: Set filter status as a System");
+		common.log("Material master number is ::" + materialMasterNumber);
 		common.log("Set filter status as a system");
-		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
-		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+		common.findElement(actionIconForFirstValue).click();
 
-		test.log(LogStatus.INFO, "Step :: Click on edit");
-		System.out.println("Step :: Click on edit");
 		common.log("Click on edit");
-
-		driver.findElement(By.xpath(edit)).click();
+		common.findElement(edit).click();
+		
 		common.waitForElement(sequentialMaterialOption);
 		common.findElementBy(sequentialMaterialOption,"Click on Sequential Material").click();
 		common.waitForElement(saveButtonFilterPopup);
@@ -593,7 +565,6 @@ public class MaterialCreation extends Locators {
 			common.pause(10);
 			String duplicateRecordStr = common.findElement("//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p").getText();
 			common.log("Duplicate Object number: " + duplicateRecordStr);
-			System.out.println("Duplicate Object number: " + duplicateRecordStr);
 		}
 		else {
 
@@ -606,16 +577,13 @@ public class MaterialCreation extends Locators {
 	 *
 	 */
 	public void check_Duplicacy_Is_Working_At_The_Time_Of_Approval_From_Reviewer() {
+		
 		common.pause(10);
 		common.refreshPage();
-
-		test.log(LogStatus.INFO, "Step :: Home tab opened");
-		System.out.println("Step :: Home tab opened");
+		
 		common.log("Home tab opened");
 
 		common.waitForElement(inboxMenu);
-		test.log(LogStatus.INFO, "Step :: click on My request Menu ");
-		System.out.println("Step :: click on My request Menu");
 		common.log("Click on inbox Menu");
 		driver.findElement(By.xpath(myReqTab)).click();
 		common.pause(10);
@@ -646,7 +614,6 @@ public class MaterialCreation extends Locators {
 
 				String duplicateRecordStr = common.findElement(duplicateRecordFirst).getText();
 				common.log("Duplicate Object number: " + duplicateRecordStr);
-				System.out.println("Duplicate Object number: " + duplicateRecordStr);
 			}
 			else {
 				common.findElementBy(approveButtonReviewer, "Click on Approve").click();
@@ -655,7 +622,6 @@ public class MaterialCreation extends Locators {
 
 				String duplicateRecordStr = common.findElement(duplicateRecordFirst).getText();
 				common.log("Duplicate Object number: " + duplicateRecordStr);
-				System.out.println("Duplicate Object number: " + duplicateRecordStr);
 			}
 		}
 	}
@@ -666,8 +632,6 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		test.log(LogStatus.INFO, "click on Material master from left nav");
-		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 		common.waitForElement(search);
 		common.pause(5);
@@ -687,7 +651,6 @@ public class MaterialCreation extends Locators {
 
 		}
 		common.waitForElement(newRecordBtn);
-		System.out.println("Step :: Click on add new record button");
 		common.log("Click on add new record button");
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
@@ -1089,7 +1052,6 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(materialDescReviewer);
 		String strDescription = common.findElementBy(materialDescReviewer,"Get value from material description field").getAttribute("value");
 		common.log("Value of Material description field: "+strDescription);
-		System.out.println("Value of Material description field: "+strDescription);
 		if (!strDescription.contains("0"))
 		{
 			common.log("Rule applied");
@@ -1122,7 +1084,6 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(materialDescReviewer);
 		String strDescription = common.findElementBy(materialDescReviewer,"Get value from material description field").getAttribute("value");
 		common.log("Value of Material description field: "+strDescription);
-		System.out.println("Value of Material description field: "+strDescription);
 
 		if (strDescription.contains("QA"))
 		{
@@ -1144,7 +1105,6 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 		common.waitForElement(search);
 		common.pause(5);
@@ -1164,7 +1124,6 @@ public class MaterialCreation extends Locators {
 
 		}
 		common.waitForElement(newRecordBtn);
-		System.out.println("Step :: Click on add new record button");
 		common.log("Click on add new record button");
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
@@ -1258,13 +1217,10 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 		String shortDescStr = common.findElement(shortDescriptionField).getAttribute("value");
 		common.log("Short Description auto populate: "+shortDescStr);
-		System.out.println("Short Description auto populate: "+shortDescStr);
 
 		String longDescStr = common.findElement(longDescriptionField).getAttribute("value");
 		common.log("Long Description auto populate: "+longDescStr);
-		System.out.println("Long Description auto populate: "+longDescStr);
-
-
+		
 		common.findElementBy(submitBtn, "Click on submit button").click();
 		common.pause(5);
 
@@ -1285,8 +1241,6 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		test.log(LogStatus.INFO, "click on Material master from left nav");
-		System.out.println("Step :: click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 		common.waitForElement(search);
 		common.pause(5);
@@ -1306,7 +1260,6 @@ public class MaterialCreation extends Locators {
 
 		}
 		common.waitForElement(newRecordBtn);
-		System.out.println("Step :: Click on add new record button");
 		common.log("Click on add new record button");
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
@@ -1399,17 +1352,14 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 		String shortDescStr = common.findElement(shortDescriptionField).getAttribute("value");
 		common.log("Short Description auto populate: " + shortDescStr);
-		System.out.println("Short Description auto populate: " + shortDescStr);
 
 		String longDescStr = common.findElement(longDescriptionField).getAttribute("value");
 		common.log("Long Description auto populate: " + longDescStr);
-		System.out.println("Long Description auto populate: " + longDescStr);
 
 		List<WebElement> languageDescription = driver.findElements(By.xpath("//div[contains(text(),'Material Description')]//..//..//..//..//..//..//lib-input[1]//div[1]//div//input[1]"));
 
 		for (WebElement e : languageDescription) {
 
-			System.out.println("Language Grid Material descriptions: " + e.getAttribute("value"));
 			common.log("Language Grid Material descriptions: " + e.getAttribute("value"));
 		}
 
@@ -1431,7 +1381,6 @@ public class MaterialCreation extends Locators {
 		driver.findElement(By.xpath(dataTab)).click();
 		common.waitForElement(materialMaster);
 
-		System.out.println("Step :: Click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
 		driver.findElement(By.xpath(materialMaster)).click();
@@ -1448,30 +1397,24 @@ public class MaterialCreation extends Locators {
 		}
 
 		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		System.out.println("Step :: Material master number is ::" + materialMasterNumber);
-		System.out.println("Step :: Set filter status as a System");
+		common.log("Material master number is ::" + materialMasterNumber);
 		common.log("Set filter status as a system");
-		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
-		driver.findElement(By.xpath(actionIconForFirstValue)).click();
-
-		test.log(LogStatus.INFO, "Step :: Click on edit");
-		System.out.println("Step :: Click on edit");
+		common.findElement(actionIconForFirstValue).click();
+		
 		common.log("Click on edit");
-
-		driver.findElement(By.xpath(edit)).click();
+		common.findElement(edit).click();
 		common.pause(10);
 
 		if (common.isElementDisplayed(sequentialMaterialOption))
 		{
 			common.pause(5);
 			common.findElementBy(sequentialMaterialOption,"Click on SequentialMaterial option").click();
-
-
+			
 		}
 		else
 		{
-			System.out.println("Step :: Click on material creation process");
 			common.log("Click on material master creation process");
 			driver.findElement(By.xpath(materialCreationRecord)).click();
 			common.pause(10);
@@ -1500,12 +1443,12 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(searchedPantValue,"Select searched value").click();
 		common.pause(5);
 		common.findElementBy(applyFilterButton,"Click on apply button").click();
-		common.pause(5);
+		common.pause(10);
+
+		//Click on material Description label for auto populate hierarchy
 		common.findElement(materialDescLabel).click();
 		common.findElement(materialDescLabel).click();
 
-		test.log(LogStatus.INFO, "Step :: Click on save button");
-		System.out.println("Step :: Click on save button");
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
 		driver.findElement(By.xpath(uSaveBtn)).click();
@@ -1529,10 +1472,9 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
-		driver.findElement(By.xpath(dataTab)).click();
+		common.findElement(dataTab).click();
 		common.waitForElement(materialMaster);
 
-		System.out.println("Step :: Click on Material master from left nav");
 		common.log("Click on Material master from left nav");
 
 		driver.findElement(By.xpath(materialMaster)).click();
@@ -1549,18 +1491,14 @@ public class MaterialCreation extends Locators {
 		}
 
 		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		System.out.println("Step :: Material master number is ::" + materialMasterNumber);
-		System.out.println("Step :: Set filter status as a System");
+		common.log("Material master number is ::" + materialMasterNumber);
 		common.log("Set filter status as a system");
-		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
-		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+		common.findElementBy(actionIconForFirstValue,"Click on action icon for first value").click();
 
-		test.log(LogStatus.INFO, "Step :: Click on edit");
-		System.out.println("Step :: Click on edit");
 		common.log("Click on edit");
-
-		driver.findElement(By.xpath(edit)).click();
+		common.findElement(edit).click();
 		common.pause(10);
 
 		if (common.isElementDisplayed(sequentialMaterialOption))
@@ -1609,8 +1547,6 @@ public class MaterialCreation extends Locators {
 		}
 		else
 		{
-
-			System.out.println("Step :: Click on material creation process");
 			common.log("Click on material master creation process");
 			driver.findElement(By.xpath(materialCreationRecord)).click();
 			common.pause(10);
@@ -1642,8 +1578,6 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(applyFilterButton,"Click on apply button").click();
 			common.pause(5);
 
-			test.log(LogStatus.INFO, "Step :: Click on save button");
-			System.out.println("Step :: Click on save button");
 			common.log("Click on save button");
 			common.waitForElement(uSaveBtn);
 			driver.findElement(By.xpath(uSaveBtn)).click();
@@ -1679,7 +1613,6 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(dropValue3, "Select value from options").click();
 			common.pause(5);
 		}
-		System.out.println("Step :: Click on save button");
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
 		driver.findElement(By.xpath(uSaveBtn)).click();
@@ -1700,7 +1633,6 @@ public class MaterialCreation extends Locators {
 			common.pause(10);
 			common.findElementBy(materialDescReviewer, "Enter value in material description field with leading spaces").sendKeys("        Test");
 			String value1 = common.findElement(materialDescReviewer).getAttribute("value");
-			System.out.println("value of description field: "+value1);
 			common.log("value of description field: "+value1);
 
 			common.pause(5);
@@ -1709,7 +1641,6 @@ public class MaterialCreation extends Locators {
 			common.findElement(materialDescLabel).click();
 			common.pause(5);
 			String value2 = common.findElement(materialDescReviewer).getAttribute("value");
-			System.out.println("new value of description field: "+value2);
 			common.log("new value of description field: "+value2);
 
 			//verifying rule applied or not
@@ -1734,14 +1665,12 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 		common.findElementBy(materialDescReviewer, "Enter value in material description field with leading spaces").sendKeys("Test          ");
 		String value1 = common.findElement(materialDescReviewer).getAttribute("value");
-		System.out.println("value of description field: " + value1);
 		common.log("value of description field: " + value1);
 
 		common.pause(5);
 		common.findElementBy(materialDescLabel, "Click on material description label").click();
 		common.pause(5);
 		String value2 = common.findElement(materialDescReviewer).getAttribute("value");
-		System.out.println("new value of description field: " + value2);
 		common.log("new value of description field: " + value2);
 
 		//verifying rule applied or not
@@ -1766,14 +1695,12 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 		common.findElementBy(materialDescReviewer, "Enter value in material description field with spaces").sendKeys("Test  test  test ");
 		String value1 = common.findElement(materialDescReviewer).getAttribute("value");
-		System.out.println("value of description field: "+value1);
 		common.log("value of description field: "+value1);
 
 		common.pause(5);
 		common.findElementBy(materialDescLabel,"Click on material description label").click();
 		common.pause(5);
 		String value2 = common.findElement(materialDescReviewer).getAttribute("value");
-		System.out.println("new value of description field: "+value2);
 		common.log("new value of description field: "+value2);
 
 		//verifying rule applied or not
@@ -1801,17 +1728,14 @@ public class MaterialCreation extends Locators {
 		common.pause(10);
 		common.findElementBy(materialDescReviewer, "Enter value in material description").sendKeys("Test");
 		String materialDesc = common.findElement(materialDescReviewer).getAttribute("value");
-		System.out.println("value of description field: "+materialDesc);
 		common.log("value of description field: "+materialDesc);
 
 		common.findElementBy(grossWeightField, "Enter value in Gross weight").sendKeys("10");
 		String grossWeight = common.findElement(grossWeightField).getAttribute("value");
-		System.out.println("value of Gross Weight field: "+grossWeight);
 		common.log("value of Gross Weight field: "+grossWeight);
 
 		common.findElementBy(grossWeightField, "Enter value in Authorization group").sendKeys("qa");
 		String authorizationGroup = common.findElement(grossWeightField).getAttribute("value");
-		System.out.println("value of Authorization group field: "+grossWeight);
 		common.log("value of Authorization group field: "+grossWeight);
 
 		common.pause(5);
@@ -1820,7 +1744,6 @@ public class MaterialCreation extends Locators {
 
 		common.waitForElement(volumeField);
 		String volume = common.findElement(volumeField).getAttribute("value");
-		System.out.println("value of volume field: "+volume);
 		common.log("value of volume field: "+volume);
 
 		//verifying rule applied or not
