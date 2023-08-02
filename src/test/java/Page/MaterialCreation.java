@@ -89,13 +89,13 @@ public class MaterialCreation extends Locators {
 
 		}
 
-		String strMaterialType = driver.findElement(By.xpath(materialTypeField)).getAttribute("value");
+		String strMaterialType = common.findElement(materialTypeField).getAttribute("value");
 		common.log("Verified Material Type field: " + strMaterialType);
 
-		String strMaterialGroup = driver.findElement(By.xpath(materialGroupField)).getAttribute("value");
+		String strMaterialGroup = common.findElement(materialGroupField).getAttribute("value");
 		common.log("Verified Material Group field: " + strMaterialGroup);
 
-		String strIndustrySector = driver.findElement(By.xpath(industrySectorField)).getAttribute("value");
+		String strIndustrySector = common.findElement(industrySectorField).getAttribute("value");
 		common.log("Verified Industry sector field: " + strIndustrySector);
 
 		common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
@@ -109,11 +109,12 @@ public class MaterialCreation extends Locators {
 
 		//added wait for auto populate the hierarchy valuation and forecast
 		common.pause(30);
+		common.jsClick(materialDescLabel);
 		common.waitForElement(valuationDataAddHierarchy);
 
 		//Double click on material description label for auto populate hierarchy
-		common.findElement(materialDescLabel).click();
-		common.findElement(materialDescLabel).click();
+
+		common.jsClick(materialDescLabel);
 
 
 //		common.findElementBy(valuationDataAddHierarchy, "Click on Valuation Data - add... button").click();
@@ -135,7 +136,7 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(planingCycleField);
 //		common.waitForElement(valuationTypeField);
 //
-//		String strValuationType = driver.findElement(By.xpath(valuationTypeField)).getAttribute("value");
+//		String strValuationType = common.findElement(valuationTypeField).getAttribute("value");
 //		common.log("Verified Valuation Type field: " + strValuationType);
 
 //		common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
@@ -152,7 +153,7 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(selectFirstValueClassDropdown, "Select first value").click();
 			common.pause(5);
 			common.waitForElement(firstOptionSearchClass);
-			String strValueClassDropdown = driver.findElement(By.xpath(firstOptionSearchClass)).getText();
+			String strValueClassDropdown = common.findElement(firstOptionSearchClass).getText();
 			common.log("Selected value: " + strValueClassDropdown);
 
 			//verifying attributes after select class
@@ -214,7 +215,7 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(firstActionIconForInbox);
 
 		common.log("Click on action menu for first row");
-		driver.findElement(By.xpath(firstActionIconForInbox)).click();
+		common.findElement(firstActionIconForInbox).click();
 
 		common.log("Click on approve");
 		common.pause(10);
@@ -239,13 +240,13 @@ public class MaterialCreation extends Locators {
 
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
-		driver.findElement(By.xpath(dataTab)).click();
+		common.findElement(dataTab).click();
 		common.refreshPage();
 
 		common.waitForElement(materialMaster);
 		common.log("Click on Material master from left nav");
 
-		driver.findElement(By.xpath(materialMaster)).click();
+		common.findElement(materialMaster).click();
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -258,12 +259,12 @@ public class MaterialCreation extends Locators {
 
 		}
 
-		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		common.log("Material master number is ::" + materialMasterNumber);
+		String materialMasterNumber = common.findElement(materialMasterNum).getText();
+		common.log("Material master number is :" + materialMasterNumber);
 		common.log("Set filter status as a system");
-		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
-		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+		common.findElement(actionIconForFirstValue).click();
 
 		common.log("Click on edit");
 		common.findElement(edit).click();
@@ -290,7 +291,7 @@ public class MaterialCreation extends Locators {
 		else {
 
 			common.log("Click on material master creation process");
-			driver.findElement(By.xpath(materialCreationRecord)).click();
+			common.findElement(materialCreationRecord).click();
 			common.pause(10);
 			common.waitForElement(headerData);
 			common.pause(10);
@@ -315,14 +316,14 @@ public class MaterialCreation extends Locators {
 
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
-		driver.findElement(By.xpath(uSaveBtn)).click();
+		common.findElement(uSaveBtn).click();
 		common.pause(10);
 
 		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
 
 			common.log("Duplicate records");
-			driver.findElement(By.xpath(continueDuplicateRecord)).click();
+			common.findElement(continueDuplicateRecord).click();
 		} else {
 
 			common.log("No duplicate records");
@@ -406,7 +407,7 @@ public class MaterialCreation extends Locators {
 
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
-		driver.findElement(By.xpath(uSaveBtn)).click();
+		common.findElement(uSaveBtn).click();
 		common.pause(2);
 
 		common.waitForElement("//div[@class='cdk-overlay-pane']");
@@ -446,7 +447,7 @@ public class MaterialCreation extends Locators {
 	public void duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event() {
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
-		driver.findElement(By.xpath(dataTab)).click();
+		common.findElement(dataTab).click();
 
 		common.pause(5);
 		common.findElementBy(dataTab, "Click on Data tab").click();
@@ -454,7 +455,7 @@ public class MaterialCreation extends Locators {
 
 		common.log("Click on Material master from left nav");
 		common.waitForElement(materialMaster);
-		driver.findElement(By.xpath(materialMaster)).click();
+		common.findElement(materialMaster).click();
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -467,12 +468,12 @@ public class MaterialCreation extends Locators {
 
 		}
 
-		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
-		String mmN = driver.findElement(By.xpath(materialMasterNum)).getText();
+		String mmN = common.findElement(materialMasterNum).getText();
 
 		common.pause(10);
-		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+		common.findElement(actionIconForFirstValue).click();
 
 		common.log("Click on copy");
 		common.pause(5);
@@ -515,7 +516,7 @@ public class MaterialCreation extends Locators {
 		
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
-		driver.findElement(By.xpath(dataTab)).click();
+		common.findElement(dataTab).click();
 
 		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
@@ -524,7 +525,7 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(materialMaster);
 		common.log("Click on Material master from left nav");
 
-		driver.findElement(By.xpath(materialMaster)).click();
+		common.findElement(materialMaster).click();
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -537,8 +538,8 @@ public class MaterialCreation extends Locators {
 
 		}
 
-		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		common.log("Material master number is ::" + materialMasterNumber);
+		String materialMasterNumber = common.findElement(materialMasterNum).getText();
+		common.log("Material master number is :" + materialMasterNumber);
 		common.log("Set filter status as a system");
 		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
@@ -585,7 +586,7 @@ public class MaterialCreation extends Locators {
 
 		common.waitForElement(inboxMenu);
 		common.log("Click on inbox Menu");
-		driver.findElement(By.xpath(myReqTab)).click();
+		common.findElement(myReqTab).click();
 		common.pause(10);
 
 		//If first value appear in Inbox menu then it will reject the flow from Approve option
@@ -1340,9 +1341,8 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(dropValue, "Select value").click();
 
 		common.findElementBy(partNumberField, "Enter value in part number field").sendKeys("54321");
-		common.pause(5);
-		common.findElement(materialDescReviewer).click();
-		common.findElement(materialDescReviewer).click();
+		common.pause(10);
+		common.jsClick(materialDescReviewer);
 		common.pause(10);
 
 		if(!common.isElementDisplayed(classField)) {
@@ -1378,12 +1378,12 @@ public class MaterialCreation extends Locators {
 		common.waitForElement(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
-		driver.findElement(By.xpath(dataTab)).click();
+		common.findElement(dataTab).click();
 		common.waitForElement(materialMaster);
 
 		common.log("Click on Material master from left nav");
 
-		driver.findElement(By.xpath(materialMaster)).click();
+		common.findElement(materialMaster).click();
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -1396,8 +1396,8 @@ public class MaterialCreation extends Locators {
 
 		}
 
-		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		common.log("Material master number is ::" + materialMasterNumber);
+		String materialMasterNumber = common.findElement(materialMasterNum).getText();
+		common.log("Material master number is :" + materialMasterNumber);
 		common.log("Set filter status as a system");
 		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
@@ -1416,7 +1416,7 @@ public class MaterialCreation extends Locators {
 		else
 		{
 			common.log("Click on material master creation process");
-			driver.findElement(By.xpath(materialCreationRecord)).click();
+			common.findElement(materialCreationRecord).click();
 			common.pause(10);
 			common.waitForElement(headerData);
 			common.pause(10);
@@ -1451,7 +1451,7 @@ public class MaterialCreation extends Locators {
 
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
-		driver.findElement(By.xpath(uSaveBtn)).click();
+		common.findElement(uSaveBtn).click();
 		common.pause(10);
 
 		if (common.isElementDisplayed("//p[normalize-space()='Fix the following errors to proceed']")) {
@@ -1477,7 +1477,7 @@ public class MaterialCreation extends Locators {
 
 		common.log("Click on Material master from left nav");
 
-		driver.findElement(By.xpath(materialMaster)).click();
+		common.findElement(materialMaster).click();
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -1490,8 +1490,8 @@ public class MaterialCreation extends Locators {
 
 		}
 
-		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		common.log("Material master number is ::" + materialMasterNumber);
+		String materialMasterNumber = common.findElement(materialMasterNum).getText();
+		common.log("Material master number is :" + materialMasterNumber);
 		common.log("Set filter status as a system");
 		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
@@ -1548,7 +1548,7 @@ public class MaterialCreation extends Locators {
 		else
 		{
 			common.log("Click on material master creation process");
-			driver.findElement(By.xpath(materialCreationRecord)).click();
+			common.findElement(materialCreationRecord).click();
 			common.pause(10);
 			common.waitForElement(headerData);
 			common.waitForElement(addPlantData);
@@ -1580,7 +1580,7 @@ public class MaterialCreation extends Locators {
 
 			common.log("Click on save button");
 			common.waitForElement(uSaveBtn);
-			driver.findElement(By.xpath(uSaveBtn)).click();
+			common.findElement(uSaveBtn).click();
 			common.pause(10);
 
 			if (common.isElementDisplayed(actionIconLanguage)) {
@@ -1615,7 +1615,7 @@ public class MaterialCreation extends Locators {
 		}
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
-		driver.findElement(By.xpath(uSaveBtn)).click();
+		common.findElement(uSaveBtn).click();
 		common.pause(10);
 
 		if (common.isElementDisplayed("//p[normalize-space()='Fix the following errors to proceed']")) {

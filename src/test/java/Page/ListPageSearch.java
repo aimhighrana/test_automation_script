@@ -103,8 +103,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue);
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);
 		}
@@ -121,6 +121,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
+		common.pause(5);
 		common.waitForElement(search);
 		common.type(search, "Material Master");
 
@@ -151,8 +152,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-		common.log("First value of Material master table:: " + strFirstValue);
+		String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+		common.log("First value of Material master table: " + strFirstValue);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.pause(10);
@@ -170,8 +171,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue1 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue1);
+			String strFirstValue1 = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue1);
 		}
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.pause(10);
@@ -191,8 +192,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue2 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue2);
+			String strFirstValue2 = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue2);
 		}
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.pause(10);
@@ -210,8 +211,8 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
-			String strFirstValue3 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue3);
+			String strFirstValue3 = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue3);
 		}
 
 	}
@@ -246,21 +247,21 @@ public class ListPageSearch extends Locators {
 		common.type(filterStatusDropdown, "System");
 		common.pause(10);
 
-		String strFirstValue = driver.findElement(By.xpath(firstValueOfStatus)).getText();
-		common.log("Status Of First value of Material master table:: " + strFirstValue);
+		String strFirstValue = common.findElement(firstValueOfStatus).getText();
+		common.log("Status Of First value of Material master table: " + strFirstValue);
 
 		common.findElementBy(clearIconForStatusFilter, "Clear applied filter").click();
 		common.pause(10);
 
-		driver.findElement(By.xpath(filterModifiedByDropdown)).click();
+		common.findElement(filterModifiedByDropdown).click();
 //		common.findElementBy(filterModifiedByDropdown, "Click on Modified By filter dropdown and Enter Reviewer")
 //				.click();
 		common.pause(10);
 		common.type(filterModifiedByDropdown, "Reviewer");
 		common.pause(10);
 
-		String strFirstValue1 = driver.findElement(By.xpath(firstValueOfModifiedBy)).getText();
-		common.log("Modified By Of First value of Material master table:: " + strFirstValue1);
+		String strFirstValue1 = common.findElement(firstValueOfModifiedBy).getText();
+		common.log("Modified By Of First value of Material master table: " + strFirstValue1);
 
 		common.findElementBy(clearIconForModifiedByFilter, "Clear applied filter").click();
 	}
@@ -308,8 +309,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-		common.log("First value of Material master table:: " + strFirstValue);
+		String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+		common.log("First value of Material master table: " + strFirstValue);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.pause(10);
@@ -328,8 +329,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		String strFirstValue1 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-		common.log("First value of Material master table:: " + strFirstValue1);
+		String strFirstValue1 = common.findElement(firstValueMaterialMaster).getText();
+		common.log("First value of Material master table: " + strFirstValue1);
 
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 
@@ -349,8 +350,8 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
-			String strFirstValue3 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue3);
+			String strFirstValue3 = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue3);
 		}
 
 	}
@@ -399,6 +400,7 @@ public class ListPageSearch extends Locators {
 		common.waitForElement(appliedIndusSectorFilter);
 		common.findElementBy(appliedIndusSectorFilter,"Industry Sector filter is applied");
 
+		common.pause(5);
 		common.findElementBy(threeDotsAdvanceFilter, "Click on Three dots").click();
 
 		common.findElementBy(resetButton, "Click on Reset button").click();
@@ -465,8 +467,8 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
-			String strFirstValue3 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue3);
+			String strFirstValue3 = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue3);
 		}
 
 	}
@@ -517,8 +519,8 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue);
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue);
 		}
 
 		common.findElementBy(threeDotsIconAppliedFilter, "Click on three dots button beside Advance filter icon")
@@ -547,8 +549,8 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table after select filter:: " + strFirstValue);
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table after select filter: " + strFirstValue);
 		}
 
 	}
@@ -573,6 +575,7 @@ public class ListPageSearch extends Locators {
 		//If default view not appear then select it from view dropdown
 		if (!common.isElementDisplayed(defaultView)) {
 
+			common.waitForElement(viewDropDownIcon);
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
 			common.findElementBy(defaultViewOption, "Click on Default view option").click();
@@ -598,8 +601,8 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue);
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue);
 		}
 
 		common.findElementBy(threeDotsIconAppliedFilter, "Click on three dots button beside Advance filter icon")
@@ -618,8 +621,8 @@ public class ListPageSearch extends Locators {
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table after select filter:: " + strFirstValue);
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table after select filter: " + strFirstValue);
 		}
 
 	}
@@ -666,8 +669,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue);
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue);
 		}
 
 		user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
@@ -700,14 +703,15 @@ public class ListPageSearch extends Locators {
 
 		}
 		common.waitForElement(firstValueCreatedOnDateInTable);
-		String strFirstValue = driver.findElement(By.xpath(firstValueCreatedOnDateInTable)).getText();
-		common.log("Created On date of Material master before sorting:: " + strFirstValue);
+		String strFirstValue = common.findElement(firstValueCreatedOnDateInTable).getText();
+		common.log("Created On date of Material master before sorting: " + strFirstValue);
 
-		common.findElementBy(createdOnSortFilter, "Click on Created On sort filter").click();
-		common.pause(10);
+		//code commented because created On filter not available
+	//	common.findElementBy(createdOnSortFilter, "Click on Created On sort filter").click();
+	//	common.pause(10);
 
-		String strFirstValue1 = driver.findElement(By.xpath(firstValueCreatedOnDateInTable)).getText();
-		common.log("Created On date of Material master after sorting:: " + strFirstValue1);
+		String strFirstValue1 = common.findElement(firstValueCreatedOnDateInTable).getText();
+		common.log("Created On date of Material master after sorting: " + strFirstValue1);
 
 	}
 
@@ -753,8 +757,8 @@ public class ListPageSearch extends Locators {
 			common.pause(10);
 
 		}
-		String paginationStr = driver.findElement(By.xpath(paginationValue)).getText();
-		common.log("Pagination value before applying filter:: " + paginationStr);
+		String paginationStr = common.findElement(paginationValue).getText();
+		common.log("Pagination value before applying filter: " + paginationStr);
 
 		common.pause(5);
 
@@ -772,8 +776,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(10);
 
-		String paginationStr1 = driver.findElement(By.xpath(paginationValue)).getText();
-		common.log("Pagination value after applying filter:: " + paginationStr1);
+		String paginationStr1 = common.findElement(paginationValue).getText();
+		common.log("Pagination value after applying filter: " + paginationStr1);
 
 		common.assertTwoValuesAreNotEqual(paginationStr, paginationStr1);
 	}
@@ -825,8 +829,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue2 = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue2);
+			String strFirstValue2 = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue2);
 		}
 
 	}
@@ -862,20 +866,20 @@ public class ListPageSearch extends Locators {
 
 		common.waitForElement(searchB);
 		common.findElementBy(searchB,"Click on Search field and search '123' ").click();
-		driver.findElement(By.xpath(searchB)).sendKeys("123");
+		common.findElement(searchB).sendKeys("123");
 		common.pause(10);
 
 		//verify searched material master record present
 		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
-		String strSearchedValue = driver.findElement(By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
-		common.log("Searched value:: " + strSearchedValue);
+		String strSearchedValue = common.findElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]").getText();
+		common.log("Searched value: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue);
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);
 		}
@@ -899,20 +903,20 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		common.findElementBy(searchB,"Click on Search field and search '123' ").click();
-		driver.findElement(By.xpath(searchB)).sendKeys("123");
+		common.findElement(searchB).sendKeys("123");
 		common.pause(10);
 
 		//verify searched material master record present
 		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
-		String strSearchedValue = driver.findElement(By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
-		common.log("Searched value:: " + strSearchedValue);
+		String strSearchedValue = common.findElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]").getText();
+		common.log("Searched value: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue);
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);
 		}
@@ -956,13 +960,13 @@ public class ListPageSearch extends Locators {
 		}
 
 		common.findElementBy(searchB,"Click on Search field and search '123' ").click();
-		driver.findElement(By.xpath(searchB)).sendKeys("123");
+		common.findElement(searchB).sendKeys("123");
 		common.pause(10);
 
 		//verify searched material master record present
 		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
-		String strSearchedValue = driver.findElement(By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
-		common.log("Searched value:: " + strSearchedValue);
+		String strSearchedValue = common.findElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]").getText();
+		common.log("Searched value: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
 		common.pause(10);
@@ -972,8 +976,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
-			common.log("First value of Material master table:: " + strFirstValue);
+			String strFirstValue = common.findElement("//tbody/tr[1]").getText();
+			common.log("First value of Material master table: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);
 		}

@@ -70,7 +70,7 @@ public class Flow extends Locators {
 		common.pause(15);
 
 		common.log("click on Flow tab");
-		driver.findElement(By.xpath(flowTab)).click();
+		common.findElement(flowTab).click();
 
 		common.waitForElement(manageFlowBtn);
 		common.log("click on manage Flow button");
@@ -83,7 +83,7 @@ public class Flow extends Locators {
 		common.waitForElement(design);
 		common.findElementBy(design,"Click on design").click();
 		common.waitForElement(spac);
-		if (driver.findElement(By.xpath(spac)).isDisplayed()) {
+		if (common.findElement(spac).isDisplayed()) {
 			common.pause(25);
 			List<WebElement> myList = driver.findElements(By.xpath(spacRecord));
 
@@ -92,7 +92,7 @@ public class Flow extends Locators {
 			for (int i = 0; i < myList.size(); i++) {
 
 				all_elements_text.add(myList.get(i).getText());
-				common.log("Table records are:: " + myList.get(i).getText());
+				common.log("Table records are: " + myList.get(i).getText());
 
 			}
 		} else {
@@ -181,7 +181,7 @@ public class Flow extends Locators {
 
 				} else {
 					writer.writeNext("FAIL", "Error");
-					common.log("Status is :: Error");
+					common.log("Status is : Error");
 					common.findElement(crossP).click();
 				}
 
@@ -208,7 +208,7 @@ public class Flow extends Locators {
 
 				} else {
 					writer.writeNext("PASS", "Error");
-					common.log("Status is :: Error");
+					common.log("Status is : Error");
 					common.findElement(crossP).click();
 				}
 
