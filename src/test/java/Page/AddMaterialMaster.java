@@ -91,7 +91,7 @@ public class AddMaterialMaster extends Locators {
 
 			common.log("Click on material master workflow roles");
 			common.waitForElement(materialMasterRoleValue);
-			driver.findElement(By.xpath(materialMasterRoleValue)).click();
+			common.findElement(materialMasterRoleValue).click();
 
 			common.log("Click on Industry section dropdown and select value");
 			common.waitForElement(industrySec);
@@ -112,7 +112,7 @@ public class AddMaterialMaster extends Locators {
 
 			common.log("Select MRP type");
 			common.waitForElement(mrpTypeField);
-			WebElement l = driver.findElement(By.xpath(mrpTypeField));
+			WebElement l = common.findElement(mrpTypeField);
 
 			// Javascript executor fro scrolling
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", l);
@@ -150,10 +150,10 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed("//p[@class='small strong no-wrap ng-star-inserted'][normalize-space()='Material Type']//..//..//div//input")) {
 
 			common.log("Select Material Type");
-			driver.findElement(By.xpath(
-							"//p[@class='small strong no-wrap ng-star-inserted'][normalize-space()='Material Type']//..//..//div//input"))
+			common.findElement(
+							"//p[@class='small strong no-wrap ng-star-inserted'][normalize-space()='Material Type']//..//..//div//input")
 					.click();
-			driver.findElement(By.xpath("//span[normalize-space()='ERSA -- Spare Part']")).click();
+			common.findElement("//span[normalize-space()='ERSA -- Spare Part']").click();
 
 			common.pause(5);
 		} else {
@@ -165,7 +165,7 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed(manufacturerPartNum)) {
 
 			common.log("Enter Manufacturer Part Number");
-			driver.findElement(By.xpath(manufacturerPartNum)).sendKeys("12345");
+			common.findElement(manufacturerPartNum).sendKeys("12345");
 			common.pause(10);
 		} else {
 
@@ -211,7 +211,7 @@ public class AddMaterialMaster extends Locators {
 		//Wait and get success message fore record creation
 		common.waitForElement("//div[@class='cdk-overlay-pane']");
 		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
-		common.log("Message display: "+successStr);
+		common.log("Message display:  "+successStr);
 
 		common.waitForElement(dataTab);
 		common.log("Verifying Data tab available");
@@ -312,7 +312,7 @@ public class AddMaterialMaster extends Locators {
 		common.log("Select MRP type");
 		common.waitForElement(mrpType);
 		common.pause(25);
-		WebElement l = driver.findElement(By.xpath(mrpTypeField));
+		WebElement l = common.findElement(mrpTypeField);
 
 		// Javascript executor
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", l);
@@ -352,7 +352,7 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed(duplicateRecordHeader)) {
 
 			common.log("Duplicate records");
-			driver.findElement(By.xpath(continueDuplicateRecord)).click();
+			common.findElement(continueDuplicateRecord).click();
 		} else {
 
 			common.log("No duplicate records");
@@ -386,15 +386,15 @@ public class AddMaterialMaster extends Locators {
 
 		common.waitForElement(searchB);
 		String materialMasterNum = common.findElement(materialNumFromTbl).getText();
-		common.log("Material master number is :: " + materialMasterNum);
+		common.log("Material master number is :  " + materialMasterNum);
 		common.pause(10);
 
 		common.waitForElement(searchB);
 		common.findElementBy(searchB,"Click on Search field and search material master value").click();
-		driver.findElement(By.xpath(searchB)).sendKeys(materialMasterNum);
+		common.findElement(searchB).sendKeys(materialMasterNum);
 		common.pause(10);
 		//verify searched material master record present
-		common.log("Material master number is available on table:: " + materialMasterNum);
+		common.log("Material master number is available on table:  " + materialMasterNum);
 		common.findElementBy("//mark[normalize-space()='" + materialMasterNum + "']","Material master number verified");
 	}
 
@@ -435,22 +435,22 @@ public class AddMaterialMaster extends Locators {
 
 		if (common.isElementDisplayed(processLogTitle)) {
 			common.waitForElement(processLogTitle);
-			String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
-			common.log("Process Log Title is ::" + pLog);
+			String pLog = common.findElement(processLogTitle).getText();
+			common.log("Process Log Title is : " + pLog);
 
-			driver.findElement(By.xpath(processLogTitle)).click();
+			common.findElement(processLogTitle).click();
 
 			common.pause(10);
-			String status = driver.findElement(By.xpath(statusCom)).getText();
-			common.log("Process Log Status is ::" + status);
+			String status = common.findElement(statusCom).getText();
+			common.log("Process Log Status is : " + status);
 			assertEquals(status, "COMPLETED");
 
 			common.log("Click on view change");
 			common.jsClick(completedViewProcessLog);
 			common.pause(5);
 			common.waitForElement(headerData);
-			Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
-			common.log("Title is Header data :: >>" + header);
+			Boolean header = common.findElement(headerData).isDisplayed();
+			common.log("Title is Header data :  >>" + header);
 			common.pause(5);
 
 			common.log("Close View change page ");
@@ -462,7 +462,7 @@ public class AddMaterialMaster extends Locators {
 		}
 		else {
 			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
-			common.log("View process log: "+strProcessLog);
+			common.log("View process log:  "+strProcessLog);
 		}
 
 	}
@@ -509,33 +509,33 @@ public class AddMaterialMaster extends Locators {
 
 		if(common.isElementDisplayed(processLogTitle)) {
 
-			String pLog = driver.findElement(By.xpath(processLogTitle)).getText();
-			common.log("Process Log Title, Record, Date&Time is is ::" + pLog);
+			String pLog = common.findElement(processLogTitle).getText();
+			common.log("Process Log Title, Record, Date&Time is is : " + pLog);
 
-			driver.findElement(By.xpath(processLogTitle)).click();
+			common.findElement(processLogTitle).click();
 			common.pause(10);
 
 			common.waitForElement(statusCom);
-			String status = driver.findElement(By.xpath(statusCom)).getText();
-			common.log("Process Log Status is ::" + status);
+			String status = common.findElement(statusCom).getText();
+			common.log("Process Log Status is : " + status);
 			assertEquals(status, "COMPLETED");
 			common.pause(10);
 			common.log("Click on view change");
 			common.findElement(completedViewProcessLog).click();
 			common.pause(10);
 
-			Boolean header = driver.findElement(By.xpath(headerData)).isDisplayed();
+			Boolean header = common.findElement(headerData).isDisplayed();
 			common.log("-- Header title is displaying ");
-			common.log("Title is Header data :: >>" + header);
+			common.log("Title is Header data :  >>" + header);
 
 			common.waitForElement(fieldNameHeader);
 			common.findElementBy(fieldNameHeader, "Field Name header is available");
 			common.findElementBy(beforeChangeHeader, "Before Change header is available");
 			common.findElementBy(afterChangeHeader, "After Change header is available");
-			common.log("First row data: ");
+			common.log("First row data:  ");
 			for (int i = 1; i <= 3; i++) {
 				if (common.isElementDisplayed("//div[3]/table[1]/tbody[1]/tr[1]/td[1]")) {
-					String str = driver.findElement(By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td[" + i + "]")).getText();
+					String str = common.findElement("//div[3]/table[1]/tbody[1]/tr[1]/td[" + i + "]").getText();
 					common.log(str);
 				}
 			}
@@ -577,7 +577,7 @@ public class AddMaterialMaster extends Locators {
 			common.waitForElement(firstActionIconForInbox);
 
 			common.log("Click on action menu for first row");
-			driver.findElement(By.xpath(firstActionIconForInbox)).click();
+			common.findElement(firstActionIconForInbox).click();
 
 			common.log("Click on approve");
 			common.findElement(approveBtn).click();
@@ -597,7 +597,7 @@ public class AddMaterialMaster extends Locators {
 			if (common.isElementDisplayed(manufacturerPartNum)) {
 
 				common.log("Enter Manufacturer Part Number");
-				driver.findElement(By.xpath(manufacturerPartNum)).sendKeys("12345");
+				common.findElement(manufacturerPartNum).sendKeys("12345");
 				common.pause(10);
 			} else {
 
@@ -610,7 +610,7 @@ public class AddMaterialMaster extends Locators {
 			if (common.isElementDisplayed(duplicateRecordHeader)) {
 
 				common.log("Duplicate records");
-				driver.findElement(By.xpath(continueDuplicateRecord)).click();
+				common.findElementBy(continueDuplicateRecord,"CLick on Continue").click();
 			} else {
 
 				common.log("No duplicate records");
@@ -618,7 +618,7 @@ public class AddMaterialMaster extends Locators {
 
 			common.waitForElement("//div[@class='cdk-overlay-pane']");
 			String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
-			common.log("Message display: " + successStr);
+			common.log("Message display:  " + successStr);
 			common.waitForElement(inboxMenu);
 		}
 		else {
@@ -646,7 +646,7 @@ public class AddMaterialMaster extends Locators {
 		common.waitForElement(firstActionIconForInbox);
 
 		common.log("Click on action menu for first row");
-		driver.findElement(By.xpath(firstActionIconForInbox)).click();
+		common.findElement(firstActionIconForInbox).click();
 
 		common.log("Click on approve");
 		common.findElement(approveBtn).click();
@@ -669,7 +669,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(approveButton).click();
 		common.waitForElement("//div[@class='cdk-overlay-pane']");
 		String successStr = common.findElement("//div[@class='cdk-overlay-pane']").getText();
-		common.log("Message display: "+successStr);
+		common.log("Message display:  "+successStr);
 		common.waitForElement(inboxMenu);
 	}
 
@@ -799,15 +799,15 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(firstActionIconForInbox).click();
 
 		common.log("Click on approve");
-		driver.findElement(By.xpath(approveVal)).click();
+		common.findElement(approveVal).click();
 		common.pause(5);
 
 		common.log("Click on drop down");
-		driver.findElement(By.xpath(approveDropDownIcon)).click();
+		common.findElement(approveDropDownIcon).click();
 
 		common.pause(5);
 		common.log("Click on save as draft");
-		driver.findElement(By.xpath(draft)).click();
+		common.findElement(draft).click();
 		common.pause(10);
 
 		//wait for My request header
@@ -865,7 +865,7 @@ public class AddMaterialMaster extends Locators {
 	public void doUpdate() {
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
-		driver.findElement(By.xpath(dataTab)).click();
+		common.findElement(dataTab).click();
 
 		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
@@ -873,8 +873,7 @@ public class AddMaterialMaster extends Locators {
 
 		common.waitForElement(materialMaster);
 		common.log("Click on Material master from left nav");
-
-		driver.findElement(By.xpath(materialMaster)).click();
+		common.findElement(materialMaster).click();
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -887,16 +886,15 @@ public class AddMaterialMaster extends Locators {
 
 		}
 
-		String materialMasterNumber = driver.findElement(By.xpath(materialMasterNum)).getText();
-		common.log("Material master number is ::" + materialMasterNumber);
+		String materialMasterNumber = common.findElement(materialMasterNum).getText();
+		common.log("Material master number is : " + materialMasterNumber);
 		common.log("Set filter status as a system");
-		driver.findElement(By.xpath(statusFilter)).sendKeys("System");
+		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
-		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+		common.findElementBy(actionIconForFirstValue,"Click on action icon for first value").click();
 
 		common.log("Click on edit");
-
-		driver.findElement(By.xpath(edit)).click();
+		common.findElement(edit).click();
 		common.pause(10);
 
 		if(common.isElementDisplayed(sequentialMaterialOption))
@@ -907,7 +905,7 @@ public class AddMaterialMaster extends Locators {
 		else {
 
 			common.log("Click on material master workflow role");
-			driver.findElement(By.xpath(materialMasterRecordOption)).click();
+			common.findElement(materialMasterRecordOption).click();
 			common.pause(10);
 			common.waitForElement(headerData);
 			common.pause(10);
@@ -928,14 +926,14 @@ public class AddMaterialMaster extends Locators {
 
 		common.log("Click on save button");
 		common.waitForElement(uSaveBtn);
-		driver.findElement(By.xpath(uSaveBtn)).click();
+		common.findElement(uSaveBtn).click();
 		common.pause(10);
 
 		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
 		if (common.isElementDisplayed(duplicateRecordHeader)) {
 
 			common.log("Duplicate records");
-			driver.findElement(By.xpath(continueDuplicateRecord)).click();
+			common.findElement(continueDuplicateRecord).click();
 		} else {
 
 			common.log("No duplicate records");
@@ -951,7 +949,7 @@ public class AddMaterialMaster extends Locators {
 			common.findElement(dropValue).click();
 			common.pause(5);
 			common.log("Click on save button");
-			driver.findElement(By.xpath(uSaveBtn)).click();
+			common.findElement(uSaveBtn).click();
 			common.pause(10);
 		}
 		else {
@@ -959,13 +957,13 @@ public class AddMaterialMaster extends Locators {
 			common.log("No Something went error");
 		}
 		common.waitForElement(actionIconForFirstValue);
-		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+		common.findElement(actionIconForFirstValue).click();
 		common.log("Click on view Process log");
 		common.waitForElement(viewProcessLogOption);
-		driver.findElement(By.xpath(viewProcessLogOption)).click();
+		common.findElement(viewProcessLogOption).click();
 
 		common.waitForElement(processLogStatus);
-		String viewProcessLog = driver.findElement(By.xpath(processLogStatus)).getText();
+		String viewProcessLog = common.findElement(processLogStatus).getText();
 		common.log("View Process log =>>" + viewProcessLog);
 
 	}
@@ -977,7 +975,7 @@ public class AddMaterialMaster extends Locators {
 	public void copyRecord() {
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
-		driver.findElement(By.xpath(dataTab)).click();
+		common.findElement(dataTab).click();
 
 		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
@@ -989,7 +987,7 @@ public class AddMaterialMaster extends Locators {
 
 		common.type(search, "Material Master");
 		common.waitForElement(materialMaster);
-		driver.findElement(By.xpath(materialMaster)).click();
+		common.findElement(materialMaster).click();
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -1001,11 +999,11 @@ public class AddMaterialMaster extends Locators {
 			common.pause(10);
 
 		}
-		String mmN = driver.findElement(By.xpath(materialMasterNum)).getText();
-		common.log("Material master number is ::" + mmN);
+		String mmN = common.findElement(materialMasterNum).getText();
+		common.log("Material master number is : " + mmN);
 
 		common.pause(10);
-		driver.findElement(By.xpath(actionIconForFirstValue)).click();
+		common.findElement(actionIconForFirstValue).click();
 
 		common.log("Click on copy");
 		common.pause(5);
@@ -1021,20 +1019,20 @@ public class AddMaterialMaster extends Locators {
 			common.findElement(materialMasterRecordOption).click();
 			common.pause(5);
 		}
-	//		String rN = driver.findElement(By.xpath(recordno)).getAttribute("value");
+	//		String rN = common.findElement(recordno).getAttribute("value");
 	//		common.log("Record number is == > " + rN);
 	//		assertEquals(rN, mmN);
 
 		common.waitForElement(plantD);
-		String plantData = driver.findElement(By.xpath(plantD)).getText();
+		String plantData = common.findElement(plantD).getText();
 		common.log("Field records" + plantData);
 
 		// verifying records fields
 		String plD = "";
-		boolean t = driver.findElement(By.xpath(plantDatatwo)).isDisplayed();
+		boolean t = common.findElement(plantDatatwo).isDisplayed();
 		if (t == true) {
 
-			plD = driver.findElement(By.xpath(plantDatatwo)).getText();
+			plD = common.findElement(plantDatatwo).getText();
 			common.log("Plant records is displayed ==>" + plD);
 
 		} else {
@@ -1043,10 +1041,10 @@ public class AddMaterialMaster extends Locators {
 		String valD = "";
 
 		if (common.isElementDisplayed(valuationD)) {
-			boolean valData = driver.findElement(By.xpath(valuationD)).isDisplayed();
+			boolean valData = common.findElement(valuationD).isDisplayed();
 			if (valData == true) {
-				valD = driver.findElement(By.xpath(valuationD)).getText();
-				common.log("valuation records is displayed: " + valD);
+				valD = common.findElement(valuationD).getText();
+				common.log("valuation records is displayed:  " + valD);
 			}
 		}
 		common.log("Click on copy button");
@@ -1055,20 +1053,20 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 		common.waitForElement(newRecordTitle);
 		// verifying records in new record form
-		String nTitle = driver.findElement(By.xpath(newRecordTitle)).getText();
+		String nTitle = common.findElement(newRecordTitle).getText();
 		common.log("New form title is==>" + nTitle);
 
 		//Verify New plant record
 		String nPlantD = "";
-		boolean newPlanData = driver.findElement(By.xpath(newPlantD)).isDisplayed();
+		boolean newPlanData = common.findElement(newPlantD).isDisplayed();
 		if (newPlanData) {
-			nPlantD = driver.findElement(By.xpath(newPlantD)).getText();
+			nPlantD = common.findElement(newPlantD).getText();
 			common.log("New record plant record field ==>" + nPlantD);
 			assertEquals(plD, nPlantD);
 
 
 			if (common.isElementDisplayed(valuationD)) {
-				String nValuationD = driver.findElement(By.xpath(valuationD)).getText();
+				String nValuationD = common.findElement(valuationD).getText();
 				common.log("New form valuation record is==>" + nValuationD);
 				assertEquals(valD, nValuationD);
 			}
@@ -1102,7 +1100,7 @@ public class AddMaterialMaster extends Locators {
 	public void verify_Copy_Record_And_Remove_One_Hierarchy_Other_Should_Not_Remove() {
 		common.log("Click on Data tab");
 		common.waitForElement(dataTab);
-		driver.findElement(By.xpath(dataTab)).click();
+		common.findElement(dataTab).click();
 
 		common.pause(5);
 		common.findElementBy(dataTab,"Click on Data tab").click();
@@ -1110,7 +1108,7 @@ public class AddMaterialMaster extends Locators {
 
 		common.log("Click on Material master from left nav");
 		common.waitForElement(materialMaster);
-		driver.findElement(By.xpath(materialMaster)).click();
+		common.findElement(materialMaster).click();
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -1122,8 +1120,8 @@ public class AddMaterialMaster extends Locators {
 			common.pause(10);
 
 		}
-		String mmN = driver.findElement(By.xpath(materialMasterNum)).getText();
-		common.log("Material master number is ::" + mmN);
+		String mmN = common.findElement(materialMasterNum).getText();
+		common.log("Material master number is : " + mmN);
 
 		common.pause(10);
 		common.findElementBy(actionIconForFirstValue,"Click on action icon for first value").click();
@@ -1138,18 +1136,18 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		common.waitForElement(recordno);
-		String rN = driver.findElement(By.xpath(recordno)).getAttribute("value");
+		String rN = common.findElement(recordno).getAttribute("value");
 		common.log("Record number is == > " + rN);
 		assertEquals(rN, mmN);
 
-		String plantData = driver.findElement(By.xpath(plantD)).getText();
-		common.log("Field records :" + plantData);
+		String plantData = common.findElement(plantD).getText();
+		common.log("Field records : " + plantData);
 
 		// verifying records fields
 		String plD = "";
-		boolean t = driver.findElement(By.xpath(plantDatatwo)).isDisplayed();
+		boolean t = common.findElement(plantDatatwo).isDisplayed();
 		if (t) {
-			plD = driver.findElement(By.xpath(plantDatatwo)).getText();
+			plD = common.findElement(plantDatatwo).getText();
 			common.log("Plant records is displayed ==>" + plD);
 
 		} else {
@@ -1158,10 +1156,10 @@ public class AddMaterialMaster extends Locators {
 		String valD = "";
 
 		if (common.isElementDisplayed(valuationD)) {
-			boolean valData = driver.findElement(By.xpath(valuationD)).isDisplayed();
+			boolean valData = common.findElement(valuationD).isDisplayed();
 			if (valData == true) {
-				valD = driver.findElement(By.xpath(valuationD)).getText();
-				common.log("valuation records is displayed: " + valD);
+				valD = common.findElement(valuationD).getText();
+				common.log("valuation records is displayed:  " + valD);
 			}
 		}
 
@@ -1190,7 +1188,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElementBy(industrySec, "Clear the value").clear();
 		common.waitForElement(dropValue);
 
-		String newIndustrySectorValue = driver.findElement(By.xpath(dropValue3)).getText();
+		String newIndustrySectorValue = common.findElement(dropValue3).getText();
 		common.log("New selected value for Industry sector==>" + newIndustrySectorValue);
 
 		common.findElementBy(dropValue3, "Select 3rd value").click();
@@ -1198,20 +1196,20 @@ public class AddMaterialMaster extends Locators {
 
 
 		// verifying records in new record form
-		String nTitle = driver.findElement(By.xpath(newRecordTitle)).getText();
+		String nTitle = common.findElement(newRecordTitle).getText();
 		common.log("New form title is==>" + nTitle);
 
 		//Verify New plant record
 		String nPlantD = "";
-		boolean newPlanData = driver.findElement(By.xpath(newPlantD)).isDisplayed();
+		boolean newPlanData = common.findElement(newPlantD).isDisplayed();
 		if (newPlanData) {
-			nPlantD = driver.findElement(By.xpath(newPlantD)).getText();
+			nPlantD = common.findElement(newPlantD).getText();
 			common.log("New record plant record field ==>" + nPlantD);
 			assertEquals(plD, nPlantD);
 
 
 			if (common.isElementDisplayed(valuationD)) {
-				String nValuationD = driver.findElement(By.xpath(valuationD)).getText();
+				String nValuationD = common.findElement(valuationD).getText();
 				common.log("New form valuation record is==>" + nValuationD);
 			}
 		} else {
@@ -1227,7 +1225,7 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed(duplicateRecordHeader)) {
 
 			common.log("Duplicate records");
-			driver.findElement(By.xpath(continueDuplicateRecord)).click();
+			common.findElement(continueDuplicateRecord).click();
 		} else {
 
 			common.log("No duplicate records");
@@ -1250,7 +1248,7 @@ public class AddMaterialMaster extends Locators {
 
 		common.log("Go to the Home menu");
 
-		driver.findElement(By.xpath(homeTab)).click();
+		common.findElement(homeTab).click();
 		common.refreshPage();
 		common.pause(25);
 
@@ -1266,17 +1264,17 @@ public class AddMaterialMaster extends Locators {
 			common.pause(10);
 
 			common.log("Click on approve");
-			driver.findElement(By.xpath(approveVal)).click();
+			common.findElement(approveVal).click();
 			common.pause(5);
 
 			common.log("Click on approve drop-down icon");
 			common.waitForElement(approveDropDownIcon);
-			driver.findElement(By.xpath(approveDropDownIcon)).click();
+			common.findElement(approveDropDownIcon).click();
 
 			common.pause(5);
 			common.waitForElement(sendForCorrectionOption);
 			common.log("Click on Send For Correction Option");
-			driver.findElement(By.xpath(sendForCorrectionOption)).click();
+			common.findElement(sendForCorrectionOption).click();
 			common.pause(5);
 
 			common.waitForElement(rejectionCommentBox);
@@ -1313,27 +1311,27 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed(firstActionIconForInbox)) {
 
 			common.waitForElement(firstActionIconForInbox);
-			driver.findElement(By.xpath(firstActionIconForInbox)).click();
+			common.findElement(firstActionIconForInbox).click();
 			common.pause(10);
 
 			common.log("Click on my approve");
-			driver.findElement(By.xpath(approveVal)).click();
+			common.findElement(approveVal).click();
 			common.pause(5);
 
 			common.log("Click on my down");
 			common.waitForElement(approveDropDownIcon);
-			driver.findElement(By.xpath(approveDropDownIcon)).click();
+			common.findElement(approveDropDownIcon).click();
 
 			common.pause(5);
 			common.log("Click on Send For Correction Option");
-			driver.findElement(By.xpath(sendForCorrectionOption)).click();
+			common.findElement(sendForCorrectionOption).click();
 			common.pause(10);
 
 			common.log("Enter rejection comment");
-			driver.findElement(By.xpath(rejectionCommentBox)).sendKeys("Rejected new record");
+			common.findElement(rejectionCommentBox).sendKeys("Rejected new record");
 
 			common.log("Click on Submit for rejection Flow");
-			driver.findElement(By.xpath(submitButtonRejectionFlow)).click();
+			common.findElement(submitButtonRejectionFlow).click();
 			common.pause(10);
 
 			common.waitForElement(myReqTab);

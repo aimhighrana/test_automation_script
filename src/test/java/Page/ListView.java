@@ -77,20 +77,20 @@ public class ListView extends Locators {
 
 		String viewStr = common.generateRandomChars(5);
 
-		common.findElementBy(inputViewName, "Enter new view name:: " + viewStr).click();
+		common.findElementBy(inputViewName, "Enter new view name: " + viewStr).click();
 		common.type(inputViewName, viewStr);
 
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
 
-		common.findElementBy("//h4[normalize-space()='Material Master - " + viewStr + "']","Verified view");
-
+		String strView = common.findElementBy("//h4[contains(text(),'Material Master')]","Verified view").getText();
+		common.log("Created new view: "+strView);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
 
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
 
-			common.log("First value of Material master table:: " + strFirstValue);
+			common.log("First value of Material master table: " + strFirstValue);
 		}
 
 		common.findElementBy(dropDownViewICon, "Click on View drop-down icon").click();
@@ -100,8 +100,8 @@ public class ListView extends Locators {
 		common.findElementBy(defaultViewOption, "Click on Default view option from drop-down").click();
 		common.pause(10);
 
-		String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-		common.log("First value of Material master table:: " + strFirstValue);
+		String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+		common.log("First value of Material master table: " + strFirstValue);
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class ListView extends Locators {
 		}
 		for (int i = 1; i <= 6; i++) {
 			common.log("select " + i + " checkbox of record");
-			driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[1]//label")).click();
+			common.findElement("//tbody/tr[" + i + "]/td[1]//label").click();
 		}
 
 	}
@@ -148,9 +148,9 @@ public class ListView extends Locators {
 		common.findElement(dataTab).click();
 		common.waitForElement(search);
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
-
 		common.pause(5);
+
+		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
 		common.pause(10);
@@ -170,7 +170,7 @@ public class ListView extends Locators {
 		common.waitForElement(inputViewName);
 		String viewStr = common.generateRandomChars(5);
 
-		common.findElementBy(inputViewName, "Enter new view name:: " + viewStr).clear();
+		common.findElementBy(inputViewName, "Enter new view name: " + viewStr).clear();
 		common.type(inputViewName, viewStr);
 
 		common.pause(10);
@@ -179,8 +179,8 @@ public class ListView extends Locators {
 
 		if (common.isElementDisplayed("//h4[normalize-space()='Material Master - " + viewStr + "']")) {
 
-			String strFirstValue = driver.findElement(By.xpath(firstValueMaterialMaster)).getText();
-			common.log("First value of Material master table:: " + strFirstValue);
+			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
+			common.log("First value of Material master table: " + strFirstValue);
 		}
 	}
 
@@ -235,8 +235,8 @@ public class ListView extends Locators {
 
 		}
 		for (int i = 0; i <= 3; i++) {
-			String paginationStr = driver.findElement(By.xpath(paginationValue)).getText();
-			common.log("Pagination value :: " + paginationStr);
+			String paginationStr = common.findElement(paginationValue).getText();
+			common.log("Pagination value : " + paginationStr);
 
 			common.findElementBy(nextPage, "Click on next button in pagination").click();
 			common.pause(5);
@@ -304,6 +304,7 @@ public class ListView extends Locators {
 
 		common.waitForElement(search);
 		common.type(search, "Material Master");
+		common.pause(5);
 		common.waitForElement(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);

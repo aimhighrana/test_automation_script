@@ -68,7 +68,7 @@ public class LoginPage extends Locators {
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
 			common.findElementBy(profileIcon,"Click on profile icon").click();
-			driver.findElement(By.xpath(signOut)).click();
+			common.findElement(signOut).click();
 			common.pause(10);
 		}
 
@@ -131,7 +131,7 @@ public class LoginPage extends Locators {
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
 			common.findElementBy(profileIcon,"Click on profile icon").click();
-			driver.findElement(By.xpath(signOut)).click();
+			common.findElement(signOut).click();
 		}
 
 		common.pause(5);
@@ -141,10 +141,10 @@ public class LoginPage extends Locators {
 		if (env.equals("QAA") || env.equals("QAH") || env.equals("QAR") || env.equals("SAND")) {
 
 			common.log("Enter the value in email field: " + getPropertyValue(env+"RevUserName"));
-			WebElement emailField = driver.findElement(By.xpath(revUsernameField));
+			WebElement emailField = common.findElement(revUsernameField);
 			emailField.sendKeys(getPropertyValue(env+"RevUserName"));
 
-			WebElement continueBtn = driver.findElement(By.xpath(continueButton));
+			WebElement continueBtn = common.findElement(continueButton);
 			continueBtn.click();
 			common.pause(10);
 
@@ -155,7 +155,7 @@ public class LoginPage extends Locators {
 			}
 
 			common.log("Entering password: " + getPropertyValue(env+"RevPassword"));
-			WebElement passwordField = driver.findElement(By.xpath(PasswordField));
+			WebElement passwordField = common.findElement(PasswordField);
 			passwordField.sendKeys(getPropertyValue(env+"RevPassword"));
 		}
 
@@ -205,14 +205,14 @@ public class LoginPage extends Locators {
 		common.log("Entering password");
 
 		common.waitForElement(nPasswordField);
-		driver.findElement(By.xpath(nPasswordField)).sendKeys(getPropertyValue("password"));
+		common.findElement(nPasswordField).sendKeys(getPropertyValue("password"));
 		common.pause(10);
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
 
 		common.log("Click on QA");
 		common.waitForElement(qaEnv);
-		driver.findElement(By.xpath(qaEnv)).click();
+		common.findElement(qaEnv).click();
 
 	}
 	
@@ -245,7 +245,7 @@ public class LoginPage extends Locators {
 		common.log("Entering password");
 		common.pause(10);
 
-		driver.findElement(By.xpath(nPasswordField)).sendKeys("Welcome@123");
+		common.findElement(nPasswordField).sendKeys("Welcome@123");
 		common.pause(10);
 
 		common.log("click on login button");
@@ -253,7 +253,7 @@ public class LoginPage extends Locators {
 
 		common.log("Click on PROD");
 		common.waitForElement(prodEnv);
-		driver.findElement(By.xpath(prodEnv)).click();
+		common.findElement(prodEnv).click();
 	}
 
 }

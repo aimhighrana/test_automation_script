@@ -199,7 +199,11 @@ public class Common extends Locators {
 	}
 	public void highlightElement(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].style.border='4px solid yellow'", element);
+		js.executeScript("arguments[0].style.border='3px solid yellow'", element);
+	}
+	public void highlightElementClick(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].style.border='3px solid green'", element);
 	}
 
 	public void expandingHeadData() {
