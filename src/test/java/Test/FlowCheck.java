@@ -24,19 +24,19 @@ public class FlowCheck extends BasePage {
 
 	@Test
 	public void verifyFlow() throws InterruptedException, IOException {
-	//	loginPage.goToURL(env);
+	//	objectService().loginPage().goToURL(env);
 		test.log(LogStatus.INFO, "Navigated to URL");
-		flow.check_Design_Table_Data();
+		objectService().flow().check_Design_Table_Data();
 	}
 	@Test
 	void verifyDescriptionChange() throws IOException, ParseException {
-		loginPage.qaLogin();
-		flow.checkDescriptionChange();
+		objectService().loginPage().qaLogin();
+		objectService().flow().checkDescriptionChange();
 	}
 	@Test
 	void verifyDescriptionChangeProduction() throws IOException, ParseException {
-		loginPage.prodLogin();
-		flow.checkDescriptionChangeForProdEnv();
+		objectService().loginPage().prodLogin();
+		objectService().flow().checkDescriptionChangeForProdEnv();
 	}
 
 }

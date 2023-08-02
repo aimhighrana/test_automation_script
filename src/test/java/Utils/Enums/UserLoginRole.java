@@ -1,6 +1,8 @@
 package Utils.Enums;
 
-public enum UserLoginRole {
+import java.io.Serializable;
+
+public enum UserLoginRole  implements Serializable {
 	INITIATOR, REVIEWER, APPROVER;
 
 	@Override

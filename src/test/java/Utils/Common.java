@@ -314,7 +314,7 @@ public class Common extends Locators {
 		System.out.println("Step :: " + msg);
 		Reporter.log("<br>Step :: " + msg);
 	}
-	
+
 	public void log(LogStatus logStatus, String msg) {
 		System.out.println("Step :: " + msg);
 		Reporter.log("<br>Step :: " + msg);
@@ -482,7 +482,6 @@ public class Common extends Locators {
 		try {
 			Thread.sleep(secs * 200);
 		} catch (InterruptedException interruptedException) {
-
 		}
 	}
 

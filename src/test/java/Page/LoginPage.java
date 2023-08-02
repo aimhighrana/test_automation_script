@@ -18,13 +18,11 @@ import Utils.Entity.UserCredential;
 import Utils.Enums.*;
 import ServiceHelper.*;
 
-//end region
+//endregion
 
 public class LoginPage extends Locators {
 
-	// WebDriver driver;
-	Common common = new Common(driver);
-	Properties obj = new Properties();
+	Common common;
 	IAuthenticationService authenticationService;
 	IEnvironmentService environmentService;
 
@@ -76,10 +74,7 @@ public class LoginPage extends Locators {
 	}
 
 	// end region
-
-	/**
-	 * Open URL
-	 */
+	
 	public void goToURL(String env) {
 		String applicationUrl;
 		common.log("Open the browser");
@@ -95,7 +90,7 @@ public class LoginPage extends Locators {
 	 * Verify Sign In Scenario
 	 * 
 	 */
-	public void initiator_SignIn(String env) {
+	public void initiator_SignIn() {
 
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
@@ -132,7 +127,7 @@ public class LoginPage extends Locators {
 	 * As a reviewer sign-in scenario
 	 * 
 	 */
-	public void reviewer_SignIn(String env) {
+	public void reviewer_SignIn() {
 
 		// Sign out the approver
 		if (common.isDisplayed(profileIcon)) {

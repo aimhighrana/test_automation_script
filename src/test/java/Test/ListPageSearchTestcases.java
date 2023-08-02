@@ -3,7 +3,8 @@ package Test;
 import com.beust.jcommander.Parameter;
 import org.testng.annotations.*;
 import org.testng.annotations.Test;
-import Page.LoginPage;
+
+import Page.ListPageSearch;
 import Utils.BasePage;
 import Utils.Common;
 import org.openqa.selenium.By;
@@ -32,9 +33,9 @@ public class ListPageSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Search_CreatedModified_On_Date_In_The_Column_Filter(String env) throws InterruptedException, IOException, AWTException, Exception {
 		log("Testcase: QAA-TC-1/QAA-TC-33");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
 	}
 
 	/**
@@ -46,9 +47,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_Search_Based_On_MatrialDesc_Group_Type_Industry_Sector_BaseUnitOfMeasure_In_The_Column_Filter(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: QAA-TC-34/QAA-TC-35");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_AbleToSearch_BasedOn_MaterialDesc_Group_Type_Indus_BaseUnitOfMeasure_In_Column_Filter();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_AbleToSearch_BasedOn_MaterialDesc_Group_Type_Indus_BaseUnitOfMeasure_In_Column_Filter();
 	}
 
 	/**--3--**/
@@ -57,9 +58,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: MDMF-TC-6198");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_AbleTo_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_AbleTo_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value();
 	}
 
 	/**--4--**/
@@ -68,9 +69,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_User_Should_Be_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: MDMF-TC-6201");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions();
 	}
 
 	/**--5--**/
@@ -79,9 +80,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_User_Should_Be_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: MDMF-TC-6204");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button();
 	}
 
 	/**
@@ -93,9 +94,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_User_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: QAA-TC-36");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search();
 	}
 
 	/**--7--**/
@@ -104,9 +105,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_User_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: MDMF-TC-6211/MDMF-TC-6212/MDMF-TC-6213");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button();
 	}
 
 	/**--8--**/
@@ -115,9 +116,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_User_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: MDMF-TC-6214");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button();
 	}
 
 	/**
@@ -129,9 +130,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_User_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches(String env)
 			throws InterruptedException, IOException, AWTException, Exception {
 		log("Testcase: QAA-TC-37");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches();
 	}
 
 	/**
@@ -143,9 +144,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_Column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: QAA-TC-38");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields();
 	}
 
 	/**--11--**/
@@ -153,10 +154,10 @@ public class ListPageSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_The_User_Is_Able_To_Delete_The_Saved_Filter(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase: MDMF-TC-6217");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button();
-		listPageSearch.verify_The_User_Is_Able_To_Delete_The_Saved_Filter();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button();
+		objectService().listPageSearch().verify_The_User_Is_Able_To_Delete_The_Saved_Filter();
 	}
 
 	/**
@@ -168,9 +169,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: QAA-TC-39");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters();
 	}
 
 	/**
@@ -182,9 +183,9 @@ public class ListPageSearchTestcases extends BasePage {
 	public void verify_User_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field(String env)
 			throws InterruptedException, IOException, Exception {
 		log("Testcase: QAA-TC-90");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field();
 	}
 
 }

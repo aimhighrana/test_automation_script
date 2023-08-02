@@ -8,7 +8,6 @@ import org.apache.commons.io.IOUtils;
 import org.checkerframework.checker.units.qual.C;
 import org.testng.annotations.*;
 import org.testng.annotations.Test;
-import Page.LoginPage;
 import Utils.BasePage;
 import Utils.Common;
 import org.openqa.selenium.By;
@@ -35,9 +34,9 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void add_New_Material_Master(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase:Add new material master record");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
 
 	}
 
@@ -52,10 +51,10 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void view_Process_Log(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase:Add new material master record and check process log: QAA-TC-127");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-		materialmaster.viewMaterialMasterProcessLog();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+		objectService().materialMaster().viewMaterialMasterProcessLog();
 
 	}
 
@@ -70,12 +69,12 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Approve_Status_From_Reviewer(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase:Add new material master record and approve from Reviewer side: QAA-TC-123/QAA-TC-124");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-//		materialmaster.viewMaterialMasterProcessLog();
-		loginPage.reviewer_SignIn(env);
-		materialmaster.approveStatus();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+//		objectService().materialMaster().viewMaterialMasterProcessLog();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialMaster().approveStatus();
 
 	}
 
@@ -90,10 +89,10 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Approve_Status_From_Approver(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase:Add new material master record and approve from Approver side: QAA-TC-126");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-		materialmaster.approveStatus();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+		objectService().materialMaster().approveStatus();
 
 	}
 
@@ -109,12 +108,12 @@ public class MaterialMasterTestcases extends BasePage {
 	public void verify_Claim_Status(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase:	MDMF-TC-98/QAA-TC-99");
 		log("Testcase:Add new material master record and Claim status from reviewer");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-//		materialmaster.viewMaterialMasterProcessLog();
-		loginPage.reviewer_SignIn(env);
-		materialmaster.claimStatus();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+//		objectService().materialMaster().viewMaterialMasterProcessLog();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialMaster().claimStatus();
 	}
 
 	/**
@@ -128,12 +127,12 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Save_As_Draft(String env) throws Exception{
 		log("Testcase:Add new material master record and Verify save as draft from reviewer");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-		materialmaster.viewMaterialMasterProcessLog();
-		loginPage.reviewer_SignIn(env);
-		materialmaster.saveDraft();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+		objectService().materialMaster().viewMaterialMasterProcessLog();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialMaster().saveDraft();
 	}
 
 	/**
@@ -147,9 +146,9 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Change(String env) throws Exception{
 		log("Testcase:Verify edit and update existing record: QAA-TC-121/QAA-TC-122/QAA-TC-125");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.doUpdate();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().doUpdate();
 	}
 
 	/**
@@ -163,12 +162,12 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Copy_Record_And_Approve_From_Reviewer(String env) throws Exception {
 		log("Testcase:Verify copy record and approve from reviewer: QAA-TC-129/QAA-TC-130/QAA-TC-132/QAA-TC-133");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.createMaterialMasterWithGenerateDesc();
-		materialmaster.copyRecord();
-		loginPage.reviewer_SignIn(env);
-		materialmaster.approveStatus();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().createMaterialMasterWithGenerateDesc();
+		objectService().materialMaster().copyRecord();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialMaster().approveStatus();
 	}
 
 	/**
@@ -182,10 +181,10 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Copy_Record_If_User_Remove_One_Child_Hierarchy_Other_Child_Hierarchies_Should_Not_Get_Removed(String env) throws Exception {
 		log("Testcase:QAA-TC-137/QAA-TC-138/QAA-TC-255/QAA-TC-266");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.createMaterialMasterWithGenerateDesc();
-		materialmaster.verify_Copy_Record_And_Remove_One_Hierarchy_Other_Should_Not_Remove();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().createMaterialMasterWithGenerateDesc();
+		objectService().materialMaster().verify_Copy_Record_And_Remove_One_Hierarchy_Other_Should_Not_Remove();
 	}
 
 	/**
@@ -199,9 +198,9 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void add_New_Material_Master_With_Generate_Description(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase:Add new material master record with description/QAA-TC-32");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.createMaterialMasterWithGenerateDesc();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().createMaterialMasterWithGenerateDesc();
 	}
 
 	/**
@@ -215,12 +214,12 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Claim_UnClaim_Status(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase:Add new material master record and Verify un-claim status from reviewer/QAA-TC-19/QAA-TC-20/MDMF-TC-21");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-		materialmaster.viewMaterialMasterCompletedProcessLog();
-		loginPage.reviewer_SignIn(env);
-		materialmaster.claimUnclaimStatus();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+		objectService().materialMaster().viewMaterialMasterCompletedProcessLog();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialMaster().claimUnclaimStatus();
 	}
 
 	/**
@@ -234,13 +233,13 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Rejection_Flow_For_New_Record(String env) throws Exception {
 		log("Testcase:Add new material master record and Reject the flow from Approver and Reviewer side");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-		materialmaster.viewMaterialMasterProcessLog();
-		materialmaster.rejectionFlowFromApprover();
-		loginPage.reviewer_SignIn(env);
-		materialmaster.rejectionFlowFromReviewer();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+		objectService().materialMaster().viewMaterialMasterProcessLog();
+		objectService().materialMaster().rejectionFlowFromApprover();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialMaster().rejectionFlowFromReviewer();
 	}
 
 	/**
@@ -254,11 +253,11 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Copy_Record_And_Rejection_Flow_For_New_Record(String env) throws Exception {
 		log("Testcase:Verify Copy record and Reject the flow from Approver: QAA-TC-134");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-		materialmaster.copyRecord();
-		materialmaster.rejectionFlowFromApprover();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+		objectService().materialMaster().copyRecord();
+		objectService().materialMaster().rejectionFlowFromApprover();
 	}
 
 	/**
@@ -272,14 +271,14 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Reapproving_Rejected_Task_From_Initiator_final_Approver_Approval(String env) throws Exception{
 		log("Testcase:Reapproving rejected task from Initiator & final approver approval: QAA-TC-135");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-		materialmaster.copyRecord();
-		loginPage.reviewer_SignIn(env);
-		materialmaster.rejectionFlowFromReviewer();
-		loginPage.initiator_SignIn(env);
-		materialmaster.reApprove_Rejected_Task_Status();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+		objectService().materialMaster().copyRecord();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialMaster().rejectionFlowFromReviewer();
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().reApprove_Rejected_Task_Status();
 	}
 
 	/**
@@ -293,13 +292,13 @@ public class MaterialMasterTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_That_User_Is_Able_To_View_The_Process_Logs_Summary_After_Final_Approval(String env) throws InterruptedException, IOException {
 		log("Testcase:QAA-TC-127");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialmaster.addNewMaterialMaster();
-		loginPage.reviewer_SignIn(env);
-		materialmaster.approveStatus();
-		loginPage.initiator_SignIn(env);
-		materialmaster.viewMaterialMasterCompletedProcessLog();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().addNewMaterialMaster();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialMaster().approveStatus();
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialMaster().viewMaterialMasterCompletedProcessLog();
 	}
 
 	/**
