@@ -1,11 +1,17 @@
 package Page;
 
+import ServiceHelper.AuthenticationService;
+import ServiceHelper.EnvironmentService;
 import Utils.Common;
 import Utils.Locators;
+import contracts.IAuthenticationService;
+import contracts.IEnvironmentService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileNotFoundException;
@@ -13,9 +19,15 @@ import java.time.Duration;
 
 public class HomePage extends Locators {
 
-	Common common = new Common(driver);
+	Common common;
+	IAuthenticationService authenticationService;
+	IEnvironmentService environmentService;
 	public HomePage(WebDriver driver) throws Exception {
 		super(driver);
+		common = new Common(driver);
+		PageFactory.initElements(this.driver, this);
+		authenticationService = new AuthenticationService();
+		environmentService = new EnvironmentService();
 	}
 
 	/**
@@ -37,8 +49,8 @@ public class HomePage extends Locators {
 
 		common.pause(10);
 		for (int i = 1; i <= 5; i++) {
-			if (common.isElementDisplayed("//tbody/tr[" + i + "]/td[3]//p")) {
-				String recordNumber = common.findElement("//tbody/tr[" + i + "]/td[3]//p").getText();
+			if (common.isElementDisplayed((WebElement) By.xpath("//tbody/tr[" + i + "]/td[3]//p"))) {
+				String recordNumber = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]/td[3]//p")).getText();
 				common.log(i + " Record number in Inbox menu: " + recordNumber);
 			} else {
 				break;
@@ -59,7 +71,7 @@ public class HomePage extends Locators {
 		common.findElementBy(inboxMenu, "Click on Inbox menu").click();
 		common.waitForElement(firstActionIconForInbox);
 
-		String recordNumber =  common.findElement("//tbody/tr[1]/td[3]//p").getText();
+		String recordNumber =  common.findElement((WebElement) By.xpath("//tbody/tr[1]/td[3]//p")).getText();
 		common.log("1st Record number in Inbox menu: " + recordNumber);
 
 		common.findElementBy(firstActionIconForInbox, "Click on action icon for first record").click();
@@ -85,8 +97,8 @@ public class HomePage extends Locators {
 			common.waitForElement(firstActionIconForInbox);
 
 			for (int i = 1; i <= 5; i++) {
-				common.waitForElement("//tbody/tr[" + i + "]");
-				String recordWithReason = common.findElement("//tbody/tr[" + i + "]").getText();
+				common.waitForElement((WebElement) By.xpath("//tbody/tr[" + i + "]"));
+				String recordWithReason = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]")).getText();
 				common.log(i + " Record with reason: " + recordWithReason);
 			}
 		}
@@ -107,8 +119,8 @@ public class HomePage extends Locators {
 		common.pause(5);
 		common.waitForElement(searchSystemErrorsTab);
 
-		common.waitForElement("//tbody/tr[1]");
-		String integrationRecordWithReason = common.findElement("//tbody/tr[1]").getText();
+		common.waitForElement(firstRecordFromList);
+		String integrationRecordWithReason = common.findElement(firstRecordFromList).getText();
 		common.log("Integration first record with reason: " + integrationRecordWithReason);
 
 		common.log("Search record for 'DAXE'");
@@ -116,8 +128,8 @@ public class HomePage extends Locators {
 		common.type(searchSystemErrorsTab,"daxe");
 		common.pause(10);
 
-		if (common.isElementDisplayed("//tbody/tr[1]")) {
-			String daxeRecordWithReason = common.findElement("//tbody/tr[1]").getText();
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String daxeRecordWithReason = common.findElement(firstRecordFromList).getText();
 			common.log("DAXE first record with reason: " + daxeRecordWithReason);
 			common.pause(5);
 		}
@@ -130,8 +142,8 @@ public class HomePage extends Locators {
 		common.type(searchSystemErrorsTab, "Cross dataset");
 		common.pause(10);
 
-		if (common.isElementDisplayed("//tbody/tr[1]")) {
-			String crossDatasetRecordWithReason = common.findElement("//tbody/tr[1]").getText();
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String crossDatasetRecordWithReason = common.findElement(firstRecordFromList).getText();
 			common.log("Cross dataset first record with reason: " + crossDatasetRecordWithReason);
 		}
 
@@ -189,8 +201,8 @@ public class HomePage extends Locators {
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ESCAPE).perform();
 
-		if (common.isElementDisplayed("//tbody/tr[1]")) {
-			String firstRecord = common.findElement("//tbody/tr[1]").getText();
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String firstRecord = common.findElement(firstRecordFromList).getText();
 		common.log("First record after apply flow filter: " + firstRecord);
 		}
 
@@ -203,8 +215,8 @@ public class HomePage extends Locators {
 
 		action.sendKeys(Keys.ESCAPE).perform();
 
-		if (common.isElementDisplayed("//tbody/tr[1]")) {
-			String firstRecord = common.findElement("//tbody/tr[1]").getText();
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String firstRecord = common.findElement(firstRecordFromList).getText();
 		common.log("First record after apply task type filter: " + firstRecord);
 		}
 		else {
@@ -227,8 +239,8 @@ public class HomePage extends Locators {
 
 		common.waitForElement(firstActionIconForInbox);
 		for (int i = 1; i <= 2; i++) {
-			if (common.isElementDisplayed("//tbody/tr[" + i + "]")) {
-				String firstRecord = common.findElement("//tbody/tr[" + i + "]").getText();
+			if (common.isElementDisplayed((WebElement) By.xpath("//tbody/tr[" + i + "]"))) {
+				String firstRecord = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]")).getText();
 				common.log(i + " record of In progress table: " + firstRecord);
 			} else {
 				common.log("Nothing to see here!");
@@ -252,16 +264,16 @@ public class HomePage extends Locators {
 		common.findElementBy(completedMenu, "Click on Completed menu").click();
 		common.pause(10);
 
-			if (common.isElementDisplayed("//tbody/tr[1]")) {
-				String firstRecord = common.findElement("//tbody/tr[1]").getText();
+			if (common.isElementDisplayed(firstRecordFromList)) {
+				String firstRecord = common.findElement(firstRecordFromList).getText();
 				common.log(" record of Completed table: " + firstRecord);
 			}
 			else {
 				common.log("Nothing to see here!");
 			}
 
-			if (common.isElementDisplayed("//tbody/tr[1]")) {
-				String firstRecord = common.findElement("//tbody/tr[1]").getText();
+			if (common.isElementDisplayed(firstRecordFromList)) {
+				String firstRecord = common.findElement(firstRecordFromList).getText();
 				common.log("!st record of Completed table: " + firstRecord);
 
 				common.waitForElement(firstActionIconForInbox);

@@ -291,7 +291,7 @@ public class MaterialMasterTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_That_User_Is_Able_To_View_The_Process_Logs_Summary_After_Final_Approval(String env) throws InterruptedException, IOException {
+	public void verify_That_User_Is_Able_To_View_The_Process_Logs_Summary_After_Final_Approval(String env) throws Exception {
 		log("Testcase:QAA-TC-127");
 		loginPage.goToURL(env);
 		loginPage.initiator_SignIn(env);

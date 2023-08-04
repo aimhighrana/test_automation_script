@@ -1,8 +1,12 @@
 package Page;
 
+import ServiceHelper.AuthenticationService;
+import ServiceHelper.EnvironmentService;
 import Utils.BasePage;
 import Utils.Common;
 import Utils.Locators;
+import contracts.IAuthenticationService;
+import contracts.IEnvironmentService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -34,9 +38,15 @@ import java.util.Properties;
 
 public class ListPageSearch extends Locators {
 
-	Common common = new Common(driver);
+	Common common;
+	IAuthenticationService authenticationService;
+	IEnvironmentService environmentService;
 	public ListPageSearch(WebDriver driver) throws Exception {
 		super(driver);
+		common = new Common(driver);
+		PageFactory.initElements(this.driver, this);
+		authenticationService = new AuthenticationService();
+		environmentService = new EnvironmentService();
 
 	}
 
@@ -544,7 +554,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(storedFiltersIcon, "Click on stored filters layer icon").click();
 		common.pause(10);
 
-		common.findElementBy("//button[normalize-space()='" + strFilter + "']", "Select last created filter").click();
+		common.findElementBy((WebElement) By.xpath("//button[normalize-space()='" + strFilter + "']"), "Select last created filter").click();
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
@@ -624,7 +634,6 @@ public class ListPageSearch extends Locators {
 			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
 			common.log("First value of Material master table after select filter: " + strFirstValue);
 		}
-
 	}
 
 	/**
@@ -695,20 +704,14 @@ public class ListPageSearch extends Locators {
 
 		//If default view not appear then select it from view dropdown
 		if (!common.isElementDisplayed(defaultView)) {
-
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
 			common.findElementBy(defaultViewOption, "Click on Default view option").click();
 			common.pause(10);
-
 		}
 		common.waitForElement(firstValueCreatedOnDateInTable);
 		String strFirstValue = common.findElement(firstValueCreatedOnDateInTable).getText();
 		common.log("Created On date of Material master before sorting: " + strFirstValue);
-
-		//code commented because created On filter not available
-	//	common.findElementBy(createdOnSortFilter, "Click on Created On sort filter").click();
-	//	common.pause(10);
 
 		String strFirstValue1 = common.findElement(firstValueCreatedOnDateInTable).getText();
 		common.log("Created On date of Material master after sorting: " + strFirstValue1);
@@ -870,8 +873,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//verify searched material master record present
-		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
-		String strSearchedValue = common.findElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]").getText();
+		common.waitForElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
+		String strSearchedValue = common.findElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
 		common.log("Searched value: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
@@ -907,8 +910,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//verify searched material master record present
-		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
-		String strSearchedValue = common.findElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]").getText();
+		common.waitForElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
+		String strSearchedValue = common.findElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
 		common.log("Searched value: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
@@ -928,7 +931,7 @@ public class ListPageSearch extends Locators {
 		common.assertElementPresent(searchPlaceHolder);
 
 		common.log("Verify filtered status available");
-		common.assertElementPresent("//span[normalize-space()='Status']//..//span[normalize-space()='System']");
+		common.assertElementPresent((WebElement) By.xpath("//span[normalize-space()='Status']//..//span[normalize-space()='System']"));
 
 	}
 
@@ -964,8 +967,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//verify searched material master record present
-		common.waitForElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]");
-		String strSearchedValue = common.findElement("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]").getText();
+		common.waitForElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
+		String strSearchedValue = common.findElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
 		common.log("Searched value: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
@@ -976,7 +979,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue = common.findElement("//tbody/tr[1]").getText();
+			String strFirstValue = common.findElement((WebElement) By.xpath("//tbody/tr[1]")).getText();
 			common.log("First value of Material master table: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);

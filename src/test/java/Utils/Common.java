@@ -42,13 +42,14 @@ public class Common extends Locators {
 	 * @param elementName
 	 * @return
 	 */
-	public WebElement findElement(String elementName) {
+	public WebElement findElement(WebElement elementName) {
 
-		String locator;
 
-		locator = elementName;
-		WebElement ele = driver.findElement(By.xpath(locator));
-		highlightElement(ele);
+		String locator = getXPathFromWebElement(elementName);
+
+		//locator = elementName;
+		//WebElement ele = driver.findElement(By.xpath(elementName));
+		highlightElement(elementName);
 		int count = 0;
 		while (count < 4) {
 			try {
@@ -71,7 +72,7 @@ public class Common extends Locators {
 					} catch (Exception e) {
 						return null;
 					}
-				} else if (locator.startsWith("//")) {
+				} else if (locator.startsWith("//")||locator.startsWith("(//")) {
 					try {
 						return driver.findElement(By.xpath(locator));
 					} catch (Exception e) {
@@ -118,13 +119,13 @@ public class Common extends Locators {
 		return null;
 
 	}
-	public WebElement findElementBy(String elementName, String msg) {
+	public WebElement findElementBy(WebElement elementName, String msg) {
 
 		String locator;
 
 		log(msg);
 
-		locator = elementName;
+		locator = getXPathFromWebElement(elementName);
 		WebElement ele = driver.findElement(By.xpath(locator));
 		highlightElement(ele);
 
@@ -206,24 +207,13 @@ public class Common extends Locators {
 		js.executeScript("arguments[0].style.border='3px solid green'", element);
 	}
 
-	public void expandingHeadData() {
+	public void click(WebElement locator) {
 		
-		driver.findElement(By.xpath(expandHeaderData)).click();
-		driver.findElement(By.xpath(expandPlantData)).click();
-		driver.findElement(By.xpath(expandPlant)).click();
-		driver.findElement(By.xpath(expandValuationData)).click();
-		
-	}
-
-	
-	public void click(String locator) {
-		
-		driver.findElement(By.xpath(locator)).click();
+		driver.findElement(By.xpath(String.valueOf(locator))).click();
 		
 	}
 	
 	public void dismissAlert() {
-
 		pause(4);
 		Alert alert = driver.switchTo().alert();
 		alert.dismiss();
@@ -272,7 +262,7 @@ public class Common extends Locators {
 	 * Clicks on visible or not visible element.
 	 *
 	 */
-	public void jsClick(String locator) {
+	public void jsClick(WebElement locator) {
 		WebElement element = this.findElement(locator);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='4px solid yellow'", element);
@@ -283,7 +273,6 @@ public class Common extends Locators {
 	public void scrollPage() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
-
 	}
 
 	/**
@@ -311,7 +300,7 @@ public class Common extends Locators {
 	 * 
 	 * @return text in given element.
 	 */
-	public String getText(String elementName) {
+	public String getText(WebElement elementName) {
 
 		String text;
 
@@ -338,7 +327,7 @@ public class Common extends Locators {
 	 * 
 	 * @return Dynamic value.
 	 */
-	public String getValue(String locator) {
+	public String getValue(WebElement locator) {
 
 		return this.findElement(locator).getAttribute("value");
 	}
@@ -350,17 +339,17 @@ public class Common extends Locators {
 	 *                    contains the elemennts is ok
 	 * @return true if displayed else false.
 	 */
-	public boolean isElementDisplayed(String elementName) {
+	public boolean isElementDisplayed(WebElement elementName) {
 
 		WebElement webElement;
 		try {
-			webElement = this.findElement(elementName);
+			webElement = driver.findElement(By.xpath(getXPathFromWebElement(elementName)));
 			return webElement.isDisplayed();
 		} catch (Exception e) {
 			return false;
 		}
 	}
-	public boolean isElementNotDisplayed(String elementName) {
+	public boolean isElementNotDisplayed(WebElement elementName) {
 
 		WebElement webElement;
 		try {
@@ -371,9 +360,9 @@ public class Common extends Locators {
 		}
 	}
 
-	public boolean isDisplayed(String elementName) {
+	public boolean isDisplayed(WebElement elementName) {
 		try {
-			driver.findElement(By.xpath(elementName)).isDisplayed();
+			driver.findElement(By.xpath(String.valueOf(elementName))).isDisplayed();
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -381,41 +370,55 @@ public class Common extends Locators {
 
 	}
 
-	/**
-	 * Wait till given element is present.
-	 * 
-	 * @param locator Locator of element.
-	 */
-	public void waitForConditionIsElementPresent(String locator) {
+	public void waitForElement(WebElement webElement) {
 
-		for (int second = 0;; second++) {
-			if (second >= 10) {
-				break;
-			}
-
-			try {
-				if (isElementPresent(locator))
-					break;
-			} catch (Throwable failure) {
-			}
-
-			pause(30);
-		}
-
-	}
-
-	public void waitForElement(String selector) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(selector)));
+
+		//String str = String.valueOf(selector);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(getXPathFromWebElement(webElement))));
+
 	}
 
+
+
+	private String getXPathFromWebElement(WebElement webElement) {
+
+		String sourceElement = webElement.toString();
+
+		//Split your Source from "->"
+
+		String[] tempArr = sourceElement.split("-> ");
+
+		//Split your Source from ": "
+
+		String[] tempXPathArr = tempArr[1].split(": ");
+
+		//Access first index to get locator name
+
+		String locatorName = tempXPathArr[0];
+
+		//Access Second index to get locator value
+
+		String locatorValue = tempXPathArr[1].substring(0,tempXPathArr[1].length()-1);
+
+		return locatorValue;
+
+	}
+	public WebElement waitUntilElementToBeVisible(WebElement element) {
+		return getWait().ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
+	}
+	public WebDriverWait getWait() {
+		// Set time in second to wait for elements
+		return new WebDriverWait(driver, Duration.ofSeconds(20));
+	}
 	/**
 	 * Checks if element loaded in browser memory.
 	 * 
 	 * @param locator Locator of element.
 	 * @return true if loaded else false.
 	 */
-	public boolean isElementPresent(String locator) {
+	public boolean isElementPresent(WebElement locator) {
 
 		WebElement webElement = this.findElement(locator);
 		if (webElement != null) {
@@ -440,7 +443,7 @@ public class Common extends Locators {
 	 * 
 	 * @param locator Locator of element.
 	 */
-	public void assertElementNotPresent(String locator) {
+	public void assertElementNotPresent(WebElement locator) {
 
 		Assert.assertFalse(isElementPresent(locator));
 	}
@@ -450,7 +453,7 @@ public class Common extends Locators {
 	 * 
 	 * @param locator Locator of element.
 	 */
-	public void assertElementPresent(String locator) {
+	public void assertElementPresent(WebElement locator) {
 
 		Assert.assertTrue(isElementPresent(locator));
 	}
@@ -467,9 +470,9 @@ public class Common extends Locators {
 
 		}
 	}
-	public void scrollToElement(String element) throws InterruptedException {
+	public void scrollToElement(WebElement element) throws InterruptedException {
 
-		WebElement ele = driver.findElement(By.xpath(element));
+		WebElement ele = driver.findElement(By.xpath(String.valueOf(element)));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
 		Thread.sleep(500);
 	}
@@ -481,10 +484,10 @@ public class Common extends Locators {
 	 * 
 	 * @param string  New text/value.
 	 */
-	public void type(String locator, String string) {
+	public void type(WebElement locator, String string) {
 
 	//	this.findElement(locator).clear();
-		driver.findElement(By.xpath(locator)).sendKeys(string);
+		driver.findElement(By.xpath(getXPathFromWebElement(locator))).sendKeys(string);
 
 	}
 	public String generateRandomChars(int length) {

@@ -1,8 +1,12 @@
 package Page;
 
+import ServiceHelper.AuthenticationService;
+import ServiceHelper.EnvironmentService;
 import Utils.BasePage;
 import Utils.Common;
 import Utils.Locators;
+import contracts.IAuthenticationService;
+import contracts.IEnvironmentService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -32,12 +36,17 @@ import java.util.Properties;
 
 public class ListView extends Locators {
 
-	Common common = new Common(driver);
+	Common common;
 	Properties obj = new Properties();
+	IAuthenticationService authenticationService;
+	IEnvironmentService environmentService;
 
 	public ListView(WebDriver driver) throws FileNotFoundException {
-
 		super(driver);
+		common = new Common(driver);
+		PageFactory.initElements(this.driver, this);
+		authenticationService = new AuthenticationService();
+		environmentService = new EnvironmentService();
 
 	}
 
@@ -83,7 +92,7 @@ public class ListView extends Locators {
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
 
-		String strView = common.findElementBy("//h4[contains(text(),'Material Master')]","Verified view").getText();
+		String strView = common.findElementBy((WebElement) By.xpath("//h4[contains(text(),'Material Master')]"),"Verified view").getText();
 		common.log("Created new view: "+strView);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
@@ -131,7 +140,7 @@ public class ListView extends Locators {
 		}
 		for (int i = 1; i <= 6; i++) {
 			common.log("select " + i + " checkbox of record");
-			common.findElement("//tbody/tr[" + i + "]/td[1]//label").click();
+			common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]/td[1]//label")).click();
 		}
 
 	}
@@ -177,7 +186,7 @@ public class ListView extends Locators {
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
 
-		if (common.isElementDisplayed("//h4[normalize-space()='Material Master - " + viewStr + "']")) {
+		if (common.isElementDisplayed((WebElement) By.xpath("//h4[normalize-space()='Material Master - " + viewStr + "']"))) {
 
 			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
 			common.log("First value of Material master table: " + strFirstValue);
@@ -205,6 +214,7 @@ public class ListView extends Locators {
 
 		common.pause(10);
 
+		common.log("Verified Date created filter appear");
 		common.assertElementPresent(createdOnFilter);
 
 	}
@@ -234,6 +244,7 @@ public class ListView extends Locators {
 			common.pause(10);
 
 		}
+		common.waitForElement(paginationValue);
 		for (int i = 0; i <= 3; i++) {
 			String paginationStr = common.findElement(paginationValue).getText();
 			common.log("Pagination value : " + paginationStr);
@@ -270,7 +281,7 @@ public class ListView extends Locators {
 			common.pause(10);
 
 		}
-
+		common.waitForElement(actionIconForFirstValue);
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(summaryOption, "Click on Summary option").click();
 		common.pause(5);
@@ -318,6 +329,7 @@ public class ListView extends Locators {
 			common.pause(10);
 
 		}
+		common.waitForElement(actionIconForFirstValue);
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(downloadTemplatesOption, "Click on Download templates option").click();
 		common.pause(5);

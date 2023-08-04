@@ -1,9 +1,13 @@
 package Page;
 
+import ServiceHelper.AuthenticationService;
+import ServiceHelper.EnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import au.com.bytecode.opencsv.CSVWriter;
 
+import contracts.IAuthenticationService;
+import contracts.IEnvironmentService;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
@@ -33,12 +37,15 @@ public class Flow extends Locators {
 	RemoteWebDriver driver;
 	Common common;
 	Properties obj = new Properties();
-
+	IAuthenticationService authenticationService;
+	IEnvironmentService environmentService;
 	public Flow(WebDriver driver2) throws FileNotFoundException {
 		// driver = d;
 		super(driver2);
 		common = new Common(driver2);
 		PageFactory.initElements(this.driver, this);
+		authenticationService = new AuthenticationService();
+		environmentService = new EnvironmentService();
 
 	}
 
@@ -85,7 +92,7 @@ public class Flow extends Locators {
 		common.waitForElement(spac);
 		if (common.findElement(spac).isDisplayed()) {
 			common.pause(25);
-			List<WebElement> myList = driver.findElements(By.xpath(spacRecord));
+			List<WebElement> myList = driver.findElements(By.xpath(String.valueOf(spacRecord)));
 
 			List<String> all_elements_text = new ArrayList<>();
 
@@ -168,12 +175,13 @@ public class Flow extends Locators {
 				common.findElementBy(viewPLog,"Click on View process log").click();
 				common.waitForElement(pTitle);
 
-				String fullXpath = String.format(currentDate, common.currentDate());
+				String fullXpath = String.format(common.currentDate(), currentDate);
+
 				common.log("Current date is ==>" + common.currentDate());
-				common.waitForElement(fullXpath);
+				common.waitForElement((WebElement) By.xpath(fullXpath));
 				
-				if (common.isDisplayed(fullXpath)) {
-					common.findElement(fullXpath).click();
+				if (common.isDisplayed((WebElement) By.xpath(fullXpath))) {
+					common.findElement((WebElement) By.xpath(fullXpath)).click();
 					common.log("Status is ==>" + common.findElement(statusSuccessTxt).getText());
 
 					writer.writeNext("FAIL", "Success");
@@ -196,10 +204,10 @@ public class Flow extends Locators {
 				common.findElement(viewPLog).click();
 				common.waitForElement(pTitle);
 
-				String fullXpath = String.format(currentDate, common.currentDate());
+				String fullXpath = String.format(common.currentDate(), currentDate);
 				common.log("Current date is ==>" + common.currentDate());
-				common.waitForElement(fullXpath);
-				common.findElement(fullXpath).click();
+				common.waitForElement((WebElement) By.xpath(fullXpath));
+				common.findElement((WebElement) By.xpath(fullXpath)).click();
 				if (common.isDisplayed(statusSuccessTxt)) {
 					common.log("Status is ==>" + common.findElement(statusSuccessTxt).getText());
 
@@ -255,11 +263,9 @@ public class Flow extends Locators {
 			common.findElement(dSearchBox).clear();
 			common.pause(5);
 			common.findElement(dSearchBox).sendKeys("" + sheet.getRow(j).getCell(0) + "");
-			//common.pause(25);
 
 			common.waitForElement(apply);
 			common.findElement(apply).click();
-			//common.pause(30);
 			common.waitForElement(thDot);
 			common.log("click on three dot icon");
 			common.findElement(thDot).click();
@@ -267,7 +273,6 @@ public class Flow extends Locators {
 			common.waitForElement(edit);
 			common.log("click on edit");
 			common.findElement(edit).click();
-		//	common.pause(15);
            common.waitForElement(dChange);
 			common.log("click on description change");
 			common.findElement(dChange).click();
