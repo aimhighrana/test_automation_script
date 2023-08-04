@@ -14,13 +14,13 @@ public class AuthenticationService extends BasePage implements IAuthenticationSe
 
 		switch (loggedInUserRole) {
 			case INITIATOR: {
-				userCredential.setUsername(getPropertyValue(environmentName+"ReqUserName"));
-				userCredential.setPassword(getPropertyValue(environmentName+"ReqPassword"));
+				userCredential.setUsername(getPropertyValue(environmentName+"InitiatorUserName"));
+				userCredential.setPassword(getPropertyValue(environmentName+"InitiatorPassword"));
 				break;
 			}
 			case REVIEWER: {
-				userCredential.setUsername(getPropertyValue(environmentName+"RevUserName"));
-				userCredential.setPassword(getPropertyValue(environmentName+"RevPassword"));
+				userCredential.setUsername(getPropertyValue(environmentName+"ReviewerUserName"));
+				userCredential.setPassword(getPropertyValue(environmentName+"ReviewerPassword"));
 				break;
 			}
 			case APPROVER: {

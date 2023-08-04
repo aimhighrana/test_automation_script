@@ -160,7 +160,7 @@ public class LoginPage extends Locators {
 		}
 
 		common.waitForElement(homeTab);
-		common.findElementBy(homeTab,"verify Home page appear");
+		common.findElementBy(homeTab,"Verified Home page appear");
 		common.log("Verified Env URL: " + driver.getCurrentUrl());
 	}
 
