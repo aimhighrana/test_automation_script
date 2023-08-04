@@ -1,7 +1,13 @@
 package Page;
 
+import Page.ServiceHelper.AuthenticationService;
+import Page.ServiceHelper.EnvironmentService;
+import Page.contracts.IAuthenticationService;
+import Page.contracts.IEnvironmentService;
 import Utils.BasePage;
 import Utils.Common;
+import Utils.Entity.UserCredential;
+import Utils.Enums.UserLoginRole;
 import Utils.Locators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +34,8 @@ public class LoginPage extends Locators {
 	// WebDriver driver;
 	Common common = new Common(driver);
 	Properties obj = new Properties();
-
+	IAuthenticationService authenticationService;
+	IEnvironmentService environmentService;
 
 	/**
 	 * Verifyf Login Page Driver
@@ -41,7 +48,34 @@ public class LoginPage extends Locators {
 		super(driver);
 		common = new Common(driver);
 		PageFactory.initElements(this.driver, this);
+		authenticationService = new AuthenticationService();
+		environmentService = new EnvironmentService();
 
+	}
+	private void userLoginProcess(UserLoginRole loggedinUserRole) {
+		UserCredential userCredential = authenticationService.getCredentials(loggedinUserRole);
+
+		//WebElement fieldUsername = common.findElement(userNameField);
+		common.log("Entering username: " + userCredential.getUsername());
+		common.findElement(userNameField).sendKeys(userCredential.getUsername());
+
+		common.pause(10);
+		common.log("Click on continue button");
+		common.findElement(continueButton).click();
+		common.pause(5);
+
+		// If Use Password button display then click on that and then entering password
+		if (common.isElementDisplayed(usePasswordButton)) {
+
+			//	WebElement fieldPasswordHyperlink = common.findElement(usePasswordButton);
+			common.log("Use password hyperlink appear");
+			common.log("Click on Use password button");
+			common.findElement(usePasswordButton).click();
+		}
+		common.pause(5);
+		common.log("Entering password: " + userCredential.getPassword());
+//		WebElement fieldPassword = common.findElement(PasswordField);
+		common.findElement(PasswordField).sendKeys(userCredential.getPassword());
 	}
 
 	/**
@@ -49,13 +83,21 @@ public class LoginPage extends Locators {
 	 * 
 	 */
 	public void goToURL(String env) {
-		String URL = null;
+//		String URL = null;
+//		common.log("Open the browser");
+//		if(env.equals("QAA") || env.equals("QAH") || env.equals("QAR") || env.equals("SAND")) {
+//			URL = getPropertyValue(env+"_url");
+//		}
+//		common.log("Enter the URL: "+URL);
+//		driver.get(URL);
+		String applicationUrl;
 		common.log("Open the browser");
-		if(env.equals("QAA") || env.equals("QAH") || env.equals("QAR") || env.equals("SAND")) {
-			URL = getPropertyValue(env+"_url");
-		}
-		common.log("Enter the URL: "+URL);
-		driver.get(URL);
+		environmentName = env;
+		environmentService.getEnvironmentProperties(environmentName);
+		common.log("Environment requested: " + environmentName);
+		applicationUrl = getPropertyValue(env+"_url");
+		common.log("Enter the URL: " + applicationUrl);
+		driver.get(applicationUrl);
 	}
 
 	
@@ -76,26 +118,27 @@ public class LoginPage extends Locators {
 		 * For ALl Environment
 		 *
 		 */
-		if(env.equals("QAA") || env.equals("QAH") || env.equals("QAR") || env.equals("SAND")) {
-
-			common.log("Entering username: " + getPropertyValue(env+"ReqUserName"));
-			common.waitForElement(userNameField);
-			common.findElement(userNameField).sendKeys(getPropertyValue(env+"ReqUserName"));
-
-			common.log("Click on continue button");
-			common.waitForElement(continueButton);
-			common.findElement(continueButton).click();
-			common.pause(5);
-
-			//If 'Use Password' button display then click on that and then entering password
-			if (common.isElementDisplayed(usePasswordButton)) {
-				common.findElementBy(usePasswordButton, "Click on Use password button").click();
-			}
-
-			common.log("Entering password: " + getPropertyValue(env+"ReqPassword"));
-			common.waitForElement(PasswordField);
-			common.findElement(PasswordField).sendKeys(getPropertyValue(env+"ReqPassword"));
-		}
+		userLoginProcess(UserLoginRole.INITIATOR);
+//		if(env.equals("QAA") || env.equals("QAH") || env.equals("QAR") || env.equals("SAND")) {
+//
+//			common.log("Entering username: " + getPropertyValue(env+"ReqUserName"));
+//			common.waitForElement(userNameField);
+//			common.findElement(userNameField).sendKeys(getPropertyValue(env+"ReqUserName"));
+//
+//			common.log("Click on continue button");
+//			common.waitForElement(continueButton);
+//			common.findElement(continueButton).click();
+//			common.pause(5);
+//
+//			//If 'Use Password' button display then click on that and then entering password
+//			if (common.isElementDisplayed(usePasswordButton)) {
+//				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+//			}
+//
+//			common.log("Entering password: " + getPropertyValue(env+"ReqPassword"));
+//			common.waitForElement(PasswordField);
+//			common.findElement(PasswordField).sendKeys(getPropertyValue(env+"ReqPassword"));
+//		}
 
 		common.log("Click on login button");
 		common.waitForElement(loginBtn);
@@ -118,7 +161,7 @@ public class LoginPage extends Locators {
 
 		common.waitForElement(homeTab);
 		common.findElementBy(homeTab,"verify Home page appear");
-		common.log("Env URL: " + driver.getCurrentUrl());
+		common.log("Verified Env URL: " + driver.getCurrentUrl());
 	}
 
 	/**
@@ -137,27 +180,27 @@ public class LoginPage extends Locators {
 		common.pause(5);
 		common.waitForElement(userNameField);
 		common.log("--- User login as reviewer credentials");
-
-		if (env.equals("QAA") || env.equals("QAH") || env.equals("QAR") || env.equals("SAND")) {
-
-			common.log("Enter the value in email field: " + getPropertyValue(env+"RevUserName"));
-			WebElement emailField = common.findElement(revUsernameField);
-			emailField.sendKeys(getPropertyValue(env+"RevUserName"));
-
-			WebElement continueBtn = common.findElement(continueButton);
-			continueBtn.click();
-			common.pause(10);
-
-			//If 'Use Password' button display then click on that and then entering password
-			if (common.isElementDisplayed(usePasswordButton)) {
-				common.findElementBy(usePasswordButton, "Click on Use password button").click();
-				common.pause(5);
-			}
-
-			common.log("Entering password: " + getPropertyValue(env+"RevPassword"));
-			WebElement passwordField = common.findElement(PasswordField);
-			passwordField.sendKeys(getPropertyValue(env+"RevPassword"));
-		}
+		userLoginProcess(UserLoginRole.REVIEWER);
+//		if (env.equals("QAA") || env.equals("QAH") || env.equals("QAR") || env.equals("SAND")) {
+//
+//			common.log("Enter the value in email field: " + getPropertyValue(env+"RevUserName"));
+//			WebElement emailField = common.findElement(revUsernameField);
+//			emailField.sendKeys(getPropertyValue(env+"RevUserName"));
+//
+//			WebElement continueBtn = common.findElement(continueButton);
+//			continueBtn.click();
+//			common.pause(10);
+//
+//			//If 'Use Password' button display then click on that and then entering password
+//			if (common.isElementDisplayed(usePasswordButton)) {
+//				common.findElementBy(usePasswordButton, "Click on Use password button").click();
+//				common.pause(5);
+//			}
+//
+//			common.log("Entering password: " + getPropertyValue(env+"RevPassword"));
+//			WebElement passwordField = common.findElement(PasswordField);
+//			passwordField.sendKeys(getPropertyValue(env+"RevPassword"));
+//		}
 
 		common.pause(5);
 		common.log("click on login button");

@@ -55,7 +55,7 @@ public class BasePage implements ITestListener {
 
 	public static ExtentTest test;
 	public static ExtentReports report;
-
+	protected static String environmentName = "";
 	public static int step = 0;
 
 	@BeforeMethod(alwaysRun = true)
@@ -204,7 +204,10 @@ public class BasePage implements ITestListener {
 			this.log("Failed to capture screenshot: " + e.getMessage());
 		}
 	}
-
+	protected Properties getConfigPropertiesForEnvironment(String propertyFilePath) {
+		configProperties = this.loadProperties(Paths.get("").toAbsolutePath().normalize().toString() + propertyFilePath);
+		return configProperties;
+	}
 	public void log(String log) {
 		System.out.println(log);
 		Reporter.log("<font color = 'blue'><b><i><u><br>"+log+"</u></i></b></font>");
