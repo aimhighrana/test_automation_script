@@ -23,9 +23,9 @@ public class TransformationRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-50");
 		log("Pre condition: Transformation Rule must be configured with remove leading spaces option for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Leading_Spaces_On_Transaction_Page();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Leading_Spaces_On_Transaction_Page();
 	}
 
 	/**
@@ -41,9 +41,9 @@ public class TransformationRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-51");
 		log("Pre condition: Transformation Rule must be configured with remove trailing spaces option for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Trailing_Spaces_On_Transaction_Page();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_Trailing_Spaces_On_Transaction_Page();
 	}
 
 	/**
@@ -59,9 +59,9 @@ public class TransformationRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-52");
 		log("Pre condition: Transformation Rule must be configured with remove all spaces option for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_All_Spaces_On_Transaction_Page();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_Transformation_Rule_Of_Type_EMPTY_SPACE_With_Remove_All_Spaces_On_Transaction_Page();
 	}
 
 	/**
@@ -77,10 +77,10 @@ public class TransformationRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-53");
 		log("Pre condition: Transformation Rule must be configured with Add leading zeros option");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_Transformation_Rule_Is_Working_Fine_With_Add_Leading_Zeros();
-		materialCreation.verify_Description_on_Summary_Page();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_Transformation_Rule_Is_Working_Fine_With_Add_Leading_Zeros();
+		objectService().materialCreation().verify_Description_on_Summary_Page();
 	}
 
 	/**
@@ -96,10 +96,10 @@ public class TransformationRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-54");
 		log("Pre condition: Transformation Rule must be configured with Add leading zeros option");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_Transformation_Rule_Is_Working_Fine_With_Remove_Leading_Zeros();
-		materialCreation.verify_Remove_Leading_Zeros_From_Description_on_Summary_Page();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_Transformation_Rule_Is_Working_Fine_With_Remove_Leading_Zeros();
+		objectService().materialCreation().verify_Remove_Leading_Zeros_From_Description_on_Summary_Page();
 	}
 
 	/**
@@ -115,9 +115,9 @@ public class TransformationRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-66/QAA-TC-67");
 		log("Pre condition: Transformation Rule must be configured with Type of Concatenation with Separation option: field1: Material description, field2: Gross weight, field3: Authorization group, Target Field: Volume");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_Transformation_Rule_Of_Type_Concatenation_With_Remove_All_Spaces_On_Transaction_Page();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_Transformation_Rule_Of_Type_Concatenation_With_Remove_All_Spaces_On_Transaction_Page();
 	}
 
 	/**
@@ -133,9 +133,9 @@ public class TransformationRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-71");
 		log("Pre condition: Transformation Rule must be configured with Constant Value for Material description field: QA");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_Transformation_Rule_Is_Working_Fine_With_Remove_Leading_Zeros();
-		materialCreation.verify_Description_Field_For_ConstantValue_on_Summary_Page();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_Transformation_Rule_Is_Working_Fine_With_Remove_Leading_Zeros();
+		objectService().materialCreation().verify_Description_Field_For_ConstantValue_on_Summary_Page();
 	}
 }

@@ -23,9 +23,9 @@ public class UserDefinedRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-55/QAA-TC-58/QAA-TC-59");
 		log("Pre condition: UDR Rule must be configured with EQUALS OR NOT EQUALS operator");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_Common_Operators();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_UDR_Rule_Is_Working_Fine_With_Common_Operators();
 	}
 
 	/**
@@ -41,9 +41,9 @@ public class UserDefinedRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-56");
 		log("Pre condition: UDR Rule must be configured with special operator for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_Special_Operators();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_UDR_Rule_Is_Working_Fine_With_Special_Operators();
 	}
 
 	/**
@@ -59,9 +59,9 @@ public class UserDefinedRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-57");
 		log("Pre condition: UDR Rule must be configured with numeric RANGE operator for Material description field Ex: 0 TO 9");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_Numeric_Range_Operators();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_UDR_Rule_Is_Working_Fine_With_Numeric_Range_Operators();
 	}
 
 	/**
@@ -77,9 +77,9 @@ public class UserDefinedRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-60");
 		log("Pre condition: UDR Rule must be configured with ENDSWITH operator with adding '.' in value for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_ENDSWITH_Operators();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_UDR_Rule_Is_Working_Fine_With_ENDSWITH_Operators();
 	}
 
 	/**
@@ -95,9 +95,9 @@ public class UserDefinedRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-61");
 		log("Pre condition: UDR Rule must be configured with EMPTY operator for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_EMPTY_Operators();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_UDR_Rule_Is_Working_Fine_With_EMPTY_Operators();
 	}
 
 	/**
@@ -113,9 +113,9 @@ public class UserDefinedRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-62");
 		log("Pre condition: UDR Rule must be configured with LENGTH operator with adding '10' value for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_LENGTH_Operators();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_UDR_Rule_Is_Working_Fine_With_LENGTH_Operators();
 	}
 
 	/**
@@ -131,9 +131,9 @@ public class UserDefinedRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-63");
 		log("Pre condition: UDR Rule must be configured with LESS THAN or LESS THAN EQUALS operator with adding '10' value for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_LESS_THAN_LESS_THAN_EQUAL_Operators();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_UDR_Rule_Is_Working_Fine_With_LESS_THAN_LESS_THAN_EQUAL_Operators();
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class UserDefinedRuleTestcases extends BasePage {
 		log("Testcase:QAA-TC-64/QAA-TC-65");
 		log("Pre condition: UDR Rule must be configured with GREATER THAN or GREATER THAN EQUALS operator with adding '10' value for Material description field");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_UDR_Rule_Is_Working_Fine_With_GREATER_THAN_GREATER_THAN_EQUAL_Operators();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_UDR_Rule_Is_Working_Fine_With_GREATER_THAN_GREATER_THAN_EQUAL_Operators();
 	}
 }

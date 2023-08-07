@@ -22,9 +22,9 @@ public class DuplicateRuleTestcases extends BasePage {
 		log("Testcase:MDMF-TC-6898/MDMF-TC-6899/MDMF-TC-6900/MDMF-TC-6901");
 		log("Pre condition: Duplicate Rule must be configured");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_That_Exact_Match_Duplicacy_Is_Working_For_Material_Creation();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_That_Exact_Match_Duplicacy_Is_Working_For_Material_Creation();
 	}
 	/**
 	 * 2
@@ -39,9 +39,9 @@ public class DuplicateRuleTestcases extends BasePage {
 		log("Testcase:MDMF-TC-6903");
 		log("Pre condition: Duplicate Rule must be configured");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().duplicacy_Check_Is_Working_At_The_Time_Of_Copy_Event();
 
 	}
 
@@ -58,9 +58,9 @@ public class DuplicateRuleTestcases extends BasePage {
 		log("Testcase:MDMF-TC-6904");
 		log("Pre condition: Duplicate Rule must be configured");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_Duplicacy_Is_Working_At_Change_Event();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_Duplicacy_Is_Working_At_Change_Event();
 	}
 
 	/**
@@ -76,11 +76,11 @@ public class DuplicateRuleTestcases extends BasePage {
 		log("Testcase:MDMF-TC-6905");
 		log("Pre condition: Duplicate Rule must be configured for reviewer");
 		log("Rule for QAH - Material creation process / SANDBOX - SequentialMaterial");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		materialCreation.verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
-		loginPage.reviewer_SignIn(env);
-		materialCreation.check_Duplicacy_Is_Working_At_The_Time_Of_Approval_From_Reviewer();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().materialCreation().verify_That_Defaults_Are_Working_In_The_Transaction_Screen_According_To_The_User_Configured();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialCreation().check_Duplicacy_Is_Working_At_The_Time_Of_Approval_From_Reviewer();
 	}
 
 }

@@ -25,9 +25,9 @@ public class ListPageWildSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_The_Search_Should_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase:QAA-TC-23/MDMF-TC-5503/MDMF-TC-5504/QAA-TC-22");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Able_To_Search_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Able_To_Search_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search();
 	}
 
 	/**--2--**/
@@ -35,10 +35,10 @@ public class ListPageWildSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_While_Clearing_The_Text_Search_It_Should_Not_Impact_Any_Applied_Filters(String env) throws InterruptedException, IOException, AWTException, Exception {
 		log("Testcase:MDMF-TC-5505");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
-		listPageSearch.verify_While_Clearing_The_Text_Search_It_Should_Not_Impact_Any_Applied_Filters();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter();
+		objectService().listPageSearch().verify_While_Clearing_The_Text_Search_It_Should_Not_Impact_Any_Applied_Filters();
 	}
 
 	/**
@@ -49,8 +49,8 @@ public class ListPageWildSearchTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_The_User_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter(String env) throws InterruptedException, IOException, AWTException, Exception {
 		log("TC:QAA-TC-24");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		listPageSearch.user_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().listPageSearch().user_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter();
 	}
 }

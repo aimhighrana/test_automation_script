@@ -1,37 +1,44 @@
 package Utils;
 
-import Page.*;
-import Test.MaterialMasterTestcases;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import net.rcarz.jiraclient.JiraException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.nio.file.Paths;
+import java.util.Properties;
+import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.Augmenter;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.io.*;
-import java.lang.reflect.Method;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.file.Paths;
-import java.util.Properties;
-import java.util.logging.Logger;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
-import static java.awt.Color.green;
-//import javax.mail.MessagingException;
-
+import Page.AddMaterialMaster;
+import Page.Flow;
+import Page.HomePage;
+import Page.ListPageSearch;
+import Page.ListView;
+import Page.LoginPage;
+import Page.MaterialCreation;
+import Page.ProcessLog;
+import ServiceHelper.ObjectService;
+import Utils.Enums.BrowserOption;
+import contracts.IObjectService;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import net.rcarz.jiraclient.JiraException;
 
 public class BasePage implements ITestListener {
 
@@ -39,30 +46,61 @@ public class BasePage implements ITestListener {
 
 	protected WebDriver driver;
 	public static String currentTest; // current running test
+	protected static String environmentName = "";
 	protected static String test_data_folder_path = null;
 
 	// screen-shot folder
 	protected static String screenshot_folder_path = null;
 	protected static Logger logger = Logger.getLogger("testing");
+	
+	public static ExtentTest test;
+	public static ExtentReports report;
+
+	private IObjectService objectService;
+
+	public IObjectService objectService() {
+		return objectService;
+	}
+
+	private void initializeObjects(WebDriver webDriver) throws Exception {		
+		objectService = new ObjectService(webDriver);
+	}
+
+	private WebDriver getWebDriver(String browserOption, String headless) {
+		WebDriver webDriver = null;
+		// Run test against chrome browser
+		if (browserOption.equals(BrowserOption.CHROME.toString())) {
+
+			ChromeOptions options = new ChromeOptions();
+			if (headless.equals("true")) {
+				// Run browser in headless mode
+				options.addArguments("--headless");
+			}
+			options.addArguments("start-maximized"); // open Browser in maximized mode
+			options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+			options.addArguments("--no-sandbox"); // Bypass OS security model
+			options.addArguments("--remote-allow-origins=*");
+			options.addArguments("−−incognito"); // open browser in InCognito mode
+
+			webDriver = new ChromeDriver(options);
+		}
+		return webDriver;
+	}
 	public LoginPage loginPage;
 	public AddMaterialMaster materialmaster;
 	public ListPageSearch listPageSearch;
 	public ProcessLog processLog;
 	public ListView listView;
-	protected static String environmentName = "";
 	public MaterialCreation materialCreation;
 	public Flow flow;
 	public HomePage homePage;
-
-	public static ExtentTest test;
-	public static ExtentReports report;
-
+	
 	public static int step = 0;
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp(Method method) throws Exception {
 
-		//create extent report in project dir
+		// create extent report in project dir
 		report = new ExtentReports("ExtentReportResults.html", true);
 
 		currentTest = method.getName(); // get Name of current test.
@@ -71,56 +109,35 @@ public class BasePage implements ITestListener {
 		String SCREENSHOT_FOLDER_NAME = "screenshots";
 		String TESTDATA_FOLDER_NAME = "test_data";
 
-		//create folder for storing screenshot
+		// create folder for storing screenshot
 		test_data_folder_path = new File(TESTDATA_FOLDER_NAME).getAbsolutePath();
 		screenshot_folder_path = new File(SCREENSHOT_FOLDER_NAME).getAbsolutePath();
 
-		//fetch data from config.properties
+		// fetch data from config.properties
 		String driverPath = getPropertyValue("driverPath");
 		String browser = getPropertyValue("browser");
 		String headless = getPropertyValue("headless");
 
-		//Set property for chromedriver to run on chrome browser
-		//	System.setProperty("webdriver.chrome.driver",driverPath);
 
-		//it will fetch chromedriver from your system
+		// it will fetch chromedriver from your system
 		WebDriverManager.chromedriver().setup();
 
-		//Run test against chrome browser
-		if (browser.equals("chrome")) {
-
-			ChromeOptions options = new ChromeOptions();
-
-			if (headless.equals("true")) {
-				//Run browser in headless mode
-				options.addArguments("--headless");
-			}
-			options.addArguments("start-maximized"); // open Browser in maximized mode
-			options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-			options.addArguments("--no-sandbox"); // Bypass OS security model
-			options.addArguments("--remote-allow-origins=*");
-
-			driver = new ChromeDriver(options);
-		}
-
-		loginPage = new LoginPage(driver);
-		materialmaster = new AddMaterialMaster(driver);
-		flow = new Flow(driver);
-		listPageSearch = new ListPageSearch(driver);
-		listView = new ListView(driver);
-		homePage = new HomePage(driver);
-		materialCreation = new MaterialCreation(driver);
-		processLog = new ProcessLog(driver);
-		step = 1;
-		//	MyScreenRecorder.startRecording(currentTest);
+		driver = getWebDriver(browser, headless);
+		initializeObjects(driver);
+		// MyScreenRecorder.startRecording(currentTest);
 	}
 
 	protected Properties getConfigProperties() {
 		if (configProperties == null) {
-			configProperties = this.loadProperties(
-					Paths.get("").toAbsolutePath().normalize().toString() + "//config.properties");
-
+			configProperties = this
+					.loadProperties(Paths.get("").toAbsolutePath().normalize().toString() + "//config.properties");
 		}
+		return configProperties;
+	}
+
+	protected Properties getConfigPropertiesForEnvironment(String propertyFilePath) {
+		configProperties = this
+				.loadProperties(Paths.get("").toAbsolutePath().normalize().toString() + propertyFilePath);
 		return configProperties;
 	}
 
@@ -152,6 +169,7 @@ public class BasePage implements ITestListener {
 
 	/**
 	 * After Method {TearDown}
+	 * 
 	 * @param testResult
 	 * @throws IOException
 	 * @throws FileNotFoundException
@@ -163,15 +181,11 @@ public class BasePage implements ITestListener {
 		Reporter.setCurrentTestResult(testResult);
 		File img = new File("target" + File.separator + "test-output" + File.separator + testName + ".png");
 		if (testResult.getStatus() == 1) {
-			log("<font color = 'green'><b><i><u><br>Pass :: " + testResult.getName()+"</u></i></b></font>");
+			log("<font color = 'green'><b><i><u><br>Pass :: " + testResult.getName() + "</u></i></b></font>");
 			testResult.getThrowable();
-			//	MyScreenRecorder.stopRecording();
-			//	MyScreenRecorder.deleteFile(testName+".avi");
 		}
 		if (testResult.getStatus() == 2) {
-			log("<font color = 'red'><b><i><u><br>Fail :: " + testResult.getName()+"</u></i></b></font>");
-
-			//	MyScreenRecorder.stopRecording();
+			log("<font color = 'red'><b><i><u><br>Fail :: " + testResult.getName() + "</u></i></b></font>");
 
 			makeScreenshot(driver, testName);
 			Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
@@ -183,7 +197,7 @@ public class BasePage implements ITestListener {
 		step =0;
 		driver.manage().deleteAllCookies();
 		driver.quit();
-		//MyScreenRecorder.stopRecording();
+		// MyScreenRecorder.stopRecording();
 	}
 
 	public void makeScreenshot(WebDriver driver, String screenshotName) {
@@ -205,12 +219,9 @@ public class BasePage implements ITestListener {
 			this.log("Failed to capture screenshot: " + e.getMessage());
 		}
 	}
-	protected Properties getConfigPropertiesForEnvironment(String propertyFilePath) {
-		configProperties = this.loadProperties(Paths.get("").toAbsolutePath().normalize().toString() + propertyFilePath);
-		return configProperties;
-	}
+	
 	public void log(String log) {
 		System.out.println(log);
-		Reporter.log("<font color = 'blue'><b><i><u><br>"+log+"</u></i></b></font>");
+		Reporter.log("<font color = 'blue'><b><i><u><br>" + log + "</u></i></b></font>");
 	}
 }

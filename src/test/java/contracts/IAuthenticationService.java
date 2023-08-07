@@ -1,4 +1,4 @@
-package Page.contracts;
+package contracts;
 
 import Utils.Entity.UserCredential;
 import Utils.Enums.UserLoginRole;

@@ -1,20 +1,22 @@
+// region Packages & Imports
 package Page;
 
-import Page.ServiceHelper.AuthenticationService;
-import Page.ServiceHelper.EnvironmentService;
-import Page.contracts.IAuthenticationService;
-import Page.contracts.IEnvironmentService;
-import Utils.Common;
-import Utils.Entity.UserCredential;
-import Utils.Enums.UserLoginRole;
-import Utils.Locators;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.FileNotFoundException;
-import java.util.Properties;
+import Page.ServiceHelper.*;
+import Page.contracts.*;
+import Utils.Common;
+import Utils.Locators;
+import Utils.Entity.UserCredential;
+import Utils.Enums.UserLoginRole;
+
+//endregion
 
 public class LoginPage extends Locators {
 
@@ -24,21 +26,25 @@ public class LoginPage extends Locators {
 	IAuthenticationService authenticationService;
 	IEnvironmentService environmentService;
 
+	// region constructors
 	/**
-	 * Verifyf Login Page Driver
+	 * Verify Login Page Driver
 	 *
 	 * @param driver
 	 * @throws FileNotFoundException
 	 */
 	public LoginPage(WebDriver driver) throws FileNotFoundException {
-		// driver = d;
 		super(driver);
 		common = new Common(driver);
 		PageFactory.initElements(this.driver, this);
 		authenticationService = new AuthenticationService();
 		environmentService = new EnvironmentService();
-
 	}
+	// end region
+
+	// region private methods
+
+
 	private void userLoginProcess(UserLoginRole loggedinUserRole) {
 		UserCredential userCredential = authenticationService.getCredentials(loggedinUserRole);
 
@@ -85,7 +91,7 @@ public class LoginPage extends Locators {
 	 * Verify Sign In Scenario
 	 *
 	 */
-	public void initiator_SignIn(String env) throws Exception{
+	public void initiator_SignIn() throws Exception{
 
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
@@ -93,17 +99,12 @@ public class LoginPage extends Locators {
 			common.findElement(signOut).click();
 			common.pause(10);
 		}
-
-		/**
-		 * For ALl Environment
-		 *
-		 */
 		userLoginProcess(UserLoginRole.INITIATOR);
-
 		common.log("Click on login button");
 		common.waitUntilElementToBeVisible(loginBtn);
 		common.findElement(loginBtn).click();
 		common.pause(10);
+
 
 		//Wait for options after login to select QA Sandbox or Tenant 1 or Home page
 		common.waitUntilElementToBeVisible(optionsAsPerEnv);
@@ -130,9 +131,9 @@ public class LoginPage extends Locators {
 	 * As a reviewer sign-in scenario
 	 *
 	 */
-	public void reviewer_SignIn(String env) {
+	public void reviewer_SignIn() {
 
-		//Sign out the approver
+		// Sign out the approver
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
 			common.findElementBy(profileIcon,"Click on profile icon").click();
@@ -209,7 +210,7 @@ public class LoginPage extends Locators {
 		common.log("Open Url");
 		String URL = getPropertyValue("urlProd");
 
-		common.log("Open URL: "+URL);
+		common.log("Open URL: " + URL);
 		driver.get(URL);
 
 		common.log("Enter the value in organization field");

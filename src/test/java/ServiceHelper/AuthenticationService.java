@@ -1,11 +1,11 @@
-package Page.ServiceHelper;
+package ServiceHelper;
 
-import Page.contracts.IAuthenticationService;
+import contracts.IAuthenticationService;
 import Utils.BasePage;
 import Utils.Entity.UserCredential;
-import Utils.Enums.UserLoginRole;
+import Utils.Enums.*;
 
-public class AuthenticationService extends BasePage implements IAuthenticationService {
+public class AuthenticationService extends BasePage implements IAuthenticationService{
 
 	UserCredential userCredential = null;
 
@@ -14,13 +14,13 @@ public class AuthenticationService extends BasePage implements IAuthenticationSe
 
 		switch (loggedInUserRole) {
 			case INITIATOR: {
-				userCredential.setUsername(getPropertyValue(environmentName+"InitiatorUserName"));
-				userCredential.setPassword(getPropertyValue(environmentName+"InitiatorPassword"));
+				userCredential.setUsername(getPropertyValue("initiatorUsername"));
+				userCredential.setPassword(getPropertyValue("initiatorPassword"));
 				break;
 			}
 			case REVIEWER: {
-				userCredential.setUsername(getPropertyValue(environmentName+"ReviewerUserName"));
-				userCredential.setPassword(getPropertyValue(environmentName+"ReviewerPassword"));
+				userCredential.setUsername(getPropertyValue("reviewerUsername"));
+				userCredential.setPassword(getPropertyValue("reviewerPassword"));
 				break;
 			}
 			case APPROVER: {

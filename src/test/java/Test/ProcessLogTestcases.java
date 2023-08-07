@@ -26,9 +26,9 @@ public class ProcessLogTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_That_User_Is_Able_To_View_Email_Logs_When_Email_Notification_Is_Configured(String env) throws InterruptedException, IOException, AWTException, Exception {
 		log("Testcase:QAA-TC-12/QAA-TC-13/QAA-TC-46/QAA-TC-268/QAA-TC-270");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		processLog.verify_That_User_Is_Able_To_View_Email_Logs_In_Process_Log();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().processLog().verify_That_User_Is_Able_To_View_Email_Logs_In_Process_Log();
 	}
 
 	/**
@@ -42,9 +42,9 @@ public class ProcessLogTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_That_User_Is_Able_To_View_The_View_Integration_Log(String env) throws InterruptedException, IOException, AWTException, Exception {
 		log("Testcase:QAA-TC-14/QAA-TC-15");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		processLog.verify_User_Is_Able_To_View_The_View_Integration_Log();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().processLog().verify_User_Is_Able_To_View_The_View_Integration_Log();
 	}
 
 	/**
@@ -58,9 +58,9 @@ public class ProcessLogTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_That_Tooltip_Is_Visible_For_Comment_Icon_In_Side_Sheet(String env) throws InterruptedException, IOException, AWTException, Exception {
 		log("Testcase:QAA-TC-16");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		processLog.verify_Tooltip_Is_Visible_For_Comment_Icon_In_Side_Sheet();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().processLog().verify_Tooltip_Is_Visible_For_Comment_Icon_In_Side_Sheet();
 	}
 
 	/**
@@ -74,9 +74,9 @@ public class ProcessLogTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_That_Tooltip_Is_Visible_For_External_Icon_In_Sidesheet(String env) throws InterruptedException, IOException, AWTException, Exception {
 		log("Testcase:QAA-TC-17");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		processLog.verify_Tooltip_Is_Visible_For_External_Icon_In_Sidesheet();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().processLog().verify_Tooltip_Is_Visible_For_External_Icon_In_Sidesheet();
 	}
 	/**
 	 *Process Log : Verify Classification data changes maintained in the process log for parent dataset or related dataset record
@@ -89,9 +89,9 @@ public class ProcessLogTestcases extends BasePage {
 	@Parameters("env")
 	public void verify_Classification_Data_Changes_Maintained_In_The_Process_Log_For_Parent_Dataset_Or_Related_Dataset_Record(String env) throws InterruptedException, IOException, AWTException, Exception {
 		log("Testcase:QAA-TC-5/QAA-TC-6/QAA-TC-7/QAA-TC-8/QAA-TC-9/QAA-TC-10/QAA-TC-11/QAA-TC-28/QAA-TC-31/QAA-TC-45");
-		loginPage.goToURL(env);
-		loginPage.initiator_SignIn(env);
-		processLog.verify_Classification_Data_Changes_Maintained_In_The_Process_Log();
+		objectService().loginPage().goToURL(env);
+		objectService().loginPage().initiator_SignIn();
+		objectService().processLog().verify_Classification_Data_Changes_Maintained_In_The_Process_Log();
 	}
 
 }

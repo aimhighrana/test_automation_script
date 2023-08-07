@@ -6,8 +6,9 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
-	<parameter name="env" value="QAA" />
-
+    
+	<parameter name="env" value="QAR" />
+	<parameter name="testCaseId" value="QAA-TC-91" />
 	 <test name="verify The Login scenario">
 		<classes>
 			<class name="Test.LoginPageTestcases">
