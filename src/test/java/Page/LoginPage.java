@@ -4,6 +4,14 @@ package Page;
 import java.io.FileNotFoundException;
 import java.util.Properties;
 
+import Page.ServiceHelper.AuthenticationService;
+import Page.ServiceHelper.EnvironmentService;
+import Page.contracts.IAuthenticationService;
+import Page.contracts.IEnvironmentService;
+import Utils.Common;
+import Utils.Entity.UserCredential;
+import Utils.Enums.UserLoginRole;
+import Utils.Locators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,6 +31,12 @@ import ServiceHelper.*;
 public class LoginPage extends Locators {
 
 	Common common;
+
+public class LoginPage extends Locators {
+
+	// WebDriver driver;
+	Common common;
+	Properties obj = new Properties();
 	IAuthenticationService authenticationService;
 	IEnvironmentService environmentService;
 
@@ -44,132 +58,140 @@ public class LoginPage extends Locators {
 
 	// region private methods
 
-	/*
-	 * method to verify user Login process Parameter: UserLoginRole
-	 */
+
 	private void userLoginProcess(UserLoginRole loggedinUserRole) {
 		UserCredential userCredential = authenticationService.getCredentials(loggedinUserRole);
 
-		WebElement fieldUsername = common.findElement(userNameField);
-		common.log(LogStatus.INFO, "Entering username: " + userCredential.getUsername());
-		fieldUsername.sendKeys(userCredential.getUsername());
+		common.log("Entering username: " + userCredential.getUsername());
+		common.waitUntilElementToBeVisible(userNameField);
+		common.findElement(userNameField).sendKeys(userCredential.getUsername());
 
 		common.pause(10);
-		common.log(LogStatus.INFO, "Click on continue button");
+		common.log("Click on continue button");
 		common.findElement(continueButton).click();
 		common.pause(5);
 
 		// If Use Password button display then click on that and then entering password
 		if (common.isElementDisplayed(usePasswordButton)) {
 
-			WebElement fieldPasswordHyperlink = common.findElement(usePasswordButton);
-			common.log(LogStatus.INFO, "Use password hyperlink appear");
-			common.log(LogStatus.INFO, "Click on Use password button");
-			fieldPasswordHyperlink.click();
+			//	WebElement fieldPasswordHyperlink = common.findElement(usePasswordButton);
+			common.log("Use password hyperlink appear");
+			common.log("Click on Use password button");
+			common.findElement(usePasswordButton).click();
 		}
 		common.pause(5);
-		common.log(LogStatus.INFO, "Entering password: " + userCredential.getPassword());
-		WebElement fieldPassword = common.findElement(PasswordField);
-		fieldPassword.sendKeys(userCredential.getPassword());
+		common.log("Entering password: " + userCredential.getPassword());
+		common.findElement(PasswordField).sendKeys(userCredential.getPassword());
 	}
 
-	// end region
-	
+	/**
+	 * Open URL
+	 *
+	 */
 	public void goToURL(String env) {
+
 		String applicationUrl;
 		common.log("Open the browser");
 		environmentName = env;
-		environmentService.getEnvironmentProperties(env);
+		environmentService.getEnvironmentProperties(environmentName);
 		common.log("Environment requested: " + environmentName);
-		applicationUrl = getPropertyValue("urlQAEnvironment");
+		applicationUrl = getPropertyValue(env+"_url");
 		common.log("Enter the URL: " + applicationUrl);
 		driver.get(applicationUrl);
 	}
 
+
 	/**
 	 * Verify Sign In Scenario
-	 * 
+	 *
 	 */
-	public void initiator_SignIn() {
+	public void initiator_SignIn(String env) throws Exception{
 
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
-			common.findElementBy(profileIcon, "Click on profile icon").click();
-			driver.findElement(By.xpath(signOut)).click();
+			common.findElementBy(profileIcon,"Click on profile icon").click();
+			common.findElement(signOut).click();
 			common.pause(10);
 		}
 		userLoginProcess(UserLoginRole.INITIATOR);
-
-		common.pause(5);
-		System.out.println("Step :: Click on login button");
 		common.log("Click on login button");
+		common.waitUntilElementToBeVisible(loginBtn);
 		common.findElement(loginBtn).click();
-		common.pause(5);
-		common.waitForElement("(//div[@class='mat-list-item-content'])[1]");
+		common.pause(10);
 
-		if (common.isElementDisplayed("//p[normalize-space()='QA Sandbox']")) {
-			common.findElementBy("//p[normalize-space()='QA Sandbox']", "Click on QA sandbox").click();
+
+		//Wait for options after login to select QA Sandbox or Tenant 1 or Home page
+		common.waitUntilElementToBeVisible(optionsAsPerEnv);
+
+		//if SANDBOX env is there then select QA Sandbox option
+		if (common.isElementDisplayed(qaSandboxOption))
+		{
+			common.findElementBy(qaSandboxOption, "Click on QA sandbox").click();
 		}
 
-		if (common.isElementDisplayed("//p[normalize-space()='Tenant 1']")) {
-			common.findElementBy("//p[normalize-space()='Tenant 1']", "Select Tenant 1").click();
+		//if QAR env is there then select Tenant 1 option
+		if (common.isElementDisplayed(tenant1Option))
+		{
+			common.findElementBy(tenant1Option,"Select Tenant 1").click();
 		}
 
-		common.waitForElement(homeTab);
-		common.findElementBy(homeTab, "verify Home page appear");
-		test.log(LogStatus.INFO, "Env URL:: " + driver.getCurrentUrl());
-		System.out.println("Step :: Env URL: " + driver.getCurrentUrl());
+		common.waitUntilElementToBeVisible(homeTab);
+		common.findElementBy(homeTab,"verify Home page appear");
 		common.log("Env URL: " + driver.getCurrentUrl());
-
 	}
 
 	/**
 	 * As a reviewer sign-in scenario
-	 * 
+	 *
 	 */
 	public void reviewer_SignIn() {
 
 		// Sign out the approver
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
-			common.findElementBy(profileIcon, "Click on profile icon").click();
-			driver.findElement(By.xpath(signOut)).click();
+			common.findElementBy(profileIcon,"Click on profile icon").click();
+			common.findElement(signOut).click();
 		}
-
-		userLoginProcess(UserLoginRole.REVIEWER);
-		;
-
 		common.pause(5);
 		common.waitForElement(userNameField);
-		System.out.println("Step :: --- User login as reviewer credentials");
 		common.log("--- User login as reviewer credentials");
-		
+
+		userLoginProcess(UserLoginRole.REVIEWER);
 		common.pause(5);
-		test.log(LogStatus.INFO, "click on login button");
-		System.out.println("Step :: click on login button");
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
-		common.pause(10);
-		if (common.isElementDisplayed("//p[normalize-space()='QA Sandbox']")) {
-			common.findElementBy("//p[normalize-space()='QA Sandbox']", "Click on QA sandbox").click();
+		common.pause(5);
+
+		//Wait for options after login to select QA Sandbox or Tenant 1 or Home page
+		common.waitForElement((WebElement) By.xpath("(//div[@class='mat-list-item-content'])[1]"));
+
+		//if SANDBOX env is there then select QA Sandbox option
+		if (common.isElementDisplayed((WebElement) By.xpath("//p[normalize-space()='QA Sandbox']")))
+		{
+			common.findElementBy((WebElement) By.xpath("//p[normalize-space()='QA Sandbox']"), "Click on QA sandbox").click();
 		}
+
+		//if QAR env is there then select Tenant 1 option
+		if (common.isElementDisplayed((WebElement) By.xpath("//p[normalize-space()='Tenant 1']")))
+		{
+			common.findElementBy((WebElement) By.xpath("//p[normalize-space()='Tenant 1']"),"Select Tenant 1").click();
+		}
+		common.waitForElement(homeTab);
+		common.findElementBy(homeTab,"verify Home page appear");
+		common.log("Env URL: " + driver.getCurrentUrl());
 
 	}
 
 	/**
 	 * QA-Login scenario
-	 * 
+	 *
 	 */
 	public void qaLogin() {
-		System.out.println("Step :: Open Url");
+		common.log("Open Url");
 		String URL = getPropertyValue("urlFuse");
 
-		common.log("Open URL ");
 		driver.get(URL);
-		test.log(LogStatus.INFO, "Navigated to URL");
 
-		test.log(LogStatus.INFO, "Enter value in email field");
-		System.out.println("Step :: Enter value in email field");
 		common.log("Enter the value in email field");
 		common.findElement(userNameField).sendKeys(getPropertyValue("qaUserName"));
 
@@ -178,48 +200,37 @@ public class LoginPage extends Locators {
 
 		common.waitForElement(userPasswordLink);
 		common.findElement(userPasswordLink).click();
-
-		System.out.println("Step :: Entering password");
 		common.log("Entering password");
 
 		common.waitForElement(nPasswordField);
-		driver.findElement(By.xpath(nPasswordField)).sendKeys(getPropertyValue("password"));
+		common.findElement(nPasswordField).sendKeys(getPropertyValue("password"));
 		common.pause(10);
-		test.log(LogStatus.INFO, "Click on Login button");
-		System.out.println("Step :: Click on login button");
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
 
-		test.log(LogStatus.INFO, "Click on QA");
-		System.out.println("Step :: Click on QA");
 		common.log("Click on QA");
 		common.waitForElement(qaEnv);
-		driver.findElement(By.xpath(qaEnv)).click();
+		common.findElement(qaEnv).click();
 
 	}
 
 	/**
 	 * PROD-Login scenario
-	 * 
+	 *
 	 */
 	public void prodLogin() {
 
-		System.out.println("Step :: Open Url");
+		common.log("Open Url");
 		String URL = getPropertyValue("urlProd");
 
 		common.log("Open URL: " + URL);
 		driver.get(URL);
-		test.log(LogStatus.INFO, "Navigated to URL");
 
-		test.log(LogStatus.INFO, "Enter value in Organization field");
-		System.out.println("Step :: Enter value in organization field");
 		common.log("Enter the value in organization field");
 		common.findElement(userNameField).sendKeys("mondelez");
 		common.pause(10);
 		common.findElement(continueButton).click();
 		common.pause(10);
-		test.log(LogStatus.INFO, "Enter value in email field");
-		System.out.println("Step :: Enter value in email field");
 		common.log("Enter the value in email field");
 		common.findElement(usernameProd).sendKeys(getPropertyValue("ProdUserName"));
 
@@ -229,24 +240,18 @@ public class LoginPage extends Locators {
 
 		common.findElement(userPasswordLink).click();
 
-		System.out.println("Step :: Entering password");
-		test.log(LogStatus.INFO, "Entering password");
-		common.log("Step :: Entering password");
+		common.log("Entering password");
 		common.pause(10);
 
-		driver.findElement(By.xpath(nPasswordField)).sendKeys("Welcome@123");
+		common.findElement(nPasswordField).sendKeys("Welcome@123");
 		common.pause(10);
 
-		test.log(LogStatus.INFO, "Click on Login button");
-		System.out.println("Step :: Click on login button");
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
 
-		test.log(LogStatus.INFO, "Click on PROD");
-		System.out.println("Step :: Click on PROD");
 		common.log("Click on PROD");
 		common.waitForElement(prodEnv);
-		driver.findElement(By.xpath(prodEnv)).click();
+		common.findElement(prodEnv).click();
 	}
 
 }

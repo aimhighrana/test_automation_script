@@ -16,417 +16,592 @@ public abstract class Locators extends BasePage {
 	}
 
 	// <! Login Page Locators !>
-	public static String userNameField = "//p[@class='xsmall strong ng-star-inserted']//..//..//..//input";
-	public static String continueButton = "//span[contains(text(),'Continue')]";
-	public static String usePasswordButton = "//p[normalize-space()='Use password']";
-	public static String PasswordField = "//input[@type='password']";
-	public static String nPasswordField = "//input[@type='password']";
-	public static String loginBtn = "//span[contains(text(),'Login')]";
-	public static String qaEnv = "//p[contains(text(),'QA')]";
-	public static String dataTab = "//div[@class='mat-list-item-content'][contains(text(),\"Data\")]";
-	public static String search = "//input[@placeholder='Search Data'] | //input[@placeholder='Search data']";
-	public static String materialMaster = "//p[normalize-space()='Material Master']";
-	public static String newRecordBtn = "//span[contains(text(),'New record')] | //div[@class='f-col state-container']//div[@class='f-row']";
-	public static String revUsernameField = "//p[@class='xsmall strong ng-star-inserted']//..//..//..//input";
-	public static String RevPwdField = "//p[normalize-space()='Password']//..//..//..//input";
-	public static String userPasswordLink = "//p[contains(text(),'Use password')]";
-	public static String materialNumFromTbl = "//table//tr[1]//td[3]";
-	public static String actionIconForFirstValue = "//tbody/tr[1]/td[1]//..//button//span//mat-icon";
-	public static String duplicateRecordHeader = "//h4[normalize-space()='Duplicate records']";
-	public static String continueDuplicateRecord="//span[normalize-space()='Continue']";
-	public static String profileIcon="//div[@class='mat-card-avatar ng-star-inserted mdo-small']";
-	public static String signOut="//span[contains(text(),'Sign out')]";
-	
-	public static String defaultView=	"//h4[contains (text(), 'Default view')]";
-	public static String viewDropDownIcon = "//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']//mat-icon[@role='img'][normalize-space()='caret-down']";
+	@FindBy(xpath = "//p[@class='xsmall strong ng-star-inserted']//..//..//..//input")
+	protected WebElement userNameField;
+	@FindBy(xpath = "//span[contains(text(),'Continue')]")
+	protected WebElement continueButton;
+	@FindBy(xpath = "//p[normalize-space()='Use password']")
+	protected WebElement usePasswordButton;
+	@FindBy(xpath = "//input[@type='password']")
+	protected WebElement PasswordField;
+	@FindBy(xpath = "//input[@type='password']")
+	protected WebElement nPasswordField;
+	@FindBy(xpath = "//span[contains(text(),'Login')]")
+	protected WebElement loginBtn;
+	@FindBy(xpath = "(//div[@class='mat-list-item-content'])[1]")
+	protected WebElement optionsAsPerEnv;
+	@FindBy(xpath = "//p[normalize-space()='Tenant 1']")
+	protected WebElement tenant1Option;
+	@FindBy(xpath = "//p[normalize-space()='QA Sandbox']")
+	protected WebElement qaSandboxOption;
+	@FindBy(xpath = "//p[contains(text(),'QA')]")
+	protected WebElement qaEnv;
+	@FindBy(xpath = "//div[@class='mat-list-item-content'][contains(text(),'Data')]")
+	protected WebElement dataTab;
+	@FindBy(xpath = "//input[@placeholder='Search Data'] | //input[@placeholder='Search data']")
+	protected WebElement search;
+	@FindBy(xpath = "//p[normalize-space()='Material Master']")
+	protected WebElement materialMaster;
+	@FindBy(xpath = "//span[contains(text(),'New record')] | //div[@class='f-col state-container']//div[@class='f-row']")
+	protected WebElement newRecordBtn;
+	@FindBy(xpath = "//p[@class='xsmall strong ng-star-inserted']//..//..//..//input")
+	protected WebElement revUsernameField;
+	@FindBy(xpath = "//p[normalize-space()='Password']//..//..//..//input")
+	protected WebElement RevPwdField;
+	@FindBy(xpath = "//p[contains(text(),'Use password')]")
+	protected WebElement userPasswordLink;
+	@FindBy(xpath = "//table//tr[1]//td[3]")
+	protected WebElement materialNumFromTbl;
+	@FindBy(xpath = "//tbody/tr[1]/td[1]//..//button//span//mat-icon")
+	protected WebElement actionIconForFirstValue;
+	@FindBy(xpath = "//h4[normalize-space()='Duplicate records']")
+	protected WebElement duplicateRecordHeader;
+	@FindBy(xpath = "//span[normalize-space()='Continue']'")
+	protected WebElement continueDuplicateRecord;
+	@FindBy(xpath = "//div[@class='mat-card-avatar ng-star-inserted mdo-small']")
+	protected WebElement profileIcon;
+	@FindBy(xpath = "//span[contains(text(),'Sign out')]")
+	protected WebElement signOut;
 
-	public static String approveVal = "//button[normalize-space()='Approve']";
-	public static String approveDropDownIcon = "//span[normalize-space()='Approve']//..//..//..//..//mat-icon";
-	public static String sendForCorrectionOption = "//button[normalize-space()='Send for correction']";
-	public static String rejectionCommentBox = "//div[contains(text(),'Comments')]//..//..//textarea";
-	public static String submitButtonRejectionFlow  = "//span[normalize-space()='Submit']";
-	public static String draft = " //button[contains(text(),'Save as draft')]";
-	public static String myRrequestHeader ="//h4[normalize-space()='My requests']";
-	public static String edit = "//button[contains(text(),'Edit')]";
-	public static String materialMasterRecordOption = "//button[normalize-space()='Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']";
-	public static String statusFilter = "//th[@id='STATUS']//input[@placeholder='Filter']";
-	public static String uSaveBtn = "//span[contains(text(),'Save')]";
-	public static String allerros = "//h4[contains(text(),'All errors')]";
-	public static String expandHeaderData = "//mat-icon[normalize-space()='chevron_right']";
-	public static String expandPlantData = "//mat-icon[normalize-space()='chevron_right'][1]";
-	public static String expandPlant = "//mat-icon[normalize-space()='chevron_right']";
-	public static String expandValuationData = "//mat-icon[normalize-space()='chevron_right']";
-	public static String materialMasterNum= "//tbody/tr[1]/td[3]";
-	
+	@FindBy(xpath = "//h4[contains (text(), 'Default view')]")
+	protected WebElement defaultView;
+	@FindBy(xpath = "//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']//mat-icon[@role='img'][normalize-space()='caret-down']")
+	protected WebElement viewDropDownIcon;
+	@FindBy(xpath = "//button[normalize-space()='Approve']")
+	protected WebElement approveVal;
+	@FindBy(xpath = "//span[normalize-space()='Approve']//..//..//..//..//mat-icon")
+	protected WebElement approveDropDownIcon;
+	@FindBy(xpath = "//button[normalize-space()='Send for correction']")
+	protected WebElement sendForCorrectionOption;
+
+	@FindBy(xpath = "//div[contains(text(),'Comments')]//..//..//textarea")
+	protected WebElement rejectionCommentBox;
+	@FindBy(xpath = "//span[normalize-space()='Submit']")
+	protected WebElement submitButtonRejectionFlow;
+	@FindBy(xpath = " //button[contains(text(),'Save as draft')]")
+	protected WebElement draft;
+	@FindBy(xpath = "//h4[normalize-space()='My requests']")
+	protected WebElement myRrequestHeader;
+	@FindBy(xpath = "//button[contains(text(),'Edit')]")
+	protected WebElement edit;
+	@FindBy(xpath = "//button[normalize-space()='Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow'] | //button[normalize-space()='SequentialMaterial']")
+	protected WebElement materialMasterRecordOption;
+	@FindBy(xpath = "//th[@id='STATUS']//input[@placeholder='Filter']")
+	protected WebElement statusFilter;
+	@FindBy(xpath = "//span[contains(text(),'Save')]")
+	protected WebElement uSaveBtn;
+	@FindBy(xpath = "//h4[contains(text(),'All errors')]")
+	protected WebElement allerros;
+	@FindBy(xpath = "//mat-icon[normalize-space()='chevron_right']")
+	protected WebElement expandHeaderData;
+	@FindBy(xpath = "//mat-icon[normalize-space()='chevron_right'][1]")
+	protected WebElement expandPlantData;
+	@FindBy(xpath = "//mat-icon[normalize-space()='chevron_right']")
+	protected WebElement expandPlant;
+	@FindBy(xpath = "//mat-icon[normalize-space()='chevron_right']")
+	protected WebElement expandValuationData;
+	@FindBy(xpath = "//tbody/tr[1]/td[3]")
+	protected WebElement materialMasterNum;
+
+
 	// <! New record Page Locators !>
-	public static String dMaterialMaster = "//p[contains(text(),'Material Master')]";
-	public static String materialMasterRoleValue = "//button[normalize-space()='Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']";
+	@FindBy(xpath = "//p[contains(text(),'Material Master')]")
+	protected WebElement dMaterialMaster;
+	@FindBy(xpath = "//button[normalize-space()='Material Master - QA'] | //button[normalize-space()='MaterialCreationFlow']")
+	protected WebElement materialMasterRoleValue;
+	@FindBy(xpath = "//p[normalize-space()='Industry sector']//..//..//div//input | //p[normalize-space()='Industry Sector']//..//..//div//input")
+	protected WebElement industrySec;
+	@FindBy(xpath = "//div[@class='mdo-notice f-row mdo-notice-error']")
+	protected WebElement errorMessage;
 
-	public static String industrySec = "//p[normalize-space()='Industry sector']//..//..//div//input | //p[normalize-space()='Industry Sector']//..//..//div//input";
-	public static String materialGroup = "//p[normalize-space()='Material Group']//..//..//div//input";
-	public static String generateDesc = "//span[contains(text(),'Generate description')]";
-	public static String claS = "//pros-transaction-generate-description[1]/div[2]/div[1]/form[1]/div[2]/div[1]/div[1]/input[1]";
+	@FindBy(xpath = "//p[normalize-space()='Material Group']//..//..//div//input")
+	protected WebElement materialGroup;
+	@FindBy(xpath = "//span[contains(text(),'Generate description')]")
+	protected WebElement generateDesc;
+
+	@FindBy(xpath = "//pros-transaction-generate-description[1]/div[2]/div[1]/form[1]/div[2]/div[1]/div[1]/input[1]")
+	protected WebElement claS;
+
+	@FindBy(xpath = "//pros-transaction-generate-description[1]/div[2]/div[1]/form[1]/div[2]/div[1]/div[1]/input[1]")
+	protected WebElement clasval;
+
 	public static String classval = "(//span[@class='mat-option-text'])[1]";
 	public static String summaryVal = "//button[contains(text(),' Summary ')]";
-	public static String loading = "//p[normalize-space()='Loading Group']//..//..//mat-icon";
 
-	public static String copy = "//button[contains(text(),'Copy')] | //button[normalize-space()='Copy']";
-	public static String copyButton = "//button//span[contains(text(),'Copy')]";
-	public static String recordno = "//mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/div[1]/div[1]/input[1]";
-	public static String plantD = "//div[1]/div[1]/pros-transaction-hierarchy-list[1]/div[1]/mat-tree[1]/mat-tree-node[2]/div[1]/div[1]";
-	public static String plantDatatwo = "//div[1]/mat-tree[1]/mat-tree-node[3]/div[1]/div[1]/lib-text-line[1]/p[1]";
-	public static String valuationD = "//mat-tree-node[5]/div[1]/div[1]/lib-text-line[1]/p[1]";
-	public static String copyBtn = "//span[contains(text(),'Copy')]";
-	public static String newRecordTitle = "//div[1]/div[1]/div[2]/div[1]/lib-text-line[1]/h4[1]";
-	public static String newPlantD = "//div[1]/mat-tree[1]/mat-tree-node[3]/div[1]/div[1]/lib-text-line[1]/p[1]";
-	public static String sourceListDescription = "//p[normalize-space()='Source - List']//..//..//input[@placeholder='Select any one...']";
-	public static String dropValue = "//div[@role='listbox']//mat-option[2]";
-	public static String dropValue1 ="//div[@role='listbox']//mat-option[1]";
-	public static String sequentialMaterialOption =  "//button[normalize-space()='SequentialMaterial']";
+	@FindBy(xpath = "//p[normalize-space()='Loading Group']//..//..//mat-icon")
+	protected WebElement loading;
+	@FindBy(xpath = "//button[contains(text(),'Copy')] | //button[normalize-space()='Copy']")
+	protected WebElement copy;
 
-	public static String summaryFirstOption =  "//div[@role='menu']//div[1]/div[1]/button[1]";
+	@FindBy(xpath = "//button//span[contains(text(),'Copy')]")
+	protected WebElement copyButton;
 
-	public static String xPlantMaterialStatusField = "//p[normalize-space()='X-Plant Material Status']//..//..//div//input";
-	public static String dropValue3 = "//div[@role='listbox']//mat-option[3]//span";
-	public static String plusStorageData ="//p[text()='Storage Data ']//..//..//mat-icon[text()='plus']";
-	public static String firstOptionStorageData ="//label[@for='mat-checkbox-275-input']//span[@class='mat-checkbox-inner-container']";
-	public static String manufacturerPartNum ="//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer Part Number']//..//..//..//div//input";
-	public static String dropValueLoading = "//span[@class='mat-option-text']//..//..//mat-option//span[1]";
-	public static String plantdataPlusIcon = "//p[normalize-space()='Plant Data']//..//..//..//..//p[contains(text(),'Add')]";
-	public static String plantvalue = "//span[contains(text(),' 0004 -- PLANT 0004')]";
-	public static String applyBtn = "//span[contains(text(),' Apply ')]";
-	public static String mrpType = "//p[normalize-space()='MRP Type']//..//..//mat-icon";
-	public static String mrpTypeField = "//p[contains(text(),'MRP Type')]";
-	public static String valuationPlusIcon = "//p[normalize-space()='Valuation Data']//..//..//..//..//p[contains(text(),'Add')]";
-	public static String valuationFirstOption = "//lib-filter-option[1]//label[@class='mat-checkbox-layout'][1]";
-	public static String valCat = "//p[normalize-space()='Valuation Cat.']//..//..//div//input";
-	public static String newCheckbox = "//span[contains(text(),'NEW -- NEW')]";
-	public static String submitBtn = "//span[contains(text(),'Submit')]";
-	
-	public static String viewPLog = "//button[normalize-space()='View process log']";
-	public static String completedViewProcessLog = "//span[normalize-space()='Completed']//..//..//..//..//p[contains(text(),'View changes')] | //span[normalize-space()='Completed']//..//..//..//..//..//p[contains(text(),'View changes')]";
-	public static String viewEmailLogs = "//mat-expansion-panel[1]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div[2]/div[2]/lib-text-line[2]/p[1]";
-	public static String viewPotentialOwner = "(//lib-text-line//P[text()=' View '])[1]";
-	public static String firstPotentialOwner = "(//div[normalize-space()=''])[1]";
+	@FindBy(xpath = "//mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
+	protected WebElement recordno;
 
-	public static String viewDetailsHeader = "//h4[normalize-space()='View details']";
-	public static String firstRecordOfEmailLogs = "//div[@class='message-list f-col']//tr[1]//td";
-	public static String closeIconForProcessLog = "//h4[normalize-space()='View process log']//..//..//..//..//mat-icon";
-	public static String closeIconForSummary ="//mat-icon[@class='mat-icon notranslate mdo-icons-light mat-icon-no-color ng-star-inserted'][normalize-space()='times']";
-	public static String crossIconS = "//lib-button[@icon='times']";
-	public static String crossIconViewEmailLogs = "//h4[normalize-space()='View details']//..//..//..//..//mat-icon";
-	public static String instanceDiagramIcon = "(//mat-expansion-panel-header[1]//span[1]//mat-icon[text()='diagram-subtask'])[1]";
-	public static String processFlowHeader = "//h4[contains(text(),'Process flow')]";
-	public static String instanceDiagramImage = "//draggable[1]/div[1]/img[1]";
-	public static String closeIconProcessFlow = "//h4[contains(text(),'Process flow')]//..//..//..//..//mat-icon";
-	public static String closeIcoForViewChange = "//h4[normalize-space()='View changes']//..//..//..//..//mat-icon";
-	public static String firstActionIconForInbox = "//tbody/tr[1]/td[2]/lib-button-group[1]/ul[1]/li[1]/lib-button[1]/button[1]/span[1]/mat-icon[1]";
-	public static String approveBtn = "//button[contains(text(),'Approve')]";
-	public static String sequentialHeader = "//h4[contains(text(),'SequentialMaterial')]";
-	public static String planingCycleField = "//p[normalize-space()='Planning Cycle']//..//..//..//input";
-	public static String lastForecastField = "//p[normalize-space()='Last forecast']//..//..//..//input";
-	public static String dnuFixedPeriods = "//p[normalize-space()='DNU Fixed periods']//..//..//..//input";
+	@FindBy(xpath = "//div[1]/div[1]/pros-transaction-hierarchy-list[1]/div[1]/mat-tree[1]/mat-tree-node[2]/div[1]/div[1]")
+	protected WebElement plantD;
 
-	public static String addForecastHierarchy ="//p[contains(text(),'Forecast Parameters')]//..//..//lib-text-line//..//..//p[contains(text(),'Add')]";
-	public static String unitOfWeightField = "//p[normalize-space()='Unit of Weight']//..//..//div//input";
-	public static String volumeUnitField = "//p[normalize-space()='Volume unit']//..//..//div//input";
+	@FindBy(xpath = "//div[1]/mat-tree[1]/mat-tree-node[3]/div[1]/div[1]/lib-text-line[1]/p[1]")
+	protected WebElement plantDatatwo;
 
-	public static String approveButton = "//span[contains(text(),' Approve ')]";
-	public static String claim = "//button[contains(text(),'Claim')]";
-	public static String unclaim = "//button[normalize-space()='Unclaim']";
-	public static String processLogOption = "//button[normalize-space()='Process log']";
-	public static String lblText = "//div[@class='display-heading ng-star-inserted']";
-	public static String dChange = "//button[contains(text(),' Description Change ')]";
-	public static String viewProcessLogOption = "//button[contains(text(),' View process log ')] | //button[normalize-space()='Process log']";
-	public static String processLog = "//button[contains(text(),'Process log')]";
-	public static String processLogStatus = "(//p[@class='base no-wrap ng-star-inserted'])[1]";
-	public static String ccrsIcon = "//body/pros-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/ng-component[1]/pros-transaction-builder[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/lib-button[1]/button[1]";
-	public static String dSearchBox = "//pros-primary-navigation[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/pros-list-datatable[1]/div[1]/div[2]/div[1]/div[1]/lib-search[1]/div[1]/input[1]";
-	public static String apply = "//p[contains(text(),'Apply')]";
-	public static String thDot = "//tbody/tr[1]/td[2]/lib-button[1]/button[1]/span[1]/mat-icon[1]";
-	public static String fieldNameHeader = "//th[normalize-space()='Field Name']";
-	public static String beforeChangeHeader = "//th[normalize-space()='Before Change']";
-	public static String afterChangeHeader = "//th[normalize-space()='After Change']";
+	@FindBy(xpath = "//mat-tree-node[5]/div[1]/div[1]/lib-text-line[1]/p[1]")
+	protected WebElement valuationD;
+	@FindBy(xpath = "//span[contains(text(),'Copy')]")
+	protected WebElement copyBtn;
+	@FindBy(xpath = "//div[1]/div[1]/div[2]/div[1]/lib-text-line[1]/h4[1]")
+	protected WebElement newRecordTitle;
+	@FindBy(xpath = "//div[1]/mat-tree[1]/mat-tree-node[3]/div[1]/div[1]/lib-text-line[1]/p[1]")
+	protected WebElement newPlantD;
+	@FindBy(xpath = "//p[normalize-space()='Source - List']//..//..//input[@placeholder='Select any one...']")
+	protected WebElement sourceListDescription;
+	@FindBy(xpath = "//div[@role='listbox']//mat-option[2]")
+	protected WebElement dropValue;
+	@FindBy(xpath = "//div[@role='listbox']//mat-option[1]")
+	protected WebElement dropValue1;
+	@FindBy(xpath = "//button[normalize-space()='SequentialMaterial'] | //button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow']")
+	protected WebElement sequentialMaterialOption;
+	@FindBy(xpath = "//p[normalize-space()='X-Plant Material Status']//..//..//div//mat-icon")
+	protected WebElement xPlantMaterialStatusField;
+	@FindBy(xpath = "//div[@role='listbox']//mat-option[3]//span")
+	protected WebElement dropValue3;
+	@FindBy(xpath = "//p[text()='Storage Data ']//..//..//mat-icon[text()='plus']")
+	protected WebElement plusStorageData;
+	@FindBy(xpath = "//label[@for='mat-checkbox-275-input']//span[@class='mat-checkbox-inner-container']")
+	protected WebElement firstOptionStorageData;
+	@FindBy(xpath = "//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer Part Number']//..//..//..//div//input")
+	protected WebElement manufacturerPartNum;
+	@FindBy(xpath = "//span[@class='mat-option-text']//..//..//mat-option//span[1]")
+	protected WebElement dropValueLoading;
+	@FindBy(xpath = "//p[normalize-space()='Plant Data']//..//..//..//..//p[contains(text(),'Add')]")
+	protected WebElement plantdataPlusIcon;
+	@FindBy(xpath = "//span[contains(text(),' 0004 -- PLANT 0004')]")
+	protected WebElement plantvalue;
+	@FindBy(xpath = "//span[contains(text(),' Apply ')]")
+	protected WebElement applyBtn;
+	@FindBy(xpath = "//p[normalize-space()='MRP Type']//..//..//mat-icon")
+	protected WebElement mrpType;
+	@FindBy(xpath = "//p[contains(text(),'MRP Type')]")
+	protected WebElement mrpTypeField;
+	@FindBy(xpath = "//p[normalize-space()='Valuation Data']//..//..//..//..//p[contains(text(),'Add')]")
+	protected WebElement valuationPlusIcon;
+	@FindBy(xpath = "//lib-filter-option[1]//label[@class='mat-checkbox-layout'][1]")
+	protected WebElement valuationFirstOption;
 
-	public static String processLogTitle = "//mat-expansion-panel-header/span[1]/mat-panel-title[1]/div[1]";
+	@FindBy(xpath = "//p[normalize-space()='Valuation Cat.']//..//..//div//input")
+	protected WebElement valCat;
+	@FindBy(xpath = "//span[contains(text(),'NEW -- NEW')]")
+	protected WebElement newCheckbox;
+	@FindBy(xpath = "//span[contains(text(),'Submit')]")
+	protected WebElement submitBtn;
+	@FindBy(xpath = "//button[normalize-space()='View process log']")
+	protected WebElement viewPLog;
+	@FindBy(xpath = "//span[normalize-space()='Completed']//..//..//..//..//p[contains(text(),'View changes')] | //span[normalize-space()='Completed']//..//..//..//..//..//p[contains(text(),'View changes')]")
+	protected WebElement completedViewProcessLog;
 
-	public static String dateProcessLog ="//div[1]/div[2]/div[1]/lib-text-line[1]/p[1]";
+	@FindBy(xpath = "//mat-expansion-panel[1]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div[2]/div[2]/lib-text-line[2]/p[1]")
+	protected WebElement viewEmailLogs;
+	@FindBy(xpath = "(//lib-text-line//P[text()=' View '])[1]")
+	protected WebElement viewPotentialOwner;
+	@FindBy(xpath = "//h4[normalize-space()='View details']")
+	protected WebElement viewDetailsHeader;
+	@FindBy(xpath = "//div[@class='message-list f-col']//tr[1]//td")
+	protected WebElement firstRecordOfEmailLogs;
+	@FindBy(xpath = "//h4[normalize-space()='View process log']//..//..//..//..//mat-icon")
+	protected WebElement closeIconForProcessLog;
+	@FindBy(xpath = "//lib-button[@icon='times']")
+	protected WebElement crossIconS;
+	@FindBy(xpath = "//h4[normalize-space()='View details']//..//..//..//..//mat-icon")
+	protected WebElement crossIconViewEmailLogs;
+	@FindBy(xpath = "(//mat-expansion-panel-header[1]//span[1]//mat-icon[text()='diagram-subtask'])[1]")
+	protected WebElement instanceDiagramIcon;
+	@FindBy(xpath = "//h4[contains(text(),'Process flow')]")
+	protected WebElement processFlowHeader;
+	@FindBy(xpath = "//draggable[1]/div[1]/img[1]")
+	protected WebElement instanceDiagramImage;
+	@FindBy(xpath = "//h4[contains(text(),'Process flow')]//..//..//..//..//mat-icon")
+	protected WebElement closeIconProcessFlow;
+	@FindBy(xpath = "//h4[normalize-space()='View changes']//..//..//..//..//mat-icon")
+	protected WebElement closeIcoForViewChange;
+	@FindBy(xpath = "//tbody/tr[1]/td[2]/lib-button-group[1]/ul[1]/li[1]/lib-button[1]/button[1]/span[1]/mat-icon[1]")
+	protected WebElement firstActionIconForInbox;
+	@FindBy(xpath = "//button[contains(text(),'Approve')]")
+	protected WebElement approveBtn;
+	@FindBy(xpath = "//h4[contains(text(),'SequentialMaterial')]")
+	protected WebElement sequentialHeader;
+	@FindBy(xpath = "//p[normalize-space()='Planning Cycle']//..//..//..//input")
+	protected WebElement planingCycleField;
+	@FindBy(xpath = "//p[normalize-space()='Last forecast']//..//..//..//input")
+	protected WebElement lastForecastField;
+	@FindBy(xpath = "//p[normalize-space()='DNU Fixed periods']//..//..//..//input")
+	protected WebElement dnuFixedPeriods;
+	@FindBy(xpath = "//p[contains(text(),'Forecast Parameters')]//..//..//lib-text-line//..//..//p[contains(text(),'Add')]")
+	protected WebElement addForecastHierarchy;
+	@FindBy(xpath = "//p[normalize-space()='Unit of Weight']//..//..//div//button")
+	protected WebElement unitOfWeightField;
+	@FindBy(xpath = "//p[normalize-space()='Volume unit']//..//..//div//input")
+	protected WebElement volumeUnitField;
+	@FindBy(xpath = "//span[contains(text(),' Approve ')]")
+	protected WebElement approveButton;
+	@FindBy(xpath = "//button[contains(text(),'Claim')]")
+	protected WebElement claim;
+	@FindBy(xpath = "//button[normalize-space()='Unclaim']")
+	protected WebElement unclaim;
+	@FindBy(xpath = "//button[normalize-space()='Process log']")
+	protected WebElement processLogOption;
+	@FindBy(xpath = "//div[@class='display-heading ng-star-inserted']")
+	protected WebElement lblText;
+	@FindBy(xpath = "//button[contains(text(),' Description Change ')]")
+	protected WebElement dChange;
+	@FindBy(xpath = "//button[contains(text(),' View process log ')] | //button[normalize-space()='Process log']")
+	protected WebElement viewProcessLogOption;
+	@FindBy(xpath = "//button[contains(text(),'Process log')]")
+	protected WebElement processLog;
+	@FindBy(xpath = "(//p[@class='base no-wrap ng-star-inserted'])[1]")
+	protected WebElement processLogStatus;
+	@FindBy(xpath = "//body/pros-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/ng-component[1]/pros-transaction-builder[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[1]/div[1]/lib-button[1]/button[1]")
+	protected WebElement ccrsIcon;
+	@FindBy(xpath = "//pros-primary-navigation[1]/mat-sidenav-content[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/pros-list-datatable[1]/div[1]/div[2]/div[1]/div[1]/lib-search[1]/div[1]/input[1]")
+	protected WebElement dSearchBox;
+	@FindBy(xpath = "//p[contains(text(),'Apply')]")
+	protected WebElement apply;
+	@FindBy(xpath = "//tbody/tr[1]/td[2]/lib-button[1]/button[1]/span[1]/mat-icon[1]")
+	protected WebElement thDot;
+	@FindBy(xpath = "//th[normalize-space()='Field Name']")
+	protected WebElement fieldNameHeader;
+	@FindBy(xpath = "//th[normalize-space()='Before Change']")
+	protected WebElement beforeChangeHeader;
+	@FindBy(xpath = "//th[normalize-space()='After Change']")
+	protected WebElement afterChangeHeader;
+	@FindBy(xpath = "//mat-expansion-panel-header/span[1]/mat-panel-title[1]/div[1]")
+	protected WebElement processLogTitle;
+	@FindBy(xpath = "//lib-button[contains(@libtooltip, 'comments')]")
+	protected WebElement commentIconProcessLog;
+	@FindBy(xpath = "//pros-chat-editor[@class='chat-editor-outer']")
+	protected WebElement chatBoxComment;
+	@FindBy(xpath = "//lib-button[@icon='external-link-alt']")
+	protected WebElement externalIcon;
+	@FindBy(xpath = "//span[normalize-space()='Completed']")
+	protected WebElement statusCom;
+	@FindBy(xpath = "//p[normalize-space()='Header data']")
+	protected WebElement headerData;
+	@FindBy(xpath = "//h2[contains(text(),'Design')]")
+	protected WebElement design;
+	@FindBy(xpath = "//h4[contains(text(),' Process log ')]")
+	protected WebElement pTitle;
+	@FindBy(xpath = "//p[contains(text(),'%s')]")
+	protected WebElement currentDate;
 
-	public static String timeProcessLog ="//div[1]/div[2]/div[1]/lib-text-line[2]/p[1]";
-	public static String commentIconProcessLog = "//lib-button[contains(@libtooltip, 'comments')]";
-	public static String chatBoxComment = "//pros-chat-editor[@class='chat-editor-outer']";
-	public static String externalIcon = "//lib-button[@icon='external-link-alt']";
-	public static String statusCom = "//span[normalize-space()='Completed']";
-	
-	public static String headerData = "//p[normalize-space()='Header data']";
-	public static String design = "//h2[contains(text(),'Design')]";
-	public static String pTitle = "//h4[contains(text(),' Process log ')]";
-	public static String currentDate = "//p[contains(text(),'%s')]";
-	public static String statusSuccessTxt = "//span[contains(text(),'SUCCESS')]";
-	public static String crossP = "//lib-button[@icon='times']//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']";
-	// Flow tab locators
-	public static String flowTab = "//div[contains(text(),' Flows ')]";
-	public static String manageFlowBtn = "//span[contains(text(),'Manage flows')]";
-	public static String spac = "//div[@class='container-fluid container-cards-pf']";
-	public static String spacRecord = "//div[@class='container-fluid container-cards-pf']";
-	public static String searchB = "//pros-list-datatable[1]/div[1]/div[2]/div[1]/div[1]/lib-search[1]/div[1]//input";
+	@FindBy(xpath = "//span[contains(text(),'SUCCESS')]")
+	protected WebElement statusSuccessTxt;
 
-	public static String applySearch = "//p[normalize-space()='Apply']";
+	@FindBy(xpath = "//lib-button[@icon='times']//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']")
+	protected WebElement crossP;
+	@FindBy(xpath = "//div[contains(text(),' Flows ')]")
+	protected WebElement flowTab;
+	@FindBy(xpath = "//span[contains(text(),'Manage flows')]")
+	protected WebElement manageFlowBtn;
+	@FindBy(xpath = "//div[@class='container-fluid container-cards-pf']")
+	protected WebElement spac;
+	@FindBy(xpath = "//div[@class='container-fluid container-cards-pf']")
+	protected WebElement spacRecord;
+	@FindBy(xpath = "//pros-list-datatable[1]/div[1]/div[2]/div[1]/div[1]/lib-search[1]/div[1]//input")
+	protected WebElement searchB;
+	@FindBy(xpath = "//p[normalize-space()='Apply']")
+	protected WebElement applySearch;
+	@FindBy(xpath = "//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']")
+	protected WebElement clearSearch;
+	@FindBy(xpath = "//input[@data-placeholder='Search']")
+	protected WebElement searchPlaceHolder;
 
-	public static String clearSearch = "//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']";
+	@FindBy(xpath = "//input[@id='user_submit']")
+	protected WebElement log;
+	@FindBy(xpath = "//mat-sidenav-container[1]/mat-sidenav-content[1]/pros-login[1]/div[1]/div[1]/form[1]/div[1]/lib-input[1]/div[1]/div[1]/input[1]")
+	protected WebElement usernameProd;
+	@FindBy(xpath = "//p[contains(text(),'Production')]")
+	protected WebElement prodEnv;
+	@FindBy(xpath = "//th[@id='DATECREATED']//pros-inline-table-column-filter")
+	protected WebElement createdOnFilter;
+	@FindBy(xpath = "//div[normalize-space()='3']")
+	protected WebElement date3;
+	@FindBy(xpath = "//div[contains(text(),'End')]")
+	protected WebElement endDateTab;
 
-	public static String searchPlaceHolder ="//input[@data-placeholder='Search']";
+	@FindBy(xpath = "//div[normalize-space()='10']")
+	protected WebElement date10;
+	@FindBy(xpath = "//th[@id='DATEMODIFIED']//pros-inline-table-column-filter")
+	protected WebElement modifiedOnFilter;
+	@FindBy(xpath = "//tbody/tr[1]/td[3]//p")
+	protected WebElement firstValueMaterialMaster;
+	@FindBy(xpath = "//mat-icon[normalize-space()='filter']")
+	protected WebElement filterIcon;
+	@FindBy(xpath = "//span[normalize-space()='Is not']")
+	protected WebElement isNotFilter;
+	@FindBy(xpath = "//p[normalize-space()='Industry Sector'] | //p[normalize-space()='Industry sector']")
+	protected WebElement filterIndustrySector;
+	@FindBy(xpath = "//p[normalize-space()='SAP Material Number']")
+	protected WebElement sapMaterialNumberFilter;
+	@FindBy(xpath = "//lib-chip-list[@class='chips-list']//textarea")
+	protected WebElement sapMaterialNumberInputField;
+	@FindBy(xpath = "//p[normalize-space()='View integration logs']")
+	protected WebElement viewIntegrationLogs;
+	@FindBy(xpath = "//h4[normalize-space()='Integration log']")
+	protected WebElement integrationLogsHeader;
+	@FindBy(xpath = "//h4[normalize-space()='Integration log']//..//..//..//..//mat-icon")
+	protected WebElement closeIntegrationLogsView;
+	@FindBy(xpath = "//mat-list-item[3]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]")
+	protected WebElement valueFMCG_IndustrySectorFilter;
+	@FindBy(xpath = "//mat-tree-node[4]//div[1]//div[1]//lib-text-line[1]//p[1]//label")
+	protected WebElement valuationDataHierarchy;
+	@FindBy(xpath = "//mat-tree-node[3]//div[1]//div[1]//lib-text-line[1]//p[1]//label//span//input[@aria-checked='true']")
+	protected WebElement plantDataSelected;
+	@FindBy(xpath = "//span[normalize-space()='Apply']")
+	protected WebElement applyFilterButton;
+	@FindBy(xpath = "//p[normalize-space()='Material Type']")
+	protected WebElement filterMaterialType;
+	@FindBy(xpath = "//mat-list-item[2]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]")
+	protected WebElement valueSparePart_MaterialTypeFilter;
+	@FindBy(xpath = "//p[normalize-space()='Material Description']")
+	protected WebElement filterMaterialDesc;
+	@FindBy(xpath = "//h4[normalize-space()='Material Description']//..//..//..//input")
+	protected WebElement input_MaterialDescFilter;
+	@FindBy(xpath = "//p[normalize-space()='Base Unit of measure'] | //p[normalize-space()='Base Unit of Measure']")
+	protected WebElement filterBaseUnitOfMeasure;
 
-	public static String log = "//input[@id='user_submit']";
-	 public static String usernameProd = "//mat-sidenav-container[1]/mat-sidenav-content[1]/pros-login[1]/div[1]/div[1]/form[1]/div[1]/lib-input[1]/div[1]/div[1]/input[1]";
-	 public static String prodEnv = "//p[contains(text(),'Production')]";
-
-	// List Page Search
-
-	public static String createdOnFilter = "//th[@id='DATECREATED']//pros-inline-table-column-filter";
-	public static String date3 = "//div[normalize-space()='3']";
-	public static String endDateTab = "//div[contains(text(),'End')]";
-	public static String date10 = "//div[normalize-space()='10']";
-	public static String modifiedOnFilter = "//th[@id='DATEMODIFIED']//pros-inline-table-column-filter";
-	public static String firstValueMaterialMaster = "//tbody/tr[1]/td[3]//p";
-
-	public static String filterIcon = "//mat-icon[normalize-space()='filter']";
-
-	public static String isNotFilter = "//span[normalize-space()='Is not']";
-
-	public static String filterIndustrySector = "//p[normalize-space()='Industry Sector'] | //p[normalize-space()='Industry sector']";
-
-	public static String sapMaterialNumberFilter = "//p[normalize-space()='SAP Material Number']";
-
-	public static String sapMaterialNumberInputField = "//lib-chip-list[@class='chips-list']//textarea";
-
-	public static String viewIntegrationLogs = "//p[normalize-space()='View integration logs']";
-
-	public static String integrationLogsHeader = "//h4[normalize-space()='Integration log']";
-
-	public static String closeIntegrationLogsView = "//h4[normalize-space()='Integration log']//..//..//..//..//mat-icon";
-	public static String valueFMCG_IndustrySectorFilter = "//mat-list-item[3]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]";
-
-	public static String valuationDataHierarchy = "//mat-tree-node[4]//div[1]//div[1]//lib-text-line[1]//p[1]//label";
-	public static String plantDataSelected = "//mat-tree-node[3]//div[1]//div[1]//lib-text-line[1]//p[1]//label//span//input[@aria-checked='true']";
-	public static String applyFilterButton = "//span[normalize-space()='Apply']";
-
-	public static String filterMaterialType = "//p[normalize-space()='Material Type']";
-
-	public static String valueSparePart_MaterialTypeFilter = "//mat-list-item[2]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]";
-
-	public static String filterMaterialDesc = "//p[normalize-space()='Material Description']";
-
-	public static String input_MaterialDescFilter = "//h4[normalize-space()='Material Description']//..//..//..//input";
-
-	public static String filterBaseUnitOfMeasure = "//p[normalize-space()='Base Unit of measure'] | //p[normalize-space()='Base Unit of Measure']";
-
-	public static String valuePercentage_BaseUnitFilter = "//mat-list-item[2]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]";
-
-	public static String clearAppliedFiler = "//span[@class='filter-text ng-star-inserted']//..//mat-icon[normalize-space()='times']";
-
-	public static String clearSearchField 	="//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']";
-	public static String filterStatusDropdown =  "//th[@id='STATUS']//input[@placeholder='Filter']";
-
-	public static String firstValueOfStatus =  "//tbody/tr[1]/td[8]";
-
-	public static String clearIconForStatusFilter = "//th[@id='STATUS']//mat-icon[@role='img'][normalize-space()='times']";
-
-	public static String filterModifiedByDropdown =  "//tr[2]//th[7][@id='USERMODIFIED']";
-
-	public static String firstValueOfModifiedBy =  "//tbody/tr[1]/td[7]";
-
-	public static String clearIconForModifiedByFilter = "//mat-icon[@class='mat-icon notranslate mdo-icons-light mat-icon-no-color'][normalize-space()='times']";
-
-	public static String threeDotsAdvanceFilter = "//lib-button[@type='plain']//mat-icon[@role='img'][normalize-space()='ellipsis-h']";
-
-	public static String resetButton = "//button[normalize-space()='Reset']";
-
-	public static String confirmButton = "//span[normalize-space()='Confirm']";
-
-	public static String appliedIndusSectorFilter = "//span[normalize-space()='Industry Sector'] | //span[normalize-space()='Industry sector']";
-
-	public static String threeDotsIconAppliedFilter = "//mat-icon[@class='mat-icon notranslate mdo-icons mat-icon-no-color'][normalize-space()='ellipsis-h']";
-
-	public static String saveAsOption = "//button[normalize-space()='Save as...']";
-
-	public static String filterNameInput = "//p[contains (text(), 'Filter name')]//..//..//..//input";
-
-	public static String saveButtonFilterPopup = "//span[normalize-space()='Save']";
-
-	public static String storedFiltersIcon = "//mat-icon[normalize-space()='layer-group']";
-
-	public static String cancelButtonFilterPopup = "//span[normalize-space()='Cancel']";
-
-	public static String firstValueCreatedOnDateInTable = "//tbody/tr[1]/td[4]";
-	public static String createdOnSortFilter = "//p[normalize-space()='Created on']";
-	public static String deleteSavedFilters = "//button[normalize-space()='Delete']";
-	public static String paginationValue = "//div[@class='f-row list-pagination ng-star-inserted']//p";
-	public static String manufacturerPartNumFilterTab = "//p[normalize-space()='Manufacturer Part Number']";
-	public static String inputManufacturerPartNumFilter = "//h4[normalize-space()='Manufacturer Part Number']//..//..//..//input";
-
-	// List View
-	public static String dropDownViewICon = "//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']//mat-icon[@role='img'][normalize-space()='caret-down']";
-
-	public static String newViewOption = "//button[normalize-space()='New view']";
-
-	public static String inputViewName = "//p[@class='xsmall strong ng-star-inserted']//..//..//..//input";
-
-	public static String saveButtonView = "//span[normalize-space()='Save']";
-
-	public static String defaultViewOption = "//button[normalize-space()='Default view']";
-
-	public static String settingIcon = "//mat-icon[normalize-space()='cog']";
-
-	public static String threeDotsIconForView = "//div[@class='f-row breadcrum-toolbar']//mat-icon[normalize-space()='ellipsis-h']";
-
-	public static String deleteViewOption = "//button[normalize-space()='Delete view']";
-
-	public static String confirmDeleteView = "//span[normalize-space()='Confirm']";
-
-	public static String nextPage = "//div[@class='f-row mdo-pagination']//lib-button[@icon='chevron-right']";
-
-	public static String summaryOption = "//button[normalize-space()='Summary']";
-
-	public static String flowMaterialMasterRecordoption = "//lib-section[@text='Flows']//..//button[2]";
-
-	public static String closeIcon = "//div[@class='root']//div[@class='f-row breadcrum-toolbar']//mat-icon[normalize-space()='times']";
-
-	public static String formClassnClassTypeOption = "//lib-section[@text='Flows']//..//button[3]";
-	public static String classType1 = "//p[normalize-space()='Class Type1']";
-
-	public static String downloadTemplatesOption = "//button[normalize-space()='Download templates']";
-	public static String descriptionOption = "//div[@class='scroll-height']//button[2]";
+	@FindBy(xpath = "//mat-list-item[2]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[1]")
+	protected WebElement valuePercentage_BaseUnitFilter;
+	@FindBy(xpath = "//span[@class='filter-text ng-star-inserted']//..//mat-icon[normalize-space()='times']")
+	protected WebElement clearAppliedFiler;
+	@FindBy(xpath = "//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']")
+	protected WebElement clearSearchField;
+	@FindBy(xpath = "//th[@id='STATUS']//input[@placeholder='Filter']")
+	protected WebElement filterStatusDropdown;
+	@FindBy(xpath = "//tbody/tr[1]/td[8]")
+	protected WebElement firstValueOfStatus;
+	@FindBy(xpath = "//th[@id='STATUS']//mat-icon[@role='img'][normalize-space()='times']")
+	protected WebElement clearIconForStatusFilter;
+	@FindBy(xpath = "//tr[2]//th[7][@id='USERMODIFIED']")
+	protected WebElement filterModifiedByDropdown;
+	@FindBy(xpath = "//tbody/tr[1]/td[7]")
+	protected WebElement firstValueOfModifiedBy;
+	@FindBy(xpath = "//mat-icon[@class='mat-icon notranslate mdo-icons-light mat-icon-no-color'][normalize-space()='times']")
+	protected WebElement clearIconForModifiedByFilter;
+	@FindBy(xpath = "//span[@class='filter-value'][normalize-space()='ellipsis-h']")
+	protected WebElement threeDotsAdvanceFilter;
+	@FindBy(xpath = "//button[normalize-space()='Reset']")
+	protected WebElement resetButton;
+	@FindBy(xpath = "//span[normalize-space()='Confirm']")
+	protected WebElement confirmButton;
+	@FindBy(xpath = "//span[normalize-space()='Industry Sector'] | //span[normalize-space()='Industry sector']")
+	protected WebElement appliedIndusSectorFilter;
+	@FindBy(xpath = "//mat-icon[@class='mat-icon notranslate mdo-icons mat-icon-no-color'][normalize-space()='ellipsis-h']")
+	protected WebElement threeDotsIconAppliedFilter;
+	@FindBy(xpath = "//button[normalize-space()='Save as...']")
+	protected WebElement saveAsOption;
+	@FindBy(xpath = "//p[contains (text(), 'Filter name')]//..//..//..//input")
+	protected WebElement filterNameInput;
+	@FindBy(xpath = "//span[normalize-space()='Save']")
+	protected WebElement saveButtonFilterPopup;
+	@FindBy(xpath = "//mat-icon[normalize-space()='layer-group']")
+	protected WebElement storedFiltersIcon;
+	@FindBy(xpath = "//span[normalize-space()='Cancel']")
+	protected WebElement cancelButtonFilterPopup;
+	@FindBy(xpath = "//tbody/tr[1]/td[4]")
+	protected WebElement firstValueCreatedOnDateInTable;
+	@FindBy(xpath = "//button[normalize-space()='Delete']")
+	protected WebElement deleteSavedFilters;
+	@FindBy(xpath = "//div[@class='f-row list-pagination ng-star-inserted']//p")
+	protected WebElement paginationValue;
+	@FindBy(xpath = "//p[normalize-space()='Manufacturer Part Number']")
+	protected WebElement manufacturerPartNumFilterTab;
+	@FindBy(xpath = "//h4[normalize-space()='Manufacturer Part Number']//..//..//..//input")
+	protected WebElement inputManufacturerPartNumFilter;
+	@FindBy(xpath = "//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']//mat-icon[@role='img'][normalize-space()='caret-down']")
+	protected WebElement dropDownViewICon;
+	@FindBy(xpath = "//button[normalize-space()='New view']")
+	protected WebElement newViewOption;
+	@FindBy(xpath = "//p[@class='xsmall strong ng-star-inserted']//..//..//..//input")
+	protected WebElement inputViewName;
+	@FindBy(xpath = "//span[normalize-space()='Save']")
+	protected WebElement saveButtonView;
+	@FindBy(xpath = "//button[normalize-space()='Default view']")
+	protected WebElement defaultViewOption;
+	@FindBy(xpath = "//mat-icon[normalize-space()='cog']")
+	protected WebElement settingIcon;
+	@FindBy(xpath = "//div[@class='f-row breadcrum-toolbar']//mat-icon[normalize-space()='ellipsis-h']")
+	protected WebElement threeDotsIconForView;
+	@FindBy(xpath = "//button[normalize-space()='Delete view']")
+	protected WebElement deleteViewOption;
+	@FindBy(xpath = "//span[normalize-space()='Confirm']")
+	protected WebElement confirmDeleteView;
+	@FindBy(xpath = "//div[@class='f-row mdo-pagination']//lib-button[@icon='chevron-right']")
+	protected WebElement nextPage;
+	@FindBy(xpath = "//button[normalize-space()='Summary']")
+	protected WebElement summaryOption;
+	@FindBy(xpath = "//lib-section[@text='Flows']//..//button[2]")
+	protected WebElement flowMaterialMasterRecordoption;
+	@FindBy(xpath = "//div[@class='root']//div[@class='f-row breadcrum-toolbar']//mat-icon[normalize-space()='times']")
+	protected WebElement closeIcon;
+	@FindBy(xpath = "//lib-section[@text='Flows']//..//button[3]")
+	protected WebElement formClassnClassTypeOption;
+	@FindBy(xpath = "//button[normalize-space()='Download templates']")
+	protected WebElement downloadTemplatesOption;
+	@FindBy(xpath = "//div[@class='scroll-height']//button[2]")
+	protected WebElement descriptionOption;
 
 	// Home page
+	@FindBy(xpath = "//div[@class='mat-list-item-content']//..//div[contains(text(),'Home')]")
+	protected WebElement homeTab;
+	@FindBy(xpath = "//lib-text-line[contains(text(),'Inbox')]")
+	protected WebElement inboxMenu;
+	@FindBy(xpath = "//lib-text-line[normalize-space()='In progress']")
+	protected WebElement inProgressMenu;
+	@FindBy(xpath = "//lib-text-line[normalize-space()='Completed']")
+	protected WebElement completedMenu;
+	@FindBy(xpath = "//lib-text-line[contains(text(),'My requests')]")
+	protected WebElement myReqTab;
+	@FindBy(xpath = "//lib-text-line[normalize-space()='System Errors']")
+	protected WebElement systemErrorsTab;
+	@FindBy(xpath = "//lib-search[@placeholder='Search']//div[@class='mdo-search-pill f-row']//input")
+	protected WebElement searchSystemErrorsTab;
+	@FindBy(xpath = "//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']")
+	protected WebElement clearSearchSystemErrorsTab;
+	@FindBy(xpath = "(//mat-icon[text()='arrow-rotate-right'])[1]")
+	protected WebElement retriggerIcon;
+	@FindBy(xpath = "//div[@class='mdo-notice f-row mdo-notice-success']")
+	protected WebElement successRetrigger;
+	@FindBy(xpath = "//span[normalize-space()='Flow']")
+	protected WebElement flowFilter;
+	@FindBy(xpath = "//span[normalize-space()='Task type']")
+	protected WebElement taskFilter;
+	@FindBy(xpath = "//div[@class='options']//lib-filter-option[1]//div[1]//label")
+	protected WebElement firstOptionFilter;
+	@FindBy(xpath = "//tbody/tr[1]")
+	protected WebElement firstRecordFromList;
 
-	public static String homeTab = "//div[@class='mat-list-item-content']//..//div[contains(text(),'Home')]";
-	public static String inboxMenu = "//lib-text-line[contains(text(),'Inbox')]";
-	public static String inProgressMenu = "//lib-text-line[normalize-space()='In progress']";
-	public static String completedMenu = "//lib-text-line[normalize-space()='Completed']";
-	public static String myReqTab = "//lib-text-line[contains(text(),'My requests')]";
-	public static String systemErrorsTab = "//lib-text-line[normalize-space()='System Errors']";
-	public static String searchSystemErrorsTab = "//lib-search[@placeholder='Search']//div[@class='mdo-search-pill f-row']//input";
-	public static String clearSearchSystemErrorsTab = "//div[@class='mdo-search-pill f-row']//mat-icon[@role='img'][normalize-space()='times']";
-	public static String retriggerIcon = "(//mat-icon[text()='arrow-rotate-right'])[1]";
-	public static String successRetrigger = "//div[@class='mdo-notice f-row mdo-notice-success']";
+	@FindBy(xpath = "//lib-section[@text='Flows']//..//button[1]")
+	protected WebElement flowList;
+	@FindBy(xpath = "//button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow']")
+	protected WebElement materialCreationRecord;
+	@FindBy(xpath = "//p[normalize-space()='Material Type']//..//..//div//input")
+	protected WebElement materialTypeField;
 
-	public static String flowFilter ="//span[normalize-space()='Flow']";
-	public static String taskFilter = "//span[normalize-space()='Task type']";
-	public static String firstOptionFilter ="//div[@class='options']//lib-filter-option[1]//div[1]//label";
+	@FindBy(xpath = "//p[@class='small strong no-wrap ng-star-inserted'][normalize-space()='Material Type']//..//..//div//input")
+	protected WebElement materialType;
 
-	// Material creation
+	@FindBy(xpath = "//span[normalize-space()='ERSA -- Spare Part']")
+	protected WebElement sparePartMaterialOption;
+	@FindBy(xpath = "//div[@class='cdk-overlay-pane']")
+	protected WebElement successMessageToast;
+	@FindBy(xpath = "//p[normalize-space()='Material Group']//..//..//div//input")
+	protected WebElement materialGroupField;
+	@FindBy(xpath = "//p[normalize-space()='Industry sector']//..//..//div//input | //p[normalize-space()='Industry Sector']//..//..//div//input")
+	protected WebElement industrySectorField;
+	@FindBy(xpath = "//p[normalize-space()='Plant Data']//..//..//..//p[normalize-space()='Add...']")
+	protected WebElement plantDataAddHierarchy;
+	@FindBy(xpath = "//span[contains (text(),'0002')]")
+	protected WebElement plantDataOption0002;
+	@FindBy(xpath = "//div[@class='dropdown-search-wrapper']//mat-icon[@role='img'][normalize-space()='search']//..//input")
+	protected WebElement searchBoxHierarchy;
+	@FindBy(xpath = "//span[@class='mat-checkbox-inner-container']")
+	protected WebElement selectSearchedOption;
+	@FindBy(xpath = "//p[normalize-space()='Valuation Data']//..//..//..//p[normalize-space()='Add...']")
+	protected WebElement valuationDataAddHierarchy;
+	@FindBy(xpath = "//div[@class='mat-chip-list-wrapper']//input")
+	protected WebElement searchClassDropdown;
+	@FindBy(xpath = "//div[@class='dropdown-search-wrapper ng-star-inserted']//div[@class='mdo-search-pill f-row']//input[@placeholder='Search']")
+	protected WebElement searchBoxClassDropdown;
 
-	public static String materialCreationRecord = "//button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow']";
+	@FindBy(xpath = "//lib-filter-option[1]//div[1]")
+	protected WebElement selectFirstValueClassDropdown;
+	@FindBy(xpath = "//lib-chip[@class='lib-chip ng-star-inserted']//span")
+	protected WebElement firstOptionSearchClass;
+	@FindBy(xpath = "//td[normalize-space()='Type']")
+	protected WebElement typeAttributes;
+	@FindBy(xpath = "//td[normalize-space()='Grit']")
+	protected WebElement gritAttributes;
+	@FindBy(xpath = "//p[normalize-space()='Plant:0001 -- PLANT 0001']")
+	protected WebElement plantData0001;
+	@FindBy(xpath = "//p[normalize-space()='Valuation Type:N.A -- Not Applicable']")
+	protected WebElement valuationDataNA;
+	@FindBy(xpath = "//p[normalize-space()='Plant Data']//..//..//..//p[normalize-space()='Add...']")
+	protected WebElement addPlantData;
+	@FindBy(xpath = "//div[@class='dropdown-search-wrapper']//mat-icon[@role='img'][normalize-space()='search']//..//input")
+	protected WebElement searchPlantData;
+	@FindBy(xpath = "//p[normalize-space()='Storage Data']//..//..//..//p[normalize-space()='Add...']")
+	protected WebElement storageDataAdd;
+	@FindBy(xpath = "//p[normalize-space()='Valuation Data']//..//..//..//p[normalize-space()='Add...']")
+	protected WebElement valuationDataAdd;
+	@FindBy(xpath = "//lib-filter-option[1]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[2]")
+	protected WebElement firstOptionFromHierarchy;
+	@FindBy(xpath = "//span[@class='mat-checkbox-inner-container']")
+	protected WebElement searchedPantValue;
+	@FindBy(xpath = "//h4[normalize-space()='Language Grid']//..//..//mat-icon[text()='plus']")
+	protected WebElement addRowLanguageGrid;
+	@FindBy(xpath = "//p[normalize-space()='Language']//..//..//div//input")
+	protected WebElement languageInput;
+	@FindBy(xpath = "//span[normalize-space()='de -- German']")
+	protected WebElement germanLanguage;
+	@FindBy(xpath = "//mat-label[@class='mdo-field-label mdo-required ng-star-inserted']//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Material Description']//..//..//..//div//input")
+	protected WebElement materialDescFormView;
+	@FindBy(xpath = "//div[@class='mdo-constrained-right']//lib-button[@type='major']")
+	protected WebElement saveFormView;
+	@FindBy(xpath = "//td[@role='cell']//lib-button[@type='plain']//mat-icon[@role='img'][normalize-space()='ellipsis-h']")
+	protected WebElement actionIconLanguage;
+	@FindBy(xpath = "//button[normalize-space()='Delete Row']")
+	protected WebElement deleteRowOption;
 
-	public static String materialTypeField = "//p[normalize-space()='Material Type']//..//..//div//input";
+	@FindBy(xpath = "//span[@class='info-link']")
+	protected WebElement viewRecord;
+	@FindBy(xpath = "//p[normalize-space()='Material Description']//..//..//..//input")
+	protected WebElement materialDescReviewer;
+	@FindBy(xpath = "//h5[normalize-space()='Generate description']")
+	protected WebElement generateDescriptionLabel;
+	@FindBy(xpath = "//p[normalize-space()='Division']//..//..//div//input")
+	protected WebElement divisionField;
+	@FindBy(xpath = "//p[normalize-space()='Material Description']")
+	protected WebElement materialDescLabel;
+	@FindBy(xpath = "//p[normalize-space()='Manufacturer Part Number']//..//..//..//input")
+	protected WebElement manufacturerField;
+	@FindBy(xpath = "//p[normalize-space()='Gross weight']//..//..//..//input")
+	protected WebElement grossWeightField;
+	@FindBy(xpath = "//p[normalize-space()='Gross weight']")
+	protected WebElement grossWeightLabel;
+	@FindBy(xpath = "//p[normalize-space()='Volume']//..//..//..//input")
+	protected WebElement volumeField;
+	@FindBy(xpath = "//tr[1]/td[2]/lib-text-line[1]/p[1]")
+	protected WebElement duplicateRecordFirst;
+	@FindBy(xpath = "//span[normalize-space()='Approve']")
+	protected WebElement approveButtonReviewer;
+	@FindBy(xpath = "//p[normalize-space()='Class']//..//..//input")
+	protected WebElement classField;
+	@FindBy(xpath = "//span[normalize-space()='Bearing - Ball']")
+	protected WebElement bearingBallClassOption;
+	@FindBy(xpath = "//p[normalize-space()='Type']//..//..//div//input")
+	protected WebElement typeField;
+	@FindBy(xpath = "//p[normalize-space()='Width']//..//..//div//input")
+	protected WebElement widthField;
+	@FindBy(xpath = "//p[normalize-space()='Series']//..//..//div//input")
+	protected WebElement seriesField;
+	@FindBy(xpath = "//p[normalize-space()='INSIDE DIAMETER']//..//..//div//input")
+	protected WebElement insideDiameterField;
+	@FindBy(xpath = "//p[normalize-space()='OUTSIDE DIAMETER']//..//..//div//input")
+	protected WebElement outsideDiameterField;
+	@FindBy(xpath = "//p[normalize-space()='CAGE MTERIAL']//..//..//div//input")
+	protected WebElement cageMaterialField;
 
-	public static String materialGroupField ="//p[normalize-space()='Material Group']//..//..//div//input";
-
-	public static String industrySectorField = "//p[normalize-space()='Industry sector']//..//..//div//input | //p[normalize-space()='Industry Sector']//..//..//div//input";
-
-	public static String plantDataAddHierarchy = "//p[normalize-space()='Plant Data']//..//..//..//p[normalize-space()='Add...']";
-
-	public static String plantDataOption0002 = "//span[contains (text(),'0002')]";
-	public static String searchBoxHierarchy = "//div[@class='dropdown-search-wrapper']//mat-icon[@role='img'][normalize-space()='search']//..//input";
-
-	public static String selectSearchedOption = "//span[@class='mat-checkbox-inner-container']";
-
-	public static String valuationDataAddHierarchy = "//p[normalize-space()='Valuation Data']//..//..//..//p[normalize-space()='Add...']";
-
-	public static String valuationTypeField = "//p[normalize-space()='Valuation Type']//..//..//div//input";
-
-	public static String scenarioIdDisabled = "//div[@class='f-col mdo-field mdo-disabled']//input";
-
-	public static String searchClassDropdown = "//div[@class='mat-chip-list-wrapper']//input";
-
-	public static String searchBoxClassDropdown = "//div[@class='dropdown-search-wrapper ng-star-inserted']//div[@class='mdo-search-pill f-row']//input[@placeholder='Search']";
-
-	public static String selectFirstValueClassDropdown = "//lib-filter-option[1]//div[1]";
-
-	public static String firstOptionSearchClass = "//lib-chip[@class='lib-chip ng-star-inserted']//span";
-
-	public static String typeAttributes ="//td[normalize-space()='Type']";
-	public static String gritAttributes ="//td[normalize-space()='Grit']";
-	public static String plantData0001 ="//p[normalize-space()='Plant:0001 -- PLANT 0001']";
-	public static String valuationDataNA ="//p[normalize-space()='Valuation Type:N.A -- Not Applicable']";
-
-	public static String addPlantData =	"//p[normalize-space()='Plant Data']//..//..//..//p[normalize-space()='Add...']";
-
-	public static String searchPlantData  ="//div[@class='dropdown-search-wrapper']//mat-icon[@role='img'][normalize-space()='search']//..//input";
-
-	public static String storageDataAdd  ="//p[normalize-space()='Storage Data']//..//..//..//p[normalize-space()='Add...']";
-
-	public static String valuationDataAdd  ="//p[normalize-space()='Valuation Data']//..//..//..//p[normalize-space()='Add...']";
-
-	public static String firstOptionFromHierarchy  ="//lib-filter-option[1]/div[1]/lib-checkbox[1]/mat-checkbox[1]/label[1]/span[2]";
-
-	public static String searchedPantValue = "//span[@class='mat-checkbox-inner-container']";
-
-	public static String addRowLanguageGrid = "//h4[normalize-space()='Language Grid']//..//..//mat-icon[text()='plus']";
-	public static String languageInput = "//p[normalize-space()='Language']//..//..//div//input";
-	public static String germanLanguage = "//span[normalize-space()='de -- German']";
-	public static String materialDescFormView = "//mat-label[@class='mdo-field-label mdo-required ng-star-inserted']//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Material Description']//..//..//..//div//input";
-	public static String saveFormView = "//div[@class='mdo-constrained-right']//lib-button[@type='major']";
-	public static String actionIconLanguage = "//td[@role='cell']//lib-button[@type='plain']//mat-icon[@role='img'][normalize-space()='ellipsis-h']";
-	public static String deleteRowOption = "//button[normalize-space()='Delete Row']";
-	public static String errorMessage ="//div[@class='mdo-notice f-row mdo-notice-error']";
-	public static String viewRecord = "//span[@class='info-link']";
-
-	//Duplicacy rule
-	public static String materialDescReviewer = "//p[normalize-space()='Material Description']//..//..//..//input";
-	public static String generateDescriptionLabel ="//h4[normalize-space()='Generate description']";
-	public static String divisionField = "//p[normalize-space()='Division']//..//..//div//input";
-	public static String materialDescLabel = "//p[normalize-space()='Material Description']";
-	public static String manufacturerField = "//p[normalize-space()='Manufacturer Part Number']//..//..//..//input";
-	public static String oldMaterialNumField = "//p[normalize-space()='Old Material Number']//..//..//..//input";
-	public static String grossWeightField = "//p[normalize-space()='Gross weight']//..//..//..//input";
-	public static String grossWeightLabel = "//p[normalize-space()='Gross weight']";
-
-	public static String authorizationGroupField ="//p[normalize-space()='Authorization Group']//..//..//..//..//input";
-
-	public static String volumeField = "//p[normalize-space()='Volume']//..//..//..//input";
-
-	public static String duplicateRecordFirst = "//tr[1]/td[2]/lib-text-line[1]/p[1]";
-	public static String approveButtonReviewer = "//span[normalize-space()='Approve']";
-
-	public static String classField = "//p[normalize-space()='Class']//..//..//input";
-	public static String bearingBallClassOption  ="//span[normalize-space()='Bearing - Ball']";
-
-	public static String typeField  ="//p[normalize-space()='Type']//..//..//div//input";
-
-	public static String widthField  ="//p[normalize-space()='Width']//..//..//div//input";
-
-	public static String seriesField  ="//p[normalize-space()='Series']//..//..//div//input";
-
-	public static String insideDiameterField  ="//p[normalize-space()='INSIDE DIAMETER']//..//..//div//input";
-
-	public static String outsideDiameterField  ="//p[normalize-space()='OUTSIDE DIAMETER']//..//..//div//input";
-
-	public static String cageMaterialField  ="//p[normalize-space()='CAGE MTERIAL']//..//..//div//input";
-
-	public static String manufacturerFieldDesc  ="//p[normalize-space()='MANUFACTURER']//..//..//div//input";
-
-	public static String modelNumberField  ="//p[normalize-space()='Model Number']//..//..//..//input";
-
-	public static String rowField  ="//p[normalize-space()='ROW']//..//..//div//input";
-	public static String partNumberLabel  ="//p[normalize-space()='Part number']";
-	public static String partNumberField  ="//p[normalize-space()='Part number']//..//..//..//input";
-
-	public static String shortDescriptionField  ="//p[normalize-space()='Short description']//..//..//..//input";
-	public static String qaFormOption  = "//button[normalize-space()='QA Form']";
-	public static String longDescriptionField  ="//div[contains (text(),'Long description')]//..//..//div//textarea";
-
-	//Roles and Permissions
-	public static String settingsProfile  ="//span[normalize-space()='Settings']";
-	public static String rolesAndPermissionsMenu  ="//p[normalize-space()='Roles and Permissions']";
-	public static String initiatorRole  ="//p[normalize-space()='Initiator']";
-	public static String searchBoxPrivileges  ="//input[@data-placeholder='Search privileges']";
-	public static String saveSettings  ="//span[normalize-space()='Save']";
-	public static String rolesAndPrivilegesHeader  ="//h4[normalize-space()='Roles and Privileges']";
-
-	@FindBy(xpath = "//p[normalize-space()='Industry Sector']")
-	protected WebElement filterIndustrySector1;
-
-
-	}
+	@FindBy(xpath = "//p[normalize-space()='MANUFACTURER']//..//..//div//input")
+	protected WebElement manufacturerFieldDesc;
+	@FindBy(xpath = "//p[normalize-space()='Model Number']//..//..//..//input")
+	protected WebElement modelNumberField;
+	@FindBy(xpath = "//p[normalize-space()='ROW']//..//..//div//input")
+	protected WebElement rowField;
+	@FindBy(xpath = "//p[normalize-space()='Part number']")
+	protected WebElement partNumberLabel;
+	@FindBy(xpath = "//p[normalize-space()='Part number']//..//..//..//input")
+	protected WebElement partNumberField;
+	@FindBy(xpath = "//p[normalize-space()='Short description']//..//..//..//input")
+	protected WebElement shortDescriptionField;
+	@FindBy(xpath = "//div[contains (text(),'Long description')]//..//..//div//textarea")
+	protected WebElement longDescriptionField;
+}

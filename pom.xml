@@ -131,7 +131,7 @@
 			<artifactId>json-schema-validator</artifactId>
 			<version>4.5.1</version>
 			<scope>test</scope>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>name.wramner.httpclient</groupId>
 			<artifactId>HttpClient</artifactId>
@@ -190,7 +190,27 @@
 						<configuration>
 							<skip>false</skip>
 							<suiteXmlFiles>
-								<suiteXmlFile>build_xmls/login.xml</suiteXmlFile>								
+								<suiteXmlFile>build_xmls/login.xml</suiteXmlFile>
+								<!--this home_Page xml include all the test regarding Home page menus-->
+<!--								<suiteXmlFile>build_xmls/home_Page.xml</suiteXmlFile>-->
+								<!--this list_Page_Search xml include all the test regarding advance search-->
+								<suiteXmlFile>build_xmls/list_Page_Search.xml</suiteXmlFile>
+								<!--this list_Page_Wild_Search xml include all the test regarding Global search-->
+								<suiteXmlFile>build_xmls/list_Page_Wild_Search.xml</suiteXmlFile>
+								<!--this list_View xml include all the test regarding list view option like add, edit, delete view-->
+								<suiteXmlFile>build_xmls/list_View.xml</suiteXmlFile>
+								<!--this material_Master xml include all the test regarding material master record functionality-->
+								<suiteXmlFile>build_xmls/material_Master.xml</suiteXmlFile>
+								<!--this material_Creation xml include all the test regarding material creation record functionality-->
+								<suiteXmlFile>build_xmls/material_Creation.xml</suiteXmlFile>
+								<!--this duplicate_Rule xml include all the test regarding Duplicate business rule functionality-->
+<!--								<suiteXmlFile>build_xmls/duplicate_Rule.xml</suiteXmlFile>-->
+								<!--this user_Defined_Rule xml include all the test regarding User Defined business rule functionality-->
+<!--								<suiteXmlFile>build_xmls/user_Defined_Rule.xml</suiteXmlFile>-->
+								<!--this transformation_Rule xml include all the test regarding Transformation business rule functionality-->
+<!--								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>-->
+								<!--this Process_Log xml include all the test regarding View Process Log functionality-->
+								<suiteXmlFile>build_xmls/process_Log.xml</suiteXmlFile>
 							</suiteXmlFiles>
 							<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
 						</configuration>
@@ -206,14 +226,15 @@
 			<plugin>
 				<groupId>com.decipherzone</groupId>
 				<artifactId>qa-parse-maven-plugin</artifactId>
-				<version>1.5.2</version>
+				<version>1.5.7</version>
 				<executions>
 					<execution>
 						<phase>integration-test</phase>
 						<configuration>
 							<projectBaseUrl>https://app.testreport.io/qa-java-api</projectBaseUrl>
+							<screenshotImagePath>${project.build.directory}/test-output/Failed_snaps_chrome</screenshotImagePath>
 							<sourceFilePath>${project.build.directory}/test-output/testng-results.xml</sourceFilePath>
-							<projectAccessKey>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb21wYW55SWRcIjpcIjY0YWU1N2YzNDI1NjU1NTViZTlmZDBjYVwiLFwiand0VG9rZW5cIjpcImV5SmhiR2NpT2lKSVV6VXhNaUo5LmV5SnpkV0lpT2lKeVlXaDFiRUJ3WlhKbVpXTjBjV0Z6WlhKMmFXTmxjeTVqYjIwaUxDSnBZWFFpT2pFMk9UQTBOakEyTlRFc0ltVjRjQ0k2TVRZNU1UQTJOVFExTVgwLnlwdkpzaTlNc00yLXRMaGZXRm9aTldDR0lwWjV4elpQLTB1bEpWd19hMktxRjBRTzRYZDY3dGZYbmtmdV9FakR3QzJJSWk2bFNUSEdIbFhrYjEwTklBXCIsXCJwcm9qZWN0SWRcIjpcIjY0YWU1ODAyNDI1NjU1NTViZTlmZDBjYlwifSIsImlhdCI6MTY5MDQ2MDcxOCwiZXhwIjoxNjkxMDY1NTE4fQ.W3wCpgN8W-0hCxuqiSVRAEah5cqDE2c9dp-9kiqWJwUkNvr3qbm7kUwPmTWrW3WOukVr7oHbUhe2FEonFKukzQ</projectAccessKey>
+							<projectAccessKey>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb21wYW55SWRcIjpcIjY0YWU1N2YzNDI1NjU1NTViZTlmZDBjYVwiLFwiand0VG9rZW5cIjpcImV5SmhiR2NpT2lKSVV6VXhNaUo5LmV5SnpkV0lpT2lKeVlXaDFiQzVuZFdwaGNtRjBkVzVwUUdkdFlXbHNMbU52YlNJc0ltbGhkQ0k2TVRZNU1UTTRPRFkxTnl3aVpYaHdJam94TmpreE9Ua3pORFUzZlEuZ180Zmw5VTdFSEJOV3pSTnBleVNCZ1BKejF0VjVDNnRXZjdGQURvMEV0bmI5UVF1VVA0TUYzMUZ1MkdoamtUWlJsbjFabnNBUnBJaGpQeHJIOGJHY1FcIixcInByb2plY3RJZFwiOlwiNjRhZTU4MDI0MjU2NTU1NWJlOWZkMGNiXCJ9IiwiaWF0IjoxNjkxMzg4NzA5LCJleHAiOjE2OTE5OTM1MDl9.EZlh1X9p2QOgw9u4gg02o_YenhbAe7l2fuUoNPEMFofLoOZrpdcvMb8LItGHwyHctKljk7f21Lxan5M05wcthw</projectAccessKey>
 						</configuration>
 						<goals>
 							<goal>xmltojson</goal>

@@ -8,7 +8,7 @@ public class UserCredential {
 	//Setter
 	public void setUsername(String username)
 	{ this.username = username;}
-	
+
 	private String password;
 	//Getter
 	public String getPassword()

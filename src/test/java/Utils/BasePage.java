@@ -80,6 +80,20 @@ public class BasePage implements ITestListener {
 		}
 		return webDriver;
 	}
+	public LoginPage loginPage;
+	public AddMaterialMaster materialmaster;
+	public ListPageSearch listPageSearch;
+	public ProcessLog processLog;
+	public ListView listView;
+	protected static String environmentName = "";
+	public MaterialCreation materialCreation;
+	public Flow flow;
+	public HomePage homePage;
+
+	public static ExtentTest test;
+	public static ExtentReports report;
+
+	public static int step = 0;
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp(Method method) throws Exception {
@@ -102,8 +116,6 @@ public class BasePage implements ITestListener {
 		String browser = getPropertyValue("browser");
 		String headless = getPropertyValue("headless");
 
-		// Set property for chromedriver to run on chrome browser
-		// System.setProperty("webdriver.chrome.driver",driverPath);
 
 		// it will fetch chromedriver from your system
 		WebDriverManager.chromedriver().setup();
@@ -165,17 +177,13 @@ public class BasePage implements ITestListener {
 	public void tearDown(ITestResult testResult) throws Exception {
 		String testName = testResult.getName();
 		Reporter.setCurrentTestResult(testResult);
-		File img = new File("target" + File.separator + "surefire-reports" + File.separator + testName + ".png");
+		File img = new File("target" + File.separator + "test-output" + File.separator + testName + ".png");
 		if (testResult.getStatus() == 1) {
 			log("<font color = 'green'><b><i><u><br>Pass :: " + testResult.getName() + "</u></i></b></font>");
 			testResult.getThrowable();
-			// MyScreenRecorder.stopRecording();
-			// MyScreenRecorder.deleteFile(testName+".avi");
 		}
 		if (testResult.getStatus() == 2) {
 			log("<font color = 'red'><b><i><u><br>Fail :: " + testResult.getName() + "</u></i></b></font>");
-
-			// MyScreenRecorder.stopRecording();
 
 			makeScreenshot(driver, testName);
 			Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
@@ -184,6 +192,7 @@ public class BasePage implements ITestListener {
 			log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
 					+ ".png' height='250' width='500'></img> </a>" + "<br>");
 		}
+		step =0;
 		driver.manage().deleteAllCookies();
 		driver.quit();
 		// MyScreenRecorder.stopRecording();
@@ -197,7 +206,7 @@ public class BasePage implements ITestListener {
 		String nameWithExtention = screenshotName + ".png";
 		// Copy screenshot to specific folder
 		try {
-			String reportFolder = "target" + File.separator + "test-output" + File.separator;
+			String reportFolder = "target" + File.separator + "test-output" +File.separator + "Failed_snaps_chrome" +File.separator;
 			File screenshotFolder = new File(reportFolder);
 			if (!screenshotFolder.getAbsoluteFile().exists()) {
 				screenshotFolder.mkdir();
@@ -208,7 +217,10 @@ public class BasePage implements ITestListener {
 			this.log("Failed to capture screenshot: " + e.getMessage());
 		}
 	}
-
+	protected Properties getConfigPropertiesForEnvironment(String propertyFilePath) {
+		configProperties = this.loadProperties(Paths.get("").toAbsolutePath().normalize().toString() + propertyFilePath);
+		return configProperties;
+	}
 	public void log(String log) {
 		System.out.println(log);
 		Reporter.log("<font color = 'blue'><b><i><u><br>" + log + "</u></i></b></font>");

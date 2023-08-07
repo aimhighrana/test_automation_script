@@ -198,7 +198,7 @@ public class MaterialCreationTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verify_Reapproving_Rejected_Task_From_Initiator(String env) {
+	public void verify_Reapproving_Rejected_Task_From_Initiator(String env) throws Exception {
 		log("Testcase:Reapproving rejected task from Initiator: QAA-TC-118");
 		objectService().loginPage().goToURL(env);
 		objectService().loginPage().initiator_SignIn();

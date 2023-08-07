@@ -1,26 +1,34 @@
 package Page;
 
+import Page.ServiceHelper.AuthenticationService;
+import Page.ServiceHelper.EnvironmentService;
+import Page.contracts.IAuthenticationService;
+import Page.contracts.IEnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.FileNotFoundException;
-import java.time.Duration;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends Locators {
 
-	Common common = new Common(driver);
+	Common common;
+	IAuthenticationService authenticationService;
+	IEnvironmentService environmentService;
 	public HomePage(WebDriver driver) throws Exception {
 		super(driver);
+		common = new Common(driver);
+		PageFactory.initElements(this.driver, this);
+		authenticationService = new AuthenticationService();
+		environmentService = new EnvironmentService();
 	}
 
 	/**
 	 * To verify that in INBOX folder, record Id , other data & functionality should be working fine
-	 * 
+	 *
 	 */
 	public void verify_That_In_INBOX_Folder_RecordId_Other_Data_And_Functionality_Should_Be_Working_Fine() {
 
@@ -37,9 +45,8 @@ public class HomePage extends Locators {
 
 		common.pause(10);
 		for (int i = 1; i <= 5; i++) {
-			if (common.isElementDisplayed("//tbody/tr[" + i + "]/td[3]//p")) {
-				String recordNumber = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[3]//p")).getText();
-				System.out.println(i + " Record number in Inbox menu: " + recordNumber);
+			if (common.isElementDisplayed((WebElement) By.xpath("//tbody/tr[" + i + "]/td[3]//p"))) {
+				String recordNumber = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]/td[3]//p")).getText();
 				common.log(i + " Record number in Inbox menu: " + recordNumber);
 			} else {
 				break;
@@ -60,9 +67,8 @@ public class HomePage extends Locators {
 		common.findElementBy(inboxMenu, "Click on Inbox menu").click();
 		common.waitForElement(firstActionIconForInbox);
 
-		String recordNumber =  driver.findElement(By.xpath("//tbody/tr[1]/td[3]//p")).getText();
-		System.out.println("1st Record number in Inbox menu:: " + recordNumber);
-		common.log("1st Record number in Inbox menu:: " + recordNumber);
+		String recordNumber =  common.findElement((WebElement) By.xpath("//tbody/tr[1]/td[3]//p")).getText();
+		common.log("1st Record number in Inbox menu: " + recordNumber);
 
 		common.findElementBy(firstActionIconForInbox, "Click on action icon for first record").click();
 
@@ -87,10 +93,9 @@ public class HomePage extends Locators {
 			common.waitForElement(firstActionIconForInbox);
 
 			for (int i = 1; i <= 5; i++) {
-				common.waitForElement("//tbody/tr[" + i + "]");
-				String recordWithReason = driver.findElement(By.xpath("//tbody/tr[" + i + "]")).getText();
-				System.out.println(i + " Record with reason:: " + recordWithReason);
-				common.log(i + " Record with reason:: " + recordWithReason);
+				common.waitForElement((WebElement) By.xpath("//tbody/tr[" + i + "]"));
+				String recordWithReason = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]")).getText();
+				common.log(i + " Record with reason: " + recordWithReason);
 			}
 		}
 
@@ -110,20 +115,18 @@ public class HomePage extends Locators {
 		common.pause(5);
 		common.waitForElement(searchSystemErrorsTab);
 
-		common.waitForElement("//tbody/tr[1]");
-		String integrationRecordWithReason = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
-		System.out.println("Integration first record with reason:: " + integrationRecordWithReason);
-		common.log("Integration first record with reason:: " + integrationRecordWithReason);
+		common.waitForElement(firstRecordFromList);
+		String integrationRecordWithReason = common.findElement(firstRecordFromList).getText();
+		common.log("Integration first record with reason: " + integrationRecordWithReason);
 
 		common.log("Search record for 'DAXE'");
 		common.findElement(searchSystemErrorsTab).click();
 		common.type(searchSystemErrorsTab,"daxe");
 		common.pause(10);
 
-		if (common.isElementDisplayed("//tbody/tr[1]")) {
-			String daxeRecordWithReason = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
-			System.out.println("DAXE first record with reason:: " + daxeRecordWithReason);
-			common.log("DAXE first record with reason:: " + daxeRecordWithReason);
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String daxeRecordWithReason = common.findElement(firstRecordFromList).getText();
+			common.log("DAXE first record with reason: " + daxeRecordWithReason);
 			common.pause(5);
 		}
 
@@ -135,10 +138,9 @@ public class HomePage extends Locators {
 		common.type(searchSystemErrorsTab, "Cross dataset");
 		common.pause(10);
 
-		if (common.isElementDisplayed("//tbody/tr[1]")) {
-			String crossDatasetRecordWithReason = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
-			System.out.println("Cross dataset first record with reason:: " + crossDatasetRecordWithReason);
-			common.log("Cross dataset first record with reason:: " + crossDatasetRecordWithReason);
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String crossDatasetRecordWithReason = common.findElement(firstRecordFromList).getText();
+			common.log("Cross dataset first record with reason: " + crossDatasetRecordWithReason);
 		}
 
 	}
@@ -161,9 +163,8 @@ public class HomePage extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(successRetrigger)) {
-			String successMessage = driver.findElement(By.xpath(successRetrigger)).getText();
-			System.out.println("Success message:: " + successMessage);
-			common.log("Success message:: " + successMessage);
+			String successMessage = common.findElement(successRetrigger).getText();
+			common.log("Success message: " + successMessage);
 		}
 		else {
 			common.log("Unable to re-trigger process");
@@ -186,9 +187,8 @@ public class HomePage extends Locators {
 
 		common.findElementBy(flowFilter, "Click on Flow filter").click();
 
-		String firstOption = driver.findElement(By.xpath(firstOptionFilter)).getText();
-		System.out.println("First option in flow filter:: " + firstOption);
-		common.log("First option in flow filter:: " + firstOption);
+		String firstOption = common.findElement(firstOptionFilter).getText();
+		common.log("First option in flow filter: " + firstOption);
 
 		common.findElementBy(firstOptionFilter,"Select first option").click();
 
@@ -197,26 +197,23 @@ public class HomePage extends Locators {
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ESCAPE).perform();
 
-		if (common.isElementDisplayed("//tbody/tr[1]")) {
-			String firstRecord = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
-			System.out.println("First record after apply flow filter:: " + firstRecord);
-			common.log("First record after apply flow filter:: " + firstRecord);
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String firstRecord = common.findElement(firstRecordFromList).getText();
+			common.log("First record after apply flow filter: " + firstRecord);
 		}
 
 		common.findElementBy(taskFilter, "Click on Task type filter").click();
-		String firstOption1 = driver.findElement(By.xpath(firstOptionFilter)).getText();
-		System.out.println("First option in Task type filter:: " + firstOption1);
-		common.log("First option in task type filter:: " + firstOption1);
+		String firstOption1 = common.findElement(firstOptionFilter).getText();
+		common.log("First option in task type filter: " + firstOption1);
 
 		common.findElementBy(firstOptionFilter,"Select first option").click();
 		common.pause(5);
 
 		action.sendKeys(Keys.ESCAPE).perform();
 
-		if (common.isElementDisplayed("//tbody/tr[1]")) {
-			String firstRecord = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
-			System.out.println("First record after apply task type filter:: " + firstRecord);
-			common.log("First record after apply task type filter:: " + firstRecord);
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String firstRecord = common.findElement(firstRecordFromList).getText();
+			common.log("First record after apply task type filter: " + firstRecord);
 		}
 		else {
 			common.log("Nothing to see here!");
@@ -238,17 +235,16 @@ public class HomePage extends Locators {
 
 		common.waitForElement(firstActionIconForInbox);
 		for (int i = 1; i <= 2; i++) {
-			if (common.isElementDisplayed("//tbody/tr[" + i + "]")) {
-				String firstRecord = driver.findElement(By.xpath("//tbody/tr[" + i + "]")).getText();
-				System.out.println(i + " record of In progress table:: " + firstRecord);
-				common.log(i + " record of In progress table:: " + firstRecord);
+			if (common.isElementDisplayed((WebElement) By.xpath("//tbody/tr[" + i + "]"))) {
+				String firstRecord = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]")).getText();
+				common.log(i + " record of In progress table: " + firstRecord);
 			} else {
 				common.log("Nothing to see here!");
 			}
 		}
-			common.findElementBy(firstActionIconForInbox, "Click on action menu for first record").click();
+		common.findElementBy(firstActionIconForInbox, "Click on action menu for first record").click();
 
-			common.findElementBy(viewProcessLogOption, "View process log option is available");
+		common.findElementBy(viewProcessLogOption, "View process log option is available");
 
 	}
 	/**
@@ -264,27 +260,25 @@ public class HomePage extends Locators {
 		common.findElementBy(completedMenu, "Click on Completed menu").click();
 		common.pause(10);
 
-			if (common.isElementDisplayed("//tbody/tr[1]")) {
-				String firstRecord = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
-				System.out.println(" record of Completed table:: " + firstRecord);
-				common.log(" record of Completed table:: " + firstRecord);
-			}
-			else {
-				common.log("Nothing to see here!");
-			}
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String firstRecord = common.findElement(firstRecordFromList).getText();
+			common.log(" record of Completed table: " + firstRecord);
+		}
+		else {
+			common.log("Nothing to see here!");
+		}
 
-			if (common.isElementDisplayed("//tbody/tr[1]")) {
-				String firstRecord = driver.findElement(By.xpath("//tbody/tr[1]")).getText();
-				System.out.println("1st record of Completed table:: " + firstRecord);
-				common.log("!st record of Completed table:: " + firstRecord);
+		if (common.isElementDisplayed(firstRecordFromList)) {
+			String firstRecord = common.findElement(firstRecordFromList).getText();
+			common.log("!st record of Completed table: " + firstRecord);
 
-				common.waitForElement(firstActionIconForInbox);
-				common.findElementBy(firstActionIconForInbox, "Click on action menu for first record").click();
+			common.waitForElement(firstActionIconForInbox);
+			common.findElementBy(firstActionIconForInbox, "Click on action menu for first record").click();
 
-				common.findElementBy(viewProcessLogOption, "View process log option is available");
-			} else {
-				common.log("Nothing to see here!");
-			}
+			common.findElementBy(viewProcessLogOption, "View process log option is available");
+		} else {
+			common.log("Nothing to see here!");
+		}
 	}
 
 }
