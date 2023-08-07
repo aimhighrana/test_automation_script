@@ -232,9 +232,9 @@
 						<phase>integration-test</phase>
 						<configuration>
 							<projectBaseUrl>https://app.testreport.io/qa-java-api</projectBaseUrl>
-							<screenshotImagePath>${project.build.directory}/test-output/Failed_snaps_chrome</screenshotImagePath>
 							<sourceFilePath>${project.build.directory}/test-output/testng-results.xml</sourceFilePath>
-							<projectAccessKey>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb21wYW55SWRcIjpcIjY0YWU1N2YzNDI1NjU1NTViZTlmZDBjYVwiLFwiand0VG9rZW5cIjpcImV5SmhiR2NpT2lKSVV6VXhNaUo5LmV5SnpkV0lpT2lKeVlXaDFiQzVuZFdwaGNtRjBkVzVwUUdkdFlXbHNMbU52YlNJc0ltbGhkQ0k2TVRZNU1UTTRPRFkxTnl3aVpYaHdJam94TmpreE9Ua3pORFUzZlEuZ180Zmw5VTdFSEJOV3pSTnBleVNCZ1BKejF0VjVDNnRXZjdGQURvMEV0bmI5UVF1VVA0TUYzMUZ1MkdoamtUWlJsbjFabnNBUnBJaGpQeHJIOGJHY1FcIixcInByb2plY3RJZFwiOlwiNjRhZTU4MDI0MjU2NTU1NWJlOWZkMGNiXCJ9IiwiaWF0IjoxNjkxMzg4NzA5LCJleHAiOjE2OTE5OTM1MDl9.EZlh1X9p2QOgw9u4gg02o_YenhbAe7l2fuUoNPEMFofLoOZrpdcvMb8LItGHwyHctKljk7f21Lxan5M05wcthw</projectAccessKey>
+							<screenshotImagePath>${project.build.directory}/test-output/FailedScreenshot/</screenshotImagePath>
+							<projectAccessKey>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb21wYW55SWRcIjpcIjY0YWU1N2YzNDI1NjU1NTViZTlmZDBjYVwiLFwiand0VG9rZW5cIjpcImV5SmhiR2NpT2lKSVV6VXhNaUo5LmV5SnpkV0lpT2lKeVlXaDFiRUJ3WlhKbVpXTjBjV0Z6WlhKMmFXTmxjeTVqYjIwaUxDSnBZWFFpT2pFMk9UQTROekEyTURBc0ltVjRjQ0k2TVRZNU1UUTNOVFF3TUgwLkEzSUhqdFgxb09JS280M2U3cnVfbE81Y2hDd3UzRTNQOUZkMVVxVm9ManpyM1lYUEhFYTFZekJrTThPRFpNcnFSa0F0WmdPckdXZFZiZmU1UjlaZ3p3XCIsXCJwcm9qZWN0SWRcIjpcIjY0YWU1ODAyNDI1NjU1NTViZTlmZDBjYlwifSIsImlhdCI6MTY5MTM5MTE2MywiZXhwIjoxNjkxOTk1OTYzfQ.vxVL-Z7d2T_u8OEFG0wst4V2PDJskNvSI1qDWj_EVpliMR6XTJtcOLOm7xC3WO1qh1UXGWFUFhYtEq1jT5nqng</projectAccessKey>
 						</configuration>
 						<goals>
 							<goal>xmltojson</goal>
