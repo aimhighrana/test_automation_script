@@ -9,12 +9,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import Page.ServiceHelper.*;
-import Page.contracts.*;
+import ServiceHelper.AuthenticationService;
+import ServiceHelper.EnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import Utils.Entity.UserCredential;
 import Utils.Enums.UserLoginRole;
+import contracts.IAuthenticationService;
+import contracts.IEnvironmentService;
 
 //endregion
 
@@ -46,7 +48,8 @@ public class LoginPage extends Locators {
 
 
 	private void userLoginProcess(UserLoginRole loggedinUserRole) {
-		UserCredential userCredential = authenticationService.getCredentials(loggedinUserRole);
+		common.log(environmentName);
+		UserCredential userCredential = authenticationService.getCredentials(loggedinUserRole,environmentName);
 
 		common.log("Entering username: " + userCredential.getUsername());
 		common.waitUntilElementToBeVisible(userNameField);

@@ -1,18 +1,19 @@
 package Page;
 
-import Page.ServiceHelper.AuthenticationService;
-import Page.ServiceHelper.EnvironmentService;
-import Page.contracts.IAuthenticationService;
-import Page.contracts.IEnvironmentService;
-import Utils.Common;
-import Utils.Locators;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.FileNotFoundException;
-import java.util.Properties;
+import ServiceHelper.AuthenticationService;
+import ServiceHelper.EnvironmentService;
+import Utils.Common;
+import Utils.Locators;
+import contracts.IAuthenticationService;
+import contracts.IEnvironmentService;
 
 public class ListView extends Locators {
 
