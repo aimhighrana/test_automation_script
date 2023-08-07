@@ -1,9 +1,12 @@
 package Page;
 
+import Page.ServiceHelper.AuthenticationService;
+import Page.ServiceHelper.EnvironmentService;
+import Page.contracts.IAuthenticationService;
+import Page.contracts.IEnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import au.com.bytecode.opencsv.CSVWriter;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
@@ -12,17 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.relevantcodes.extentreports.LogStatus;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotEquals;
-import static org.testng.Assert.assertTrue;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +26,15 @@ public class Flow extends Locators {
 	RemoteWebDriver driver;
 	Common common;
 	Properties obj = new Properties();
-
+	IAuthenticationService authenticationService;
+	IEnvironmentService environmentService;
 	public Flow(WebDriver driver2) throws FileNotFoundException {
 		// driver = d;
 		super(driver2);
 		common = new Common(driver2);
 		PageFactory.initElements(this.driver, this);
+		authenticationService = new AuthenticationService();
+		environmentService = new EnvironmentService();
 
 	}
 
@@ -49,7 +45,7 @@ public class Flow extends Locators {
 
 	/**
 	 * check url design table data
-	 * 
+	 *
 	 */
 	public void check_Design_Table_Data() {
 
@@ -85,7 +81,7 @@ public class Flow extends Locators {
 		common.waitForElement(spac);
 		if (common.findElement(spac).isDisplayed()) {
 			common.pause(25);
-			List<WebElement> myList = driver.findElements(By.xpath(spacRecord));
+			List<WebElement> myList = driver.findElements(By.xpath(String.valueOf(spacRecord)));
 
 			List<String> all_elements_text = new ArrayList<>();
 
@@ -117,9 +113,9 @@ public class Flow extends Locators {
 		XSSFWorkbook workbook = new XSSFWorkbook(fs);
 		XSSFSheet sheet = workbook.getSheetAt(0);
 
-       /**
-        * Set the loop count as per the no of rows in sheet
-        */
+		/**
+		 * Set the loop count as per the no of rows in sheet
+		 */
 		for (int j = 8; j < 105; j++) {
 			sheet.getRow(j).getCell(0);
 
@@ -168,12 +164,13 @@ public class Flow extends Locators {
 				common.findElementBy(viewPLog,"Click on View process log").click();
 				common.waitForElement(pTitle);
 
-				String fullXpath = String.format(currentDate, common.currentDate());
+				String fullXpath = String.format(common.currentDate(), currentDate);
+
 				common.log("Current date is ==>" + common.currentDate());
-				common.waitForElement(fullXpath);
-				
-				if (common.isDisplayed(fullXpath)) {
-					common.findElement(fullXpath).click();
+				common.waitForElement((WebElement) By.xpath(fullXpath));
+
+				if (common.isDisplayed((WebElement) By.xpath(fullXpath))) {
+					common.findElement((WebElement) By.xpath(fullXpath)).click();
 					common.log("Status is ==>" + common.findElement(statusSuccessTxt).getText());
 
 					writer.writeNext("FAIL", "Success");
@@ -196,10 +193,10 @@ public class Flow extends Locators {
 				common.findElement(viewPLog).click();
 				common.waitForElement(pTitle);
 
-				String fullXpath = String.format(currentDate, common.currentDate());
+				String fullXpath = String.format(common.currentDate(), currentDate);
 				common.log("Current date is ==>" + common.currentDate());
-				common.waitForElement(fullXpath);
-				common.findElement(fullXpath).click();
+				common.waitForElement((WebElement) By.xpath(fullXpath));
+				common.findElement((WebElement) By.xpath(fullXpath)).click();
 				if (common.isDisplayed(statusSuccessTxt)) {
 					common.log("Status is ==>" + common.findElement(statusSuccessTxt).getText());
 
@@ -239,27 +236,25 @@ public class Flow extends Locators {
 		XSSFWorkbook workbook = new XSSFWorkbook(fs);
 		XSSFSheet sheet = workbook.getSheetAt(0);
 
-       /**
-        * Set the loop count as per the no of rows in sheet
-        */
+		/**
+		 * Set the loop count as per the no of rows in sheet
+		 */
 		for (int j = 1226; j < 2357; j++) {
 			sheet.getRow(j).getCell(0);
 
 			common.log("Row value:" + j);
 			common.log("record is ==>" + sheet.getRow(j).getCell(0));
 
-		//	common.pause(40);
-	     	common.waitForElement(dSearchBox);
+			//	common.pause(40);
+			common.waitForElement(dSearchBox);
 			common.log("Enter values in search box: " + sheet.getRow(j).getCell(0));
 			common.log("Enter the value in search box ");
 			common.findElement(dSearchBox).clear();
 			common.pause(5);
 			common.findElement(dSearchBox).sendKeys("" + sheet.getRow(j).getCell(0) + "");
-			//common.pause(25);
 
 			common.waitForElement(apply);
 			common.findElement(apply).click();
-			//common.pause(30);
 			common.waitForElement(thDot);
 			common.log("click on three dot icon");
 			common.findElement(thDot).click();
@@ -267,8 +262,7 @@ public class Flow extends Locators {
 			common.waitForElement(edit);
 			common.log("click on edit");
 			common.findElement(edit).click();
-		//	common.pause(15);
-           common.waitForElement(dChange);
+			common.waitForElement(dChange);
 			common.log("click on description change");
 			common.findElement(dChange).click();
 
@@ -297,17 +291,17 @@ public class Flow extends Locators {
 
 				common.pause(30);
 
-				 writer.writeNext("PASS\t  "+sheet.getRow(j).getCell(0));
+				writer.writeNext("PASS\t  "+sheet.getRow(j).getCell(0));
 				common.log("PASS\t  "+sheet.getRow(j).getCell(0));
 
 			}
 
 			writer.close();
 
-		 
+
 
 		}
 
-		
+
 	}
 }

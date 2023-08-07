@@ -1,12 +1,16 @@
 package Page;
 
+import Page.ServiceHelper.AuthenticationService;
+import Page.ServiceHelper.EnvironmentService;
+import Page.contracts.IAuthenticationService;
+import Page.contracts.IEnvironmentService;
 import Utils.Common;
 import Utils.Locators;
-import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -16,18 +20,23 @@ import static org.testng.Assert.assertEquals;
 
 public class ProcessLog extends Locators {
 
-	Common common = new Common(driver);
+	Common common;
 	Properties obj = new Properties();
+	IAuthenticationService authenticationService;
+	IEnvironmentService environmentService;
 
 	public ProcessLog(WebDriver driver) throws FileNotFoundException {
-
 		super(driver);
+		common = new Common(driver);
+		PageFactory.initElements(this.driver, this);
+		authenticationService = new AuthenticationService();
+		environmentService = new EnvironmentService();
 
 	}
 
 	/**
 	 * Process log: verify That User Is Able To View Email Logs When Email Notification Is Configured
-	 * 
+	 *
 	 */
 	public void verify_That_User_Is_Able_To_View_Email_Logs_In_Process_Log() {
 
@@ -87,8 +96,8 @@ public class ProcessLog extends Locators {
 			}
 
 			//If record available then it will print
-			if (common.isElementDisplayed("//div[@class='message-list f-col']//tr[1]//td[1]")) {
-				List<WebElement> emailRecords = driver.findElements(By.xpath(firstRecordOfEmailLogs));
+			if (common.isElementDisplayed((WebElement) By.xpath("//div[@class='message-list f-col']//tr[1]//td[1]"))) {
+				List<WebElement> emailRecords = driver.findElements(By.xpath(String.valueOf(firstRecordOfEmailLogs)));
 
 				for (WebElement e : emailRecords) {
 					common.log("First record is displaying : >>" + e.getText());
@@ -104,7 +113,7 @@ public class ProcessLog extends Locators {
 			common.jsClick(closeIconForProcessLog);
 		}
 		else {
-			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
+			String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
 			common.log("View process log: "+strProcessLog);
 		}
 	}
@@ -158,7 +167,7 @@ public class ProcessLog extends Locators {
 			common.findElementBy(chatBoxComment,"Verified chat box");
 		}
 		else {
-			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
+			String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
 			common.log("View process log: "+strProcessLog);
 		}
 	}
@@ -209,7 +218,7 @@ public class ProcessLog extends Locators {
 
 		}
 		else {
-			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
+			String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
 			common.log("View process log: "+strProcessLog);
 		}
 	}
@@ -277,7 +286,7 @@ public class ProcessLog extends Locators {
 
 		}
 		else {
-			String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
+			String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
 			common.log("View process log: "+strProcessLog);
 		}
 
@@ -301,7 +310,7 @@ public class ProcessLog extends Locators {
 			else
 			{
 				common.findElementBy(closeIconForProcessLog,"Close Process log view").click();
-				common.findElementBy("//tbody/tr[1]/td["+i+"]//..//button//span//mat-icon","Click on action icon for next record").click();
+				common.findElementBy((WebElement) By.xpath("//tbody/tr[1]/td["+i+"]//..//button//span//mat-icon"),"Click on action icon for next record").click();
 
 				common.waitForElement(viewPLog);
 				common.findElementBy(viewPLog, "Select view process log option").click();
@@ -315,7 +324,7 @@ public class ProcessLog extends Locators {
 
 				}
 				else {
-					String strProcessLog = common.findElementBy("//div[@class='mdo-notice f-row mdo-notice-info']","Getting logs from view process log").getText();
+					String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
 					common.log("View process log: "+strProcessLog);
 				}
 			}
@@ -396,13 +405,13 @@ public class ProcessLog extends Locators {
 		//if duplicate record appear then click on continue and something went occurred then refresh page and submit again
 		if (common.isDisplayed(duplicateRecordHeader) == true) {
 
-		common.log("Duplicate records");
+			common.log("Duplicate records");
 			common.findElement(continueDuplicateRecord).click();
 		} else {
 
 			common.log("No duplicate records");
 		}
-		if(common.isDisplayed("//div[@class='mdo-notice f-row mdo-notice-error']")==true)
+		if(common.isElementDisplayed(errorMessage))
 		{
 
 			common.log("Showing mandatory error");
@@ -463,9 +472,9 @@ public class ProcessLog extends Locators {
 		for (int i =0; i<str1.length;i++)
 		{
 			int j = i+1;
-			if (common.isElementDisplayed("//div[3]/table[1]/tbody[1]/tr[1]/td[1]"))
+			if (common.isElementDisplayed((WebElement) By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td[1]")))
 			{
-				String str = common.findElement("//div[3]/table[1]/tbody[1]/tr[1]/td["+j+"]").getText();
+				String str = common.findElement((WebElement) By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td["+j+"]")).getText();
 				common.log(str1[i]+":"+str);
 			}
 		}

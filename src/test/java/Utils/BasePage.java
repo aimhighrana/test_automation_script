@@ -49,13 +49,14 @@ public class BasePage implements ITestListener {
 	public ListPageSearch listPageSearch;
 	public ProcessLog processLog;
 	public ListView listView;
+	protected static String environmentName = "";
 	public MaterialCreation materialCreation;
 	public Flow flow;
 	public HomePage homePage;
 
 	public static ExtentTest test;
 	public static ExtentReports report;
-	protected static String environmentName = "";
+
 	public static int step = 0;
 
 	@BeforeMethod(alwaysRun = true)
@@ -80,7 +81,7 @@ public class BasePage implements ITestListener {
 		String headless = getPropertyValue("headless");
 
 		//Set property for chromedriver to run on chrome browser
-	//	System.setProperty("webdriver.chrome.driver",driverPath);
+		//	System.setProperty("webdriver.chrome.driver",driverPath);
 
 		//it will fetch chromedriver from your system
 		WebDriverManager.chromedriver().setup();
@@ -111,7 +112,7 @@ public class BasePage implements ITestListener {
 		materialCreation = new MaterialCreation(driver);
 		processLog = new ProcessLog(driver);
 		step = 1;
-	//	MyScreenRecorder.startRecording(currentTest);
+		//	MyScreenRecorder.startRecording(currentTest);
 	}
 
 	protected Properties getConfigProperties() {
@@ -164,13 +165,13 @@ public class BasePage implements ITestListener {
 		if (testResult.getStatus() == 1) {
 			log("<font color = 'green'><b><i><u><br>Pass :: " + testResult.getName()+"</u></i></b></font>");
 			testResult.getThrowable();
-		//	MyScreenRecorder.stopRecording();
-		//	MyScreenRecorder.deleteFile(testName+".avi");
+			//	MyScreenRecorder.stopRecording();
+			//	MyScreenRecorder.deleteFile(testName+".avi");
 		}
 		if (testResult.getStatus() == 2) {
 			log("<font color = 'red'><b><i><u><br>Fail :: " + testResult.getName()+"</u></i></b></font>");
 
-		//	MyScreenRecorder.stopRecording();
+			//	MyScreenRecorder.stopRecording();
 
 			makeScreenshot(driver, testName);
 			Reporter.log("Failed : This is failed log from reporter.log" + "<br>", true);
@@ -193,7 +194,7 @@ public class BasePage implements ITestListener {
 		String nameWithExtention = screenshotName + ".png";
 		// Copy screenshot to specific folder
 		try {
-			String reportFolder = "target" + File.separator + "test-output" +File.separator;
+			String reportFolder = "target" + File.separator + "test-output" +File.separator + "Failed_snaps_chrome" +File.separator;
 			File screenshotFolder = new File(reportFolder);
 			if (!screenshotFolder.getAbsoluteFile().exists()) {
 				screenshotFolder.mkdir();
