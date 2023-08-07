@@ -14,8 +14,8 @@ public class EnvironmentService extends BasePage implements IEnvironmentService 
 			getConfigPropertiesForEnvironment(EnvironmentFilePath.QAA.toString());
 		} else if (environmentName.equals(EnvironmentName.QAR.toString())) {
 			getConfigPropertiesForEnvironment(EnvironmentFilePath.QAR.toString());
-		} else if (environmentName.equals(EnvironmentName.QAH.toString())) {
-			getConfigPropertiesForEnvironment(EnvironmentFilePath.QAH.toString());
+		} else if (environmentName.equals(EnvironmentName.QAM.toString())) {
+			getConfigPropertiesForEnvironment(EnvironmentFilePath.QAM.toString());
 		} else {
 			getConfigPropertiesForEnvironment(EnvironmentFilePath.QAR.toString());
 		}

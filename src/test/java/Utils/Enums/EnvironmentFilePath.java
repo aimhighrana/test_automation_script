@@ -8,14 +8,11 @@ public enum EnvironmentFilePath implements Serializable {
 	@Override
 	public String toString() {
 		switch (this) {
-		case QAA:
-			return "//envQARAuto.properties";
-		case QAM:
-			return "//envQARAuto.properties";
-		case QAR:
-			return "//envQAR.properties";
+		case QAA:			
+		case QAM:			
+		case QAR:			
 		case SAND:
-			return "//envQASB.properties";
+			return "//config.properties";
 		default:
 			return "//config.properties";
 		}

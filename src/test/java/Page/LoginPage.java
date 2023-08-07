@@ -4,33 +4,19 @@ package Page;
 import java.io.FileNotFoundException;
 import java.util.Properties;
 
-import Page.ServiceHelper.AuthenticationService;
-import Page.ServiceHelper.EnvironmentService;
-import Page.contracts.IAuthenticationService;
-import Page.contracts.IEnvironmentService;
-import Utils.Common;
-import Utils.Entity.UserCredential;
-import Utils.Enums.UserLoginRole;
-import Utils.Locators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import com.relevantcodes.extentreports.LogStatus;
-
-import contracts.*;
+import Page.ServiceHelper.*;
+import Page.contracts.*;
 import Utils.Common;
 import Utils.Locators;
 import Utils.Entity.UserCredential;
-import Utils.Enums.*;
-import ServiceHelper.*;
+import Utils.Enums.UserLoginRole;
 
 //endregion
-
-public class LoginPage extends Locators {
-
-	Common common;
 
 public class LoginPage extends Locators {
 
@@ -105,7 +91,7 @@ public class LoginPage extends Locators {
 	 * Verify Sign In Scenario
 	 *
 	 */
-	public void initiator_SignIn(String env) throws Exception{
+	public void initiator_SignIn() throws Exception{
 
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);

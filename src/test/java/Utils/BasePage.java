@@ -1,38 +1,44 @@
 package Utils;
 
-import Page.*;
-import Test.MaterialMasterTestcases;
-import Utils.Enums.BrowserOption;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import net.rcarz.jiraclient.JiraException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.nio.file.Paths;
+import java.util.Properties;
+import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.Augmenter;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.io.*;
-import java.lang.reflect.Method;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.file.Paths;
-import java.util.Properties;
-import java.util.logging.Logger;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import contracts.*;
 
-import static java.awt.Color.green;
-//import javax.mail.MessagingException;
+import Page.AddMaterialMaster;
+import Page.Flow;
+import Page.HomePage;
+import Page.ListPageSearch;
+import Page.ListView;
+import Page.LoginPage;
+import Page.MaterialCreation;
+import Page.ProcessLog;
+import ServiceHelper.ObjectService;
+import Utils.Enums.BrowserOption;
+import contracts.IObjectService;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import net.rcarz.jiraclient.JiraException;
 
 public class BasePage implements ITestListener {
 
@@ -85,14 +91,10 @@ public class BasePage implements ITestListener {
 	public ListPageSearch listPageSearch;
 	public ProcessLog processLog;
 	public ListView listView;
-	protected static String environmentName = "";
 	public MaterialCreation materialCreation;
 	public Flow flow;
 	public HomePage homePage;
-
-	public static ExtentTest test;
-	public static ExtentReports report;
-
+	
 	public static int step = 0;
 
 	@BeforeMethod(alwaysRun = true)
@@ -217,10 +219,7 @@ public class BasePage implements ITestListener {
 			this.log("Failed to capture screenshot: " + e.getMessage());
 		}
 	}
-	protected Properties getConfigPropertiesForEnvironment(String propertyFilePath) {
-		configProperties = this.loadProperties(Paths.get("").toAbsolutePath().normalize().toString() + propertyFilePath);
-		return configProperties;
-	}
+	
 	public void log(String log) {
 		System.out.println(log);
 		Reporter.log("<font color = 'blue'><b><i><u><br>" + log + "</u></i></b></font>");

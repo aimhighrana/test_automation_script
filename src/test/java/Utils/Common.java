@@ -215,10 +215,10 @@ public class Common extends Locators {
 
 	public void expandingHeadData() {
 
-		driver.findElement(By.xpath(expandHeaderData)).click();
-		driver.findElement(By.xpath(expandPlantData)).click();
-		driver.findElement(By.xpath(expandPlant)).click();
-		driver.findElement(By.xpath(expandValuationData)).click();
+		driver.findElement(By.xpath(expandHeaderData.toString())).click();
+		driver.findElement(By.xpath(expandPlantData.toString())).click();
+		driver.findElement(By.xpath(expandPlant.toString())).click();
+		driver.findElement(By.xpath(expandValuationData.toString())).click();
 
 	}
 
