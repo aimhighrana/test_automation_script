@@ -32,10 +32,10 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_In_INBOX_Folder_RecordId_Other_Data_And_Functionality_Should_Be_Working_Fine() {
 
-		common.waitForElement(homeTab);
+		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
 
-		common.waitForElement(inboxMenu);
+		common.waitUntilElementToBeVisible(inboxMenu);
 		common.findElementBy(inboxMenu, "Verify Inbox menu");
 		common.findElementBy(inProgressMenu, "Verify In Progress menu");
 		common.findElementBy(completedMenu, "Verify Completed menu");
@@ -45,8 +45,9 @@ public class HomePage extends Locators {
 
 		common.pause(10);
 		for (int i = 1; i <= 5; i++) {
-			if (common.isElementDisplayed((WebElement) By.xpath("//tbody/tr[" + i + "]/td[3]//p"))) {
-				String recordNumber = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]/td[3]//p")).getText();
+			WebElement verifyRecords = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[3]//p"));
+			if (common.isElementDisplayed(verifyRecords)) {
+				String recordNumber = common.findElement(verifyRecords).getText();
 				common.log(i + " Record number in Inbox menu: " + recordNumber);
 			} else {
 				break;
@@ -60,12 +61,12 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_Different_Options_Will_Be_Present_Under_Action_Button() {
 
-		common.waitForElement(homeTab);
+		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
 
-		common.waitForElement(inboxMenu);
+		common.waitUntilElementToBeVisible(inboxMenu);
 		common.findElementBy(inboxMenu, "Click on Inbox menu").click();
-		common.waitForElement(firstActionIconForInbox);
+		common.waitUntilElementToBeVisible(firstActionIconForInbox);
 
 		String recordNumber =  common.findElement((WebElement) By.xpath("//tbody/tr[1]/td[3]//p")).getText();
 		common.log("1st Record number in Inbox menu: " + recordNumber);
@@ -83,17 +84,17 @@ public class HomePage extends Locators {
 	 */
 	public void verify_Column_Details_Displayed_In_Task_Folders() {
 
-		common.waitForElement(homeTab);
+		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
-		common.waitForElement(systemErrorsTab);
+		common.waitUntilElementToBeVisible(systemErrorsTab);
 
 		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
 		common.pause(5);
 		if (common.isElementDisplayed(firstActionIconForInbox)) {
-			common.waitForElement(firstActionIconForInbox);
+			common.waitUntilElementToBeVisible(firstActionIconForInbox);
 
 			for (int i = 1; i <= 5; i++) {
-				common.waitForElement((WebElement) By.xpath("//tbody/tr[" + i + "]"));
+				common.waitUntilElementToBeVisible((WebElement) By.xpath("//tbody/tr[" + i + "]"));
 				String recordWithReason = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]")).getText();
 				common.log(i + " Record with reason: " + recordWithReason);
 			}
@@ -107,15 +108,15 @@ public class HomePage extends Locators {
 	 */
 	public void verify_Failed_Records_Column_For_Cross_Dataset_Integration_Daxe_Process_Log_Tasks() {
 
-		common.waitForElement(homeTab);
+		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
-		common.waitForElement(systemErrorsTab);
+		common.waitUntilElementToBeVisible(systemErrorsTab);
 
 		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
 		common.pause(5);
-		common.waitForElement(searchSystemErrorsTab);
+		common.waitUntilElementToBeVisible(searchSystemErrorsTab);
 
-		common.waitForElement(firstRecordFromList);
+		common.waitUntilElementToBeVisible(firstRecordFromList);
 		String integrationRecordWithReason = common.findElement(firstRecordFromList).getText();
 		common.log("Integration first record with reason: " + integrationRecordWithReason);
 
@@ -151,13 +152,13 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_Once_The_Record_Is_Successful_ReTrigger_For_Integration_Record_Should_Not_Reflecting_In_Error_Folder() {
 
-		common.waitForElement(homeTab);
+		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
 
-		common.waitForElement(systemErrorsTab);
+		common.waitUntilElementToBeVisible(systemErrorsTab);
 		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
 		common.pause(5);
-		common.waitForElement(retriggerIcon);
+		common.waitUntilElementToBeVisible(retriggerIcon);
 
 		common.findElementBy(retriggerIcon, "Click on re-Trigger icon for integration record").click();
 		common.pause(10);
@@ -177,13 +178,13 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_All_The_Filters_Type_Are_Working_In_Error_Folder() {
 
-		common.waitForElement(homeTab);
+		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
 
-		common.waitForElement(systemErrorsTab);
+		common.waitUntilElementToBeVisible(systemErrorsTab);
 		common.findElementBy(systemErrorsTab, "Click on System Errors menu").click();
 		common.pause(5);
-		common.waitForElement(searchSystemErrorsTab);
+		common.waitUntilElementToBeVisible(searchSystemErrorsTab);
 
 		common.findElementBy(flowFilter, "Click on Flow filter").click();
 
@@ -226,17 +227,18 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_In_In_progress_Folder_Record_Id_Other_Data_And_Functionality_Should_Be_Working_Fine() {
 
-		common.waitForElement(homeTab);
+		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
 
-		common.waitForElement(inProgressMenu);
+		common.waitUntilElementToBeVisible(inProgressMenu);
 		common.findElementBy(inProgressMenu, "Click on In Progress menu").click();
 		common.pause(10);
 
-		common.waitForElement(firstActionIconForInbox);
+		common.waitUntilElementToBeVisible(firstActionIconForInbox);
 		for (int i = 1; i <= 2; i++) {
-			if (common.isElementDisplayed((WebElement) By.xpath("//tbody/tr[" + i + "]"))) {
-				String firstRecord = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]")).getText();
+			WebElement recordsInProgress = driver.findElement(By.xpath("//tbody/tr[" + i + "]"));
+			if (common.isElementDisplayed(recordsInProgress)) {
+				String firstRecord = common.findElement(recordsInProgress).getText();
 				common.log(i + " record of In progress table: " + firstRecord);
 			} else {
 				common.log("Nothing to see here!");
@@ -253,9 +255,9 @@ public class HomePage extends Locators {
 	 */
 	public void verify_That_In_Completed_Folder_Record_Id_Other_Data_Functionality_Should_Be_Working_Fine() {
 
-		common.waitForElement(homeTab);
+		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab, "Click on Home tab").click();
-		common.waitForElement(inProgressMenu);
+		common.waitUntilElementToBeVisible(inProgressMenu);
 
 		common.findElementBy(completedMenu, "Click on Completed menu").click();
 		common.pause(10);
@@ -272,7 +274,7 @@ public class HomePage extends Locators {
 			String firstRecord = common.findElement(firstRecordFromList).getText();
 			common.log("!st record of Completed table: " + firstRecord);
 
-			common.waitForElement(firstActionIconForInbox);
+			common.waitUntilElementToBeVisible(firstActionIconForInbox);
 			common.findElementBy(firstActionIconForInbox, "Click on action menu for first record").click();
 
 			common.findElementBy(viewProcessLogOption, "View process log option is available");

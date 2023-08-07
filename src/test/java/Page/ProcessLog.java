@@ -49,10 +49,10 @@ public class ProcessLog extends Locators {
 
 		common.log("Click on Material master from left nav");
 
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.log( "search for material master");
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElement(materialMaster).click();
 		common.pause(10);
 
@@ -72,7 +72,7 @@ public class ProcessLog extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(processLogTitle)) {
-			common.waitForElement(processLogTitle);
+			common.waitUntilElementToBeVisible(processLogTitle);
 			String pLog = common.findElement(processLogTitle).getText();
 			common.log("Process Log Title is : " + pLog);
 
@@ -86,7 +86,7 @@ public class ProcessLog extends Locators {
 			common.log("Click on view email logs");
 
 			common.findElement(viewEmailLogs).click();
-			common.waitForElement(viewDetailsHeader);
+			common.waitUntilElementToBeVisible(viewDetailsHeader);
 
 			List<WebElement> eleColumns = driver.findElements(By.xpath("(//tr[@role='row'])[1]//th"));
 			common.log("Columns in email logs page : >>");
@@ -109,7 +109,7 @@ public class ProcessLog extends Locators {
 			common.jsClick(crossIconViewEmailLogs);
 
 			common.log("Close View process log page ");
-			common.waitForElement(closeIconForProcessLog);
+			common.waitUntilElementToBeVisible(closeIconForProcessLog);
 			common.jsClick(closeIconForProcessLog);
 		}
 		else {
@@ -132,9 +132,9 @@ public class ProcessLog extends Locators {
 
 		common.log("Click on Material master from left nav");
 
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElement(materialMaster).click();
 		common.pause(10);
 
@@ -154,7 +154,7 @@ public class ProcessLog extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(processLogTitle)) {
-			common.waitForElement(processLogTitle);
+			common.waitUntilElementToBeVisible(processLogTitle);
 			String pLog = common.findElement(processLogTitle).getText();
 			common.log("Process Log Title is :" + pLog);
 
@@ -163,7 +163,7 @@ public class ProcessLog extends Locators {
 
 			common.findElementBy(commentIconProcessLog,"Click on comment icon").click();
 
-			common.waitForElement(chatBoxComment);
+			common.waitUntilElementToBeVisible(chatBoxComment);
 			common.findElementBy(chatBoxComment,"Verified chat box");
 		}
 		else {
@@ -185,9 +185,9 @@ public class ProcessLog extends Locators {
 		common.findElement(dataTab).click();
 		common.log("Click on Material master from left nav");
 
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElement(materialMaster).click();
 		common.pause(10);
 
@@ -207,7 +207,7 @@ public class ProcessLog extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(processLogTitle)) {
-			common.waitForElement(processLogTitle);
+			common.waitUntilElementToBeVisible(processLogTitle);
 			String pLog = common.findElement(processLogTitle).getText();
 			common.log("Process Log Title is : " + pLog);
 
@@ -237,9 +237,9 @@ public class ProcessLog extends Locators {
 
 		common.log("Click on Material master from left nav");
 
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElement(materialMaster).click();
 		common.pause(10);
 
@@ -252,11 +252,11 @@ public class ProcessLog extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
-		common.waitForElement(sapMaterialNumberFilter);
+		common.waitUntilElementToBeVisible(sapMaterialNumberFilter);
 		common.log("Click on SAP Material Number tab");
 		common.jsClick(sapMaterialNumberFilter);
 
@@ -274,12 +274,12 @@ public class ProcessLog extends Locators {
 		common.log("First value of Material master table: " + strFirstValue);
 
 		common.findElementBy(actionIconForFirstValue, "Click on first value action icon").click();
-		common.waitForElement(viewPLog);
+		common.waitUntilElementToBeVisible(viewPLog);
 		common.findElementBy(viewPLog, "Select view process log option").click();
 		common.pause(10);
 
 		if (common.isElementDisplayed(processLogTitle)) {
-			common.waitForElement(processLogTitle);
+			common.waitUntilElementToBeVisible(processLogTitle);
 			String pLog = common.findElement(processLogTitle).getText();
 			common.log("Process Log Title is : " + pLog);
 			common.findElementBy(processLogTitle,"Expand Process log").click();
@@ -296,7 +296,7 @@ public class ProcessLog extends Locators {
 			if (common.isElementDisplayed(viewIntegrationLogs))
 			{
 				common.findElementBy(viewIntegrationLogs,"Click on View Integration Logs").click();
-				common.waitForElement(integrationLogsHeader);
+				common.waitUntilElementToBeVisible(integrationLogsHeader);
 				common.findElementBy(integrationLogsHeader,"Integration Logs header verified");
 				common.pause(5);
 				common.log("close Integration Logs view");
@@ -312,12 +312,12 @@ public class ProcessLog extends Locators {
 				common.findElementBy(closeIconForProcessLog,"Close Process log view").click();
 				common.findElementBy((WebElement) By.xpath("//tbody/tr[1]/td["+i+"]//..//button//span//mat-icon"),"Click on action icon for next record").click();
 
-				common.waitForElement(viewPLog);
+				common.waitUntilElementToBeVisible(viewPLog);
 				common.findElementBy(viewPLog, "Select view process log option").click();
 				common.pause(10);
 
 				if (common.isElementDisplayed(processLogTitle)) {
-					common.waitForElement(processLogTitle);
+					common.waitUntilElementToBeVisible(processLogTitle);
 					String pLog = common.findElement(processLogTitle).getText();
 					common.log("Process Log Title is :" + pLog);
 					common.findElementBy(processLogTitle,"Expand Process log").click();
@@ -336,11 +336,11 @@ public class ProcessLog extends Locators {
 	 */
 	public void verify_Classification_Data_Changes_Maintained_In_The_Process_Log() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.refreshPage();
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.log("Click on Material master from left nav");
 
 		common.findElement(materialMaster).click();
@@ -371,9 +371,9 @@ public class ProcessLog extends Locators {
 		if(common.isElementDisplayed(sequentialMaterialOption))
 		{
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
-			common.waitForElement(unitOfWeightField);
+			common.waitUntilElementToBeVisible(unitOfWeightField);
 			common.findElementBy(unitOfWeightField,"Click on Unit Of Weight field").click();
-			common.waitForElement(dropValue1);
+			common.waitUntilElementToBeVisible(dropValue1);
 			common.findElementBy(dropValue1,"Select first option").click();
 
 		}
@@ -381,11 +381,11 @@ public class ProcessLog extends Locators {
 			common.log("Click on material master workflow role");
 			common.findElement(materialMasterRecordOption).click();
 			common.pause(10);
-			common.waitForElement(headerData);
+			common.waitUntilElementToBeVisible(headerData);
 			common.pause(10);
 
 			common.log("Select Industry Sector");
-			common.waitForElement(industrySec);
+			common.waitUntilElementToBeVisible(industrySec);
 			common.findElement(industrySec).click();
 			common.pause(5);
 			common.findElement(dropValue).click();
@@ -398,7 +398,7 @@ public class ProcessLog extends Locators {
 			common.pause(5);
 		}
 		common.log("Click on save button");
-		common.waitForElement(uSaveBtn);
+		common.waitUntilElementToBeVisible(uSaveBtn);
 		common.findElement(uSaveBtn).click();
 		common.pause(10);
 
@@ -435,21 +435,21 @@ public class ProcessLog extends Locators {
 
 			common.log("No Something went error");
 		}
-		common.waitForElement(actionIconForFirstValue);
+		common.waitUntilElementToBeVisible(actionIconForFirstValue);
 		common.findElement(actionIconForFirstValue).click();
 
 		common.log("Click on view Process log");
-		common.waitForElement(viewProcessLogOption);
+		common.waitUntilElementToBeVisible(viewProcessLogOption);
 		common.findElement(viewProcessLogOption).click();
 		common.pause(5);
 
-		common.waitForElement(processLogStatus);
+		common.waitUntilElementToBeVisible(processLogStatus);
 		String viewProcessLog = common.findElement(processLogStatus).getText();
 		common.log("View Process log =>>" + viewProcessLog);
 		common.findElement(processLogTitle).click();
 		common.pause(10);
 
-		common.waitForElement(statusCom);
+		common.waitUntilElementToBeVisible(statusCom);
 		String status = common.findElement(statusCom).getText();
 		common.log("Process Log Status is : " + status);
 		assertEquals(status, "COMPLETED");
@@ -458,11 +458,11 @@ public class ProcessLog extends Locators {
 		common.findElement(completedViewProcessLog).click();
 		common.pause(10);
 
-		common.waitForElement(headerData);
+		common.waitUntilElementToBeVisible(headerData);
 		Boolean header = common.findElement(headerData).isDisplayed();
 		common.log("Title is Header data : >>" + header);
 
-		common.waitForElement(fieldNameHeader);
+		common.waitUntilElementToBeVisible(fieldNameHeader);
 		common.findElementBy(fieldNameHeader,"Field Name header is available");
 		common.findElementBy(beforeChangeHeader,"Before Change header is available");
 		common.findElementBy(afterChangeHeader,"After Change header is available");
@@ -480,13 +480,13 @@ public class ProcessLog extends Locators {
 		}
 
 		common.findElementBy(closeIcoForViewChange,"Click on close icon for view change").click();
-		common.waitForElement(closeIconForProcessLog);
+		common.waitUntilElementToBeVisible(closeIconForProcessLog);
 		common.findElementBy(instanceDiagramIcon,"Click on Instance Diagram icon").click();
-		common.waitForElement(processFlowHeader);
+		common.waitUntilElementToBeVisible(processFlowHeader);
 		common.findElementBy(instanceDiagramImage,"Instance diagram verified");
 		common.pause(5);
 		common.findElementBy(closeIconProcessFlow,"Close Process flow page").click();
-		common.waitForElement(closeIconForProcessLog);
+		common.waitUntilElementToBeVisible(closeIconForProcessLog);
 		common.findElementBy(viewPotentialOwner,"Click on View link text in Potential Owner column").click();
 		common.pause(10);
 		List<WebElement> ele = driver.findElements(By.xpath("//div[@role='menu']//div//div[@role='menuitem']"));

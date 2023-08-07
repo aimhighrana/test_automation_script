@@ -34,22 +34,22 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_AbleToSearch_CreatedModified_On_Date_In_Column_Filter() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		if (common.isElementDisplayed(clearSearchField))
 		{
 			common.findElementBy(clearSearchField, "Clear the search field").click();
 			common.pause(5);
 		}
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -64,7 +64,7 @@ public class ListPageSearch extends Locators {
 
 		common.findElementBy(createdOnFilter, "Click on Created on Filter").click();
 
-		common.waitForElement(date3);
+		common.waitUntilElementToBeVisible(date3);
 
 		common.findElementBy(date3, "Click on 3rd date").click();
 
@@ -76,7 +76,7 @@ public class ListPageSearch extends Locators {
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ESCAPE).perform();
 
-		common.waitForElement(modifiedOnFilter);
+		common.waitUntilElementToBeVisible(modifiedOnFilter);
 
 		common.findElementBy(modifiedOnFilter, "Click on Modified on Filter").click();
 
@@ -105,15 +105,15 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_AbleToSearch_BasedOn_MaterialDesc_Group_Type_Indus_BaseUnitOfMeasure_In_Column_Filter() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 		common.pause(5);
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -126,11 +126,11 @@ public class ListPageSearch extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
 
@@ -146,12 +146,12 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.pause(10);
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Material Type tab");
 		common.jsClick(filterMaterialType);
 
-		common.waitForElement(valueSparePart_MaterialTypeFilter);
+		common.waitUntilElementToBeVisible(valueSparePart_MaterialTypeFilter);
 		common.findElementBy(valueSparePart_MaterialTypeFilter, "Select value Spare part for Material Type filter")
 				.click();
 
@@ -165,11 +165,11 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.pause(10);
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Material Description tab");
 		common.jsClick(filterMaterialDesc);
-		common.waitForElement(input_MaterialDescFilter);
+		common.waitUntilElementToBeVisible(input_MaterialDescFilter);
 		common.log("Enter 'BALL' in  Material Description textarea");
 		common.type(input_MaterialDescFilter, "BALL");
 
@@ -186,12 +186,12 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.pause(10);
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Base Unit Of Measure tab");
 		common.jsClick(filterBaseUnitOfMeasure);
 
-		common.waitForElement(valuePercentage_BaseUnitFilter);
+		common.waitUntilElementToBeVisible(valuePercentage_BaseUnitFilter);
 		common.findElementBy(valuePercentage_BaseUnitFilter, "Select Percentage value").click();
 
 		common.findElementBy(applyFilterButton, "Click on apply button").click();
@@ -211,14 +211,14 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_AbleTo_Search_Should_Work_For_Dropdown_Type_Field_While_Selecting_a_Value() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -260,15 +260,15 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Able_To_Apply_The_Filters_Using_And_IsNot_Conditions() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -281,11 +281,11 @@ public class ListPageSearch extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
@@ -303,12 +303,12 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 		common.pause(10);
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Material Type tab");
 		common.jsClick(filterMaterialType);
 
-		common.waitForElement(valueSparePart_MaterialTypeFilter);
+		common.waitUntilElementToBeVisible(valueSparePart_MaterialTypeFilter);
 
 		common.findElementBy(isNotFilter, "Select Is not filter").click();
 		common.findElementBy(valueSparePart_MaterialTypeFilter, "Select value Spare part for Material Type filter")
@@ -323,12 +323,12 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(clearAppliedFiler, "Clear Applied filter").click();
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Base Unit Of Measure tab");
 		common.jsClick(filterBaseUnitOfMeasure);
 
-		common.waitForElement(valuePercentage_BaseUnitFilter);
+		common.waitUntilElementToBeVisible(valuePercentage_BaseUnitFilter);
 
 		common.findElementBy(isNotFilter, "Select Is not filter").click();
 		common.findElementBy(valuePercentage_BaseUnitFilter, "Select Percentage value").click();
@@ -350,14 +350,14 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Able_To_Reset_Filters_In_Advance_Filter_Using_The_Reset_Button() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -370,22 +370,22 @@ public class ListPageSearch extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
 
 		common.pause(5);
-		common.waitForElement(valueFMCG_IndustrySectorFilter);
+		common.waitUntilElementToBeVisible(valueFMCG_IndustrySectorFilter);
 		common.findElementBy(valueFMCG_IndustrySectorFilter, "Select value FMCG for Industry sector filter").click();
 		common.pause(5);
 		common.findElementBy(applyFilterButton,"Click on Apply button").click();
 
-		common.waitForElement(appliedIndusSectorFilter);
+		common.waitUntilElementToBeVisible(appliedIndusSectorFilter);
 		common.findElementBy(appliedIndusSectorFilter,"Industry Sector filter is applied");
 
 		common.pause(5);
@@ -408,14 +408,14 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Can_Apply_Multiple_Filters_For_Multiple_Fields_In_Advance_Filter_Search() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -428,11 +428,11 @@ public class ListPageSearch extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
@@ -445,7 +445,7 @@ public class ListPageSearch extends Locators {
 		common.log("Click on Base Unit Of Measure tab");
 		common.jsClick(filterBaseUnitOfMeasure);
 
-		common.waitForElement(valuePercentage_BaseUnitFilter);
+		common.waitUntilElementToBeVisible(valuePercentage_BaseUnitFilter);
 
 		common.pause(10);
 		common.findElementBy(valuePercentage_BaseUnitFilter, "Select Percentage value").click();
@@ -467,15 +467,15 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Can_Save_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -488,11 +488,11 @@ public class ListPageSearch extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
@@ -549,32 +549,32 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Can_Cancel_The_Filter_Applied_On_Different_Fields_Using_The_Save_As_Button() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
 		if (!common.isElementDisplayed(defaultView)) {
 
-			common.waitForElement(viewDropDownIcon);
+			common.waitUntilElementToBeVisible(viewDropDownIcon);
 			common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
 			common.pause(2);
 			common.findElementBy(defaultViewOption, "Click on Default view option").click();
 			common.pause(10);
 
 		}
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
@@ -620,14 +620,14 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Can_Apply_The_Column_Filter_And_Advanced_Filter_At_A_Time_And_Club_The_Searches() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -640,11 +640,11 @@ public class ListPageSearch extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
@@ -669,14 +669,14 @@ public class ListPageSearch extends Locators {
 	 */
 	public void column_Sort_Functionality_Should_Work_As_Expected_On_The_List_Page_For_Fields() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -687,7 +687,7 @@ public class ListPageSearch extends Locators {
 			common.findElementBy(defaultViewOption, "Click on Default view option").click();
 			common.pause(10);
 		}
-		common.waitForElement(firstValueCreatedOnDateInTable);
+		common.waitUntilElementToBeVisible(firstValueCreatedOnDateInTable);
 		String strFirstValue = common.findElement(firstValueCreatedOnDateInTable).getText();
 		common.log("Created On date of Material master before sorting: " + strFirstValue);
 
@@ -717,15 +717,15 @@ public class ListPageSearch extends Locators {
 	public void verify_The_Pagination_Show_Count_Should_Be_Working_Fine_After_Applying_Filters() {
 
 		common.pause(5);
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -743,10 +743,10 @@ public class ListPageSearch extends Locators {
 
 		common.pause(5);
 
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.log("Click on Industry sector tab");
 		common.jsClick(filterIndustrySector);
@@ -770,14 +770,14 @@ public class ListPageSearch extends Locators {
 	public void user_Can_Search_Using_Special_Characters_In_Manufacturer_Part_Number_Filter_Field() {
 
 		common.pause(5);
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -790,15 +790,15 @@ public class ListPageSearch extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(filterIcon);
+		common.waitUntilElementToBeVisible(filterIcon);
 
 		common.findElementBy(filterIcon, "Click on Filter icon").click();
 		common.pause(10);
-		common.waitForElement(filterIndustrySector);
+		common.waitUntilElementToBeVisible(filterIndustrySector);
 
 		common.findElementBy(manufacturerPartNumFilterTab, "Click on Manufacturer Part Number filter tab").click();
 
-		common.waitForElement(inputManufacturerPartNumFilter);
+		common.waitUntilElementToBeVisible(inputManufacturerPartNumFilter);
 
 		common.pause(5);
 		common.log("Enter special characters");
@@ -823,16 +823,16 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Able_To_Search_Follow_Fuzzy_Logic_Verify_Results_And_Clear_Search() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -845,13 +845,13 @@ public class ListPageSearch extends Locators {
 
 		}
 
-		common.waitForElement(searchB);
+		common.waitUntilElementToBeVisible(searchB);
 		common.findElementBy(searchB,"Click on Search field and search '123' ").click();
 		common.findElement(searchB).sendKeys("123");
 		common.pause(10);
 
 		//verify searched material master record present
-		common.waitForElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
+		common.waitUntilElementToBeVisible((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
 		String strSearchedValue = common.findElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
 		common.log("Searched value: " + strSearchedValue);
 
@@ -867,7 +867,7 @@ public class ListPageSearch extends Locators {
 
 		common.findElementBy(clearSearch,"Clear the searched value from search field").click();
 
-		common.waitForElement(searchPlaceHolder);
+		common.waitUntilElementToBeVisible(searchPlaceHolder);
 		common.assertElementPresent(searchPlaceHolder);
 
 	}
@@ -888,7 +888,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//verify searched material master record present
-		common.waitForElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
+		common.waitUntilElementToBeVisible((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
 		String strSearchedValue = common.findElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
 		common.log("Searched value: " + strSearchedValue);
 
@@ -905,7 +905,7 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(clearSearch,"Clear the searched value from search field").click();
 		common.jsClick(clearSearch);
 
-		common.waitForElement(searchPlaceHolder);
+		common.waitUntilElementToBeVisible(searchPlaceHolder);
 		common.assertElementPresent(searchPlaceHolder);
 
 		common.log("Verify filtered status available");
@@ -919,16 +919,16 @@ public class ListPageSearch extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Club_The_Text_Search_With_Other_List_Page_Filter() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.pause(10);
 
 		//If default view not appear then select it from view dropdown
@@ -945,7 +945,7 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//verify searched material master record present
-		common.waitForElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
+		common.waitUntilElementToBeVisible((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
 		String strSearchedValue = common.findElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
 		common.log("Searched value: " + strSearchedValue);
 

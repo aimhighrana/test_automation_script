@@ -126,6 +126,7 @@ public class LoginPage extends Locators {
 		//if SANDBOX env is there then select QA Sandbox option
 		if (common.isElementDisplayed(qaSandboxOption))
 		{
+			//WebElement ele = driver.findElement(By.xpath("//p[normalize-space()='QA Sandbox']"));
 			common.findElementBy(qaSandboxOption, "Click on QA sandbox").click();
 		}
 
@@ -137,7 +138,7 @@ public class LoginPage extends Locators {
 
 		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab,"verify Home page appear");
-		common.log("Env URL: " + driver.getCurrentUrl());
+		common.log("Verify Env URL: " + driver.getCurrentUrl());
 	}
 
 	/**
@@ -153,7 +154,7 @@ public class LoginPage extends Locators {
 			common.findElement(signOut).click();
 		}
 		common.pause(5);
-		common.waitForElement(userNameField);
+		common.waitUntilElementToBeVisible(userNameField);
 		common.log("--- User login as reviewer credentials");
 
 		userLoginProcess(UserLoginRole.REVIEWER);
@@ -163,7 +164,7 @@ public class LoginPage extends Locators {
 		common.pause(5);
 
 		//Wait for options after login to select QA Sandbox or Tenant 1 or Home page
-		common.waitForElement((WebElement) By.xpath("(//div[@class='mat-list-item-content'])[1]"));
+		common.waitUntilElementToBeVisible((WebElement) By.xpath("(//div[@class='mat-list-item-content'])[1]"));
 
 		//if SANDBOX env is there then select QA Sandbox option
 		if (common.isElementDisplayed((WebElement) By.xpath("//p[normalize-space()='QA Sandbox']")))
@@ -176,7 +177,7 @@ public class LoginPage extends Locators {
 		{
 			common.findElementBy((WebElement) By.xpath("//p[normalize-space()='Tenant 1']"),"Select Tenant 1").click();
 		}
-		common.waitForElement(homeTab);
+		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab,"verify Home page appear");
 		common.log("Env URL: " + driver.getCurrentUrl());
 
@@ -195,21 +196,21 @@ public class LoginPage extends Locators {
 		common.log("Enter the value in email field");
 		common.findElement(userNameField).sendKeys(getPropertyValue("qaUserName"));
 
-		common.waitForElement(continueButton);
+		common.waitUntilElementToBeVisible(continueButton);
 		common.findElement(continueButton).click();
 
-		common.waitForElement(userPasswordLink);
+		common.waitUntilElementToBeVisible(userPasswordLink);
 		common.findElement(userPasswordLink).click();
 		common.log("Entering password");
 
-		common.waitForElement(nPasswordField);
+		common.waitUntilElementToBeVisible(nPasswordField);
 		common.findElement(nPasswordField).sendKeys(getPropertyValue("password"));
 		common.pause(10);
 		common.log("click on login button");
 		common.findElement(loginBtn).click();
 
 		common.log("Click on QA");
-		common.waitForElement(qaEnv);
+		common.waitUntilElementToBeVisible(qaEnv);
 		common.findElement(qaEnv).click();
 
 	}
@@ -250,7 +251,7 @@ public class LoginPage extends Locators {
 		common.findElement(loginBtn).click();
 
 		common.log("Click on PROD");
-		common.waitForElement(prodEnv);
+		common.waitUntilElementToBeVisible(prodEnv);
 		common.findElement(prodEnv).click();
 	}
 

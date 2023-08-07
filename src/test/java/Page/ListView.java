@@ -36,14 +36,14 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Add_A_New_View_For_The_List_Page() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 		common.pause(5);
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -56,11 +56,11 @@ public class ListView extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(dropDownViewICon);
+		common.waitUntilElementToBeVisible(dropDownViewICon);
 
 		common.findElementBy(dropDownViewICon, "Click on View drop-down icon").click();
 
-		common.waitForElement(newViewOption);
+		common.waitUntilElementToBeVisible(newViewOption);
 
 		common.findElementBy(newViewOption, "Click on New view option from drop-down").click();
 
@@ -84,7 +84,7 @@ public class ListView extends Locators {
 
 		common.findElementBy(dropDownViewICon, "Click on View drop-down icon").click();
 
-		common.waitForElement(defaultViewOption);
+		common.waitUntilElementToBeVisible(defaultViewOption);
 
 		common.findElementBy(defaultViewOption, "Click on Default view option from drop-down").click();
 		common.pause(10);
@@ -99,13 +99,13 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Select_Multiple_Records_At_A_Time() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -131,15 +131,15 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Create_View_Using_Setting_Icon_In_The_List_Page() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 		common.pause(5);
 
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 
 		common.pause(10);
@@ -152,11 +152,11 @@ public class ListView extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(dropDownViewICon);
+		common.waitUntilElementToBeVisible(dropDownViewICon);
 
 		common.findElementBy(settingIcon, "Click on Setting icon").click();
 
-		common.waitForElement(inputViewName);
+		common.waitUntilElementToBeVisible(inputViewName);
 		String viewStr = common.generateRandomChars(5);
 
 		common.findElementBy(inputViewName, "Enter new view name: " + viewStr).clear();
@@ -179,16 +179,16 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Delete_The_Added_View() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.findElement(dataTab).click();
 
 		common.findElementBy(threeDotsIconForView, "Click on three dots icon at top right corner").click();
-		common.waitForElement(deleteViewOption);
+		common.waitUntilElementToBeVisible(deleteViewOption);
 
 		common.findElementBy(deleteViewOption, "Click on Delete view option").click();
 
-		common.waitForElement(confirmDeleteView);
+		common.waitUntilElementToBeVisible(confirmDeleteView);
 
 		common.findElementBy(confirmDeleteView, "Click on Confirm button in Delete popup").click();
 
@@ -205,13 +205,13 @@ public class ListView extends Locators {
 	 */
 	public void verify_The_Pagination_On_List_Page_Should_Work_As_Expected() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -224,7 +224,7 @@ public class ListView extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(paginationValue);
+		common.waitUntilElementToBeVisible(paginationValue);
 		for (int i = 0; i <= 3; i++) {
 			String paginationStr = common.findElement(paginationValue).getText();
 			common.log("Pagination value : " + paginationStr);
@@ -242,13 +242,13 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_View_The_Summary_Of_The_Record_Using_Action_Button_On_The_Records() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -261,23 +261,23 @@ public class ListView extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(actionIconForFirstValue);
+		common.waitUntilElementToBeVisible(actionIconForFirstValue);
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(summaryOption, "Click on Summary option").click();
 		common.pause(5);
-		common.waitForElement(flowMaterialMasterRecordoption);
+		common.waitUntilElementToBeVisible(flowMaterialMasterRecordoption);
 		common.findElementBy(flowMaterialMasterRecordoption, "Click on second option").click();
 		common.pause(10);
-		common.waitForElement(headerData);
+		common.waitUntilElementToBeVisible(headerData);
 		common.log("Verify Header data appear");
 		common.findElementBy(closeIcon, "Click on close icon").click();
 
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(summaryOption, "Click on Summary option").click();
-		common.waitForElement(formClassnClassTypeOption);
+		common.waitUntilElementToBeVisible(formClassnClassTypeOption);
 		common.findElementBy(formClassnClassTypeOption, "Click on third option").click();
 		common.pause(5);
-		common.waitForElement(headerData);
+		common.waitUntilElementToBeVisible(headerData);
 		common.findElementBy(closeIcon, "Click on close icon").click();
 
 
@@ -288,15 +288,15 @@ public class ListView extends Locators {
 	 */
 	public void user_Should_Be_Able_To_Download_Template_Of_The_Record_Using_Action_Button_On_The_Records() {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 
-		common.waitForElement(search);
+		common.waitUntilElementToBeVisible(search);
 		common.type(search, "Material Master");
 		common.pause(5);
-		common.waitForElement(materialMaster);
+		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElementBy(materialMaster, "Click on Material master").click();
 		common.pause(10);
 
@@ -309,7 +309,7 @@ public class ListView extends Locators {
 			common.pause(10);
 
 		}
-		common.waitForElement(actionIconForFirstValue);
+		common.waitUntilElementToBeVisible(actionIconForFirstValue);
 		common.findElementBy(actionIconForFirstValue, "Click on action button for first value").click();
 		common.findElementBy(downloadTemplatesOption, "Click on Download templates option").click();
 		common.pause(5);

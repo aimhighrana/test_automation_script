@@ -523,8 +523,9 @@ public class AddMaterialMaster extends Locators {
 			common.findElementBy(afterChangeHeader, "After Change header is available");
 			common.log("First row data:  ");
 			for (int i = 1; i <= 3; i++) {
-				if (common.isElementDisplayed((WebElement) By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td[1]"))) {
-					String str = common.findElement((WebElement) By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td[" + i + "]")).getText();
+				WebElement firstRowData = driver.findElement(By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td[" + i + "]"));
+				if (common.isElementDisplayed(firstRowData)) {
+					String str = common.findElement(firstRowData).getText();
 					common.log(str);
 				}
 			}
@@ -1364,8 +1365,9 @@ public class AddMaterialMaster extends Locators {
 		common.waitUntilElementToBeVisible(addPlantData);
 		common.findElementBy(addPlantData,"Click on Add Plant data").click();
 		common.waitUntilElementToBeVisible(searchPlantData);
-		if (common.isElementDisplayed((WebElement) By.xpath("//input[@aria-checked='true']"))) {
-			common.findElementBy((WebElement) By.xpath("//input[@aria-checked='true']"), "Uncheck the selected hierarchy").click();
+		WebElement valueChecked = driver.findElement(By.xpath("//input[@aria-checked='true']"));
+		if (common.isElementDisplayed(valueChecked)) {
+			common.findElementBy(valueChecked, "Uncheck the selected hierarchy").click();
 		}
 		common.findElementBy(searchPlantData,"Enter value 004").sendKeys("0004");
 		common.waitUntilElementToBeVisible(searchedPantValue);

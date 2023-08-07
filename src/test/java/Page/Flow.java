@@ -68,7 +68,7 @@ public class Flow extends Locators {
 		common.log("click on Flow tab");
 		common.findElement(flowTab).click();
 
-		common.waitForElement(manageFlowBtn);
+		common.waitUntilElementToBeVisible(manageFlowBtn);
 		common.log("click on manage Flow button");
 		common.findElement(manageFlowBtn).click();
 
@@ -76,9 +76,9 @@ public class Flow extends Locators {
 		// switch to new tab
 		driver.switchTo().window(newTb.get(1));
 
-		common.waitForElement(design);
+		common.waitUntilElementToBeVisible(design);
 		common.findElementBy(design,"Click on design").click();
-		common.waitForElement(spac);
+		common.waitUntilElementToBeVisible(spac);
 		if (common.findElement(spac).isDisplayed()) {
 			common.pause(25);
 			List<WebElement> myList = driver.findElements(By.xpath(String.valueOf(spacRecord)));
@@ -99,11 +99,11 @@ public class Flow extends Locators {
 
 	public void checkDescriptionChange() throws IOException, ParseException {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab,"Click on Data tab").click();
 
 		common.log("Click on Material master from left nav");
-		common.waitForElement(dMaterialMaster);
+		common.waitUntilElementToBeVisible(dMaterialMaster);
 		common.findElement(dMaterialMaster).click();
 		common.pause(40);
 
@@ -142,7 +142,7 @@ public class Flow extends Locators {
 			common.log("click on description change");
 			common.findElement(dChange).click();
 
-			common.waitForElement(uSaveBtn);
+			common.waitUntilElementToBeVisible(uSaveBtn);
 			common.log("click on save button");
 
 			common.pause(5);
@@ -160,14 +160,14 @@ public class Flow extends Locators {
 				common.pause(10);
 				common.findElementBy(thDot,"Click on three dot icon").click();
 
-				common.waitForElement(viewPLog);
+				common.waitUntilElementToBeVisible(viewPLog);
 				common.findElementBy(viewPLog,"Click on View process log").click();
-				common.waitForElement(pTitle);
+				common.waitUntilElementToBeVisible(pTitle);
 
 				String fullXpath = String.format(common.currentDate(), currentDate);
 
 				common.log("Current date is ==>" + common.currentDate());
-				common.waitForElement((WebElement) By.xpath(fullXpath));
+				common.waitUntilElementToBeVisible((WebElement) By.xpath(fullXpath));
 
 				if (common.isDisplayed((WebElement) By.xpath(fullXpath))) {
 					common.findElement((WebElement) By.xpath(fullXpath)).click();
@@ -188,14 +188,14 @@ public class Flow extends Locators {
 
 				common.log("click on three dot icon");
 				common.findElement(thDot).click();
-				common.waitForElement(viewPLog);
+				common.waitUntilElementToBeVisible(viewPLog);
 
 				common.findElement(viewPLog).click();
-				common.waitForElement(pTitle);
+				common.waitUntilElementToBeVisible(pTitle);
 
 				String fullXpath = String.format(common.currentDate(), currentDate);
 				common.log("Current date is ==>" + common.currentDate());
-				common.waitForElement((WebElement) By.xpath(fullXpath));
+				common.waitUntilElementToBeVisible((WebElement) By.xpath(fullXpath));
 				common.findElement((WebElement) By.xpath(fullXpath)).click();
 				if (common.isDisplayed(statusSuccessTxt)) {
 					common.log("Status is ==>" + common.findElement(statusSuccessTxt).getText());
@@ -221,12 +221,12 @@ public class Flow extends Locators {
 	//
 	public void checkDescriptionChangeForProdEnv() throws IOException, ParseException {
 
-		common.waitForElement(dataTab);
+		common.waitUntilElementToBeVisible(dataTab);
 
 		common.findElementBy(dataTab,"Click on Data tab").click();
 
 		common.log("Click on Material master from left nav");
-		common.waitForElement(dMaterialMaster);
+		common.waitUntilElementToBeVisible(dMaterialMaster);
 		common.findElement(dMaterialMaster).click();
 		common.pause(40);
 
@@ -246,27 +246,27 @@ public class Flow extends Locators {
 			common.log("record is ==>" + sheet.getRow(j).getCell(0));
 
 			//	common.pause(40);
-			common.waitForElement(dSearchBox);
+			common.waitUntilElementToBeVisible(dSearchBox);
 			common.log("Enter values in search box: " + sheet.getRow(j).getCell(0));
 			common.log("Enter the value in search box ");
 			common.findElement(dSearchBox).clear();
 			common.pause(5);
 			common.findElement(dSearchBox).sendKeys("" + sheet.getRow(j).getCell(0) + "");
 
-			common.waitForElement(apply);
+			common.waitUntilElementToBeVisible(apply);
 			common.findElement(apply).click();
-			common.waitForElement(thDot);
+			common.waitUntilElementToBeVisible(thDot);
 			common.log("click on three dot icon");
 			common.findElement(thDot).click();
 
-			common.waitForElement(edit);
+			common.waitUntilElementToBeVisible(edit);
 			common.log("click on edit");
 			common.findElement(edit).click();
-			common.waitForElement(dChange);
+			common.waitUntilElementToBeVisible(dChange);
 			common.log("click on description change");
 			common.findElement(dChange).click();
 
-			common.waitForElement(uSaveBtn);
+			common.waitUntilElementToBeVisible(uSaveBtn);
 			common.log("click on save button");
 
 			common.pause(20);
