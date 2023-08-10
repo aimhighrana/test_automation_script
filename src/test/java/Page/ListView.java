@@ -1,19 +1,18 @@
 package Page;
 
-import java.io.FileNotFoundException;
-import java.util.Properties;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
 import ServiceHelper.AuthenticationService;
 import ServiceHelper.EnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import contracts.IAuthenticationService;
 import contracts.IEnvironmentService;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import java.io.FileNotFoundException;
+import java.util.Properties;
 
 public class ListView extends Locators {
 
@@ -73,7 +72,8 @@ public class ListView extends Locators {
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
 
-		String strView = common.findElementBy((WebElement) By.xpath("//h4[contains(text(),'Material Master')]"),"Verified view").getText();
+		WebElement eleView = driver.findElement(By.xpath("//h4[contains(text(),'Material Master')]"));
+		String strView = common.findElementBy(eleView,"Verified view").getText();
 		common.log("Created new view: "+strView);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
@@ -121,7 +121,8 @@ public class ListView extends Locators {
 		}
 		for (int i = 1; i <= 6; i++) {
 			common.log("select " + i + " checkbox of record");
-			common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]/td[1]//label")).click();
+			WebElement record =driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[1]//label"));
+			common.findElement(record).click();
 		}
 
 	}
@@ -167,7 +168,8 @@ public class ListView extends Locators {
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
 
-		if (common.isElementDisplayed((WebElement) By.xpath("//h4[normalize-space()='Material Master - " + viewStr + "']"))) {
+		WebElement recordMaterial = driver.findElement(By.xpath("//h4[normalize-space()='Material Master - " + viewStr +"']"));
+		if (common.isElementDisplayed(recordMaterial)) {
 
 			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
 			common.log("First value of Material master table: " + strFirstValue);

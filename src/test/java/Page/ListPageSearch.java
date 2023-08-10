@@ -1,18 +1,17 @@
 package Page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.PageFactory;
-
 import ServiceHelper.AuthenticationService;
 import ServiceHelper.EnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import contracts.IAuthenticationService;
 import contracts.IEnvironmentService;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 
 
 public class ListPageSearch extends Locators {
@@ -533,7 +532,8 @@ public class ListPageSearch extends Locators {
 		common.findElementBy(storedFiltersIcon, "Click on stored filters layer icon").click();
 		common.pause(10);
 
-		common.findElementBy((WebElement) By.xpath("//button[normalize-space()='" + strFilter + "']"), "Select last created filter").click();
+		WebElement lastCreatedFilter = driver.findElement(By.xpath("//button[normalize-space()='" + strFilter + "']"));
+		common.findElementBy(lastCreatedFilter, "Select last created filter").click();
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
@@ -852,8 +852,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//verify searched material master record present
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
-		String strSearchedValue = common.findElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
+		common.waitUntilElementToBeVisible(searchedValue);
+		String strSearchedValue = common.findElement(searchedValue).getText();
 		common.log("Searched value: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
@@ -889,8 +889,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//verify searched material master record present
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
-		String strSearchedValue = common.findElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
+		common.waitUntilElementToBeVisible(searchedValue);
+		String strSearchedValue = common.findElement(searchedValue).getText();
 		common.log("Searched value: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
@@ -910,7 +910,8 @@ public class ListPageSearch extends Locators {
 		common.assertElementPresent(searchPlaceHolder);
 
 		common.log("Verify filtered status available");
-		common.assertElementPresent((WebElement) By.xpath("//span[normalize-space()='Status']//..//span[normalize-space()='System']"));
+		WebElement statusEle = driver.findElement(By.xpath("//span[normalize-space()='Status']//..//span[normalize-space()='System']"));
+		common.assertElementPresent(statusEle);
 
 	}
 
@@ -946,8 +947,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		//verify searched material master record present
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]"));
-		String strSearchedValue = common.findElement((WebElement) By.xpath("//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).getText();
+		common.waitUntilElementToBeVisible(searchedValue);
+		String strSearchedValue = common.findElement(searchedValue).getText();
 		common.log("Searched value: " + strSearchedValue);
 
 		common.findElementBy(applySearch,"Click on Apply button").click();
@@ -958,7 +959,8 @@ public class ListPageSearch extends Locators {
 		common.pause(10);
 
 		if (common.isElementDisplayed(firstValueMaterialMaster)) {
-			String strFirstValue = common.findElement((WebElement) By.xpath("//tbody/tr[1]")).getText();
+			WebElement firstValue = driver.findElement(By.xpath("//tbody/tr[1]"));
+			String strFirstValue = firstValue.getText();
 			common.log("First value of Material master table: " + strFirstValue);
 
 			common.assertElementPresent(firstValueMaterialMaster);

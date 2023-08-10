@@ -1,25 +1,30 @@
 package Page;
 
-import static org.testng.Assert.assertEquals;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
 import ServiceHelper.AuthenticationService;
 import ServiceHelper.EnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import contracts.IAuthenticationService;
 import contracts.IEnvironmentService;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.PageFactory;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.List;
+
+import static org.testng.Assert.assertEquals;
 
 public class AddMaterialMaster extends Locators {
 
 	Common common;
 	IAuthenticationService authenticationService;
 	IEnvironmentService environmentService;
+
 	public AddMaterialMaster(WebDriver driver) throws Exception {
 		super(driver);
 		common = new Common(driver);
@@ -30,12 +35,11 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Add New Material Master Record
-	 *
 	 */
-	public void addNewMaterialMaster() {
+	public void addNewMaterialMaster() throws IOException {
 
 		common.waitUntilElementToBeVisible(dataTab);
-		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 
@@ -62,100 +66,95 @@ public class AddMaterialMaster extends Locators {
 		WebElement newButton = common.findElement(newRecordBtn);
 		newButton.click();
 		common.pause(5);
+		common.waitUntilElementToBeVisible(flowList);
 
 		//For SANDBOX perspective
-		if (common.isElementDisplayed(sequentialMaterialOption))
-		{
+		if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
 			common.pause(5);
 
+			common.waitUntilElementToBeVisible(materialType);
+			//get data from Sheet1
+			XSSFSheet sheet = common.getDataFromExcelSheet("Material_master");
+
+			common.log("Select Material Type");
+			common.findElement(materialType).click();
+			common.waitUntilElementToBeVisible(dropValue);
+			common.log("Get Material type from Excel: " + sheet.getRow(1).getCell(0));
+			common.type(materialType, sheet.getRow(1).getCell(0).getStringCellValue());
+			common.pause(5);
+			common.findElement(materialType).sendKeys(Keys.DOWN);
+			common.findElement(materialType).sendKeys(Keys.ENTER);
+
+			common.pause(5);
+
+			common.findElementBy(industrySec, "Click on Industry sector field").click();
+			common.findElement(industrySec).click();
+			common.waitUntilElementToBeVisible(dropValue);
+			common.log("Get Industry sector from Excel: " + sheet.getRow(1).getCell(1));
+			common.type(industrySec, sheet.getRow(1).getCell(1).getStringCellValue());
+			common.pause(5);
+			common.findElement(industrySec).sendKeys(Keys.DOWN);
+			common.findElement(industrySec).sendKeys(Keys.ENTER);
+
+			common.log("Enter value in Material description field");
+			common.log("Get Material description from Excel: " + sheet.getRow(1).getCell(2));
+			common.findElement(materialDescFormView).sendKeys(sheet.getRow(1).getCell(2).getStringCellValue());
+
+			common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
+			common.waitUntilElementToBeVisible(searchBoxHierarchy);
+			common.log("Get Plant Data from Excel: " + sheet.getRow(1).getCell(3));
+			common.findElement(searchBoxHierarchy).sendKeys(sheet.getRow(1).getCell(3).getStringCellValue());
+			common.pause(5);
+			common.waitUntilElementToBeVisible(selectSearchedOption);
+			common.findElementBy(selectSearchedOption, "Select searched option").click();
+			common.waitUntilElementToBeVisible(applyBtn);
+			common.findElementBy(applyBtn, "Click on Apply button").click();
+
+			//added wait for auto populate the hierarchy valuation and forecast
+			common.pause(5);
+			common.waitUntilElementToBeVisible(valuationDataAddHierarchy);
+
+			common.findElementBy(salesDataAddHierarchy, "Click on Sales Data - add... button").click();
+			common.waitUntilElementToBeVisible(searchBoxHierarchy);
+			common.log("Get Sales Data from Excel: " + sheet.getRow(1).getCell(4));
+			common.findElement(searchBoxHierarchy).sendKeys(sheet.getRow(1).getCell(4).getStringCellValue());
+			common.pause(5);
+			common.waitUntilElementToBeVisible(selectSearchedOption);
+			common.findElementBy(selectSearchedOption, "Select searched option").click();
+			common.waitUntilElementToBeVisible(applyBtn);
+			common.findElementBy(applyBtn, "Click on Apply button").click();
+
+			common.pause(5);
+			common.waitUntilElementToBeVisible(salesOrganisationData);
+
 			common.waitUntilElementToBeVisible(xPlantMaterialStatusField);
-			common.findElementBy(xPlantMaterialStatusField,"Select value from X-Plant Material Status field").click();
+			common.findElementBy(xPlantMaterialStatusField, "Select value from X-Plant Material Status field").click();
 			common.findElement(xPlantMaterialStatusField).click();
 			common.pause(5);
 			common.waitUntilElementToBeVisible(dropValue);
 			common.findElementBy(dropValue, "Select option").click();
 
-		}
-		//For QAH perspective
-		else {
-
-			common.log("Click on material master workflow roles");
-			common.waitUntilElementToBeVisible(materialMasterRoleValue);
-			common.findElement(materialMasterRoleValue).click();
-
-			common.log("Click on Industry section dropdown and select value");
-			common.waitUntilElementToBeVisible(industrySec);
-			common.findElement(industrySec).click();
-
-			common.waitUntilElementToBeVisible(dropValue);
-			common.findElement(dropValue).click();
+			common.waitUntilElementToBeVisible(addRowLanguageGrid);
+			common.log("Click on Add row button in Language grid section");
+			common.jsClick(addRowLanguageGrid);
 			common.pause(5);
-			// Filling plant records
-			common.log("-- Filling plant data --");
-			common.log("Select plant value");
-
-			common.findElement(plantdataPlusIcon).click();
-			common.waitUntilElementToBeVisible(plantvalue);
-			common.findElement(plantvalue).click();
+			common.waitUntilElementToBeVisible(languageInput);
+			common.findElementBy(languageInput, "Click on Language dropdown").click();
 			common.pause(5);
-			common.findElementBy(applyBtn,"Click on apply button").click();
 
-			common.log("Select MRP type");
-			common.waitUntilElementToBeVisible(mrpTypeField);
-			WebElement l = common.findElement(mrpTypeField);
+			common.waitUntilElementToBeVisible(germanLanguage);
+			common.findElementBy(germanLanguage, "Select German language from option").click();
 
-			// Javascript executor fro scrolling
-			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", l);
-
-			common.waitUntilElementToBeVisible(mrpType);
-			common.findElement(mrpType).click();
-			common.pause(5);
-			common.waitUntilElementToBeVisible(dropValue);
-			common.findElement(dropValue).click();
-
-			common.scrollPage();
-
-			common.waitUntilElementToBeVisible(loading);
-			common.findElementBy(loading,"Click on loading group icon").click();
-			common.pause(5);
-			common.findElementBy(dropValueLoading,"Select value for Loading group").click();
-
-			common.log("-- Filling valuation data --");
-			common.waitUntilElementToBeVisible(valuationPlusIcon);
-			common.findElementBy(valuationPlusIcon,"Click on + icon for Valuation").click();
-
-			common.waitUntilElementToBeVisible(newCheckbox);
-			common.findElement(newCheckbox).click();
-
-			common.findElementBy(applyBtn,"Click on apply button").click();
-
-			common.waitUntilElementToBeVisible(valCat);
-			common.findElement(valCat).click();
-			common.waitUntilElementToBeVisible(dropValue);
-			common.findElement(dropValue).click();
-			common.pause(10);
-		}
-
-		//If material type filed appear then select value from it
-		if (common.isElementDisplayed(materialType)) {
-
-			common.log("Select Material Type");
-			common.findElement(materialType)
-					.click();
-			common.findElement(sparePartMaterialOption).click();
-
-			common.pause(5);
-		} else {
-
-			common.log("No need to select Material Type");
+			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("New Material");
+			common.findElementBy(saveFormView, "Click on save on form view").click();
 		}
 
 		//If Manufacturer part number field appear then fill value for it
 		if (common.isElementDisplayed(manufacturerPartNum)) {
 
 			common.log("Enter Manufacturer Part Number");
-			common.findElement(manufacturerPartNum).sendKeys("12345");
+			common.findElement(manufacturerPartNum).sendKeys("54321");
 			common.pause(10);
 		} else {
 
@@ -165,13 +164,13 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(2);
+		common.pause(5);
 
 		//If duplicate record popup appear then click on continue
 		if (common.isElementDisplayed(duplicateRecordHeader)) {
 
 			common.log("Duplicate records");
-			common.findElementBy(continueDuplicateRecord,"Click on Continue button").click();
+			common.findElementBy(continueDuplicateRecord, "Click on Continue button").click();
 			common.pause(10);
 		} else {
 
@@ -179,8 +178,7 @@ public class AddMaterialMaster extends Locators {
 		}
 
 		//If something went error occurred then refresh page and select another value and click on submit
-		if(common.isElementDisplayed(errorMessage))
-		{
+		if (common.isElementDisplayed(errorMessage)) {
 			common.log("Something went error appear");
 			common.refreshPage();
 			common.pause(10);
@@ -192,8 +190,7 @@ public class AddMaterialMaster extends Locators {
 			common.log("click on submit button");
 			common.findElement(submitBtn).click();
 			common.pause(10);
-		}
-		else {
+		} else {
 
 			common.log("No Something went error");
 		}
@@ -201,7 +198,7 @@ public class AddMaterialMaster extends Locators {
 		//Wait and get success message fore record creation
 		common.waitUntilElementToBeVisible(successMessageToast);
 		String successStr = common.findElement(successMessageToast).getText();
-		common.log("Message display:  "+successStr);
+		common.log("Message display:  " + successStr);
 
 		common.waitUntilElementToBeVisible(dataTab);
 		common.log("Verifying Data tab available");
@@ -214,17 +211,16 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Add material master role with generate description
-	 *
 	 */
 	public void createMaterialMasterWithGenerateDesc() {
 
 		common.waitUntilElementToBeVisible(dataTab);
-		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 
 		common.waitUntilElementToBeVisible(search);
-		common.type(search,"Material master");
+		common.type(search, "Material master");
 		common.waitUntilElementToBeVisible(materialMaster);
 		common.log("Click on Material master from left side menus");
 
@@ -249,11 +245,9 @@ public class AddMaterialMaster extends Locators {
 		newButton.click();
 		common.pause(5);
 
-		if (common.isElementDisplayed(sequentialMaterialOption))
-		{
+		if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
-		}
-		else {
+		} else {
 			common.log("Click on material master workflow roles");
 			common.waitUntilElementToBeVisible(materialMasterRoleValue);
 
@@ -273,12 +267,11 @@ public class AddMaterialMaster extends Locators {
 		}
 		common.pause(5);
 
-		common.findElementBy(generateDesc,"Click on generate description").click();
+		common.findElementBy(generateDesc, "Click on generate description").click();
 		common.findElement(generateDesc).click();
 
-		if (common.isElementDisplayed(xPlantMaterialStatusField))
-		{
-			common.findElementBy(xPlantMaterialStatusField,"Select value from X-Plant Material Status field").click();
+		if (common.isElementDisplayed(xPlantMaterialStatusField)) {
+			common.findElementBy(xPlantMaterialStatusField, "Select value from X-Plant Material Status field").click();
 		}
 
 		if (common.isElementDisplayed(sourceListDescription)) {
@@ -296,7 +289,7 @@ public class AddMaterialMaster extends Locators {
 		common.waitUntilElementToBeVisible(plantvalue);
 		common.findElement(plantvalue).click();
 
-		common.findElementBy(applyBtn,"Click on apply button").click();
+		common.findElementBy(applyBtn, "Click on apply button").click();
 		common.pause(5);
 
 		common.log("Select MRP type");
@@ -325,13 +318,12 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 		common.findElement(newCheckbox).click();
 
-		common.findElementBy(applyBtn,"Click on apply button").click();
+		common.findElementBy(applyBtn, "Click on apply button").click();
 
 		common.pause(10);
 
-		if (common.isElementDisplayed(planingCycleField))
-		{
-			common.findElementBy(planingCycleField,"Enter value in planing cycle field").sendKeys("10");
+		if (common.isElementDisplayed(planingCycleField)) {
+			common.findElementBy(planingCycleField, "Enter value in planing cycle field").sendKeys("10");
 		}
 
 		common.log("click on submit button");
@@ -349,8 +341,7 @@ public class AddMaterialMaster extends Locators {
 		}
 
 		//If something went error occurred then refresh page select another value and click on submit
-		if(common.isElementDisplayed(errorMessage))
-		{
+		if (common.isElementDisplayed(errorMessage)) {
 
 			common.log("Something went error appear");
 			common.refreshPage();
@@ -364,8 +355,7 @@ public class AddMaterialMaster extends Locators {
 			common.findElement(submitBtn).click();
 
 			common.pause(10);
-		}
-		else {
+		} else {
 
 			common.log("No Something went error");
 		}
@@ -380,22 +370,22 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		common.waitUntilElementToBeVisible(searchB);
-		common.findElementBy(searchB,"Click on Search field and search material master value").click();
+		common.findElementBy(searchB, "Click on Search field and search material master value").click();
 		common.findElement(searchB).sendKeys(materialMasterNum);
 		common.pause(10);
 		//verify searched material master record present
 		common.log("Material master number is available on table:  " + materialMasterNum);
-		common.findElementBy((WebElement) By.xpath("//mark[normalize-space()='" + materialMasterNum + "']"),"Material master number verified");
+		WebElement eleMaterialMaster = driver.findElement(By.xpath("//mark[normalize-space()='" + materialMasterNum + "']"));
+		common.findElementBy(eleMaterialMaster, "Material master number verified");
 	}
 
 	/**
 	 * Verify Material Master Process Log
-	 *
 	 */
 	public void viewMaterialMasterProcessLog() {
 
 		common.waitUntilElementToBeVisible(dataTab);
-		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 
@@ -418,9 +408,9 @@ public class AddMaterialMaster extends Locators {
 
 		}
 
-		common.findElementBy(actionIconForFirstValue,"Click on first value action icon").click();
+		common.findElementBy(actionIconForFirstValue, "Click on first value action icon").click();
 		common.pause(10);
-		common.findElementBy(viewPLog,"Select view process log option").click();
+		common.findElementBy(viewPLog, "Select view process log option").click();
 		common.pause(10);
 
 		if (common.isElementDisplayed(processLogTitle)) {
@@ -447,32 +437,45 @@ public class AddMaterialMaster extends Locators {
 			common.jsClick(closeIcoForViewChange);
 			common.pause(5);
 
+			common.log("Click on view email logs");
+
+			common.findElement(viewEmailLogs).click();
+			common.waitUntilElementToBeVisible(viewDetailsHeader);
+
+			List<WebElement> eleColumns = driver.findElements(By.xpath("(//tr[@role='row'])[1]//th"));
+			common.log("Columns in email logs page : >>");
+			for (WebElement e : eleColumns) {
+				common.log(e.getText());
+				common.log(e.getText());
+			}
+			common.pause(5);
+			common.log("Close View email logs page ");
+			common.jsClick(crossIconViewEmailLogs);
+			common.pause(5);
 			common.log("Close View process log page ");
 			common.jsClick(closeIconForProcessLog);
-		}
-		else {
-			String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
-			common.log("View process log:  "+strProcessLog);
+		} else {
+			String strProcessLog = common.findElementBy(errorMessage, "Getting logs from view process log").getText();
+			common.log("View process log:  " + strProcessLog);
 		}
 
 	}
 
 	/**
 	 * Verify Material Master completed Process Log
-	 *
 	 */
 	public void viewMaterialMasterCompletedProcessLog() {
 
 		//wait for data tab
 		common.waitUntilElementToBeVisible(dataTab);
-		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
 		common.findElement(dataTab).click();
 
 		common.log("Click on Material master from left nav");
 
 		common.waitUntilElementToBeVisible(search);
-		common.log( "search for material master ");
+		common.log("search for material master ");
 		common.type(search, "Material Master");
 		common.waitUntilElementToBeVisible(materialMaster);
 		common.findElement(materialMaster).click();
@@ -491,13 +494,13 @@ public class AddMaterialMaster extends Locators {
 		common.waitUntilElementToBeVisible(materialNumFromTbl);
 
 		common.waitUntilElementToBeVisible(actionIconForFirstValue);
-		common.findElementBy(actionIconForFirstValue,"Click on acton icon for first value").click();
+		common.findElementBy(actionIconForFirstValue, "Click on acton icon for first value").click();
 
 		common.pause(5);
-		common.findElementBy(viewPLog,"Click on view process log option ").click();
+		common.findElementBy(viewPLog, "Click on view process log option ").click();
 		common.pause(10);
 
-		if(common.isElementDisplayed(processLogTitle)) {
+		if (common.isElementDisplayed(processLogTitle)) {
 
 			String pLog = common.findElement(processLogTitle).getText();
 			common.log("Process Log Title, Record, Date&Time is is : " + pLog);
@@ -537,8 +540,7 @@ public class AddMaterialMaster extends Locators {
 			common.jsClick(closeIcoForViewChange);
 			common.pause(5);
 
-		}
-		else {
+		} else {
 			common.log("System activities taking longer than usual , please wait while we process your request and update logs.");
 		}
 		common.log("Click on close icon for Process log popup");
@@ -548,18 +550,17 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Approve Status
-	 *
 	 */
 	public void approveStatus() {
 
 		//wait for Home tab
 		common.waitUntilElementToBeVisible(homeTab);
 		common.pause(5);
-		common.findElementBy(homeTab,"Click on Home tab").click();
+		common.findElementBy(homeTab, "Click on Home tab").click();
 
 		//wait for Inbox menu
 		common.waitUntilElementToBeVisible(inboxMenu);
-		common.findElementBy(inboxMenu,"Click on Inbox menu").click();
+		common.findElementBy(inboxMenu, "Click on Inbox menu").click();
 		common.findElement(inboxMenu).click();
 
 		common.pause(10);
@@ -601,7 +602,7 @@ public class AddMaterialMaster extends Locators {
 			if (common.isElementDisplayed(duplicateRecordHeader)) {
 
 				common.log("Duplicate records");
-				common.findElementBy(continueDuplicateRecord,"CLick on Continue").click();
+				common.findElementBy(continueDuplicateRecord, "CLick on Continue").click();
 			} else {
 
 				common.log("No duplicate records");
@@ -611,8 +612,7 @@ public class AddMaterialMaster extends Locators {
 			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display:  " + successStr);
 			common.waitUntilElementToBeVisible(inboxMenu);
-		}
-		else {
+		} else {
 			common.log("Nothing to see here message appear");
 		}
 
@@ -620,17 +620,16 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Re-Approve Rejected Task
-	 *
 	 */
 	public void reApprove_Rejected_Task_Status() {
 
 		//wait for Home tab
 		common.waitUntilElementToBeVisible(homeTab);
-		common.findElementBy(homeTab,"Click on Home tab").click();
+		common.findElementBy(homeTab, "Click on Home tab").click();
 
 		//wait for Inbox menu
 		common.waitUntilElementToBeVisible(myReqTab);
-		common.findElementBy(myReqTab,"Click on My Request menu").click();
+		common.findElementBy(myReqTab, "Click on My Request menu").click();
 		common.findElement(myReqTab).click();
 
 		//wait for first value
@@ -643,14 +642,13 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(approveBtn).click();
 
 		common.waitUntilElementToBeVisible(headerData);
-		common.findElementBy(headerData,"Verify Header data appear");
+		common.findElementBy(headerData, "Verify Header data appear");
 
-		if (common.isElementDisplayed(sequentialHeader))
-		{
-			common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("Material desc 123");
+		if (common.isElementDisplayed(sequentialHeader)) {
+			common.findElementBy(materialDescReviewer, "Enter value in Material description field").sendKeys("Material desc 123");
 			//	common.jsClick(oldMaterialNumField);
 			//	common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
-			common.findElementBy(divisionField,"Select value from Division dropdown").click();
+			common.findElementBy(divisionField, "Select value from Division dropdown").click();
 			common.waitUntilElementToBeVisible(dropValue);
 			common.findElement(dropValue).click();
 		}
@@ -660,18 +658,17 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(approveButton).click();
 		common.waitUntilElementToBeVisible(successMessageToast);
 		String successStr = common.findElement(successMessageToast).getText();
-		common.log("Message display:  "+successStr);
+		common.log("Message display:  " + successStr);
 		common.waitUntilElementToBeVisible(inboxMenu);
 	}
 
 	/**
 	 * Verify Claim Status
-	 *
 	 */
 	public void claimStatus() {
 
 		common.waitUntilElementToBeVisible(homeTab);
-		common.findElementBy(homeTab,"Click on Home tab").click();
+		common.findElementBy(homeTab, "Click on Home tab").click();
 
 		//wait for Inbox menu
 		common.waitUntilElementToBeVisible(inboxMenu);
@@ -700,7 +697,7 @@ public class AddMaterialMaster extends Locators {
 
 			common.pause(25);
 			common.waitUntilElementToBeVisible(firstActionIconForInbox);
-			common.findElementBy(firstActionIconForInbox,"Click on action icon for first value").click();
+			common.findElementBy(firstActionIconForInbox, "Click on action icon for first value").click();
 			common.pause(10);
 
 			common.log("Click on my viewProcessLog");
@@ -721,7 +718,6 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Claim Status
-	 *
 	 */
 	public void claimUnclaimStatus() {
 		common.pause(10);
@@ -732,7 +728,7 @@ public class AddMaterialMaster extends Locators {
 		common.click(inboxMenu);
 
 		common.waitUntilElementToBeVisible(firstActionIconForInbox);
-		common.findElementBy(firstActionIconForInbox,"Click on first value action button").click();
+		common.findElementBy(firstActionIconForInbox, "Click on first value action button").click();
 
 		common.pause(5);
 		common.waitUntilElementToBeVisible(claim);
@@ -740,7 +736,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(claim).click();
 
 		//wait for success message
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
+		common.waitUntilElementToBeVisible(successMessageToast);
 
 		common.log("Click on my request");
 		common.pause(10);
@@ -756,7 +752,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 		if (common.isElementDisplayed(lblText)) {
 			//wait for label text
-			common.findElementBy(lblText,"Process log verified");
+			common.findElementBy(lblText, "Process log verified");
 		}
 
 		common.pause(10);
@@ -776,10 +772,10 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 
 		common.waitUntilElementToBeVisible(firstActionIconForInbox);
-		common.findElementBy(firstActionIconForInbox,"Click on first value action icon").click();
+		common.findElementBy(firstActionIconForInbox, "Click on first value action icon").click();
 
 		common.waitUntilElementToBeVisible(processLog);
-		common.findElementBy(processLog,"Click on process log").click();
+		common.findElementBy(processLog, "Click on process log").click();
 
 		common.pause(5);
 		common.waitUntilElementToBeVisible(lblText);
@@ -808,7 +804,6 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Save as a Draft
-	 *
 	 */
 	public void saveDraft() {
 		common.pause(10);
@@ -826,7 +821,7 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed(firstActionIconForInbox)) {
 
 			common.waitUntilElementToBeVisible(firstActionIconForInbox);
-			common.findElementBy(firstActionIconForInbox,"Click on action icon for first value").click();
+			common.findElementBy(firstActionIconForInbox, "Click on action icon for first value").click();
 			common.pause(10);
 
 			common.log("Click on my approve");
@@ -851,7 +846,6 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Update Existing Record Scenario
-	 *
 	 */
 	public void doUpdate() {
 		common.log("Click on Data tab");
@@ -859,7 +853,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(dataTab).click();
 
 		common.pause(5);
-		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.refreshPage();
 
 		common.waitUntilElementToBeVisible(materialMaster);
@@ -882,18 +876,16 @@ public class AddMaterialMaster extends Locators {
 		common.log("Set filter status as a system");
 		common.findElement(statusFilter).sendKeys("System");
 		common.pause(10);
-		common.findElementBy(actionIconForFirstValue,"Click on action icon for first value").click();
+		common.findElementBy(actionIconForFirstValue, "Click on action icon for first value").click();
 
 		common.log("Click on edit");
 		common.findElement(edit).click();
 		common.pause(10);
 
-		if(common.isElementDisplayed(sequentialMaterialOption))
-		{
+		if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
 			common.pause(5);
-		}
-		else {
+		} else {
 
 			common.log("Click on material master workflow role");
 			common.findElement(materialMasterRecordOption).click();
@@ -929,8 +921,7 @@ public class AddMaterialMaster extends Locators {
 
 			common.log("No duplicate records");
 		}
-		if(common.isElementDisplayed(errorMessage))
-		{
+		if (common.isElementDisplayed(errorMessage)) {
 			common.log("Something went error appear");
 			common.refreshPage();
 			common.pause(10);
@@ -942,8 +933,7 @@ public class AddMaterialMaster extends Locators {
 			common.log("Click on save button");
 			common.findElement(uSaveBtn).click();
 			common.pause(10);
-		}
-		else {
+		} else {
 
 			common.log("No Something went error");
 		}
@@ -961,7 +951,6 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Copy Existing Record
-	 *
 	 */
 	public void copyRecord() {
 		common.log("Click on Data tab");
@@ -969,7 +958,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(dataTab).click();
 
 		common.pause(5);
-		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.refreshPage();
 
 		common.log("Click on Material master from left nav");
@@ -1001,11 +990,9 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(copy).click();
 		common.pause(5);
 
-		if (common.isElementDisplayed(sequentialMaterialOption))
-		{
-			common.findElementBy(sequentialMaterialOption,"Select Sequential material option").click();
-		}
-		else {
+		if (common.isElementDisplayed(sequentialMaterialOption)) {
+			common.findElementBy(sequentialMaterialOption, "Select Sequential material option").click();
+		} else {
 			common.log("Click on material workflow");
 			common.findElement(materialMasterRecordOption).click();
 			common.pause(5);
@@ -1080,9 +1067,9 @@ public class AddMaterialMaster extends Locators {
 
 
 	}
+
 	/**
 	 * verify Copy Record And Remove One Hierarchy Other Should NotRemove
-	 *
 	 */
 
 	public void verify_Copy_Record_And_Remove_One_Hierarchy_Other_Should_Not_Remove() {
@@ -1091,7 +1078,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElement(dataTab).click();
 
 		common.pause(5);
-		common.findElementBy(dataTab,"Click on Data tab").click();
+		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.refreshPage();
 
 		common.log("Click on Material master from left nav");
@@ -1112,7 +1099,7 @@ public class AddMaterialMaster extends Locators {
 		common.log("Material master number is : " + mmN);
 
 		common.pause(10);
-		common.findElementBy(actionIconForFirstValue,"Click on action icon for first value").click();
+		common.findElementBy(actionIconForFirstValue, "Click on action icon for first value").click();
 
 		common.log("Click on copy");
 		common.pause(5);
@@ -1162,13 +1149,13 @@ public class AddMaterialMaster extends Locators {
 
 		common.pause(5);
 		common.waitUntilElementToBeVisible(valuationPlusIcon);
-		common.findElementBy(valuationPlusIcon,"Click on + icon for Valuation hierarchy").click();
+		common.findElementBy(valuationPlusIcon, "Click on + icon for Valuation hierarchy").click();
 		common.pause(5);
 
-		common.findElementBy(valuationFirstOption,"Select first option from Valuation hierarchy").click();
+		common.findElementBy(valuationFirstOption, "Select first option from Valuation hierarchy").click();
 		common.pause(5);
 
-		common.findElementBy(applyBtn,"Click on Apply button").click();
+		common.findElementBy(applyBtn, "Click on Apply button").click();
 		common.pause(10);
 
 		common.findElementBy(industrySec, "Select other value from Industry sector dropdown").click();
@@ -1228,7 +1215,6 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Rejection Flow from Approver
-	 *
 	 */
 	public void rejectionFlowFromApprover() {
 		common.pause(10);
@@ -1239,7 +1225,7 @@ public class AddMaterialMaster extends Locators {
 		common.refreshPage();
 		common.pause(25);
 
-		common.findElementBy(inboxMenu,"Click on inbox Menu").click();
+		common.findElementBy(inboxMenu, "Click on inbox Menu").click();
 		common.findElement(inboxMenu).click();
 		common.pause(15);
 
@@ -1247,7 +1233,7 @@ public class AddMaterialMaster extends Locators {
 		if (common.isElementDisplayed(firstActionIconForInbox)) {
 
 			common.waitUntilElementToBeVisible(firstActionIconForInbox);
-			common.findElementBy(firstActionIconForInbox,"Click on action button for first value").click();
+			common.findElementBy(firstActionIconForInbox, "Click on action button for first value").click();
 			common.pause(10);
 
 			common.log("Click on approve");
@@ -1265,9 +1251,9 @@ public class AddMaterialMaster extends Locators {
 			common.pause(5);
 
 			common.waitUntilElementToBeVisible(rejectionCommentBox);
-			common.findElementBy(rejectionCommentBox,"Enter rejection comment").sendKeys("Rejected new record");
+			common.findElementBy(rejectionCommentBox, "Enter rejection comment").sendKeys("Rejected new record");
 
-			common.findElementBy(submitButtonRejectionFlow,"Click on Submit for rejection Flow").click();
+			common.findElementBy(submitButtonRejectionFlow, "Click on Submit for rejection Flow").click();
 			common.pause(10);
 
 			//wait for My request tab present
@@ -1281,7 +1267,6 @@ public class AddMaterialMaster extends Locators {
 
 	/**
 	 * Verify Rejection Flow from Reviewer
-	 *
 	 */
 	public void rejectionFlowFromReviewer() {
 		common.pause(10);
@@ -1328,54 +1313,53 @@ public class AddMaterialMaster extends Locators {
 			common.log("No records available");
 		}
 	}
+
 	/**
 	 * Re-Approve Rejected Task Status With Extend Plant Data
-	 *
 	 */
 	public void reApprove_Rejected_Task_Status_With_Extend_Plant_Data() {
 
 		//wait for Home tab
 		common.waitUntilElementToBeVisible(homeTab);
-		common.findElementBy(homeTab,"Click on Home tab").click();
+		common.findElementBy(homeTab, "Click on Home tab").click();
 		common.pause(5);
 
 		//wait for Inbox menu
 		common.waitUntilElementToBeVisible(myReqTab);
-		common.findElementBy(myReqTab,"Click on My Request menu").click();
+		common.findElementBy(myReqTab, "Click on My Request menu").click();
 		common.pause(5);
 
 		//wait for first value
 		common.waitUntilElementToBeVisible(firstActionIconForInbox);
-		common.findElementBy(firstActionIconForInbox,"Click on action menu for first row").click();
+		common.findElementBy(firstActionIconForInbox, "Click on action menu for first row").click();
 
 		common.log("Click on approve");
 		common.waitUntilElementToBeVisible(approveBtn);
 		common.findElement(approveBtn).click();
 
 		common.waitUntilElementToBeVisible(headerData);
-		common.findElementBy(headerData,"Verify Header data appear");
+		common.findElementBy(headerData, "Verify Header data appear");
 
-		if (common.isElementDisplayed(sequentialHeader))
-		{
-			common.findElementBy(materialDescReviewer,"Enter value in Material description field").sendKeys("Material desc 123");
+		if (common.isElementDisplayed(sequentialHeader)) {
+			common.findElementBy(materialDescReviewer, "Enter value in Material description field").sendKeys("Material desc 123");
 			//	common.findElementBy(oldMaterialNumField,"Enter old Material number").sendKeys("54321");
-			common.findElementBy(divisionField,"Select value from Division dropdown").click();
+			common.findElementBy(divisionField, "Select value from Division dropdown").click();
 			common.waitUntilElementToBeVisible(dropValue);
 			common.findElement(dropValue).click();
 		}
 		common.waitUntilElementToBeVisible(addPlantData);
-		common.findElementBy(addPlantData,"Click on Add Plant data").click();
+		common.findElementBy(addPlantData, "Click on Add Plant data").click();
 		common.waitUntilElementToBeVisible(searchPlantData);
 		WebElement valueChecked = driver.findElement(By.xpath("//input[@aria-checked='true']"));
 		if (common.isElementDisplayed(valueChecked)) {
 			common.findElementBy(valueChecked, "Uncheck the selected hierarchy").click();
 		}
-		common.findElementBy(searchPlantData,"Enter value 004").sendKeys("0004");
+		common.findElementBy(searchPlantData, "Enter value 004").sendKeys("0004");
 		common.waitUntilElementToBeVisible(searchedPantValue);
 		common.pause(5);
-		common.findElementBy(searchedPantValue,"Select searched value").click();
+		common.findElementBy(searchedPantValue, "Select searched value").click();
 		common.pause(5);
-		common.findElementBy(applyFilterButton,"Click on apply button").click();
+		common.findElementBy(applyFilterButton, "Click on apply button").click();
 		common.pause(5);
 		if (common.isElementDisplayed(planingCycleField)) {
 			common.findElementBy(planingCycleField, "Fill planing cycle field").sendKeys("10");
@@ -1387,7 +1371,7 @@ public class AddMaterialMaster extends Locators {
 
 		common.waitUntilElementToBeVisible(successMessageToast);
 		String successStr = common.findElement(successMessageToast).getText();
-		common.log("Message display: "+successStr);
+		common.log("Message display: " + successStr);
 		common.waitUntilElementToBeVisible(inboxMenu);
 	}
 }

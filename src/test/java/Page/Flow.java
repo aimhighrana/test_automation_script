@@ -1,15 +1,12 @@
 package Page;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-
+import ServiceHelper.AuthenticationService;
+import ServiceHelper.EnvironmentService;
+import Utils.Common;
+import Utils.Locators;
+import au.com.bytecode.opencsv.CSVWriter;
+import contracts.IAuthenticationService;
+import contracts.IEnvironmentService;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
@@ -18,13 +15,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import ServiceHelper.AuthenticationService;
-import ServiceHelper.EnvironmentService;
-import Utils.Common;
-import Utils.Locators;
-import au.com.bytecode.opencsv.CSVWriter;
-import contracts.IAuthenticationService;
-import contracts.IEnvironmentService;
+import java.io.*;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 public class Flow extends Locators {
 

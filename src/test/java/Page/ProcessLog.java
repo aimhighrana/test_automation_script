@@ -1,23 +1,22 @@
 package Page;
 
-import static org.testng.Assert.assertEquals;
-
-import java.io.FileNotFoundException;
-import java.util.List;
-import java.util.Properties;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
 import ServiceHelper.AuthenticationService;
 import ServiceHelper.EnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import contracts.IAuthenticationService;
 import contracts.IEnvironmentService;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.Properties;
+
+import static org.testng.Assert.assertEquals;
 
 public class ProcessLog extends Locators {
 
@@ -97,7 +96,7 @@ public class ProcessLog extends Locators {
 			}
 
 			//If record available then it will print
-			if (common.isElementDisplayed((WebElement) By.xpath("//div[@class='message-list f-col']//tr[1]//td[1]"))) {
+			if (common.isElementDisplayed(emailRecords)) {
 				List<WebElement> emailRecords = driver.findElements(By.xpath(String.valueOf(firstRecordOfEmailLogs)));
 
 				for (WebElement e : emailRecords) {
@@ -114,7 +113,7 @@ public class ProcessLog extends Locators {
 			common.jsClick(closeIconForProcessLog);
 		}
 		else {
-			String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
+			String strProcessLog = common.findElementBy(processLogs,"Getting logs from view process log").getText();
 			common.log("View process log: "+strProcessLog);
 		}
 	}
@@ -168,7 +167,7 @@ public class ProcessLog extends Locators {
 			common.findElementBy(chatBoxComment,"Verified chat box");
 		}
 		else {
-			String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
+			String strProcessLog = common.findElementBy(processLogs,"Getting logs from view process log").getText();
 			common.log("View process log: "+strProcessLog);
 		}
 	}
@@ -219,7 +218,7 @@ public class ProcessLog extends Locators {
 
 		}
 		else {
-			String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
+			String strProcessLog = common.findElementBy(processLogs,"Getting logs from view process log").getText();
 			common.log("View process log: "+strProcessLog);
 		}
 	}
@@ -287,7 +286,7 @@ public class ProcessLog extends Locators {
 
 		}
 		else {
-			String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
+			String strProcessLog = common.findElementBy(processLogs,"Getting logs from view process log").getText();
 			common.log("View process log: "+strProcessLog);
 		}
 
@@ -311,7 +310,8 @@ public class ProcessLog extends Locators {
 			else
 			{
 				common.findElementBy(closeIconForProcessLog,"Close Process log view").click();
-				common.findElementBy((WebElement) By.xpath("//tbody/tr[1]/td["+i+"]//..//button//span//mat-icon"),"Click on action icon for next record").click();
+				WebElement nextRecord =driver.findElement(By.xpath("//tbody/tr[1]/td["+i+"]//..//button//span//mat-icon"));
+				common.findElementBy(nextRecord,"Click on action icon for next record").click();
 
 				common.waitUntilElementToBeVisible(viewPLog);
 				common.findElementBy(viewPLog, "Select view process log option").click();
@@ -325,7 +325,7 @@ public class ProcessLog extends Locators {
 
 				}
 				else {
-					String strProcessLog = common.findElementBy((WebElement) By.xpath("//div[@class='mdo-notice f-row mdo-notice-info']"),"Getting logs from view process log").getText();
+					String strProcessLog = common.findElementBy(processLogs,"Getting logs from view process log").getText();
 					common.log("View process log: "+strProcessLog);
 				}
 			}
@@ -473,9 +473,10 @@ public class ProcessLog extends Locators {
 		for (int i =0; i<str1.length;i++)
 		{
 			int j = i+1;
-			if (common.isElementDisplayed((WebElement) By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td[1]")))
+			WebElement records = driver.findElement(By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td["+j+"]"));
+			if (common.isElementDisplayed(records))
 			{
-				String str = common.findElement((WebElement) By.xpath("//div[3]/table[1]/tbody[1]/tr[1]/td["+j+"]")).getText();
+				String str = common.findElement(records).getText();
 				common.log(str1[i]+":"+str);
 			}
 		}

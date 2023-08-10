@@ -102,7 +102,8 @@ public abstract class Locators extends BasePage {
 	protected WebElement expandValuationData;
 	@FindBy(xpath = "//tbody/tr[1]/td[3]")
 	protected WebElement materialMasterNum;
-
+	@FindBy(xpath = "//mat-card[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")
+	protected WebElement searchedValue;
 
 	// <! New record Page Locators !>
 	@FindBy(xpath = "//p[contains(text(),'Material Master')]")
@@ -159,8 +160,14 @@ public abstract class Locators extends BasePage {
 	protected WebElement dropValue;
 	@FindBy(xpath = "//div[@role='listbox']//mat-option[1]")
 	protected WebElement dropValue1;
-	@FindBy(xpath = "//button[normalize-space()='SequentialMaterial'] | //button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow']")
+	@FindBy(xpath = "//button[normalize-space()='SequentialMaterial'] | //button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow'] | //button[normalize-space()='Sequential Flow']")
 	protected WebElement sequentialMaterialOption;
+
+	/**
+	 * material creation flow fields
+	 */
+	@FindBy(xpath = "//p[normalize-space()='Material Type']//..//..//div//input")
+	protected WebElement materialType;
 	@FindBy(xpath = "//p[normalize-space()='X-Plant Material Status']//..//..//div//mat-icon")
 	protected WebElement xPlantMaterialStatusField;
 	@FindBy(xpath = "//div[@role='listbox']//mat-option[3]//span")
@@ -179,6 +186,9 @@ public abstract class Locators extends BasePage {
 	protected WebElement plantvalue;
 	@FindBy(xpath = "//span[contains(text(),' Apply ')]")
 	protected WebElement applyBtn;
+	@FindBy(xpath = "//input[@aria-checked='true']")
+	protected WebElement selectedHierarchy;
+
 	@FindBy(xpath = "//p[normalize-space()='MRP Type']//..//..//mat-icon")
 	protected WebElement mrpType;
 	@FindBy(xpath = "//p[contains(text(),'MRP Type')]")
@@ -478,17 +488,10 @@ public abstract class Locators extends BasePage {
 	protected WebElement firstOptionFilter;
 	@FindBy(xpath = "//tbody/tr[1]")
 	protected WebElement firstRecordFromList;
-
 	@FindBy(xpath = "//lib-section[@text='Flows']//..//button[1]")
 	protected WebElement flowList;
 	@FindBy(xpath = "//button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow']")
 	protected WebElement materialCreationRecord;
-	@FindBy(xpath = "//p[normalize-space()='Material Type']//..//..//div//input")
-	protected WebElement materialTypeField;
-
-	@FindBy(xpath = "//p[@class='small strong no-wrap ng-star-inserted'][normalize-space()='Material Type']//..//..//div//input")
-	protected WebElement materialType;
-
 	@FindBy(xpath = "//span[normalize-space()='ERSA -- Spare Part']")
 	protected WebElement sparePartMaterialOption;
 	@FindBy(xpath = "//div[@class='cdk-overlay-pane']")
@@ -499,14 +502,20 @@ public abstract class Locators extends BasePage {
 	protected WebElement industrySectorField;
 	@FindBy(xpath = "//p[normalize-space()='Plant Data']//..//..//..//p[normalize-space()='Add...']")
 	protected WebElement plantDataAddHierarchy;
+	@FindBy(xpath = "//p[normalize-space()='Sales Data']//..//..//..//p[normalize-space()='Add...']")
+	protected WebElement salesDataAddHierarchy;
+
 	@FindBy(xpath = "//span[contains (text(),'0002')]")
 	protected WebElement plantDataOption0002;
 	@FindBy(xpath = "//div[@class='dropdown-search-wrapper']//mat-icon[@role='img'][normalize-space()='search']//..//input")
 	protected WebElement searchBoxHierarchy;
-	@FindBy(xpath = "//span[@class='mat-checkbox-inner-container']")
+	@FindBy(xpath = "//div[@class='dropdown-option text-overflow']//label")
 	protected WebElement selectSearchedOption;
 	@FindBy(xpath = "//p[normalize-space()='Valuation Data']//..//..//..//p[normalize-space()='Add...']")
 	protected WebElement valuationDataAddHierarchy;
+	@FindBy(xpath = "//lib-text-line[contains(text(),'Sales Organisation:0001 -- Sales Org. 001')]")
+	protected WebElement salesOrganisationData;
+
 	@FindBy(xpath = "//div[@class='mat-chip-list-wrapper']//input")
 	protected WebElement searchClassDropdown;
 	@FindBy(xpath = "//div[@class='dropdown-search-wrapper ng-star-inserted']//div[@class='mdo-search-pill f-row']//input[@placeholder='Search']")
@@ -536,13 +545,15 @@ public abstract class Locators extends BasePage {
 	protected WebElement firstOptionFromHierarchy;
 	@FindBy(xpath = "//span[@class='mat-checkbox-inner-container']")
 	protected WebElement searchedPantValue;
-	@FindBy(xpath = "//h4[normalize-space()='Language Grid']//..//..//mat-icon[text()='plus']")
+	@FindBy(xpath = "//h4[normalize-space()='Language Grid']//..//..//mat-icon[text()='plus'] | //h5[normalize-space()='Language Grid']//..//..//mat-icon[text()='plus']")
 	protected WebElement addRowLanguageGrid;
 	@FindBy(xpath = "//p[normalize-space()='Language']//..//..//div//input")
 	protected WebElement languageInput;
 	@FindBy(xpath = "//span[normalize-space()='de -- German']")
 	protected WebElement germanLanguage;
-	@FindBy(xpath = "//mat-label[@class='mdo-field-label mdo-required ng-star-inserted']//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Material Description']//..//..//..//div//input")
+	@FindBy(xpath = "//span[normalize-space()='ar -- Arabic']")
+	protected WebElement arabicLanguage;
+	@FindBy(xpath = "//p[normalize-space()='Material Description']//..//..//..//div//input")
 	protected WebElement materialDescFormView;
 	@FindBy(xpath = "//div[@class='mdo-constrained-right']//lib-button[@type='major']")
 	protected WebElement saveFormView;
@@ -604,4 +615,22 @@ public abstract class Locators extends BasePage {
 	protected WebElement shortDescriptionField;
 	@FindBy(xpath = "//div[contains (text(),'Long description')]//..//..//div//textarea")
 	protected WebElement longDescriptionField;
+	@FindBy(xpath = "//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p")
+	protected WebElement duplicateRecords;
+	@FindBy(xpath = "//p[@class='small ng-star-inserted']")
+	protected WebElement errorsForRule;
+	@FindBy(xpath = "//p[normalize-space()='Fix the following errors to proceed']")
+	protected WebElement followingErrorToProceed;
+	@FindBy(xpath = "//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div[1]//p")
+	protected WebElement errors;
+	@FindBy(xpath = "//div[@class='message-list f-col']//tr[1]//td[1]")
+	protected WebElement emailRecords;
+
+	@FindBy(xpath = "//div[@class='mdo-notice f-row mdo-notice-info']")
+	protected WebElement processLogs;
+
+
+
+
+
 }

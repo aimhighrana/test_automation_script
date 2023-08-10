@@ -1,18 +1,17 @@
 package Page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.PageFactory;
-
 import ServiceHelper.AuthenticationService;
 import ServiceHelper.EnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import contracts.IAuthenticationService;
 import contracts.IEnvironmentService;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends Locators {
 
@@ -69,7 +68,8 @@ public class HomePage extends Locators {
 		common.findElementBy(inboxMenu, "Click on Inbox menu").click();
 		common.waitUntilElementToBeVisible(firstActionIconForInbox);
 
-		String recordNumber =  common.findElement((WebElement) By.xpath("//tbody/tr[1]/td[3]//p")).getText();
+		WebElement firstRecord = driver.findElement(By.xpath("//tbody/tr[1]/td[3]//p"));
+		String recordNumber =  common.findElement(firstRecord).getText();
 		common.log("1st Record number in Inbox menu: " + recordNumber);
 
 		common.findElementBy(firstActionIconForInbox, "Click on action icon for first record").click();
@@ -95,8 +95,9 @@ public class HomePage extends Locators {
 			common.waitUntilElementToBeVisible(firstActionIconForInbox);
 
 			for (int i = 1; i <= 5; i++) {
-				common.waitUntilElementToBeVisible((WebElement) By.xpath("//tbody/tr[" + i + "]"));
-				String recordWithReason = common.findElement((WebElement) By.xpath("//tbody/tr[" + i + "]")).getText();
+				WebElement firstRow = driver.findElement(By.xpath("//tbody/tr[" + i + "]"));
+				common.waitUntilElementToBeVisible(firstRow);
+				String recordWithReason = common.findElement(firstRow).getText();
 				common.log(i + " Record with reason: " + recordWithReason);
 			}
 		}
@@ -233,7 +234,9 @@ public class HomePage extends Locators {
 
 		common.waitUntilElementToBeVisible(inProgressMenu);
 		common.findElementBy(inProgressMenu, "Click on In Progress menu").click();
-		common.pause(10);
+		common.pause(5);
+		common.findElement(myReqTab).click();
+		common.findElement(inProgressMenu).click();
 
 		common.waitUntilElementToBeVisible(firstActionIconForInbox);
 		for (int i = 1; i <= 2; i++) {
@@ -246,7 +249,7 @@ public class HomePage extends Locators {
 			}
 		}
 		common.findElementBy(firstActionIconForInbox, "Click on action menu for first record").click();
-
+		common.pause(5);
 		common.findElementBy(viewProcessLogOption, "View process log option is available");
 
 	}

@@ -1,24 +1,20 @@
-// region Packages & Imports
 package Page;
 
-import java.io.FileNotFoundException;
-import java.util.Properties;
-
+import ServiceHelper.AuthenticationService;
+import ServiceHelper.EnvironmentService;
+import Utils.Common;
+import Utils.Entity.UserCredential;
+import Utils.Enums.UserLoginRole;
+import Utils.Locators;
+import contracts.IAuthenticationService;
+import contracts.IEnvironmentService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import ServiceHelper.AuthenticationService;
-import ServiceHelper.EnvironmentService;
-import Utils.Common;
-import Utils.Locators;
-import Utils.Entity.UserCredential;
-import Utils.Enums.UserLoginRole;
-import contracts.IAuthenticationService;
-import contracts.IEnvironmentService;
-
-//endregion
+import java.io.FileNotFoundException;
+import java.util.Properties;
 
 public class LoginPage extends Locators {
 
@@ -28,27 +24,22 @@ public class LoginPage extends Locators {
 	IAuthenticationService authenticationService;
 	IEnvironmentService environmentService;
 
-	// region constructors
 	/**
-	 * Verify Login Page Driver
+	 * Verifyf Login Page Driver
 	 *
 	 * @param driver
 	 * @throws FileNotFoundException
 	 */
 	public LoginPage(WebDriver driver) throws FileNotFoundException {
+		// driver = d;
 		super(driver);
 		common = new Common(driver);
 		PageFactory.initElements(this.driver, this);
 		authenticationService = new AuthenticationService();
 		environmentService = new EnvironmentService();
+
 	}
-	// end region
-
-	// region private methods
-
-
 	private void userLoginProcess(UserLoginRole loggedinUserRole) {
-		common.log(environmentName);
 		UserCredential userCredential = authenticationService.getCredentials(loggedinUserRole,environmentName);
 
 		common.log("Entering username: " + userCredential.getUsername());
@@ -102,12 +93,17 @@ public class LoginPage extends Locators {
 			common.findElement(signOut).click();
 			common.pause(10);
 		}
+
+		/**
+		 * For ALl Environment
+		 *
+		 */
 		userLoginProcess(UserLoginRole.INITIATOR);
+
 		common.log("Click on login button");
 		common.waitUntilElementToBeVisible(loginBtn);
 		common.findElement(loginBtn).click();
 		common.pause(10);
-
 
 		//Wait for options after login to select QA Sandbox or Tenant 1 or Home page
 		common.waitUntilElementToBeVisible(optionsAsPerEnv);
@@ -136,7 +132,7 @@ public class LoginPage extends Locators {
 	 */
 	public void reviewer_SignIn() {
 
-		// Sign out the approver
+		//Sign out the approver
 		if (common.isDisplayed(profileIcon)) {
 			common.pause(10);
 			common.findElementBy(profileIcon,"Click on profile icon").click();
@@ -153,18 +149,18 @@ public class LoginPage extends Locators {
 		common.pause(5);
 
 		//Wait for options after login to select QA Sandbox or Tenant 1 or Home page
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("(//div[@class='mat-list-item-content'])[1]"));
+		common.waitUntilElementToBeVisible(optionsAsPerEnv);
 
 		//if SANDBOX env is there then select QA Sandbox option
-		if (common.isElementDisplayed((WebElement) By.xpath("//p[normalize-space()='QA Sandbox']")))
+		if (common.isElementDisplayed(qaSandboxOption))
 		{
-			common.findElementBy((WebElement) By.xpath("//p[normalize-space()='QA Sandbox']"), "Click on QA sandbox").click();
+			common.findElementBy(qaSandboxOption, "Click on QA sandbox").click();
 		}
 
 		//if QAR env is there then select Tenant 1 option
-		if (common.isElementDisplayed((WebElement) By.xpath("//p[normalize-space()='Tenant 1']")))
+		if (common.isElementDisplayed(tenant1Option))
 		{
-			common.findElementBy((WebElement) By.xpath("//p[normalize-space()='Tenant 1']"),"Select Tenant 1").click();
+			common.findElementBy(tenant1Option,"Select Tenant 1").click();
 		}
 		common.waitUntilElementToBeVisible(homeTab);
 		common.findElementBy(homeTab,"verify Home page appear");
@@ -213,7 +209,7 @@ public class LoginPage extends Locators {
 		common.log("Open Url");
 		String URL = getPropertyValue("urlProd");
 
-		common.log("Open URL: " + URL);
+		common.log("Open URL: "+URL);
 		driver.get(URL);
 
 		common.log("Enter the value in organization field");

@@ -1,20 +1,18 @@
 package Page;
-
-import java.io.FileNotFoundException;
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
 import ServiceHelper.AuthenticationService;
 import ServiceHelper.EnvironmentService;
 import Utils.Common;
 import Utils.Locators;
 import contracts.IAuthenticationService;
 import contracts.IEnvironmentService;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import java.io.FileNotFoundException;
+import java.util.List;
 
 public class MaterialCreation extends Locators {
 
@@ -70,7 +68,7 @@ public class MaterialCreation extends Locators {
 		if (common.isElementDisplayed(materialCreationRecord)) {
 			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
 
-			common.waitUntilElementToBeVisible(materialTypeField);
+			common.waitUntilElementToBeVisible(materialType);
 
 			common.waitUntilElementToBeVisible(addRowLanguageGrid);
 			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
@@ -81,7 +79,7 @@ public class MaterialCreation extends Locators {
 			common.waitUntilElementToBeVisible(germanLanguage);
 			common.findElementBy(germanLanguage, "Select German language from option").click();
 
-			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("Test");
+			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("New Material");
 			common.findElementBy(saveFormView, "Click on save on form view").click();
 
 			common.waitUntilElementToBeVisible(germanLanguage);
@@ -89,24 +87,25 @@ public class MaterialCreation extends Locators {
 		} else if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
 
-			common.waitUntilElementToBeVisible(materialTypeField);
+			common.waitUntilElementToBeVisible(materialType);
+			String strMaterialType = common.findElement(materialType).getAttribute("value");
+			common.log("Verified Material Type field: " + strMaterialType);
 
-			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
+			String strMaterialGroup = common.findElement(materialGroupField).getAttribute("value");
+			common.log("Verified Material Group field: " + strMaterialGroup);
+
+			String strIndustrySector = common.findElement(industrySectorField).getAttribute("value");
+			common.log("Verified Industry sector field: " + strIndustrySector);
+
+			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status dropdown").click();
 			common.findElement(xPlantMaterialStatusField).click();
 			common.pause(5);
 			common.waitUntilElementToBeVisible(dropValue);
-			common.findElementBy(dropValue, "Select option").click();
+			common.findElementBy(dropValue, "Select option from x-plant material status dropdown").click();
+
+			common.findElementBy(materialDescFormView,"Enter material description").sendKeys("New material");
 
 		}
-
-		String strMaterialType = common.findElement(materialTypeField).getAttribute("value");
-		common.log("Verified Material Type field: " + strMaterialType);
-
-		String strMaterialGroup = common.findElement(materialGroupField).getAttribute("value");
-		common.log("Verified Material Group field: " + strMaterialGroup);
-
-		String strIndustrySector = common.findElement(industrySectorField).getAttribute("value");
-		common.log("Verified Industry sector field: " + strIndustrySector);
 
 		common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
 		common.waitUntilElementToBeVisible(searchBoxHierarchy);
@@ -118,38 +117,9 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(applyBtn, "Click on Apply button").click();
 
 		//added wait for auto populate the hierarchy valuation and forecast
-		common.pause(30);
-		common.jsClick(materialDescLabel);
+		common.pause(5);
 		common.waitUntilElementToBeVisible(valuationDataAddHierarchy);
 
-		//Double click on material description label for auto populate hierarchy
-
-		common.jsClick(materialDescLabel);
-
-//		common.findElementBy(valuationDataAddHierarchy, "Click on Valuation Data - add... button").click();
-//		common.pause(10);
-//		common.waitUntilElementToBeVisible(searchBoxHierarchy);
-//		common.findElementBy(searchBoxHierarchy, "Search value: N.A -- Not Applicable").sendKeys("N.A");
-//		common.pause(5);
-//		common.waitUntilElementToBeVisible(selectSearchedOption);
-//		common.pause(5);
-//		if (common.isElementDisplayed("//input[@aria-checked='true']//.."))
-//		{
-//			common.log("Already checked checkbox");
-//		}
-//		else {
-//			common.findElementBy(selectSearchedOption, "Select searched option").click();
-//		}
-//		common.findElementBy(applyBtn, "Click on Apply button").click();
-		common.pause(30);
-		common.waitUntilElementToBeVisible(planingCycleField);
-//		common.waitUntilElementToBeVisible(valuationTypeField);
-//
-//		String strValuationType = common.findElement(valuationTypeField).getAttribute("value");
-//		common.log("Verified Valuation Type field: " + strValuationType);
-
-//		common.findElementBy(scenarioIdDisabled, "Verify Scenario ID field is disabled");
-//
 		if (common.isElementDisplayed(searchClassDropdown)) {
 			common.findElementBy(searchClassDropdown, "Click on Search class dropdown").click();
 			common.waitUntilElementToBeVisible(searchBoxClassDropdown);
@@ -188,15 +158,15 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(addForecastHierarchy,"Click on Add for forecast parameters").click();
 			common.pause(5);
 			common.findElement(applyFilterButton).click();
-			common.pause(10);
+			common.pause(5);
 			common.waitUntilElementToBeVisible(lastForecastField);
 			common.findElementBy(dnuFixedPeriods, "Fill DNU Fixed periods field").sendKeys("5");
 			common.findElementBy(lastForecastField, "Fill last forecast field").sendKeys("10");
 		}
 		common.findElementBy(submitBtn, "Click on submit button").click();
 		common.pause(10);
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-		String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+		common.waitUntilElementToBeVisible(successMessageToast);
+		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: "+successStr);
 		common.waitUntilElementToBeVisible(dataTab);
 
@@ -285,10 +255,10 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(plantDataAddHierarchy,"Click on Add plant data hierarchy").click();
 			common.waitUntilElementToBeVisible(plantDataOption0002);
 			common.pause(5);
-			if (common.isElementDisplayed((WebElement) By.xpath("//input[@aria-checked='true']")))
+			if (common.isElementDisplayed(selectedHierarchy))
 			{
 				common.log("Uncheck the selected hierarchy");
-				common.jsClick((WebElement) By.xpath("//input[@aria-checked='true']"));
+				common.jsClick(selectedHierarchy);
 			}
 			common.findElementBy(plantDataOption0002,"Select option '0002'").click();
 			common.findElementBy(applyFilterButton,"Click on Apply button").click();
@@ -314,8 +284,8 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(plantDataAddHierarchy, "Click on Add plant data hierarchy").click();
 			common.waitUntilElementToBeVisible(plantDataOption0002);
 			//Verify if searched value is already selected
-			if (common.isElementDisplayed((WebElement) By.xpath("//input[@aria-checked='true']"))) {
-				common.findElementBy((WebElement) By.xpath("//input[@aria-checked='true']"), "Uncheck the selected hierarchy").click();
+			if (common.isElementDisplayed(selectedHierarchy)) {
+				common.findElementBy(selectedHierarchy, "Uncheck the selected hierarchy").click();
 			}
 			common.findElementBy(plantDataOption0002, "Select option '0002'").click();
 			common.findElementBy(applyFilterButton, "Click on Apply button").click();
@@ -397,7 +367,7 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(saveFormView, "Click on save on form view").click();
 			common.waitUntilElementToBeVisible(germanLanguage);
 
-			common.findElementBy(materialTypeField, "Click on material type field").click();
+			common.findElementBy(materialType, "Click on material type field").click();
 			common.pause(5);
 			common.findElementBy(dropValue3, "Select value from options").click();
 			common.pause(5);
@@ -418,8 +388,8 @@ public class MaterialCreation extends Locators {
 		common.findElement(uSaveBtn).click();
 		common.pause(2);
 
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-		String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+		common.waitUntilElementToBeVisible(successMessageToast);
+		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: "+successStr);
 
 		//Verifying Data tab visible
@@ -444,7 +414,7 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(viewRecord, "Click on View record link text").click();
 
 			common.pause(10);
-			String duplicateRecordStr = common.findElement((WebElement) By.xpath("//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p")).getText();
+			String duplicateRecordStr = common.findElement(duplicateRecords).getText();
 			common.log("Duplicate Object number: " + duplicateRecordStr);
 		}
 		else {
@@ -506,7 +476,7 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(viewRecord, "Click on View record link text").click();
 
 			common.pause(10);
-			String duplicateRecordStr = common.findElement((WebElement) By.xpath("//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p")).getText();
+			String duplicateRecordStr = common.findElement(duplicateRecords).getText();
 			common.log("Duplicate Object number: " + duplicateRecordStr);
 		}
 		else {
@@ -572,7 +542,7 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(viewRecord, "Click on View record link text").click();
 
 			common.pause(10);
-			String duplicateRecordStr = common.findElement((WebElement) By.xpath("//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p")).getText();
+			String duplicateRecordStr = common.findElement(duplicateRecords).getText();
 			common.log("Duplicate Object number: " + duplicateRecordStr);
 		}
 		else {
@@ -670,7 +640,7 @@ public class MaterialCreation extends Locators {
 		{
 			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
 
-			common.waitUntilElementToBeVisible(materialTypeField);
+			common.waitUntilElementToBeVisible(materialType);
 
 			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
 			common.findElement(xPlantMaterialStatusField).click();
@@ -684,7 +654,7 @@ public class MaterialCreation extends Locators {
 			common.waitUntilElementToBeVisible(materialCreationRecord);
 			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
 
-			common.waitUntilElementToBeVisible(materialTypeField);
+			common.waitUntilElementToBeVisible(materialType);
 
 			common.waitUntilElementToBeVisible(addRowLanguageGrid);
 			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
@@ -713,7 +683,7 @@ public class MaterialCreation extends Locators {
 		if (common.isElementDisplayed(errorMessage)) {
 			common.waitUntilElementToBeVisible(errorMessage);
 
-			String errorStr = common.findElement((WebElement) By.xpath("//p[@class='small ng-star-inserted']")).getText();
+			String errorStr = common.findElement(errorsForRule).getText();
 			common.log("Error showing for UDR rule: " + errorStr);
 		}
 		else {
@@ -734,7 +704,7 @@ public class MaterialCreation extends Locators {
 		if (common.isElementDisplayed(errorMessage)) {
 			common.waitUntilElementToBeVisible(errorMessage);
 
-			String errorStr = common.findElement((WebElement) By.xpath("//p[@class='small ng-star-inserted']")).getText();
+			String errorStr = common.findElement(errorsForRule).getText();
 			common.log("Error showing for UDR rule: " + errorStr);
 		}
 		else {
@@ -757,7 +727,7 @@ public class MaterialCreation extends Locators {
 			common.log("Rule applied");
 			common.waitUntilElementToBeVisible(errorMessage);
 
-			String errorStr = common.findElement((WebElement) By.xpath("//p[@class='small ng-star-inserted']")).getText();
+			String errorStr = common.findElement(errorsForRule).getText();
 			common.log("Error showing for UDR rule: " + errorStr);
 			for (int i = 0; i <= 15; i++) {
 				common.findElement(materialDescReviewer).sendKeys(Keys.BACK_SPACE);
@@ -765,14 +735,14 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(materialDescReviewer, "Enter valid numerical value between 0 TO 9 in Material description field").sendKeys("5");
 			common.findElementBy(submitBtn, "Click on submit button").click();
 			common.pause(2);
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 		else {
 			common.log("Rule not applied");
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 
@@ -793,7 +763,7 @@ public class MaterialCreation extends Locators {
 
 			common.log("Rule applied");
 
-			String errorStr = common.findElement((WebElement) By.xpath("//p[@class='small ng-star-inserted']")).getText();
+			String errorStr = common.findElement(errorsForRule).getText();
 			common.log("Error showing for UDR rule: " + errorStr);
 			common.findElementBy(materialDescReviewer, "Remove value from in Material description field").click();
 			common.pause(5);
@@ -805,14 +775,14 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(submitBtn, "Click on submit button").click();
 			common.pause(10);
 
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 		else {
 			common.log("Rule not applied");
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 	}
@@ -833,7 +803,7 @@ public class MaterialCreation extends Locators {
 			common.log("Rule applied");
 			common.waitUntilElementToBeVisible(errorMessage);
 
-			String errorStr = common.findElement((WebElement) By.xpath("//p[@class='small ng-star-inserted']")).getText();
+			String errorStr = common.findElement(errorsForRule).getText();
 			common.log("Error showing for UDR rule: " + errorStr);
 			common.pause(5);
 			common.findElementBy(materialDescReviewer, "Remove value from in Material description field").click();
@@ -842,15 +812,15 @@ public class MaterialCreation extends Locators {
 
 			common.findElementBy(submitBtn, "Click on submit button").click();
 
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 		else {
 
 			common.log("Rule not applied");
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 	}
@@ -870,7 +840,7 @@ public class MaterialCreation extends Locators {
 			common.waitUntilElementToBeVisible(errorMessage);
 			common.log("Rule applied");
 
-			String errorStr = common.findElement((WebElement) By.xpath("//p[@class='small ng-star-inserted']")).getText();
+			String errorStr = common.findElement(errorsForRule).getText();
 			common.log("Error showing for UDR rule: " + errorStr);
 
 			common.findElementBy(materialDescReviewer, "Click on Material description field").click();
@@ -879,14 +849,14 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(submitBtn, "Click on submit button").click();
 			common.pause(10);
 
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 		else {
 			common.log("Rule not applied");
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 	}
@@ -908,7 +878,7 @@ public class MaterialCreation extends Locators {
 
 			common.waitUntilElementToBeVisible(errorMessage);
 
-			String errorStr = common.findElement((WebElement) By.xpath("//p[@class='small ng-star-inserted']")).getText();
+			String errorStr = common.findElement(errorsForRule).getText();
 			common.log("Error showing for UDR rule: " + errorStr);
 
 			common.findElementBy(materialDescReviewer, "Click on Material description field").click();
@@ -920,15 +890,15 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(submitBtn, "Click on submit button").click();
 			common.pause(10);
 
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 		else {
 			common.log("Rule not applied");
 
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 	}
@@ -949,7 +919,7 @@ public class MaterialCreation extends Locators {
 			common.waitUntilElementToBeVisible(errorMessage);
 			common.log("Rule applied");
 
-			String errorStr = common.findElement((WebElement) By.xpath("//p[@class='small ng-star-inserted']")).getText();
+			String errorStr = common.findElement(errorsForRule).getText();
 			common.log("Error showing for UDR rule: " + errorStr);
 
 			common.findElementBy(materialDescReviewer, "Click on Material description field").click();
@@ -960,14 +930,14 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(materialDescReviewer, "Enter numeric value greater than 10 in Material description field").sendKeys("15");
 			common.findElementBy(submitBtn, "Click on submit button").click();
 			common.pause(10);
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 		else {
 			common.log("Rule not applied");
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-			String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
 			common.log("Message display: " + successStr);
 		}
 
@@ -985,8 +955,8 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElementBy(submitBtn,"Click on submit button").click();
 
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-		String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+		common.waitUntilElementToBeVisible(successMessageToast);
+		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: "+successStr);
 	}
 	/**
@@ -1002,8 +972,8 @@ public class MaterialCreation extends Locators {
 		common.pause(5);
 		common.findElementBy(submitBtn,"Click on submit button").click();
 
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-		String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+		common.waitUntilElementToBeVisible(successMessageToast);
+		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: "+successStr);
 	}
 	public void verify_Description_on_Summary_Page()
@@ -1142,7 +1112,7 @@ public class MaterialCreation extends Locators {
 		if (common.isElementDisplayed(materialCreationRecord)) {
 			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
 
-			common.waitUntilElementToBeVisible(materialTypeField);
+			common.waitUntilElementToBeVisible(materialType);
 
 			common.waitUntilElementToBeVisible(addRowLanguageGrid);
 			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
@@ -1162,7 +1132,7 @@ public class MaterialCreation extends Locators {
 		} else if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption,"Click on Sequential Material flow").click();
 
-			common.waitUntilElementToBeVisible(materialTypeField);
+			common.waitUntilElementToBeVisible(materialType);
 
 			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
 			common.findElement(xPlantMaterialStatusField).click();
@@ -1233,8 +1203,8 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(submitBtn, "Click on submit button").click();
 		common.pause(5);
 
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-		String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+		common.waitUntilElementToBeVisible(successMessageToast);
+		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: "+successStr);
 		common.waitUntilElementToBeVisible(dataTab);
 
@@ -1278,7 +1248,7 @@ public class MaterialCreation extends Locators {
 		if (common.isElementDisplayed(materialCreationRecord)) {
 			common.findElementBy(materialCreationRecord, "Click on Material Creation option").click();
 
-			common.waitUntilElementToBeVisible(materialTypeField);
+			common.waitUntilElementToBeVisible(materialType);
 
 			common.waitUntilElementToBeVisible(addRowLanguageGrid);
 			common.findElementBy(addRowLanguageGrid, "Click on Add row button in Language grid section").click();
@@ -1298,7 +1268,7 @@ public class MaterialCreation extends Locators {
 		} else if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material flow").click();
 
-			common.waitUntilElementToBeVisible(materialTypeField);
+			common.waitUntilElementToBeVisible(materialType);
 
 			common.findElementBy(xPlantMaterialStatusField, "Click on x-plant material status").click();
 			common.findElement(xPlantMaterialStatusField).click();
@@ -1373,8 +1343,8 @@ public class MaterialCreation extends Locators {
 
 		common.findElementBy(submitBtn, "Click on submit button").click();
 
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-		String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+		common.waitUntilElementToBeVisible(successMessageToast);
+		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: " + successStr);
 		common.waitUntilElementToBeVisible(dataTab);
 	}
@@ -1441,9 +1411,9 @@ public class MaterialCreation extends Locators {
 		common.findElementBy(addPlantData,"Click on Add Plant data").click();
 		common.pause(5);
 		common.waitUntilElementToBeVisible(searchPlantData);
-		if (common.isElementDisplayed((WebElement) By.xpath("//input[@aria-checked='true']"))) {
+		if (common.isElementDisplayed(selectedHierarchy)) {
 			common.log("Uncheck the selected hierarchy");
-			common.jsClick((WebElement) By.xpath("//input[@aria-checked='true']"));
+			common.jsClick(selectedHierarchy);
 		}
 		common.findElementBy(searchPlantData,"Enter value 0002").sendKeys("0002");
 		common.waitUntilElementToBeVisible(searchedPantValue);
@@ -1462,12 +1432,12 @@ public class MaterialCreation extends Locators {
 		common.findElement(uSaveBtn).click();
 		common.pause(10);
 
-		if (common.isElementDisplayed((WebElement) By.xpath("//p[normalize-space()='Fix the following errors to proceed']"))) {
+		if (common.isElementDisplayed(followingErrorToProceed)) {
 			//Verifying Error for mandatory fields
-			common.assertElementPresent((WebElement) By.xpath("//p[normalize-space()='Fix the following errors to proceed']"));
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div[1]//p"));
+			common.assertElementPresent(followingErrorToProceed);
+			common.waitUntilElementToBeVisible(errors);
 
-			String strError = common.findElement((WebElement) By.xpath("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div[1]//p")).getText();
+			String strError = common.findElement(errors).getText();
 			common.log("Error: " + strError);
 		}
 	}
@@ -1517,8 +1487,8 @@ public class MaterialCreation extends Locators {
 			common.waitUntilElementToBeVisible(addPlantData);
 			common.findElementBy(addPlantData,"Click on Add Plant data").click();
 			common.waitUntilElementToBeVisible(searchPlantData);
-			if (common.isElementDisplayed((WebElement) By.xpath("//input[@aria-checked='true']"))) {
-				common.findElementBy((WebElement) By.xpath("//input[@aria-checked='true']"), "Uncheck the selected hierarchy").click();
+			if (common.isElementDisplayed(selectedHierarchy)) {
+				common.findElementBy(selectedHierarchy, "Uncheck the selected hierarchy").click();
 			}
 			common.findElementBy(searchPlantData,"Enter value 0002").sendKeys("0002");
 			common.waitUntilElementToBeVisible(searchedPantValue);
@@ -1563,8 +1533,8 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(addPlantData,"Click on Add Plant data").click();
 			common.waitUntilElementToBeVisible(searchPlantData);
 			common.pause(5);
-			if (common.isElementDisplayed((WebElement) By.xpath("//input[@aria-checked='true']"))) {
-				common.findElementBy((WebElement) By.xpath("//input[@aria-checked='true']"), "Uncheck the selected hierarchy").click();
+			if (common.isElementDisplayed(selectedHierarchy)) {
+				common.findElementBy(selectedHierarchy, "Uncheck the selected hierarchy").click();
 			}
 			common.findElementBy(searchPlantData,"Enter value 0002").sendKeys("0002");
 			common.waitUntilElementToBeVisible(searchedPantValue);
@@ -1611,7 +1581,7 @@ public class MaterialCreation extends Locators {
 			common.findElementBy(saveFormView, "Click on save on form view").click();
 			common.waitUntilElementToBeVisible(germanLanguage);
 
-			common.findElementBy(materialTypeField, "Click on material type field").click();
+			common.findElementBy(materialType, "Click on material type field").click();
 			common.pause(5);
 			common.findElementBy(dropValue3, "Select value from options").click();
 			common.pause(5);
@@ -1626,12 +1596,12 @@ public class MaterialCreation extends Locators {
 		common.findElement(uSaveBtn).click();
 		common.pause(10);
 
-		if (common.isElementDisplayed((WebElement) By.xpath("//p[normalize-space()='Fix the following errors to proceed']"))) {
+		if (common.isElementDisplayed(followingErrorToProceed)) {
 			//Verifying Error for mandatory fields
-			common.assertElementPresent((WebElement) By.xpath("//p[normalize-space()='Fix the following errors to proceed']"));
-			common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div[1]//p"));
+			common.assertElementPresent(followingErrorToProceed);
+			common.waitUntilElementToBeVisible(errors);
 
-			String strError = common.findElement((WebElement) By.xpath("//div[@class='f-col sidesheetcontent-listing ng-star-inserted']/div[@class='f-col mdo-justify ng-star-inserted']/div[1]//p")).getText();
+			String strError = common.findElement(errors).getText();
 			common.log("Error: " + strError);
 		}
 	}
@@ -1663,8 +1633,8 @@ public class MaterialCreation extends Locators {
 
 		common.findElementBy(submitBtn, "Click on submit button").click();
 
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-		String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+		common.waitUntilElementToBeVisible(successMessageToast);
+		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: " + successStr);
 		common.waitUntilElementToBeVisible(dataTab);
 	}
@@ -1692,8 +1662,8 @@ public class MaterialCreation extends Locators {
 
 		common.findElementBy(submitBtn, "Click on submit button").click();
 
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-		String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+		common.waitUntilElementToBeVisible(successMessageToast);
+		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: " + successStr);
 		common.waitUntilElementToBeVisible(dataTab);
 	}
@@ -1724,8 +1694,8 @@ public class MaterialCreation extends Locators {
 
 		common.findElementBy(submitBtn, "Click on submit button").click();
 
-		common.waitUntilElementToBeVisible((WebElement) By.xpath("//div[@class='cdk-overlay-pane']"));
-		String successStr = common.findElement((WebElement) By.xpath("//div[@class='cdk-overlay-pane']")).getText();
+		common.waitUntilElementToBeVisible(successMessageToast);
+		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: " + successStr);
 		common.waitUntilElementToBeVisible(dataTab);
 	}

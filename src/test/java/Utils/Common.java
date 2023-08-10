@@ -1,5 +1,8 @@
 package Utils;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -7,6 +10,8 @@ import java.util.Date;
 
 //import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang.RandomStringUtils;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -19,11 +24,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.Test;
-
-import com.relevantcodes.extentreports.LogStatus;
-
-import org.apache.commons.io.FileUtils;
 
 /**
  * Define Common Webdriver
@@ -156,7 +156,7 @@ public class Common extends Locators {
 					} catch (Exception e) {
 						return null;
 					}
-				} else if (locator.startsWith("//") || locator.startsWith("(//")) {
+				} else if (locator.startsWith("//")||locator.startsWith("(//")) {
 					try {
 						return driver.findElement(By.xpath(locator));
 					} catch (Exception e) {
@@ -203,7 +203,6 @@ public class Common extends Locators {
 		return null;
 
 	}
-
 	public void highlightElement(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='3px solid yellow'", element);
@@ -211,21 +210,6 @@ public class Common extends Locators {
 	public void highlightElementClick(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='3px solid green'", element);
-	}
-
-	public void expandingHeadData() {
-
-		driver.findElement(By.xpath(expandHeaderData.toString())).click();
-		driver.findElement(By.xpath(expandPlantData.toString())).click();
-		driver.findElement(By.xpath(expandPlant.toString())).click();
-		driver.findElement(By.xpath(expandValuationData.toString())).click();
-
-	}
-
-	public void click(String locator) {
-
-		driver.findElement(By.xpath(locator)).click();
-
 	}
 
 	public void click(WebElement locator) {
@@ -371,6 +355,7 @@ public class Common extends Locators {
 		}
 	}
 	public boolean isElementNotDisplayed(WebElement elementName) {
+
 		WebElement webElement;
 		try {
 			webElement = this.findElement(elementName);
@@ -487,6 +472,7 @@ public class Common extends Locators {
 		try {
 			Thread.sleep(secs * 200);
 		} catch (InterruptedException interruptedException) {
+
 		}
 	}
 	public void scrollToElement(WebElement element) throws InterruptedException {
@@ -496,6 +482,12 @@ public class Common extends Locators {
 		Thread.sleep(500);
 	}
 
+	public XSSFSheet getDataFromExcelSheet(String sheetName) throws IOException {
+		FileInputStream fis = new FileInputStream("Test_data.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheet(sheetName);
+		return sheet;
+	}
 	/**
 	 * Clears and type new value into given text-box.
 	 *
@@ -504,18 +496,17 @@ public class Common extends Locators {
 	 * @param string  New text/value.
 	 */
 	public void type(WebElement locator, String string) {
-		//	this.findElement(locator).clear();
-		driver.findElement(By.xpath(getXPathFromWebElement(locator))).sendKeys(string);
-	}
 
+		this.findElement(locator).clear();
+		driver.findElement(By.xpath(getXPathFromWebElement(locator))).sendKeys(string);
+
+	}
 	public String generateRandomChars(int length) {
 		return RandomStringUtils.randomAlphabetic(length).toLowerCase();
 	}
-
 	public void assertTwoValuesAreEqual(Object value1, Object value2) {
 		Assert.assertEquals(value1, value2);
 	}
-
 	public void assertTwoValuesAreNotEqual(Object value1, Object value2) {
 
 		Assert.assertNotEquals(value1, value2);
