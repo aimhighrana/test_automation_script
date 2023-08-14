@@ -9,9 +9,11 @@ import java.time.Duration;
 import java.util.Date;
 
 //import org.apache.commons.lang3.RandomStringUtils;
+import io.qameta.allure.Allure;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.xmlbeans.impl.xb.xsdschema.All;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -291,6 +293,7 @@ public class Common extends Locators {
 			String[] msg = message.split("::");
 			Reporter.log("<br>" + msg[0].trim() + " " + BasePage.step + " : " + msg[1].trim());
 			System.out.println(msg[0].trim() + " " + BasePage.step + " : " + msg[1].trim());
+			Allure.step(msg[0].trim() + " " + BasePage.step + " : " + msg[1].trim());
 			BasePage.step++;
 		} else {
 			Reporter.log("<br>Message : " + message);

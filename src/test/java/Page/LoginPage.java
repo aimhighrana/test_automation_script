@@ -87,10 +87,11 @@ public class LoginPage extends Locators {
 	 */
 	public void initiator_SignIn() throws Exception{
 
-		if (common.isDisplayed(profileIcon)) {
-			common.pause(10);
+		//If user already logged in then logout first
+		if (common.isElementDisplayed(profileIcon)) {
 			common.findElementBy(profileIcon,"Click on profile icon").click();
-			common.findElement(signOut).click();
+			common.pause(5);
+			common.findElementBy(signOut,"Click on Sign out button").click();
 			common.pause(10);
 		}
 
@@ -132,11 +133,12 @@ public class LoginPage extends Locators {
 	 */
 	public void reviewer_SignIn() {
 
-		//Sign out the approver
-		if (common.isDisplayed(profileIcon)) {
-			common.pause(10);
+		//Sign out the logged in approver
+		if (common.isElementDisplayed(profileIcon)) {
 			common.findElementBy(profileIcon,"Click on profile icon").click();
-			common.findElement(signOut).click();
+			common.pause(5);
+			common.findElementBy(signOut,"Click on Sign out").click();
+			common.pause(10);
 		}
 		common.pause(5);
 		common.waitUntilElementToBeVisible(userNameField);

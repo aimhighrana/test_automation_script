@@ -6,7 +6,7 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
-	<parameter name="env" value="QAA" />
+	<parameter name="env" value="QAR" />
 	 <test name="verify The User Should Be Able To Add A New View For The List Page">
 		<classes>
 			<class name="Test.ListViewTestcases">

@@ -6,7 +6,7 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
-	<parameter name="env" value="QAA" />
+	<parameter name="env" value="QAR" />
 
 	<test name="verify Transformation Rule With remove leading spaces">
 		<classes>

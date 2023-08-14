@@ -1,15 +1,12 @@
 package Utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Method;
 import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import com.google.common.collect.ImmutableMap;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -39,7 +36,7 @@ import Utils.Enums.BrowserOption;
 import contracts.IObjectService;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import net.rcarz.jiraclient.JiraException;
-
+import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 public class BasePage implements ITestListener {
 
 	static Properties configProperties = null;
@@ -86,26 +83,15 @@ public class BasePage implements ITestListener {
 		}
 		return webDriver;
 	}
-	public LoginPage loginPage;
-	public AddMaterialMaster materialmaster;
-	public ListPageSearch listPageSearch;
-	public ProcessLog processLog;
-	public ListView listView;
-	public MaterialCreation materialCreation;
-	public Flow flow;
-	public HomePage homePage;
 	
 	public static int step = 0;
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp(Method method) throws Exception {
-
-		// create extent report in project dir
-		report = new ExtentReports("ExtentReportResults.html", true);
-
+		allureEnvironmentWriter(
+				ImmutableMap.<String, String>builder().put("User", "Rahul Sharma").put("platform Name", "MAC OS").put("Browser",getPropertyValue("browser")).build(),
+				System.getProperty("user.dir") + "/allure-results/");
 		currentTest = method.getName(); // get Name of current test.
-
-		test = report.startTest((this.getClass().getSimpleName() + "::" + method.getName()));
 		String SCREENSHOT_FOLDER_NAME = "screenshots";
 		String TESTDATA_FOLDER_NAME = "test_data";
 
@@ -124,6 +110,7 @@ public class BasePage implements ITestListener {
 
 		driver = getWebDriver(browser, headless);
 		initializeObjects(driver);
+
 		// MyScreenRecorder.startRecording(currentTest);
 	}
 
@@ -194,6 +181,26 @@ public class BasePage implements ITestListener {
 			log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
 					+ ".png' height='250' width='500'></img> </a>" + "<br>");
 		}
+		Properties properties = getConfigProperties();
+		String strCount = getPropertyValue("runCount");
+		int i = Integer.parseInt(strCount)+1;
+		String count = String.valueOf(i);
+		log("count: "+count);
+		FileInputStream fis = new FileInputStream("config.properties");
+		properties.load(fis);
+		fis.close();
+
+		properties.setProperty("runCount", count);
+		// Save the updated properties to the file
+		FileOutputStream fos = new FileOutputStream("config.properties");
+		properties.store(fos, null);
+		fos.close();
+
+		String strCount1 = getPropertyValue("runCount");
+		int i1 = Integer.parseInt(strCount1);
+		log("count1: "+i1);
+		// Save the updated properties to the file, preserving comments
+
 		step =0;
 		driver.manage().deleteAllCookies();
 		driver.quit();

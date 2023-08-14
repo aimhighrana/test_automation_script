@@ -6,7 +6,7 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
-	<parameter name="env" value="QAA" />
+	<parameter name="env" value="QAR" />
 
 	 <test name="verify That Defaults Are Working In The Transaction Screen According To The User Configured">
 		<classes>

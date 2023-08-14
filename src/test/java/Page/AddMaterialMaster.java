@@ -88,14 +88,14 @@ public class AddMaterialMaster extends Locators {
 
 			common.pause(5);
 
-			common.findElementBy(industrySec, "Click on Industry sector field").click();
-			common.findElement(industrySec).click();
-			common.waitUntilElementToBeVisible(dropValue);
-			common.log("Get Industry sector from Excel: " + sheet.getRow(1).getCell(1));
-			common.type(industrySec, sheet.getRow(1).getCell(1).getStringCellValue());
-			common.pause(5);
-			common.findElement(industrySec).sendKeys(Keys.DOWN);
-			common.findElement(industrySec).sendKeys(Keys.ENTER);
+//			common.findElementBy(industrySec, "Click on Industry sector field").click();
+//			common.findElement(industrySec).click();
+//			common.waitUntilElementToBeVisible(dropValue);
+//			common.log("Get Industry sector from Excel: " + sheet.getRow(1).getCell(1));
+//			common.type(industrySec, sheet.getRow(1).getCell(1).getStringCellValue());
+//			common.pause(5);
+//			common.findElement(industrySec).sendKeys(Keys.DOWN);
+//			common.findElement(industrySec).sendKeys(Keys.ENTER);
 
 			common.log("Enter value in Material description field");
 			common.log("Get Material description from Excel: " + sheet.getRow(1).getCell(2));
@@ -412,6 +412,7 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 		common.findElementBy(viewPLog, "Select view process log option").click();
 		common.pause(10);
+		common.waitUntilElementToBeVisible(closeIconForProcessLog);
 
 		if (common.isElementDisplayed(processLogTitle)) {
 			common.waitUntilElementToBeVisible(processLogTitle);
@@ -454,11 +455,15 @@ public class AddMaterialMaster extends Locators {
 			common.pause(5);
 			common.log("Close View process log page ");
 			common.jsClick(closeIconForProcessLog);
-		} else {
+		} else if (common.isElementDisplayed(errorMessage)){
 			String strProcessLog = common.findElementBy(errorMessage, "Getting logs from view process log").getText();
 			common.log("View process log:  " + strProcessLog);
 		}
-
+		else {
+			common.log("Blank page appear in view process log popup");
+		}
+		common.findElementBy(closeIconForProcessLog,"Close the process log popup").click();
+		common.pause(5);
 	}
 
 	/**
@@ -555,9 +560,8 @@ public class AddMaterialMaster extends Locators {
 
 		//wait for Home tab
 		common.waitUntilElementToBeVisible(homeTab);
-		common.pause(5);
 		common.findElementBy(homeTab, "Click on Home tab").click();
-
+		common.pause(5);
 		//wait for Inbox menu
 		common.waitUntilElementToBeVisible(inboxMenu);
 		common.findElementBy(inboxMenu, "Click on Inbox menu").click();

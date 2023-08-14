@@ -167,10 +167,14 @@ public class ListView extends Locators {
 		common.pause(10);
 		common.findElementBy(saveButtonView, "Click on Save button").click();
 		common.pause(10);
+		common.findElementBy(viewDropDownIcon, "Click on view dropdown icon").click();
+		common.pause(5);
 
-		WebElement recordMaterial = driver.findElement(By.xpath("//h4[normalize-space()='Material Master - " + viewStr +"']"));
+		WebElement recordMaterial = driver.findElement(By.xpath("//button[normalize-space()='"+viewStr+"']"));
 		if (common.isElementDisplayed(recordMaterial)) {
 
+            common.findElementBy(recordMaterial,"Select newly created view").click();
+            common.waitUntilElementToBeVisible(firstValueMaterialMaster);
 			String strFirstValue = common.findElement(firstValueMaterialMaster).getText();
 			common.log("First value of Material master table: " + strFirstValue);
 		}

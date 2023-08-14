@@ -40,6 +40,8 @@ public abstract class Locators extends BasePage {
 	protected WebElement dataTab;
 	@FindBy(xpath = "//input[@placeholder='Search Data'] | //input[@placeholder='Search data']")
 	protected WebElement search;
+	@FindBy(xpath = "//h4[contains(text(),'Material Master')]")
+	protected WebElement materialMasterHeader;
 	@FindBy(xpath = "//p[normalize-space()='Material Master']")
 	protected WebElement materialMaster;
 	@FindBy(xpath = "//span[contains(text(),'New record')] | //div[@class='f-col state-container']//div[@class='f-row']")
@@ -62,7 +64,6 @@ public abstract class Locators extends BasePage {
 	protected WebElement profileIcon;
 	@FindBy(xpath = "//span[contains(text(),'Sign out')]")
 	protected WebElement signOut;
-
 	@FindBy(xpath = "//h4[contains (text(), 'Default view')]")
 	protected WebElement defaultView;
 	@FindBy(xpath = "//button[@class='mat-focus-indicator mat-button mat-button-base mdo-button']//mat-icon[@role='img'][normalize-space()='caret-down']")
@@ -349,7 +350,7 @@ public abstract class Locators extends BasePage {
 	protected WebElement isNotFilter;
 	@FindBy(xpath = "//p[normalize-space()='Industry Sector'] | //p[normalize-space()='Industry sector']")
 	protected WebElement filterIndustrySector;
-	@FindBy(xpath = "//p[normalize-space()='SAP Material Number']")
+	@FindBy(xpath = "//p[normalize-space()='SAP Material Number'] | //p[@class='base ng-star-inserted'][normalize-space()='SAP Number']")
 	protected WebElement sapMaterialNumberFilter;
 	@FindBy(xpath = "//lib-chip-list[@class='chips-list']//textarea")
 	protected WebElement sapMaterialNumberInputField;

@@ -1,9 +1,6 @@
 package Test;
 
 import Utils.BasePage;
-import Utils.Common;
-import com.itextpdf.kernel.counter.SystemOutEventCounter;
-import org.apache.commons.collections.bag.SynchronizedSortedBag;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 

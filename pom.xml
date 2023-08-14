@@ -5,38 +5,57 @@
 	<groupId>ProsPecta</groupId>
 	<artifactId>Prospecta</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<testng-version>7.7.0</testng-version>
+		<allure-testng-version>2.21.0</allure-testng-version>
+	</properties>
 	<dependencies>
 
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.4.0</version>
+			<version>4.8.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.6.1</version>
+			<version>${testng-version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>${allure-testng-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>31.0.1-jre</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.automatedowl</groupId>
+			<artifactId>allure-environment-writer</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.surefire</groupId>
 			<artifactId>maven-surefire-common</artifactId>
-			<version>3.0.0-M4</version>
+			<version>3.0.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.itextpdf</groupId>
 			<artifactId>itext7-core</artifactId>
-			<version>7.1.9</version>
+			<version>7.2.3</version>
 			<type>pom</type>
 		</dependency>
 		<dependency>
 			<groupId>org.uncommons</groupId>
 			<artifactId>reportng</artifactId>
-			<version>1.1.2</version>
+			<version>1.1.4</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -49,7 +68,7 @@
 		<dependency>
 			<groupId>com.itextpdf</groupId>
 			<artifactId>html2pdf</artifactId>
-			<version>2.1.6</version>
+			<version>4.0.3</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
 		<dependency>
@@ -61,7 +80,7 @@
 		<dependency>
 			<groupId>net.rcarz</groupId>
 			<artifactId>jira-client</artifactId>
-			<version>0.3</version>
+			<version>0.5</version>
 			<scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
@@ -69,7 +88,7 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.9</version>
+			<version>5.2.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
 		<dependency>
@@ -81,18 +100,12 @@
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
-			<version>20210307</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-s3</artifactId>
-			<version>1.11.939</version>
+			<version>20230227</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.5.2</version>
+			<version>4.5.14</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -107,18 +120,23 @@
 			<version>2.4</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>3.2.0</version>
+			<version>5.3.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
 		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
-			<version>5.3</version>
+			<version>5.7.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.rest-assured</groupId>
@@ -129,7 +147,7 @@
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>json-schema-validator</artifactId>
-			<version>4.5.1</version>
+			<version>5.3.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -143,8 +161,8 @@
 			<artifactId>monte-screen-recorder</artifactId>
 			<version>0.7.7.0</version>
 		</dependency>
-	</dependencies>
 
+	</dependencies>
 	<build>
 		<plugins>
 
@@ -211,6 +229,8 @@
 <!--								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>-->
 								<!--this Process_Log xml include all the test regarding View Process Log functionality-->
 								<suiteXmlFile>build_xmls/process_Log.xml</suiteXmlFile>
+								<!--this high_Level xml include all the tests regarding High Level scenarios functionality-->
+								<suiteXmlFile>build_xmls/high_Level.xml</suiteXmlFile>
 							</suiteXmlFiles>
 							<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
 						</configuration>
@@ -226,7 +246,7 @@
 			<plugin>
 				<groupId>com.decipherzone</groupId>
 				<artifactId>qa-parse-maven-plugin</artifactId>
-				<version>1.5.7</version>
+				<version>1.5.8</version>
 				<executions>
 					<execution>
 						<phase>integration-test</phase>
@@ -234,7 +254,7 @@
 							<projectBaseUrl>https://app.testreport.io/qa-java-api</projectBaseUrl>
 							<sourceFilePath>${project.build.directory}/test-output/testng-results.xml</sourceFilePath>
 							<screenshotImagePath>${project.build.directory}/test-output/FailedScreenshot/</screenshotImagePath>
-							<projectAccessKey>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb21wYW55SWRcIjpcIjY0YWU1N2YzNDI1NjU1NTViZTlmZDBjYVwiLFwiand0VG9rZW5cIjpcImV5SmhiR2NpT2lKSVV6VXhNaUo5LmV5SnpkV0lpT2lKeVlXaDFiRUJ3WlhKbVpXTjBjV0Z6WlhKMmFXTmxjeTVqYjIwaUxDSnBZWFFpT2pFMk9UQTROekEyTURBc0ltVjRjQ0k2TVRZNU1UUTNOVFF3TUgwLkEzSUhqdFgxb09JS280M2U3cnVfbE81Y2hDd3UzRTNQOUZkMVVxVm9ManpyM1lYUEhFYTFZekJrTThPRFpNcnFSa0F0WmdPckdXZFZiZmU1UjlaZ3p3XCIsXCJwcm9qZWN0SWRcIjpcIjY0YWU1ODAyNDI1NjU1NTViZTlmZDBjYlwifSIsImlhdCI6MTY5MTM5MTE2MywiZXhwIjoxNjkxOTk1OTYzfQ.vxVL-Z7d2T_u8OEFG0wst4V2PDJskNvSI1qDWj_EVpliMR6XTJtcOLOm7xC3WO1qh1UXGWFUFhYtEq1jT5nqng</projectAccessKey>
+							<projectAccessKey>eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb21wYW55SWRcIjpcIjY0ZDhhOWZlMmQyNGMxNDFiN2Y1YzNmOFwiLFwiand0VG9rZW5cIjpcImV5SmhiR2NpT2lKSVV6VXhNaUo5LmV5SnpkV0lpT2lKeVlXaDFiRUJ3WlhKbVpXTjBjV0Z6WlhKMmFXTmxjeTVqYjIwaUxDSnBZWFFpT2pFMk9URXpPVEUwTURjc0ltVjRjQ0k2TVRZNU1UazVOakl3TjMwLndDNl9sWmhpUHBoLU1SVHlWejZpUUxYWnlETHdyNUdxOTh2SlNZZE0xMGg2NUZsNXFQMndmbzU0QWJGSlpUZ2lNRjJrWUxlbmE5dXhQcjFjSmItNDd3XCIsXCJwcm9qZWN0SWRcIjpcIjY0ZDhhYTFmMmQyNGMxNDFiN2Y1YzNmOVwifSIsImlhdCI6MTY5MTk5NjAwMywiZXhwIjoxNjkyNjAwODAzfQ.BUYyiz2b7oKYYbJLXx3L81mL9UbCt9mVJynFfDyeaxJOwaWAReuNGvO0H4fIioZs0tu5T3rruzDcOjZVIi-JbQ</projectAccessKey>
 						</configuration>
 						<goals>
 							<goal>xmltojson</goal>
