@@ -181,24 +181,24 @@ public class BasePage implements ITestListener {
 			log("<a target='blank' href='" + testName + ".png'> <img  src='" + testName
 					+ ".png' height='250' width='500'></img> </a>" + "<br>");
 		}
-		Properties properties = getConfigProperties();
-		String strCount = getPropertyValue("runCount");
-		int i = Integer.parseInt(strCount)+1;
-		String count = String.valueOf(i);
-		log("count: "+count);
-		FileInputStream fis = new FileInputStream("config.properties");
-		properties.load(fis);
-		fis.close();
-
-		properties.setProperty("runCount", count);
-		// Save the updated properties to the file
-		FileOutputStream fos = new FileOutputStream("config.properties");
-		properties.store(fos, null);
-		fos.close();
-
-		String strCount1 = getPropertyValue("runCount");
-		int i1 = Integer.parseInt(strCount1);
-		log("count1: "+i1);
+//		Properties properties = getConfigProperties();
+//		String strCount = getPropertyValue("runCount");
+//		int i = Integer.parseInt(strCount)+1;
+//		String count = String.valueOf(i);
+//		log("count: "+count);
+//		FileInputStream fis = new FileInputStream("config.properties");
+//		properties.load(fis);
+//		fis.close();
+//
+//		properties.setProperty("runCount", count);
+//		// Save the updated properties to the file
+//		FileOutputStream fos = new FileOutputStream("config.properties");
+//		properties.store(fos, null);
+//		fos.close();
+//
+//		String strCount1 = getPropertyValue("runCount");
+//		int i1 = Integer.parseInt(strCount1);
+//		log("count1: "+i1);
 		// Save the updated properties to the file, preserving comments
 
 		step =0;
