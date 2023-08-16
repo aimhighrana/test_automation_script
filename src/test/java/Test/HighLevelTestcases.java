@@ -11,20 +11,23 @@ public class HighLevelTestcases extends BasePage {
 	/**
 	 * 1
 	 * Material Master Module
-	 * 
+	 *
 	 * @throws InterruptedException
 	 * @throws IOException
 	 */
 	@Test
 	@Parameters("env")
-	public void verifying_Material_Creation_Flow(String env) throws InterruptedException, IOException, Exception {
-		log("Testcase:MDMF-ATC-1");
+	public void verifying_Material_Creation_Flow_WF1(String env) throws InterruptedException, IOException, Exception {
+		log("Testcase:Workflow 1 Test cases");
 		objectService().loginPage().goToURL(env);
 		objectService().loginPage().initiator_SignIn();
 		objectService().materialMaster().addNewMaterialMaster();
 		objectService().materialMaster().viewMaterialMasterProcessLog();
 		objectService().loginPage().reviewer_SignIn();
 		objectService().materialMaster().approveStatus();
+		objectService().loginPage().approver_SignIn();
+		objectService().materialMaster().approveMaterialCreationByApprover();
+		objectService().materialMaster().viewMaterialMasterProcessLog();
 
 	}
 }

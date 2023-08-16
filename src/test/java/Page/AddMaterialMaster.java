@@ -38,6 +38,8 @@ public class AddMaterialMaster extends Locators {
 	 */
 	public void addNewMaterialMaster() throws IOException {
 
+		XSSFSheet sheet = common.getDataFromExcelSheet("Workflow_1_TestCases");
+
 		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data tab").click();
 		common.pause(5);
@@ -74,8 +76,6 @@ public class AddMaterialMaster extends Locators {
 			common.pause(5);
 
 			common.waitUntilElementToBeVisible(materialType);
-			//get data from Sheet1
-			XSSFSheet sheet = common.getDataFromExcelSheet("Material_master");
 
 			common.log("Select Material Type");
 			common.findElement(materialType).click();
@@ -88,80 +88,140 @@ public class AddMaterialMaster extends Locators {
 
 			common.pause(5);
 
-//			common.findElementBy(industrySec, "Click on Industry sector field").click();
-//			common.findElement(industrySec).click();
-//			common.waitUntilElementToBeVisible(dropValue);
-//			common.log("Get Industry sector from Excel: " + sheet.getRow(1).getCell(1));
-//			common.type(industrySec, sheet.getRow(1).getCell(1).getStringCellValue());
-//			common.pause(5);
-//			common.findElement(industrySec).sendKeys(Keys.DOWN);
-//			common.findElement(industrySec).sendKeys(Keys.ENTER);
+			common.findElementBy(industrySec, "Select Industry sector field").click();
+			common.findElement(industrySec).click();
+			common.waitUntilElementToBeVisible(dropValue);
+			common.log("Get Industry sector from Excel: " + sheet.getRow(1).getCell(1));
+			common.type(industrySec, sheet.getRow(1).getCell(1).getStringCellValue());
+			common.pause(5);
+			common.findElement(industrySec).sendKeys(Keys.DOWN);
+			common.findElement(industrySec).sendKeys(Keys.ENTER);
 
 			common.log("Enter value in Material description field");
-			common.log("Get Material description from Excel: " + sheet.getRow(1).getCell(2));
-			common.findElement(materialDescFormView).sendKeys(sheet.getRow(1).getCell(2).getStringCellValue());
+			common.log("Get Material description from Excel: " + sheet.getRow(1).getCell(3));
+			common.findElement(materialDescFormView).sendKeys(sheet.getRow(1).getCell(3).getStringCellValue());
 
-			common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
-			common.waitUntilElementToBeVisible(searchBoxHierarchy);
-			common.log("Get Plant Data from Excel: " + sheet.getRow(1).getCell(3));
-			common.findElement(searchBoxHierarchy).sendKeys(sheet.getRow(1).getCell(3).getStringCellValue());
+			common.findElementBy(materialGroup, "Click on Material Group field").click();
+			common.findElement(materialGroup).click();
+			common.waitUntilElementToBeVisible(dropValue);
+			common.log("Get Material Group from Excel: " + sheet.getRow(1).getCell(2));
+			common.findElement(materialGroup).sendKeys(sheet.getRow(1).getCell(2).getStringCellValue());
+			common.pause(10);
+			common.findElement(materialGroup).sendKeys(Keys.DOWN);
+			common.findElement(materialGroup).sendKeys(Keys.ENTER);
+
+			common.log("Enter value in Long description field");
+			common.log("Get Long description from Excel: " + sheet.getRow(1).getCell(4));
+			common.findElement(longDescriptionField).sendKeys(sheet.getRow(1).getCell(4).getStringCellValue());
+
 			common.pause(5);
-			common.waitUntilElementToBeVisible(selectSearchedOption);
-			common.findElementBy(selectSearchedOption, "Select searched option").click();
-			common.waitUntilElementToBeVisible(applyBtn);
-			common.findElementBy(applyBtn, "Click on Apply button").click();
+			common.findElement(grossWeightField).click();
+			common.log("Enter value in Gross Weight field");
+			common.log("Get Gross Weight from Excel: " + sheet.getRow(1).getCell(10));
+			String grossWeightValue = String.valueOf(sheet.getRow(1).getCell(10));
+			common.findElement(grossWeightField).sendKeys(grossWeightValue);
+
+			common.pause(5);
+			common.findElementBy(generalItemCatGroup, "Click on General Item Category Group field").click();
+			common.findElement(generalItemCatGroup).click();
+			common.waitUntilElementToBeVisible(dropValue);
+			common.pause(5);
+			common.log("Get General Item Category from Excel: " + sheet.getRow(1).getCell(5));
+			String generalItem = String.valueOf(sheet.getRow(1).getCell(5));
+			common.type(generalItemCatGroup, generalItem);
+			common.pause(10);
+			common.findElement(generalItemCatGroup).sendKeys(Keys.DOWN);
+			common.findElement(generalItemCatGroup).sendKeys(Keys.ENTER);
+
+			common.pause(5);
+			common.log("Enter value in Net Weight field");
+			common.log("Get Net Weight from Excel: " + sheet.getRow(1).getCell(11));
+			String netWeightValue = String.valueOf(sheet.getRow(1).getCell(11));
+			common.findElement(netWeightField).sendKeys(netWeightValue);
+
+			common.log("Enter value in Maximum Stock Level field");
+			common.log("Get Maximum Level Stock from Excel: " + sheet.getRow(1).getCell(12));
+			String maxStockLevelValue = String.valueOf(sheet.getRow(1).getCell(12));
+			common.findElement(maxStockLevelField).sendKeys(maxStockLevelValue);
+
+			common.pause(5);
+			common.findElementBy(procurementTypeField, "Click on Procurement Type field").click();
+			common.waitUntilElementToBeVisible(dropValue);
+			common.log("Get Procurement Type from Excel: " + sheet.getRow(1).getCell(13));
+			common.type(procurementTypeField, sheet.getRow(1).getCell(13).getStringCellValue());
+			common.pause(10);
+			common.findElement(procurementTypeField).sendKeys(Keys.DOWN);
+			common.findElement(procurementTypeField).sendKeys(Keys.ENTER);
+
+			common.log("Enter value in Planned Delivery Time field");
+			common.log("Get Planned Delivery Time from Excel: " + sheet.getRow(1).getCell(14));
+			String plannedDeliveryValue = String.valueOf(sheet.getRow(1).getCell(14));
+			common.findElement(plannedDeliveryTimeField).sendKeys(plannedDeliveryValue);
+
+			common.log("Enter value in Reorder Point field");
+			common.log("Get Reorder Point from Excel: " + sheet.getRow(1).getCell(9));
+			String reorderPointValue = String.valueOf(sheet.getRow(1).getCell(9));
+			common.findElement(reorderPointField).sendKeys(reorderPointValue);
+
+			common.findElementBy(orderUnitField, "Click on Order Unit field").click();
+			common.waitUntilElementToBeVisible(dropValue);
+			common.log("Get Order Unit from Excel: " + sheet.getRow(1).getCell(7));
+			common.type(orderUnitField, sheet.getRow(1).getCell(7).getStringCellValue());
+			common.pause(10);
+			common.findElement(orderUnitField).sendKeys(Keys.DOWN);
+			common.findElement(orderUnitField).sendKeys(Keys.ENTER);
+			common.pause(5);
+
+			common.findElementBy(plusIconHersGrid, "Click on plus icon on HERS grid").click();
+			common.waitUntilElementToBeVisible(mpnHersGrid);
+
+			common.log("Enter value in MPN HERS Grid field");
+			common.log("Get MPN HERS Grid from Excel: " + sheet.getRow(1).getCell(8));
+			String mpnHersGridValue = String.valueOf(sheet.getRow(1).getCell(8));
+			common.findElement(mpnHersGrid).sendKeys(mpnHersGridValue);
+
+			common.log("Enter value in Manufacturer HERS Grid field");
+			common.log("Get Manufacturer HERS Grid from Excel: " + sheet.getRow(1).getCell(6));
+			String manufacturerHersGridValue = String.valueOf(sheet.getRow(1).getCell(6));
+			common.findElement(manufacturerHersGrid).sendKeys(manufacturerHersGridValue);
+
+			common.findElementBy(saveHersGrid, "Click on save on HERS Grid").click();
+			common.pause(10);
+
+//            common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
+//            common.waitUntilElementToBeVisible(searchBoxHierarchy);
+//            common.log("Get Plant Data from Excel: " + sheet.getRow(1).getCell(22));
+//            common.findElement(searchBoxHierarchy).sendKeys(sheet.getRow(1).getCell(22).getStringCellValue());
+//            common.pause(5);
+//            common.waitUntilElementToBeVisible(selectSearchedOption);
+//            common.findElementBy(selectSearchedOption, "Select searched option").click();
+//            common.waitUntilElementToBeVisible(applyBtn);
+//            common.findElementBy(applyBtn, "Click on Apply button").click();
 
 			//added wait for auto populate the hierarchy valuation and forecast
-			common.pause(5);
-			common.waitUntilElementToBeVisible(valuationDataAddHierarchy);
+//            common.pause(5);
+//            common.waitUntilElementToBeVisible(valuationDataAddHierarchy);
 
-			common.findElementBy(salesDataAddHierarchy, "Click on Sales Data - add... button").click();
-			common.waitUntilElementToBeVisible(searchBoxHierarchy);
-			common.log("Get Sales Data from Excel: " + sheet.getRow(1).getCell(4));
-			common.findElement(searchBoxHierarchy).sendKeys(sheet.getRow(1).getCell(4).getStringCellValue());
-			common.pause(5);
-			common.waitUntilElementToBeVisible(selectSearchedOption);
-			common.findElementBy(selectSearchedOption, "Select searched option").click();
-			common.waitUntilElementToBeVisible(applyBtn);
-			common.findElementBy(applyBtn, "Click on Apply button").click();
+//            common.findElementBy(salesDataAddHierarchy, "Click on Sales Data - add... button").click();
+//            common.waitUntilElementToBeVisible(searchBoxHierarchy);
+//            common.log("Get Sales Data from Excel: " + sheet.getRow(1).getCell(4));
+//            common.findElement(searchBoxHierarchy).sendKeys(sheet.getRow(1).getCell(4).getStringCellValue());
+//            common.pause(5);
+//            common.waitUntilElementToBeVisible(selectSearchedOption);
+//            common.findElementBy(selectSearchedOption, "Select searched option").click();
+//            common.waitUntilElementToBeVisible(applyBtn);
+//            common.findElementBy(applyBtn, "Click on Apply button").click();
 
-			common.pause(5);
-			common.waitUntilElementToBeVisible(salesOrganisationData);
-
-			common.waitUntilElementToBeVisible(xPlantMaterialStatusField);
-			common.findElementBy(xPlantMaterialStatusField, "Select value from X-Plant Material Status field").click();
-			common.findElement(xPlantMaterialStatusField).click();
-			common.pause(5);
-			common.waitUntilElementToBeVisible(dropValue);
-			common.findElementBy(dropValue, "Select option").click();
-
-			common.waitUntilElementToBeVisible(addRowLanguageGrid);
-			common.log("Click on Add row button in Language grid section");
-			common.jsClick(addRowLanguageGrid);
-			common.pause(5);
-			common.waitUntilElementToBeVisible(languageInput);
-			common.findElementBy(languageInput, "Click on Language dropdown").click();
-			common.pause(5);
-
-			common.waitUntilElementToBeVisible(germanLanguage);
-			common.findElementBy(germanLanguage, "Select German language from option").click();
-
-			common.findElementBy(materialDescFormView, "Enter material description").sendKeys("New Material");
-			common.findElementBy(saveFormView, "Click on save on form view").click();
+//            common.pause(5);
+//            common.waitUntilElementToBeVisible(salesOrganisationData);
 		}
 
 		//If Manufacturer part number field appear then fill value for it
-		if (common.isElementDisplayed(manufacturerPartNum)) {
+		common.log("Enter Manufacturer Part Number");
+		common.log("Get Manufacturer Part Number from Excel: " + sheet.getRow(1).getCell(6));
+		common.type(manufacturerPartNum, sheet.getRow(1).getCell(6).getStringCellValue());
+		common.pause(10);
 
-			common.log("Enter Manufacturer Part Number");
-			common.findElement(manufacturerPartNum).sendKeys("54321");
-			common.pause(10);
-		} else {
-
-			common.log("No need to enter Manufacturer Part Number");
-		}
-
-		common.pause(5);
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
 		common.pause(5);
@@ -206,7 +266,6 @@ public class AddMaterialMaster extends Locators {
 		common.log("Refreshing page for visible latest created record");
 		common.refreshPage();
 		common.pause(10);
-
 	}
 
 	/**
@@ -1377,5 +1436,50 @@ public class AddMaterialMaster extends Locators {
 		String successStr = common.findElement(successMessageToast).getText();
 		common.log("Message display: " + successStr);
 		common.waitUntilElementToBeVisible(inboxMenu);
+	}
+	public void approveMaterialCreationByApprover() {
+
+		//wait for Home tab
+		common.waitUntilElementToBeVisible(homeTab);
+		common.findElementBy(homeTab, "Click on Home tab").click();
+		common.pause(5);
+		//wait for Inbox menu
+		common.waitUntilElementToBeVisible(inboxMenu);
+		common.findElementBy(inboxMenu, "Click on Inbox menu").click();
+		common.findElement(inboxMenu).click();
+
+		common.pause(10);
+		if (common.isElementDisplayed(firstActionIconForInbox)) {
+			//wait for first value
+			common.waitUntilElementToBeVisible(firstActionIconForInbox);
+
+			common.log("Click on action menu for first row");
+			common.findElement(firstActionIconForInbox).click();
+
+			common.log("Click on approve");
+			common.findElement(approveBtn).click();
+
+			common.waitUntilElementToBeVisible(headerData);
+			common.findElementBy(headerData, "Verify Header data appear");
+			common.waitUntilElementToBeVisible(approveButton);
+			common.findElementBy(approveButton, "Click on Approve").click();
+			common.pause(2);
+
+			if (common.isElementDisplayed(duplicateRecordHeader)) {
+
+				common.log("Duplicate records");
+				common.findElementBy(continueDuplicateRecord, "CLick on Continue").click();
+			} else {
+
+				common.log("No duplicate records");
+			}
+
+			common.waitUntilElementToBeVisible(successMessageToast);
+			String successStr = common.findElement(successMessageToast).getText();
+			common.log("Message display:  " + successStr);
+			common.waitUntilElementToBeVisible(inboxMenu);
+		} else {
+			common.log("Nothing to see here message appear");
+		}
 	}
 }

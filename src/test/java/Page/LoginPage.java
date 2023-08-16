@@ -169,6 +169,48 @@ public class LoginPage extends Locators {
 		common.log("Env URL: " + driver.getCurrentUrl());
 
 	}
+	/**
+	 * As a approver sign-in scenario
+	 *
+	 */
+	public void approver_SignIn() {
+
+		//Sign out the logged in reviewer
+		if (common.isElementDisplayed(profileIcon)) {
+			common.findElementBy(profileIcon,"Click on profile icon").click();
+			common.pause(5);
+			common.findElementBy(signOut,"Click on Sign out").click();
+			common.pause(10);
+		}
+		common.pause(5);
+		common.waitUntilElementToBeVisible(userNameField);
+		common.log("--- User login as reviewer credentials");
+
+		userLoginProcess(UserLoginRole.APPROVER);
+		common.pause(5);
+		common.log("click on login button");
+		common.findElement(loginBtn).click();
+		common.pause(5);
+
+		//Wait for options after login to select QA Sandbox or Tenant 1 or Home page
+		common.waitUntilElementToBeVisible(optionsAsPerEnv);
+
+		//if SANDBOX env is there then select QA Sandbox option
+		if (common.isElementDisplayed(qaSandboxOption))
+		{
+			common.findElementBy(qaSandboxOption, "Click on QA sandbox").click();
+		}
+
+		//if QAR env is there then select Tenant 1 option
+		if (common.isElementDisplayed(tenant1Option))
+		{
+			common.findElementBy(tenant1Option,"Select Tenant 1").click();
+		}
+		common.waitUntilElementToBeVisible(homeTab);
+		common.findElementBy(homeTab,"verify Home page appear");
+		common.log("Env URL: " + driver.getCurrentUrl());
+
+	}
 
 	/**
 	 * QA-Login scenario

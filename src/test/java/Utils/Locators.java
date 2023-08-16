@@ -161,7 +161,7 @@ public abstract class Locators extends BasePage {
 	protected WebElement dropValue;
 	@FindBy(xpath = "//div[@role='listbox']//mat-option[1]")
 	protected WebElement dropValue1;
-	@FindBy(xpath = "//button[normalize-space()='SequentialMaterial'] | //button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow'] | //button[normalize-space()='Sequential Flow']")
+	@FindBy(xpath = "//button[normalize-space()='SequentialMaterial'] | //button[normalize-space()='Material Creation Process'] | //button[normalize-space()='MaterialCreationFlow'] | //button[contains(text(),'Sequential Flow')]")
 	protected WebElement sequentialMaterialOption;
 
 	/**
@@ -575,8 +575,31 @@ public abstract class Locators extends BasePage {
 	protected WebElement materialDescLabel;
 	@FindBy(xpath = "//p[normalize-space()='Manufacturer Part Number']//..//..//..//input")
 	protected WebElement manufacturerField;
-	@FindBy(xpath = "//p[normalize-space()='Gross weight']//..//..//..//input")
+	@FindBy(xpath = "//p[normalize-space()='Gross weight']//..//..//..//input | //p[normalize-space()='Gross Weight']//..//..//..//input")
 	protected WebElement grossWeightField;
+	@FindBy(xpath = "//p[normalize-space()='Net Weight']//..//..//..//input")
+	protected WebElement netWeightField;
+	@FindBy(xpath = "//p[normalize-space()='Maximum Stock Level']//..//..//..//input")
+	protected WebElement maxStockLevelField;
+	@FindBy(xpath = "//p[contains(text(),'Procurement Type')]//..//..//mat-icon")
+	protected WebElement procurementTypeField;
+	@FindBy(xpath = "//p[normalize-space()='General Item Cat. Group']//..//..//mat-icon")
+	protected WebElement generalItemCatGroup;
+	@FindBy(xpath = "//p[contains(text(),'Planned Delivery Time')]//..//..//..//input")
+	protected WebElement plannedDeliveryTimeField;
+	@FindBy(xpath = "//p[contains(text(),'Reorder Point')]//..//..//..//input")
+	protected WebElement reorderPointField;
+	@FindBy(xpath = "//p[contains(text(),'Order Unit')]//..//..//..//mat-icon")
+	protected WebElement orderUnitField;
+	@FindBy(xpath = "//h5[normalize-space()='HERS Material Grid']//..//..//..//mat-icon[text()='plus']")
+	protected WebElement plusIconHersGrid;
+	@FindBy(xpath = "//p[normalize-space()='Manufacturer Part Number (Hers)']//..//..//..//input")
+	protected WebElement mpnHersGrid;
+	@FindBy(xpath = "//lib-input[@class='ng-untouched ng-pristine ng-valid ng-star-inserted']//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer']//..//..//..//input")
+	protected WebElement manufacturerHersGrid;
+	@FindBy(xpath = "//span[normalize-space()='Save']")
+	protected WebElement saveHersGrid;
+
 	@FindBy(xpath = "//p[normalize-space()='Gross weight']")
 	protected WebElement grossWeightLabel;
 	@FindBy(xpath = "//p[normalize-space()='Volume']//..//..//..//input")
@@ -614,7 +637,7 @@ public abstract class Locators extends BasePage {
 	protected WebElement partNumberField;
 	@FindBy(xpath = "//p[normalize-space()='Short description']//..//..//..//input")
 	protected WebElement shortDescriptionField;
-	@FindBy(xpath = "//div[contains (text(),'Long description')]//..//..//div//textarea")
+	@FindBy(xpath = "//p[normalize-space()='Long Description']//..//..//..//input")
 	protected WebElement longDescriptionField;
 	@FindBy(xpath = "//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p")
 	protected WebElement duplicateRecords;
@@ -629,9 +652,6 @@ public abstract class Locators extends BasePage {
 
 	@FindBy(xpath = "//div[@class='mdo-notice f-row mdo-notice-info']")
 	protected WebElement processLogs;
-
-
-
 
 
 }

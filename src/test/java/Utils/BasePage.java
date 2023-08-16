@@ -49,7 +49,7 @@ public class BasePage implements ITestListener {
 	// screen-shot folder
 	protected static String screenshot_folder_path = null;
 	protected static Logger logger = Logger.getLogger("testing");
-	
+
 	public static ExtentTest test;
 	public static ExtentReports report;
 
@@ -59,7 +59,7 @@ public class BasePage implements ITestListener {
 		return objectService;
 	}
 
-	private void initializeObjects(WebDriver webDriver) throws Exception {		
+	private void initializeObjects(WebDriver webDriver) throws Exception {
 		objectService = new ObjectService(webDriver);
 	}
 
@@ -83,7 +83,7 @@ public class BasePage implements ITestListener {
 		}
 		return webDriver;
 	}
-	
+
 	public static int step = 0;
 
 	@BeforeMethod(alwaysRun = true)
@@ -156,7 +156,7 @@ public class BasePage implements ITestListener {
 
 	/**
 	 * After Method {TearDown}
-	 * 
+	 *
 	 * @param testResult
 	 * @throws IOException
 	 * @throws FileNotFoundException
@@ -226,7 +226,7 @@ public class BasePage implements ITestListener {
 			this.log("Failed to capture screenshot: " + e.getMessage());
 		}
 	}
-	
+
 	public void log(String log) {
 		System.out.println(log);
 		Reporter.log("<font color = 'blue'><b><i><u><br>" + log + "</u></i></b></font>");
