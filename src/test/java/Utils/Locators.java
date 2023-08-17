@@ -179,6 +179,8 @@ public abstract class Locators extends BasePage {
 	protected WebElement firstOptionStorageData;
 	@FindBy(xpath = "//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer Part Number']//..//..//..//div//input")
 	protected WebElement manufacturerPartNum;
+	@FindBy(xpath = "//p[normalize-space()='Automation number']//..//..//..//input")
+	protected WebElement automationNumberField;
 	@FindBy(xpath = "//span[@class='mat-option-text']//..//..//mat-option//span[1]")
 	protected WebElement dropValueLoading;
 	@FindBy(xpath = "//p[normalize-space()='Plant Data']//..//..//..//..//p[contains(text(),'Add')]")
@@ -583,18 +585,37 @@ public abstract class Locators extends BasePage {
 	protected WebElement maxStockLevelField;
 	@FindBy(xpath = "//p[contains(text(),'Procurement Type')]//..//..//mat-icon")
 	protected WebElement procurementTypeField;
+	@FindBy(xpath = "//p[contains(text(),'Procurement Type')]//..//..//div//input")
+	protected WebElement procurementTypeFieldInput;
+
 	@FindBy(xpath = "//p[normalize-space()='General Item Cat. Group']//..//..//mat-icon")
 	protected WebElement generalItemCatGroup;
+
+	@FindBy(xpath = "//p[normalize-space()='General Item Cat. Group']//..//..//div//input")
+	protected WebElement generalItemCatGroupInput;
 	@FindBy(xpath = "//p[contains(text(),'Planned Delivery Time')]//..//..//..//input")
 	protected WebElement plannedDeliveryTimeField;
 	@FindBy(xpath = "//p[contains(text(),'Reorder Point')]//..//..//..//input")
 	protected WebElement reorderPointField;
+	@FindBy(xpath = "//h4[normalize-space()='All errors']//..//..//..//mat-icon")
+	protected WebElement closeErrors;
+
 	@FindBy(xpath = "//p[contains(text(),'Order Unit')]//..//..//..//mat-icon")
 	protected WebElement orderUnitField;
+	@FindBy(xpath = "//p[normalize-space()='Order Unit']//..//..//..//mat-icon")
+	protected WebElement orderUnitField1;
+	@FindBy(xpath = "(//p[contains(text(),'Order Unit')]//..//..//mat-icon)[2]")
+	protected WebElement clearOrderUnitField;
+	@FindBy(xpath = "//p[contains(text(),'Order Unit')]//..//..//div//input")
+	protected WebElement orderUnitFieldVale;
 	@FindBy(xpath = "//h5[normalize-space()='HERS Material Grid']//..//..//..//mat-icon[text()='plus']")
 	protected WebElement plusIconHersGrid;
 	@FindBy(xpath = "//p[normalize-space()='Manufacturer Part Number (Hers)']//..//..//..//input")
 	protected WebElement mpnHersGrid;
+	@FindBy(xpath = "//td[@role='cell']//lib-button[@type='plain']//mat-icon[@role='img'][normalize-space()='ellipsis-h']")
+	protected WebElement actionIconHers;
+	@FindBy(xpath = "//button[normalize-space()='Edit']")
+	protected WebElement editHers;
 	@FindBy(xpath = "//lib-input[@class='ng-untouched ng-pristine ng-valid ng-star-inserted']//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer']//..//..//..//input")
 	protected WebElement manufacturerHersGrid;
 	@FindBy(xpath = "//span[normalize-space()='Save']")
@@ -639,6 +660,9 @@ public abstract class Locators extends BasePage {
 	protected WebElement shortDescriptionField;
 	@FindBy(xpath = "//p[normalize-space()='Long Description']//..//..//..//input")
 	protected WebElement longDescriptionField;
+	@FindBy(xpath = "//p[normalize-space()='Manufacturer']//..//..//..//input")
+	protected WebElement manufacturerFieldValue;
+
 	@FindBy(xpath = "//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p")
 	protected WebElement duplicateRecords;
 	@FindBy(xpath = "//p[@class='small ng-star-inserted']")

@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 //import org.apache.commons.lang3.RandomStringUtils;
 import io.qameta.allure.Allure;
@@ -490,7 +491,7 @@ public class Common extends Locators {
 	}
 	public void scrollToElement(WebElement element) throws InterruptedException {
 
-		WebElement ele = driver.findElement(By.xpath(String.valueOf(element)));
+		WebElement ele = driver.findElement(By.xpath(getXPathFromWebElement(element)));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
 		Thread.sleep(500);
 	}
@@ -510,7 +511,8 @@ public class Common extends Locators {
 	 */
 	public void type(WebElement locator, String string) {
 
-		this.findElement(locator).clear();
+		driver.findElement(By.xpath(getXPathFromWebElement(locator))).clear();
+		this.pause(10);
 		driver.findElement(By.xpath(getXPathFromWebElement(locator))).sendKeys(string);
 
 	}
@@ -583,6 +585,9 @@ public class Common extends Locators {
 	        return -1;
 	    }
 
-	
-
+		public String GenerateRandomNumber(int charLength) {
+		return String.valueOf(charLength < 1 ? 0 : new Random()
+				.nextInt((9 * (int) Math.pow(10, charLength - 1)) - 1)
+				+ (int) Math.pow(10, charLength - 1));
+	}
 }
