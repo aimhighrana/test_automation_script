@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.Random;
 
 //import org.apache.commons.lang3.RandomStringUtils;
 import io.qameta.allure.Allure;
@@ -514,5 +515,9 @@ public class Common extends Locators {
 
 		Assert.assertNotEquals(value1, value2);
 	}
-
+	public String GenerateRandomNumber(int charLength) {
+		return String.valueOf(charLength < 1 ? 0 : new Random()
+				.nextInt((9 * (int) Math.pow(10, charLength - 1)) - 1)
+				+ (int) Math.pow(10, charLength - 1));
+	}
 }

@@ -179,6 +179,8 @@ public abstract class Locators extends BasePage {
 	protected WebElement firstOptionStorageData;
 	@FindBy(xpath = "//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer Part Number']//..//..//..//div//input")
 	protected WebElement manufacturerPartNum;
+	@FindBy(xpath = "//p[normalize-space()='Automation number']//..//..//..//input")
+	protected WebElement automationNumberField;
 	@FindBy(xpath = "//span[@class='mat-option-text']//..//..//mat-option//span[1]")
 	protected WebElement dropValueLoading;
 	@FindBy(xpath = "//p[normalize-space()='Plant Data']//..//..//..//..//p[contains(text(),'Add')]")

@@ -222,6 +222,9 @@ public class AddMaterialMaster extends Locators {
 		common.type(manufacturerPartNum, sheet.getRow(1).getCell(6).getStringCellValue());
 		common.pause(10);
 
+		String automationNumberValue = common.GenerateRandomNumber(8);
+		common.findElementBy(automationNumberField,"Enter automation number: "+automationNumberValue).sendKeys(automationNumberValue);
+
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
 		common.pause(5);
