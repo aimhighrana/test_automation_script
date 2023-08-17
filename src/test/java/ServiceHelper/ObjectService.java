@@ -10,6 +10,7 @@ import Page.ListView;
 import Page.LoginPage;
 import Page.MaterialCreation;
 import Page.ProcessLog;
+import Page.Workflow11;
 import contracts.IObjectService;
 
 public class ObjectService implements IObjectService {
@@ -22,6 +23,7 @@ public class ObjectService implements IObjectService {
 	private MaterialCreation materialCreation;
 	private Flow flow;
 	private HomePage homePage;
+	private Workflow11 workflow11;
 	
 	public ObjectService(WebDriver webDriver) throws Exception {
 		loginPage = new LoginPage(webDriver);
@@ -31,7 +33,8 @@ public class ObjectService implements IObjectService {
 		listView = new ListView(webDriver);
 		materialCreation = new MaterialCreation(webDriver);
 		flow = new Flow(webDriver);
-		homePage = new HomePage(webDriver);			
+		homePage = new HomePage(webDriver);	
+		workflow11 = new Workflow11(webDriver);
 	}
 	
 	public LoginPage loginPage() {
@@ -64,6 +67,10 @@ public class ObjectService implements IObjectService {
 
 	public HomePage homePage() {
 		return homePage;
+	}
+	
+	public Workflow11 workflow11(){
+		return workflow11;
 	}
 
 }
