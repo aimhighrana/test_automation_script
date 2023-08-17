@@ -501,7 +501,8 @@ public class Common extends Locators {
 	 */
 	public void type(WebElement locator, String string) {
 
-		this.findElement(locator).clear();
+		driver.findElement(By.xpath(getXPathFromWebElement(locator))).clear();
+		this.pause(5);
 		driver.findElement(By.xpath(getXPathFromWebElement(locator))).sendKeys(string);
 
 	}

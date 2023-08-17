@@ -597,6 +597,9 @@ public abstract class Locators extends BasePage {
 	protected WebElement plannedDeliveryTimeField;
 	@FindBy(xpath = "//p[contains(text(),'Reorder Point')]//..//..//..//input")
 	protected WebElement reorderPointField;
+	@FindBy(xpath = "//h4[normalize-space()='All errors']//..//..//..//mat-icon")
+	protected WebElement closeErrors;
+
 	@FindBy(xpath = "//p[contains(text(),'Order Unit')]//..//..//..//mat-icon")
 	protected WebElement orderUnitField;
 	@FindBy(xpath = "//p[normalize-space()='Order Unit']//..//..//..//mat-icon")
