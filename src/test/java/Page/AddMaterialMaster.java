@@ -306,7 +306,7 @@ public class AddMaterialMaster extends Locators {
 		common.findElementBy(actionIconHers,"Click on action icon for HERS grid").click();
 		common.pause(5);
 		common.findElementBy(editHers,"Click on edit").click();
-		common.pause(10);
+		common.pause(20);
 
 		common.log("Enter value in MPN HERS Grid field");
 		common.log("Get MPN HERS Grid from Excel: " + sheet.getRow(2).getCell(8));
@@ -321,11 +321,11 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 
 		common.findElementBy(saveHersGrid, "Click on save on HERS Grid").click();
-		common.pause(10);
+		common.pause(15);
 
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(10);
+		common.pause(30);
 
 		//If duplicate record popup appear then click on continue
 		if (common.isElementDisplayed(duplicateRecordHeader)) {

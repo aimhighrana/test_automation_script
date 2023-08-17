@@ -502,7 +502,7 @@ public class Common extends Locators {
 	public void type(WebElement locator, String string) {
 
 		driver.findElement(By.xpath(getXPathFromWebElement(locator))).clear();
-		this.pause(5);
+		this.pause(10);
 		driver.findElement(By.xpath(getXPathFromWebElement(locator))).sendKeys(string);
 
 	}
