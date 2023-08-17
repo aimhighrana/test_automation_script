@@ -605,6 +605,10 @@ public abstract class Locators extends BasePage {
 	protected WebElement plusIconHersGrid;
 	@FindBy(xpath = "//p[normalize-space()='Manufacturer Part Number (Hers)']//..//..//..//input")
 	protected WebElement mpnHersGrid;
+	@FindBy(xpath = "//td[@role='cell']//lib-button[@type='plain']//mat-icon[@role='img'][normalize-space()='ellipsis-h']")
+	protected WebElement actionIconHers;
+	@FindBy(xpath = "//button[normalize-space()='Edit']")
+	protected WebElement editHers;
 	@FindBy(xpath = "//lib-input[@class='ng-untouched ng-pristine ng-valid ng-star-inserted']//p[@class='xsmall strong ng-star-inserted'][normalize-space()='Manufacturer']//..//..//..//input")
 	protected WebElement manufacturerHersGrid;
 	@FindBy(xpath = "//span[normalize-space()='Save']")
@@ -649,6 +653,9 @@ public abstract class Locators extends BasePage {
 	protected WebElement shortDescriptionField;
 	@FindBy(xpath = "//p[normalize-space()='Long Description']//..//..//..//input")
 	protected WebElement longDescriptionField;
+	@FindBy(xpath = "//p[normalize-space()='Manufacturer']//..//..//..//input")
+	protected WebElement manufacturerFieldValue;
+
 	@FindBy(xpath = "//*[@id=\"right-side-nav-1\"]/div/ng-component/pros-duplicate-records-datatable/div/div[2]/div[3]/table/tbody/tr[1]/td[3]/lib-text-line/p")
 	protected WebElement duplicateRecords;
 	@FindBy(xpath = "//p[@class='small ng-star-inserted']")

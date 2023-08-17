@@ -179,15 +179,17 @@ public class AddMaterialMaster extends Locators {
 			common.log("Get MPN HERS Grid from Excel: " + sheet.getRow(1).getCell(8));
 			String mpnHersGridValue = String.valueOf(sheet.getRow(1).getCell(8));
 			common.findElement(mpnHersGrid).sendKeys(mpnHersGridValue);
+			common.pause(10);
 
 			common.log("Enter value in Manufacturer HERS Grid field");
-			common.log("Get Manufacturer HERS Grid from Excel: " + sheet.getRow(1).getCell(6));
-			String manufacturerHersGridValue = String.valueOf(sheet.getRow(1).getCell(6));
-			common.findElement(manufacturerHersGrid).sendKeys(manufacturerHersGridValue);
-
+			common.log("Get Manufacturer HERS Grid from Excel: " + sheet.getRow(1).getCell(15));
+//			String manufacturerHersGridValue = String.valueOf(sheet.getRow(1).getCell(15));
+//			common.findElement(manufacturerHersGrid).sendKeys(manufacturerHersGridValue);
+			common.pause(5);
 			common.findElementBy(saveHersGrid, "Click on save on HERS Grid").click();
 			common.pause(10);
 
+			//commented because its auto populated
 //            common.findElementBy(plantDataAddHierarchy, "Click on Plant Data - add... button").click();
 //            common.waitUntilElementToBeVisible(searchBoxHierarchy);
 //            common.log("Get Plant Data from Excel: " + sheet.getRow(1).getCell(22));
@@ -227,7 +229,96 @@ public class AddMaterialMaster extends Locators {
 
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
+		common.pause(10);
+
+		if (common.isElementDisplayed(errorMessage)) {
+
+			common.log("Showing mandatory error");
+			List<WebElement> webElements = driver.findElements(By.xpath("//p[@class='small ng-star-inserted']"));
+
+			for (WebElement e : webElements) {
+				common.log("Error: " + e.getText());
+			}
+		}
+
+		common.log("Enter value in Material description field");
+		common.log("Get Material description from Excel: " + sheet.getRow(2).getCell(3));
+		common.type(materialDescFormView,sheet.getRow(2).getCell(3).getStringCellValue());
 		common.pause(5);
+
+		common.log("Enter value in Long description field");
+		common.log("Get Long description from Excel: " + sheet.getRow(2).getCell(4));
+		common.type(longDescriptionField,sheet.getRow(2).getCell(4).getStringCellValue());
+		common.pause(5);
+		common.findElementBy(manufacturerFieldValue,"Enter Manufacturer number").sendKeys(sheet.getRow(2).getCell(17).getStringCellValue());
+		common.pause(5);
+		common.findElementBy(orderUnitField, "Click on Order Unit field").click();
+		common.findElement(orderUnitField).click();
+		common.waitUntilElementToBeVisible(dropValue);
+		common.pause(5);
+
+		common.log("Get Order Unit from Excel: " + sheet.getRow(2).getCell(7));
+		common.type(orderUnitFieldVale, sheet.getRow(2).getCell(7).getStringCellValue());
+		common.pause(10);
+		common.findElement(orderUnitFieldVale).sendKeys(Keys.DOWN);
+		common.findElement(orderUnitFieldVale).sendKeys(Keys.ENTER);
+		common.pause(5);
+
+		common.log("Enter value in Reorder Point field");
+		common.log("Get Reorder Point from Excel: " + sheet.getRow(2).getCell(9));
+		String reorderPointValue = String.valueOf(sheet.getRow(2).getCell(9));
+		common.type(reorderPointField,reorderPointValue);
+		common.pause(5);
+
+		common.pause(5);
+		common.findElement(grossWeightField).click();
+		common.log("Enter value in Gross Weight field");
+		common.log("Get Gross Weight from Excel: " + sheet.getRow(2).getCell(10));
+		String grossWeightValue = String.valueOf(sheet.getRow(2).getCell(10));
+		common.type(grossWeightField,grossWeightValue);
+		common.pause(5);
+
+		common.log("Enter value in Net Weight field");
+		common.log("Get Net Weight from Excel: " + sheet.getRow(2).getCell(11));
+		String netWeightValue = String.valueOf(sheet.getRow(2).getCell(11));
+		common.type(netWeightField,netWeightValue);
+		common.pause(5);
+
+		common.log("Enter value in Maximum Stock Level field");
+		common.log("Get Maximum Level Stock from Excel: " + sheet.getRow(2).getCell(12));
+		String maxStockLevelValue = String.valueOf(sheet.getRow(2).getCell(12));
+		common.type(maxStockLevelField,maxStockLevelValue);
+		common.pause(5);
+
+		common.log("Enter value in Planned Delivery Time field");
+		common.log("Get Planned Delivery Time from Excel: " + sheet.getRow(2).getCell(14));
+		String plannedDeliveryValue = String.valueOf(sheet.getRow(2).getCell(14));
+		common.type(plannedDeliveryTimeField,plannedDeliveryValue);
+		common.pause(5);
+
+		common.findElementBy(actionIconHers,"Click on action icon for HERS grid").click();
+		common.pause(5);
+		common.findElementBy(editHers,"Click on edit").click();
+		common.pause(10);
+
+		common.log("Enter value in MPN HERS Grid field");
+		common.log("Get MPN HERS Grid from Excel: " + sheet.getRow(2).getCell(8));
+		String mpnHersGridValue = String.valueOf(sheet.getRow(2).getCell(8));
+		common.type(mpnHersGrid,mpnHersGridValue);
+		common.pause(5);
+
+		common.log("Enter value in Manufacturer HERS Grid field");
+		common.log("Get Manufacturer HERS Grid from Excel: " + sheet.getRow(2).getCell(15));
+//		String manufacturerHersGridValue = String.valueOf(sheet.getRow(2).getCell(15));
+//		common.findElement(manufacturerHersGrid).sendKeys(manufacturerHersGridValue);
+		common.pause(5);
+
+		common.findElementBy(saveHersGrid, "Click on save on HERS Grid").click();
+		common.pause(10);
+
+		common.log("click on submit button");
+		common.findElement(submitBtn).click();
+		common.pause(10000);
 
 		//If duplicate record popup appear then click on continue
 		if (common.isElementDisplayed(duplicateRecordHeader)) {
