@@ -73,7 +73,7 @@ public class AddMaterialMaster extends Locators {
 		//For SANDBOX perspective
 		if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
-			common.pause(30);
+			common.pause(50);
 
 			common.waitUntilElementToBeVisible(materialType);
 
@@ -257,11 +257,13 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		common.log("Click on Order Unit field");
-		common.scrollToElement(orderUnitField);
-		common.jsClick(orderUnitField);
-		common.jsClick(orderUnitField);
-		common.waitUntilElementToBeVisible(dropValue);
+		common.scrollToElement(clearOrderUnitField);
+		common.scrollToElement(clearOrderUnitField);
+		common.jsClick(clearOrderUnitField);
+		common.jsClick(orderUnitField1);
+		common.jsClick(orderUnitField1);
 		common.pause(10);
+		common.waitUntilElementToBeVisible(dropValue);
 
 		common.log("Get Order Unit from Excel: " + sheet.getRow(2).getCell(7));
 		common.type(orderUnitFieldVale, sheet.getRow(2).getCell(7).getStringCellValue());
@@ -273,6 +275,7 @@ public class AddMaterialMaster extends Locators {
 		common.log("Enter value in Reorder Point field");
 		common.log("Get Reorder Point from Excel: " + sheet.getRow(2).getCell(9));
 		String reorderPointValue = String.valueOf(sheet.getRow(2).getCell(9));
+		common.click(reorderPointField);
 		common.type(reorderPointField,reorderPointValue);
 		common.pause(5);
 

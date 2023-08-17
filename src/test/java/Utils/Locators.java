@@ -599,6 +599,10 @@ public abstract class Locators extends BasePage {
 	protected WebElement reorderPointField;
 	@FindBy(xpath = "//p[contains(text(),'Order Unit')]//..//..//..//mat-icon")
 	protected WebElement orderUnitField;
+	@FindBy(xpath = "//p[normalize-space()='Order Unit']//..//..//..//mat-icon")
+	protected WebElement orderUnitField1;
+	@FindBy(xpath = "(//p[contains(text(),'Order Unit')]//..//..//mat-icon)[2]")
+	protected WebElement clearOrderUnitField;
 	@FindBy(xpath = "//p[contains(text(),'Order Unit')]//..//..//div//input")
 	protected WebElement orderUnitFieldVale;
 	@FindBy(xpath = "//h5[normalize-space()='HERS Material Grid']//..//..//..//mat-icon[text()='plus']")

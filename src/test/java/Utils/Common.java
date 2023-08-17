@@ -481,7 +481,7 @@ public class Common extends Locators {
 	}
 	public void scrollToElement(WebElement element) throws InterruptedException {
 
-		WebElement ele = driver.findElement(By.xpath(String.valueOf(element)));
+		WebElement ele = driver.findElement(By.xpath(getXPathFromWebElement(element)));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
 		Thread.sleep(500);
 	}
