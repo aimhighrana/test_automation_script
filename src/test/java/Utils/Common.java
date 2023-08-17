@@ -530,7 +530,7 @@ public class Common extends Locators {
         int rownum=0;
         ArrayList<String> code = new  ArrayList<String>();
         formatter = new DataFormatter();
-        FileInputStream    fin = new FileInputStream("C:\\Users\\apra.yadav\\git\\test_automation_script\\Workflow11.xlsx");
+        FileInputStream    fin = new FileInputStream("Workflow11.xlsx");
             ExcelWBook = new XSSFWorkbook(fin);
             ExcelWSheet = ExcelWBook.getSheet(sheetname);
         try {
