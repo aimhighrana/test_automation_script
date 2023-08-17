@@ -1,17 +1,22 @@
 package Utils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
 //import org.apache.commons.lang3.RandomStringUtils;
 import io.qameta.allure.Allure;
 import org.apache.commons.lang.RandomStringUtils;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.xmlbeans.impl.xb.xsdschema.All;
@@ -38,6 +43,11 @@ public class Common extends Locators {
 	Date date = new Date();
 	protected Wait<WebDriver> wait;
 	// protected WebDriver driver;
+    static DataFormatter formatter = new DataFormatter();
+    public static XSSFSheet ExcelWSheet;
+    public static XSSFWorkbook ExcelWBook;
+    public static XSSFCell Cell;
+    public static XSSFRow Row;
 
 	public Common(WebDriver driver) {
 
@@ -487,7 +497,7 @@ public class Common extends Locators {
 	}
 
 	public XSSFSheet getDataFromExcelSheet(String sheetName) throws IOException {
-		FileInputStream fis = new FileInputStream("Test_data1.xlsx");
+		FileInputStream fis = new FileInputStream("Workflow11.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet sheet = workbook.getSheet(sheetName);
 		return sheet;
@@ -516,7 +526,66 @@ public class Common extends Locators {
 
 		Assert.assertNotEquals(value1, value2);
 	}
-	public String GenerateRandomNumber(int charLength) {
+	
+	public static ArrayList<String>  getColumnData(String sheetname, String header) throws IOException
+    {
+        int rownum=0;
+        ArrayList<String> code = new  ArrayList<String>();
+        formatter = new DataFormatter();
+        FileInputStream    fin = new FileInputStream("Test_data1.xlsx");
+            ExcelWBook = new XSSFWorkbook(fin);
+            ExcelWSheet = ExcelWBook.getSheet(sheetname);
+        try {
+
+
+
+            int rowCount = ExcelWSheet.getLastRowNum();
+            for (int i = 0; i < rowCount; i++) {
+
+
+
+                rownum = i + 1;
+                code.add(getCellData(rownum, header));
+            }
+            ExcelWBook.close();
+            fin.close();
+        }
+        catch(Exception e)
+        {
+
+        }
+        return code;
+    }
+	
+	   public static String getCellData(int RowNum, String Header) throws Exception {
+	        try {
+	            String value = formatter.formatCellValue(ExcelWSheet.getRow(RowNum).getCell(readHeader(Header)));
+	            return value;
+	        } catch (Exception e) {
+	            return "";
+	        }
+	    }
+
+	    public static int readHeader(String Header) {
+	        try {
+	            int colNum = ExcelWSheet.getRow(0).getLastCellNum();
+	            Row = ExcelWSheet.getRow(0);
+	            for (int j = 0; j < colNum; j++) {
+	                Cell = Row.getCell(j);
+	                String cellValue = formatter.formatCellValue(Cell);
+	                if (cellValue.equalsIgnoreCase(Header)) {
+	                    return j;
+	                }
+
+	 
+
+	            }
+	        } catch (Exception e) {
+	        }
+	        return -1;
+	    }
+
+		public String GenerateRandomNumber(int charLength) {
 		return String.valueOf(charLength < 1 ? 0 : new Random()
 				.nextInt((9 * (int) Math.pow(10, charLength - 1)) - 1)
 				+ (int) Math.pow(10, charLength - 1));

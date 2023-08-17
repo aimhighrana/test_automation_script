@@ -676,6 +676,18 @@ public abstract class Locators extends BasePage {
 
 	@FindBy(xpath = "//div[@class='mdo-notice f-row mdo-notice-info']")
 	protected WebElement processLogs;
+	
+	@FindBy(xpath = "//p[normalize-space()='MRP Controller Auto Extension']")
+	protected WebElement autoExtensionDataset;
+	
+	@FindBy(xpath = "//lib-section[@text='Forms']//..//button[1]")
+	protected WebElement formList;
+	
+	@FindBy(xpath = "//button[normalize-space()='MRP Controller']")
+	protected WebElement mrpForm;
+	
+	@FindBy(xpath = "//p[normalize-space()='Aut change']//..//..//..//div//input")
+	protected WebElement autChange;
 
 
 }
