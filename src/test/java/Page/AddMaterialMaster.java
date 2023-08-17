@@ -229,7 +229,8 @@ public class AddMaterialMaster extends Locators {
 
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(10);
+		common.pause(20);
+		common.waitUntilElementToBeVisible(errorMessage);
 
 		if (common.isElementDisplayed(errorMessage)) {
 
