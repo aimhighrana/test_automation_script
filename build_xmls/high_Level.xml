@@ -13,7 +13,7 @@
 			<class name="Test.HighLevelTestcases">
 				<methods>
 					<include
-							name="verifying_Material_Creation_Flow"/>
+							name="verifying_Material_Creation_Flow_WF1"/>
 				</methods>
 			</class>
 		</classes>
