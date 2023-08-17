@@ -36,7 +36,7 @@ public class AddMaterialMaster extends Locators {
 	/**
 	 * Add New Material Master Record
 	 */
-	public void addNewMaterialMaster() throws IOException {
+	public void addNewMaterialMaster() throws IOException, InterruptedException {
 
 		XSSFSheet sheet = common.getDataFromExcelSheet("Workflow_1_TestCases");
 
@@ -229,7 +229,7 @@ public class AddMaterialMaster extends Locators {
 
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(20);
+		common.pause(30);
 		common.waitUntilElementToBeVisible(errorMessage);
 
 		if (common.isElementDisplayed(errorMessage)) {
@@ -251,12 +251,17 @@ public class AddMaterialMaster extends Locators {
 		common.log("Get Long description from Excel: " + sheet.getRow(2).getCell(4));
 		common.type(longDescriptionField,sheet.getRow(2).getCell(4).getStringCellValue());
 		common.pause(5);
+
+		common.log("Get Manufacturer number from Excel: " + sheet.getRow(2).getCell(17));
 		common.findElementBy(manufacturerFieldValue,"Enter Manufacturer number").sendKeys(sheet.getRow(2).getCell(17).getStringCellValue());
-		common.pause(5);
-		common.findElementBy(orderUnitField, "Click on Order Unit field").click();
-		common.findElement(orderUnitField).click();
+		common.pause(10);
+
+		common.log("Click on Order Unit field");
+		common.scrollToElement(orderUnitField);
+		common.jsClick(orderUnitField);
+		common.jsClick(orderUnitField);
 		common.waitUntilElementToBeVisible(dropValue);
-		common.pause(5);
+		common.pause(10);
 
 		common.log("Get Order Unit from Excel: " + sheet.getRow(2).getCell(7));
 		common.type(orderUnitFieldVale, sheet.getRow(2).getCell(7).getStringCellValue());
