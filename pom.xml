@@ -230,7 +230,7 @@
 								<!--this Process_Log xml include all the test regarding View Process Log functionality-->
 								<suiteXmlFile>build_xmls/process_Log.xml</suiteXmlFile>
 								<!--this high_Level xml include all the tests regarding High Level scenarios functionality-->
-								<suiteXmlFile>build_xmls/high_Level.xml</suiteXmlFile>
+								<suiteXmlFile>build_xmls/workflow1.xml</suiteXmlFile>
 							</suiteXmlFiles>
 							<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
 						</configuration>

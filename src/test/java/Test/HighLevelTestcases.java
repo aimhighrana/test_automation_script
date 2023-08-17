@@ -17,7 +17,7 @@ public class HighLevelTestcases extends BasePage {
 	 */
 	@Test
 	@Parameters("env")
-	public void verifying_Material_Creation_Flow_WF1(String env) throws InterruptedException, IOException, Exception {
+	public void verifying_Material_Master_Creation_WorkFlow_1(String env) throws InterruptedException, IOException, Exception {
 		log("Testcase:Workflow 1 Test cases");
 		objectService().loginPage().goToURL(env);
 		objectService().loginPage().initiator_SignIn();

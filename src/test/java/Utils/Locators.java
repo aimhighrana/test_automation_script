@@ -583,14 +583,22 @@ public abstract class Locators extends BasePage {
 	protected WebElement maxStockLevelField;
 	@FindBy(xpath = "//p[contains(text(),'Procurement Type')]//..//..//mat-icon")
 	protected WebElement procurementTypeField;
+	@FindBy(xpath = "//p[contains(text(),'Procurement Type')]//..//..//div//input")
+	protected WebElement procurementTypeFieldInput;
+
 	@FindBy(xpath = "//p[normalize-space()='General Item Cat. Group']//..//..//mat-icon")
 	protected WebElement generalItemCatGroup;
+
+	@FindBy(xpath = "//p[normalize-space()='General Item Cat. Group']//..//..//div//input")
+	protected WebElement generalItemCatGroupInput;
 	@FindBy(xpath = "//p[contains(text(),'Planned Delivery Time')]//..//..//..//input")
 	protected WebElement plannedDeliveryTimeField;
 	@FindBy(xpath = "//p[contains(text(),'Reorder Point')]//..//..//..//input")
 	protected WebElement reorderPointField;
 	@FindBy(xpath = "//p[contains(text(),'Order Unit')]//..//..//..//mat-icon")
 	protected WebElement orderUnitField;
+	@FindBy(xpath = "//p[contains(text(),'Order Unit')]//..//..//div//input")
+	protected WebElement orderUnitFieldVale;
 	@FindBy(xpath = "//h5[normalize-space()='HERS Material Grid']//..//..//..//mat-icon[text()='plus']")
 	protected WebElement plusIconHersGrid;
 	@FindBy(xpath = "//p[normalize-space()='Manufacturer Part Number (Hers)']//..//..//..//input")

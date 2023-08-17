@@ -73,7 +73,7 @@ public class AddMaterialMaster extends Locators {
 		//For SANDBOX perspective
 		if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
-			common.pause(5);
+			common.pause(30);
 
 			common.waitUntilElementToBeVisible(materialType);
 
@@ -115,25 +115,24 @@ public class AddMaterialMaster extends Locators {
 			common.findElement(longDescriptionField).sendKeys(sheet.getRow(1).getCell(4).getStringCellValue());
 
 			common.pause(5);
-			common.findElement(grossWeightField).click();
-			common.log("Enter value in Gross Weight field");
-			common.log("Get Gross Weight from Excel: " + sheet.getRow(1).getCell(10));
-			String grossWeightValue = String.valueOf(sheet.getRow(1).getCell(10));
-			common.findElement(grossWeightField).sendKeys(grossWeightValue);
-
-			common.pause(5);
 			common.findElementBy(generalItemCatGroup, "Click on General Item Category Group field").click();
 			common.findElement(generalItemCatGroup).click();
 			common.waitUntilElementToBeVisible(dropValue);
 			common.pause(5);
 			common.log("Get General Item Category from Excel: " + sheet.getRow(1).getCell(5));
-			String generalItem = String.valueOf(sheet.getRow(1).getCell(5));
-			common.type(generalItemCatGroup, generalItem);
+			common.findElement(generalItemCatGroupInput).sendKeys(sheet.getRow(1).getCell(5).getStringCellValue());
 			common.pause(10);
-			common.findElement(generalItemCatGroup).sendKeys(Keys.DOWN);
-			common.findElement(generalItemCatGroup).sendKeys(Keys.ENTER);
+			common.findElement(generalItemCatGroupInput).sendKeys(Keys.DOWN);
+			common.findElement(generalItemCatGroupInput).sendKeys(Keys.ENTER);
 
 			common.pause(5);
+			common.findElement(grossWeightField).click();
+			common.log("Enter value in Gross Weight field");
+			common.log("Get Gross Weight from Excel: " + sheet.getRow(1).getCell(10));
+			String grossWeightValue = String.valueOf(sheet.getRow(1).getCell(10));
+			common.findElement(grossWeightField).sendKeys(grossWeightValue);
+			common.pause(5);
+
 			common.log("Enter value in Net Weight field");
 			common.log("Get Net Weight from Excel: " + sheet.getRow(1).getCell(11));
 			String netWeightValue = String.valueOf(sheet.getRow(1).getCell(11));
@@ -148,10 +147,10 @@ public class AddMaterialMaster extends Locators {
 			common.findElementBy(procurementTypeField, "Click on Procurement Type field").click();
 			common.waitUntilElementToBeVisible(dropValue);
 			common.log("Get Procurement Type from Excel: " + sheet.getRow(1).getCell(13));
-			common.type(procurementTypeField, sheet.getRow(1).getCell(13).getStringCellValue());
+			common.type(procurementTypeFieldInput, sheet.getRow(1).getCell(13).getStringCellValue());
 			common.pause(10);
-			common.findElement(procurementTypeField).sendKeys(Keys.DOWN);
-			common.findElement(procurementTypeField).sendKeys(Keys.ENTER);
+			common.findElement(procurementTypeFieldInput).sendKeys(Keys.DOWN);
+			common.findElement(procurementTypeFieldInput).sendKeys(Keys.ENTER);
 
 			common.log("Enter value in Planned Delivery Time field");
 			common.log("Get Planned Delivery Time from Excel: " + sheet.getRow(1).getCell(14));
@@ -164,12 +163,13 @@ public class AddMaterialMaster extends Locators {
 			common.findElement(reorderPointField).sendKeys(reorderPointValue);
 
 			common.findElementBy(orderUnitField, "Click on Order Unit field").click();
+			common.findElement(orderUnitField).click();
 			common.waitUntilElementToBeVisible(dropValue);
 			common.log("Get Order Unit from Excel: " + sheet.getRow(1).getCell(7));
-			common.type(orderUnitField, sheet.getRow(1).getCell(7).getStringCellValue());
+			common.type(orderUnitFieldVale, sheet.getRow(1).getCell(7).getStringCellValue());
 			common.pause(10);
-			common.findElement(orderUnitField).sendKeys(Keys.DOWN);
-			common.findElement(orderUnitField).sendKeys(Keys.ENTER);
+			common.findElement(orderUnitFieldVale).sendKeys(Keys.DOWN);
+			common.findElement(orderUnitFieldVale).sendKeys(Keys.ENTER);
 			common.pause(5);
 
 			common.findElementBy(plusIconHersGrid, "Click on plus icon on HERS grid").click();
