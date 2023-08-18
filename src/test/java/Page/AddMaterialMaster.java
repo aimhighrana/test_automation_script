@@ -73,7 +73,7 @@ public class AddMaterialMaster extends Locators {
 		//For SANDBOX perspective
 		if (common.isElementDisplayed(sequentialMaterialOption)) {
 			common.findElementBy(sequentialMaterialOption, "Click on Sequential Material option").click();
-			common.pause(30);
+			common.pause(50);
 
 			common.waitUntilElementToBeVisible(materialType);
 
@@ -241,7 +241,8 @@ public class AddMaterialMaster extends Locators {
 				common.log("Error: " + e.getText());
 			}
 		}
-
+		common.findElementBy(closeErrors,"Close the errors").click();
+		common.pause(5);
 		common.log("Enter value in Material description field");
 		common.log("Get Material description from Excel: " + sheet.getRow(2).getCell(3));
 		common.type(materialDescFormView,sheet.getRow(2).getCell(3).getStringCellValue());
@@ -257,27 +258,20 @@ public class AddMaterialMaster extends Locators {
 		common.pause(10);
 
 		common.log("Click on Order Unit field");
-		common.scrollToElement(orderUnitField);
-		common.jsClick(orderUnitField);
-		common.jsClick(orderUnitField);
-		common.waitUntilElementToBeVisible(dropValue);
+		common.scrollToElement(clearOrderUnitField);
+		common.scrollToElement(clearOrderUnitField);
+		common.jsClick(clearOrderUnitField);
+		common.jsClick(orderUnitField1);
+		common.jsClick(orderUnitField1);
 		common.pause(10);
+		common.waitUntilElementToBeVisible(dropValue);
 
 		common.log("Get Order Unit from Excel: " + sheet.getRow(2).getCell(7));
 		common.type(orderUnitFieldVale, sheet.getRow(2).getCell(7).getStringCellValue());
-		common.pause(10);
 		common.findElement(orderUnitFieldVale).sendKeys(Keys.DOWN);
 		common.findElement(orderUnitFieldVale).sendKeys(Keys.ENTER);
-		common.pause(5);
+		common.pause(10);
 
-		common.log("Enter value in Reorder Point field");
-		common.log("Get Reorder Point from Excel: " + sheet.getRow(2).getCell(9));
-		String reorderPointValue = String.valueOf(sheet.getRow(2).getCell(9));
-		common.type(reorderPointField,reorderPointValue);
-		common.pause(5);
-
-		common.pause(5);
-		common.findElement(grossWeightField).click();
 		common.log("Enter value in Gross Weight field");
 		common.log("Get Gross Weight from Excel: " + sheet.getRow(2).getCell(10));
 		String grossWeightValue = String.valueOf(sheet.getRow(2).getCell(10));
@@ -302,10 +296,17 @@ public class AddMaterialMaster extends Locators {
 		common.type(plannedDeliveryTimeField,plannedDeliveryValue);
 		common.pause(5);
 
+		common.log("Get Reorder Point from Excel: " + sheet.getRow(2).getCell(9));
+		String reorderPointValue = String.valueOf(sheet.getRow(2).getCell(9));
+//		common.scrollToElement(reorderPointField);
+		common.log("Enter value in Reorder Point field");
+		common.type(reorderPointField,reorderPointValue);
+		common.pause(5);
+
 		common.findElementBy(actionIconHers,"Click on action icon for HERS grid").click();
 		common.pause(5);
 		common.findElementBy(editHers,"Click on edit").click();
-		common.pause(10);
+		common.pause(20);
 
 		common.log("Enter value in MPN HERS Grid field");
 		common.log("Get MPN HERS Grid from Excel: " + sheet.getRow(2).getCell(8));
@@ -320,11 +321,11 @@ public class AddMaterialMaster extends Locators {
 		common.pause(5);
 
 		common.findElementBy(saveHersGrid, "Click on save on HERS Grid").click();
-		common.pause(10);
+		common.pause(15);
 
 		common.log("click on submit button");
 		common.findElement(submitBtn).click();
-		common.pause(10000);
+		common.pause(30);
 
 		//If duplicate record popup appear then click on continue
 		if (common.isElementDisplayed(duplicateRecordHeader)) {
