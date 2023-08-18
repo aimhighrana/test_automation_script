@@ -229,8 +229,10 @@
 <!--								<suiteXmlFile>build_xmls/transformation_Rule.xml</suiteXmlFile>-->
 								<!--this Process_Log xml include all the test regarding View Process Log functionality-->
 								<suiteXmlFile>build_xmls/process_Log.xml</suiteXmlFile>
-								<!--this high_Level xml include all the tests regarding High Level scenarios functionality-->
+								<!--this workflow1 xml include High Level scenarios functionality for workflow 1-->
 								<suiteXmlFile>build_xmls/workflow1.xml</suiteXmlFile>
+								<!--this workflow3 xml include High Level scenarios functionality for workflow 3-->
+								<suiteXmlFile>build_xmls/workflow3.xml</suiteXmlFile>
 							</suiteXmlFiles>
 							<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
 						</configuration>

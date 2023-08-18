@@ -8,12 +8,12 @@
     </listeners>
 	<parameter name="env" value="QAR" />
 
-	 <test name="verifying Material Master Creation WorkFlow 1">
+	 <test name="verifying Material Creation Default Values WorkFlow 3">
 		<classes>
 			<class name="Test.HighLevelTestcases">
 				<methods>
 					<include
-							name="verifying_Material_Master_Creation_WorkFlow_1"/>
+							name="verifying_Material_Creation_Default_Values_WorkFlow_3"/>
 				</methods>
 			</class>
 		</classes>
