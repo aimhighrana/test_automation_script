@@ -688,6 +688,146 @@ public abstract class Locators extends BasePage {
 	
 	@FindBy(xpath = "//p[normalize-space()='Aut change']//..//..//..//div//input")
 	protected WebElement autChange;
+	//WorkFlow8
+	@FindBy(xpath = "//input[@data-placeholder='Search data']")
+	protected WebElement searchData;
+	
+	@FindBy(xpath = "//p[text()=' Functional Location ']")
+	protected WebElement buttonCreateFunctionLocation;
+	
+	@FindBy(xpath = "//span[text()='New record ']")
+	protected WebElement buttonNewRecord;
+	
+	@FindBy(xpath = "//button[text()=' Create Functional Location WF8 ']")
+	protected WebElement buttonCreateFunctionalLocation;
 
+	@FindBy(xpath = "//p[text()='Functional Location Label']/../../..//input")
+	protected WebElement textFunctionalLocationLabel;
+	
+	@FindBy(xpath = "//p[text()='Edit mask ']/../../..//input[@id]")
+	protected WebElement textEditMask;
+	
+	@FindBy(xpath = "//p[text()='Labelling system ']/../../..//input[@id]")
+	protected WebElement textLabellingSystem;
+	
+	@FindBy(xpath = "//p[text()='Structure Indicator ']/../../..//input[@id]")
+	protected WebElement textStructureIndicator;
+	
+	@FindBy(xpath = "//p[text()='Category ']/../../..//input[@id]")
+	protected WebElement textCategory;
+	
+	@FindBy(xpath = "//p[text()='Description']/../../..//input[@id]")
+	protected WebElement textDiscription;
+	
+	@FindBy(xpath = "//p[text()='User Status ']/../../..//input[@id]")
+	protected WebElement textUserStatus;
+	
+	@FindBy(xpath = "//p[text()='Size/Dimension']/../../..//input[@id]")
+	protected WebElement textSizeAndDimension;
+	
+	@FindBy(xpath = "//mat-icon[text()='calendar']")
+	protected WebElement selectDate;
+	
+	@FindBy(xpath = "//p[text()='Manufacturer']/../../..//input[@id]")
+	protected WebElement textManufacturer;
+	
+	@FindBy(xpath = "//p[text()='Manufacturer Country ']/../../..//input[@id]")
+	protected WebElement textManufacturerCountry;
+	
+	@FindBy(xpath = "//p[text()='Model Number']/../../..//input[@id]")
+	protected WebElement textModelNumber;
+	
+	@FindBy(xpath = "//p[text()='Construction Year']/../../..//input[@id]")
+	protected WebElement textContructionYear;
+
+	@FindBy(xpath = "//p[text()='Manufacturer serial no.']/../../..//input[@id]")
+	protected WebElement textManufacturingSerialNumber;
+	
+	@FindBy(xpath = "//p[text()='Manufacturer part no.']/../../..//input[@id]")
+	protected WebElement textManufacturingPartNumber;
+	
+	@FindBy(xpath = "//p[text()='Maintenance Plant ']/../../..//input[@id]")
+	protected WebElement textMaintanancePlant;
+	
+	@FindBy(xpath = "//p[text()=' Location ']/../../..//input[@id]")
+	protected WebElement textLocation;
+	
+	@FindBy(xpath = "//p[text()='Plant section ']/../../..//input[@id]")
+	protected WebElement textPlantSection;
+	
+	@FindBy(xpath = "//p[text()='ABC Indicator ']/../../..//input[@id]")
+	protected WebElement textABCIndicator;
+	
+	@FindBy(xpath = "//p[text()='Sort Field']/../../..//input[@id]")
+	protected WebElement textSortField;
+	
+	@FindBy(xpath = "//p[text()='Address Record ']/../..//mat-icon[text()='plus']")
+	protected WebElement plusIconAddressRecord;
+
+	@FindBy(xpath = "//p[text()='Company Code ']/../../..//input[@id]")
+	protected WebElement textCompanyCode;
+	
+	@FindBy(xpath = "//p[text()='Business Area ']/../../..//input[@id]")
+	protected WebElement textBusinessArea;
+	
+	@FindBy(xpath = "//p[text()='Cost Center ']/../../..//input[@id]")
+	protected WebElement textCostCenter;
+	
+	@FindBy(xpath = "//p[text()='Planning Plant ']/../../..//input[@id]")
+	protected WebElement textPlanningPlant;
+	
+	@FindBy(xpath = "//p[text()='Planning Group ']/../../..//input[@id]")
+	protected WebElement textPlanningGroup;
+	
+	@FindBy(xpath = "//p[text()='Equipment Installation Allowed ']/../../..//input[@id]")
+	protected WebElement textEquipmentInstallationAllowed;
+	
+	@FindBy(xpath = "//p[text()='Single Equipment Installation Allowed ']/../../..//input[@id]")
+	protected WebElement textSingleEquipmentInstallationAllowed;
+	
+	//Address Record 1
+	@FindBy(xpath = "//p[text()='Header Data']")
+	protected WebElement getTextHeaderData;
+	
+	@FindBy(xpath = "//p[text()='Title ']/../../..//input[@id]")
+	protected WebElement textTitle;
+	
+	@FindBy(xpath = "//p[text()='Name']/../../..//input[@id]")
+	protected WebElement textName;
+	
+	@FindBy(xpath = "//p[text()='Name 2']/../../..//input[@id]")
+	protected WebElement textNameTwo;
+	
+	@FindBy(xpath = "//p[text()='House No.']/../../..//input[@id]")
+	protected WebElement textHouseNumber;
+	
+	@FindBy(xpath = "//p[text()='Street']/../../..//input[@id]")
+	protected WebElement textStreet;
+	
+	@FindBy(xpath = "//p[text()='Street 2']/../../..//input[@id]")
+	protected WebElement textStreetTwo;
+	
+	@FindBy(xpath = "//p[text()='City']/../../..//input[@id]")
+	protected WebElement textCity;
+	
+	@FindBy(xpath = "//p[text()='Country Key ']/../../..//input[@id]")
+	protected WebElement textCountryKey;
+	
+	@FindBy(xpath = "//p[text()='City Postal Code']/../../..//input[@id]")
+	protected WebElement textCityPostalCode;
+	
+	@FindBy(xpath = "//p[text()='Country Code']/../../..//input[@id]")
+	protected WebElement textCountryCode;
+	
+	@FindBy(xpath = "//p[text()='Email ID']/../../..//input[@id]")
+	protected WebElement textEmailId;
+	
+	@FindBy(xpath = "//p[text()='Telephone Number']/../../..//input[@id]")
+	protected WebElement textTelephoneNumber;
+	
+	@FindBy(xpath = "//p[text()='Fax Number']/../../..//input[@id]")
+	protected WebElement textFaxNumber;
+	
+	//Equipment Master
 
 }

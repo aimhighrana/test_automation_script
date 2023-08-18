@@ -12,4 +12,5 @@ public interface IObjectService {
 	public Flow flow();
 	public HomePage homePage();
 	public Workflow11 workflow11();
+	public WorkFlowEight workFlowEight();
 }
