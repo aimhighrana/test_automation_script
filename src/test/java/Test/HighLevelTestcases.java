@@ -43,6 +43,12 @@ public class HighLevelTestcases extends BasePage {
 		objectService().loginPage().goToURL(env);
 		objectService().loginPage().initiator_SignIn();
 		objectService().materialMaster().verifyDefaultValuesOnSequentialFlow();
-
+		objectService().materialMaster().viewMaterialMasterProcessLog();
+		objectService().loginPage().reviewer_SignIn();
+		objectService().materialMaster().approveStatusByReviewerWorkFlow3();
+		objectService().materialMaster().viewMaterialMasterProcessLog();
+		objectService().loginPage().approver_SignIn();
+		objectService().materialMaster().approveMaterialCreationByApprover();
+		objectService().materialMaster().viewMaterialMasterProcessLog();
 	}
 }

@@ -24,7 +24,7 @@ public class AuthenticationService extends BasePage implements IAuthenticationSe
 			break;
 		}
 		case APPROVER: {
-			userCredential.setUsername(getPropertyValue(environmentName + "ApproverUsername"));
+			userCredential.setUsername(getPropertyValue(environmentName + "ApproverUserName"));
 			userCredential.setPassword(getPropertyValue(environmentName + "ApproverPassword"));
 			break;
 		}

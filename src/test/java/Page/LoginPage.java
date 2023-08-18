@@ -184,7 +184,7 @@ public class LoginPage extends Locators {
 		}
 		common.pause(5);
 		common.waitUntilElementToBeVisible(userNameField);
-		common.log("--- User login as reviewer credentials");
+		common.log("--- User login as approver credentials");
 
 		userLoginProcess(UserLoginRole.APPROVER);
 		common.pause(5);

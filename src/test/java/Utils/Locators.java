@@ -716,5 +716,8 @@ public abstract class Locators extends BasePage {
     protected WebElement storageLocation;
     @FindBy(xpath = "//p[contains(text(),'Valuation Type:')]")
     protected WebElement valuationType;
+    @FindBy(xpath = "//p[normalize-space()='Storage Bin']")
+    protected WebElement storageBinLabel;
+
 
 }
