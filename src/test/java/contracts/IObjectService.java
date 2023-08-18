@@ -11,4 +11,5 @@ public interface IObjectService {
 	public MaterialCreation materialCreation();
 	public Flow flow();
 	public HomePage homePage();
+	public WorkFlowEight workFlowEight();
 }
