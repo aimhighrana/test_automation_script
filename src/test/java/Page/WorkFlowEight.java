@@ -40,34 +40,27 @@ public class WorkFlowEight extends Locators {
 
 		common.waitUntilElementToBeVisible(dataTab);
 		common.findElementBy(dataTab, "Click on Data Tab").click();
-//		common.waitUntilElementToBeVisible(searchData);
-//		
-//		common.log("Search Functional Location");
-//		common.findElement(searchData).sendKeys("Functional Location");
-//		common.findElement(buttonCreateFunctionLocation).sendKeys(Keys.ENTER);
-//		
-//		common.waitUntilElementToBeVisible(buttonNewRecord);
-//		common.findElementBy(buttonNewRecord, "Click on New Record Button").click();
-//		
-//		common.waitUntilElementToBeVisible(buttonCreateFunctionalLocation);
-//		common.findElementBy(buttonCreateFunctionalLocation, "Click on Create Functional Location").click();
-//		
-//		common.waitUntilElementToBeVisible(textFunctionalLocationLabel);
-//		common.findElement(textFunctionalLocationLabel).sendKeys(sheet.getRow(1).getCell(0).getStringCellValue());
+		common.waitUntilElementToBeVisible(searchData);
+		
+		common.log("Search Functional Location");
+		common.type(searchData, "Functional Location");
+		common.waitUntilElementToBeVisible(buttonCreateFunctionLocation);
+		common.findElementBy(buttonCreateFunctionLocation, "Click on Create Function Location").click();
+		
+		common.waitUntilElementToBeVisible(buttonNewRecord);
+		common.findElementBy(buttonNewRecord, "Click on New Record Button").click();
+		
+		common.waitUntilElementToBeVisible(buttonCreateFunctionalLocation);
+		common.findElementBy(buttonCreateFunctionalLocation, "Click on Create Functional Location").click();
+		
+		common.waitUntilElementToBeVisible(textFunctionalLocationLabel);
+		common.findElement(textFunctionalLocationLabel).sendKeys(sheet.getRow(1).getCell(0).getStringCellValue());
 		
 		
 		
 		
 
-//		WebElement firstRecord = driver.findElement(By.xpath("//tbody/tr[1]/td[3]//p"));
-//		String recordNumber =  common.findElement(firstRecord).getText();
-//		common.log("1st Record number in Inbox menu: " + recordNumber);
-//
-//		common.findElementBy(firstActionIconForInbox, "Click on action icon for first record").click();
-//
-//		common.findElementBy(approveBtn, "Approve option available");
-//		common.findElementBy(processLogOption, "Process Log option available");
-//		common.findElementBy(claim, "Claim option available");
+
 
 	}
 
