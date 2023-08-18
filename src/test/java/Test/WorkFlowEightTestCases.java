@@ -20,7 +20,7 @@ public class WorkFlowEightTestCases extends BasePage {
 		log("Testcase:Workflow 1 Test cases");
 		objectService().loginPage().goToURL(env);
 		objectService().loginPage().initiator_SignIn();
-	//	objectService().workFlowEight().verify_Functional_Location_is_Created();
+		objectService().workFlowEight().verify_Functional_Location_is_Created();
 
 
 	}
