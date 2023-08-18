@@ -11,6 +11,7 @@ import Page.LoginPage;
 import Page.MaterialCreation;
 import Page.ProcessLog;
 import Page.Workflow11;
+import Page.WorkFlowEight;
 import contracts.IObjectService;
 
 public class ObjectService implements IObjectService {
@@ -24,6 +25,7 @@ public class ObjectService implements IObjectService {
 	private Flow flow;
 	private HomePage homePage;
 	private Workflow11 workflow11;
+	private WorkFlowEight workFlowEight;
 	
 	public ObjectService(WebDriver webDriver) throws Exception {
 		loginPage = new LoginPage(webDriver);
@@ -35,6 +37,7 @@ public class ObjectService implements IObjectService {
 		flow = new Flow(webDriver);
 		homePage = new HomePage(webDriver);	
 		workflow11 = new Workflow11(webDriver);
+		workFlowEight = new WorkFlowEight(webDriver);
 	}
 	
 	public LoginPage loginPage() {
@@ -71,6 +74,10 @@ public class ObjectService implements IObjectService {
 	
 	public Workflow11 workflow11(){
 		return workflow11;
+	}
+
+	public WorkFlowEight workFlowEight() {
+		return workFlowEight;
 	}
 
 }
