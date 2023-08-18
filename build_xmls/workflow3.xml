@@ -8,18 +8,7 @@
     </listeners>
 	<parameter name="env" value="QAR" />
 
-	 <test name="verifying Material Master Creation WorkFlow 1">
-		<classes>
-			<class name="Test.HighLevelTestcases">
-				<methods>
-					<include
-							name="verifying_Material_Master_Creation_WorkFlow_1"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
-
-	<test name="verifying Material Creation Default Values WorkFlow 3">
+	 <test name="verifying Material Creation Default Values WorkFlow 3">
 		<classes>
 			<class name="Test.HighLevelTestcases">
 				<methods>
@@ -30,13 +19,4 @@
 		</classes>
 	</test>
 
-	<test name="verify change process with System table changes">
-		<classes>
-			<class name="Test.Workflow11Testcases">
-				<methods>
-					<include name="verify_change_process_with_System_table_changes"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
 </suite>
